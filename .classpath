@@ -42,7 +42,7 @@
 	<classpathentry kind="lib" path="src/main/lib/commons-configuration-1.10.jar"/>
 	<classpathentry kind="lib" path="src/main/lib/commons-beanutils.jar"/>
 	<classpathentry kind="lib" path="src/main/lib/commons-httpclient.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.7">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
