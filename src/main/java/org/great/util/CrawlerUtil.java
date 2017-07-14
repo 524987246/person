@@ -12,6 +12,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /**
  * java爬虫工具,未测试
+ * 已作废
  * @author xiej
  * @date 2017-04-6
  * @since 1.0
