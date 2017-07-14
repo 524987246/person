@@ -148,8 +148,9 @@ public class MessageUtil {
 		articleList.add(article);*/
 		return textMessageToxML(newsMessage);
 	}
-
+/*
 	public static void main(String[] args) {
+		//测试xml解析
 		MessageUtil.getXmlFromMap("F:/test.xml");
-	}
+	}*/
 }
