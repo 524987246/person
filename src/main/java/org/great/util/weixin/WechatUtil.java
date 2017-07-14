@@ -1,4 +1,4 @@
-package org.great.util;
+package org.great.util.weixin;
 
 import java.io.IOException;
 

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.dom4j.DocumentException;
 import org.great.util.MessageUtil;
-import org.great.util.WeChatCheckUtil;
+import org.great.util.weixin.WeChatCheckUtil;
 import org.great.wx.bean.TextMessage;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -67,14 +67,22 @@ public class WeChatTest {
 			String msgType = map.get("MsgType");
 			String content = map.get("Content");
 			String message = "";
-			if ("text".equals(msgType)) {
+			if (MessageUtil.MSGTYPE_TEXT.equals(msgType)) {
 				TextMessage textMessage = new TextMessage();
 				textMessage.setFromUserName(toUserName);
 				textMessage.setToUserName(fromUserName);
 				textMessage.setMsgType("text");
 				textMessage.setCreateTime(new Date().getTime());
 				textMessage.setContent("接收成功==>" + content + "<==,返回消息");
-				message = MessageUtil.textMessageToxML(textMessage);
+				message=MessageUtil.initText(toUserName, fromUserName, content);
+			}else if(MessageUtil.MSGTYPE_EVENT.equals(msgType)){
+				//事件类型再去细化判断
+				String eventType=map.get("Event");
+				if(MessageUtil.EVENT_SUBSCRIBE.equals(eventType)){
+					message=MessageUtil.initText(toUserName, fromUserName, "");
+				}
+			}else{
+				message=MessageUtil.initText(toUserName, fromUserName, "");
 			}
 			out.print(message);
 		} catch (DocumentException e) {

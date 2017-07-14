@@ -1,4 +1,4 @@
-package org.great.util;
+package org.great.util.weixin;
 import java.security.MessageDigest;
 import java.util.Arrays;
 

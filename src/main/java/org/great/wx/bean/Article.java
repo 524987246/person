@@ -1,6 +1,6 @@
 package org.great.wx.bean;
 
-public class News {
+public class Article {
 	private String Title;
 	private String Description;
 	private String PicUrl;
