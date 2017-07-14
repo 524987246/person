@@ -1,0 +1,185 @@
+package org.great.util;
+
+import java.io.BufferedInputStream;
+
+import org.apache.tools.zip.ZipEntry;
+import org.apache.tools.zip.ZipFile;
+
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.List;
+
+import org.apache.tools.zip.ZipOutputStream;
+
+/**
+ * 程序实现了ZIP压缩。共分为2部分 ：
+ */
+public class MyZipUtil {
+
+	public static void main(String[] args) {
+		 try {
+		 String zipFileName = "D:\\test\\test.zip";
+		 String inputFile = "D:\\参考代码\\个人总结\\js常用判断";
+		 String inputFile2 = "D:\\test\\test2";
+		 //zipCompression(zipFileName, inputFile);
+		 zipDecompression(zipFileName, inputFile2);
+		 } catch (Exception e) {
+		 e.printStackTrace();
+		 }
+	}
+
+	/**
+	 * 1.压缩（compression）
+	 * 
+	 * @param zipFileName
+	 * @param inputFile
+	 * @return 
+	 * @throws Exception
+	 */
+	public static boolean zipCompression(String zipFileName,
+			List<String> filenamelist) throws Exception {
+		System.out.println("压缩中...");
+		List<File> filelist = new ArrayList<File>();
+		zipFileName = new String(zipFileName.getBytes(), "ISO-8859-1");
+		for (String inputFile : filenamelist) {
+			File file = new File(inputFile);
+			filelist.add(file);
+		}
+		ZipOutputStream out = new ZipOutputStream(new FileOutputStream(
+				zipFileName));
+		BufferedOutputStream bo = new BufferedOutputStream(out);
+		zip(out, filelist, bo);
+		bo.close();
+		out.close(); // 输出流关闭
+		System.out.println("压缩完成");
+		return true;
+	}
+
+	public static void zip(ZipOutputStream out, List<File> filelist,
+			BufferedOutputStream bo) throws Exception { // 方法重载
+		// if (f.isDirectory()) {
+		// File[] fl = f.listFiles();
+		// if (fl.length == 0) {
+		// out.putNextEntry(new ZipEntry(base + "/")); // 创建zip压缩进入点base
+		// System.out.println(base + "/");
+		// }
+		// for (int i = 0; i < fl.length; i++) {
+		// zip(out, fl[i], base + "/" + fl[i].getName(), bo); // 递归遍历子文件夹
+		// }
+		// } else {
+
+		for (File file : filelist) {
+			ZipEntry entry = new ZipEntry(file.getName());
+			out.putNextEntry(entry); // 创建zip压缩进入点base
+			// 防止中文乱码
+			out.setEncoding("gbk");
+			System.out.println(file.getName());
+			FileInputStream in = new FileInputStream(file);
+			BufferedInputStream bi = new BufferedInputStream(in);
+			int b;
+			while ((b = bi.read()) != -1) {
+				bo.write(b); // 将字节流写入当前zip目录
+			}
+			bo.flush();
+			bi.close();
+			in.close(); // 输入流关闭
+		}
+
+		// }
+	}
+
+	/**
+	 * 2.解压（decompression）
+	 * 
+	 * @param zipFileName
+	 *            输入源zip路径
+	 * @param inputFile
+	 *            输出路径（文件夹目录）
+	 * @return
+	 */
+	public static boolean zipDecompression(String zipFileName, String inputFile) {
+		boolean flag = false;
+		try {
+			// 防止中文乱码
+			ZipFile zipFile = new ZipFile(zipFileName, "GBK");
+			Enumeration<ZipEntry> e = zipFile.getEntries();
+			org.apache.tools.zip.ZipEntry zipEntry = null;
+			createDirectory(inputFile, "");
+			while (e.hasMoreElements()) {
+				zipEntry = (org.apache.tools.zip.ZipEntry) e.nextElement();
+				if (zipEntry.isDirectory()) {
+					String name = zipEntry.getName();
+					name = name.substring(0, name.length() - 1);
+					File f = new File(inputFile + File.separator + name);
+					f.mkdir();
+					System.out.println("创建目录：" + inputFile + File.separator
+							+ name);
+				} else {
+					String fileName = zipEntry.getName();
+					fileName = fileName.replace('\\', '/');
+					System.out.println("解压文件：" + fileName);
+					if (fileName.indexOf("/") != -1) {
+						createDirectory(inputFile, fileName.substring(0,
+								fileName.lastIndexOf("/")));
+						fileName = fileName.substring(
+								fileName.lastIndexOf("/") + 1,
+								fileName.length());
+					}
+
+					File f = new File(inputFile + File.separator
+							+ zipEntry.getName());
+
+					f.createNewFile();
+					InputStream in = zipFile.getInputStream(zipEntry);
+					FileOutputStream out = new FileOutputStream(f);
+
+					byte[] by = new byte[1024];
+					int c;
+					while ((c = in.read(by)) != -1) {
+						out.write(by, 0, c);
+					}
+					out.close();
+					in.close();
+				}
+				flag = true;
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		System.out.println("完成");
+		return flag;
+	}
+
+	/**
+	 * 创建目录
+	 * 
+	 * @param directory
+	 *            父目录
+	 * @param subDirectory
+	 *            子目录
+	 */
+	private static void createDirectory(String directory, String subDirectory) {
+		String dir[];
+		File fl = new File(directory);
+		try {
+			if (subDirectory == "" && fl.exists() != true)
+				fl.mkdir();
+			else if (subDirectory != "") {
+				dir = subDirectory.replace('\\', '/').split("/");
+				for (int i = 0; i < dir.length; i++) {
+					File subFile = new File(directory + File.separator + dir[i]);
+					if (subFile.exists() == false)
+						subFile.mkdir();
+					directory += File.separator + dir[i];
+				}
+			}
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+		}
+	}
+}

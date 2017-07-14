@@ -1,0 +1,2 @@
+2017/07/10-14:15 [restartedMain] WARN  org.springframework.boot.autoconfigure.velocity.VelocityAutoConfiguration- Cannot find template location: classpath:/templates/ (please add some templates, check your Velocity configuration, or set spring.velocity.checkTemplateLocation=false)
+2017/07/10-14:15 [restartedMain] WARN  org.springframework.boot.starter.redis.RedisStarterDeprecationWarningAutoConfiguration- spring-boot-starter-redis is deprecated as of Spring Boot 1.4, please migrate to spring-boot-starter-data-redis

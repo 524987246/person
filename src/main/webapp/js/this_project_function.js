@@ -1,0 +1,113 @@
+//全选及取消全选的方法
+function seletstate(obj) {
+	$("input[type='checkbox']").prop("checked", $(obj).is(':checked'));
+}
+
+/**
+ * @param obj
+ * @param flag
+ */
+function input_import(obj, flag) {
+	if (flag) {
+		$(obj).parent().addClass("has-success");
+		$(obj).parent().removeClass("has-error");
+	} else {
+		if ($(obj).parent().attr("class").lastIndexOf("not-null") != -1) {
+			$(obj).parent().addClass("has-error");
+		}
+		$(obj).parent().removeClass("has-success");
+	}
+}
+
+/**
+ * 初始化表单验证
+ */
+function table_add_check() {
+	var divs = $("." + formtable).children("div");
+	divs.each(function(i, item) {
+		// console.log($(item).attr("class"));
+		if ($(item).attr("class").lastIndexOf("not-null") != -1) {
+			$(item).addClass("has-error");
+		}
+	})
+}
+
+/**
+ * 延时关闭提示框
+ * 
+ * @param timenum
+ *            延时时间
+ */
+function Delayedclose(timenum) {
+	setTimeout("$('#hintclose').trigger('click');", timenum);
+}
+
+/**
+ * 表单内容验证
+ * 
+ * @param tableClassName表格class属性
+ */
+function formContentCheck(tableClassName) {
+	var divs = $("." + tableClassName + " div");
+	var flag = 0;
+	divs.each(function(i, item) {
+		flag = $(item).attr("class").lastIndexOf("has-error");
+		if (flag != -1) {
+			flag = $(item).children("input").length - 1;
+			$(item).children("input").eq(flag).focus();
+			flag = 0;
+			return false;
+		}
+	});
+	return flag;
+}
+
+/**
+ * 发送ajax前先发送头消息
+ */
+function ajaxsendbefore() {
+	var token = $("#token").val();
+	var header = $("#header").val();
+	$(document).ajaxSend(function(e, xhr, optios) {
+		xhr.setRequestHeader(header, token);
+	});
+}
+
+/**
+ * 判断字符串在utf-8编码模式下,是否符合规定的长度
+ * @param inputStr 要判断的字符串
+ * @param min 最小长度(包含)
+ * @param max 最大长度(包含)
+ * @returns {Boolean}
+ */
+function counterStrLength(inputStr, min, max) {
+	if (inputStr == null||inputStr.trim()=="") {
+		return false;
+	}
+	if (inputStr.length < min) {
+		return false;
+	}
+	var i = 0;
+	var totalLength = 0;
+	/* 计算utf-8编码情况下的字符串长度 */
+	for (i = 0; i < inputStr.length; i++) {
+		if (inputStr.charCodeAt(i) <= parseInt("0x7F")) {
+			totalLength += 1;
+		} else if (inputStr.charCodeAt(i) <= parseInt("0x7FF")) {
+			totalLength += 2;
+		} else if (inputStr.charCodeAt(i) <= parseInt("0xFFFF")) {
+			totalLength += 3;
+		} else if (inputStr.charCodeAt(i) <= parseInt("0x1FFFFF")) {
+			totalLength += 4;
+		} else if (inputStr.charCodeAt(i) <= parseInt("0x3FFFFFF")) {
+			totalLength += 5;
+		} else {
+			totalLength += 6;
+		}
+	}
+	if (totalLength > max) {
+		return false;
+	} else {
+		return true;
+	}
+}

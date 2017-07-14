@@ -1,0 +1,284 @@
+package org.great.web.bean;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+
+/**
+ * 用户bean
+ * @author 谢军
+ *
+ */
+@Component
+@Scope("prototype")
+public class User {
+	private int user_id;
+	private String password;
+	private String user_name;
+	private String user_nike;
+	private String user_sex;
+	private int user_age;
+	private String birthday;
+	private String mobilephone;
+	private String identity_card;
+	private int height;
+	private int weight;
+	private int income;// 收入
+	private String province;// 省
+	private String city;// 市
+	private String area;// 区
+	private String horoscope;// 星座
+	private String introduce;//自我介绍
+	private String edu_background;//学历
+	private String industry;//行业
+	private String is_text_passed;//文本信息是否通过审核
+	private String text_passed_cont;//文本信息的审核结果
+	private String exposure_level;// 曝光等级
+	private int user_level;// 管理等级
+	private int emotion_state;// 情感状态
+	private int marriage_state;// 婚姻状态
+	private String head_path;// 头像地址
+	private int is_head_passed;//头像是否通过审核
+	private String head_passed_cont;//头像审核结果
+	private int isMatchMaker;// 是否接受媒人
+	private int isForbidden;// 是否禁用账号
+	@Override
+	public String toString() {
+		return "User [user_id=" + user_id + ", password=" + password
+				+ ", user_name=" + user_name + ", user_nike=" + user_nike
+				+ ", user_sex=" + user_sex + ", user_age=" + user_age + ", birthday="
+				+ birthday + ", mobilephone=" + mobilephone
+				+ ", identity_card=" + identity_card + ", height=" + height
+				+ ", weight=" + weight + ", income=" + income + ", province="
+				+ province + ", city=" + city + ", area=" + area+ ", horoscope=" + horoscope
+				+ ", user_level=" + user_level + ", head_path=" + head_path
+				+ "]";
+	}
+	public int getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public String getText_passed_cont() {
+		return text_passed_cont;
+	}
+	public void setText_passed_cont(String text_passed_cont) {
+		this.text_passed_cont = text_passed_cont;
+	}
+	public String getIntroduce() {
+		return introduce;
+	}
+	public void setIntroduce(String introduce) {
+		this.introduce = introduce;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+
+	public String getHead_passed_cont() {
+		return head_passed_cont;
+	}
+	public void setHead_passed_cont(String head_passed_cont) {
+		this.head_passed_cont = head_passed_cont;
+	}
+	public String getUser_name() {
+		return user_name;
+	}
+
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
+
+
+	public String getUser_nike() {
+		return user_nike;
+	}
+
+	public void setUser_nike(String user_nike) {
+		this.user_nike = user_nike;
+	}
+
+	public String getUser_sex() {
+		return user_sex;
+	}
+
+	public void setUser_sex(String user_sex) {
+		this.user_sex = user_sex;
+	}
+
+
+	public int getUser_age() {
+		return user_age;
+	}
+	public void setUser_age(int user_age) {
+		this.user_age = user_age;
+	}
+	public String getBirthday() {
+		return birthday;
+	}
+
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
+	}
+
+	public String getMobilephone() {
+		return mobilephone;
+	}
+
+	public void setMobilephone(String mobilephone) {
+		this.mobilephone = mobilephone;
+	}
+
+	public String getIdentity_card() {
+		return identity_card;
+	}
+
+	public void setIdentity_card(String identity_card) {
+		this.identity_card = identity_card;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
+
+	public int getWeight() {
+		return weight;
+	}
+
+	public void setWeight(int weight) {
+		this.weight = weight;
+	}
+
+	public int getIncome() {
+		return income;
+	}
+
+	public void setIncome(int income) {
+		this.income = income;
+	}
+
+	public String getProvince() {
+		return province;
+	}
+
+	public void setProvince(String province) {
+		this.province = province;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getArea() {
+		return area;
+	}
+
+	public void setArea(String area) {
+		this.area = area;
+	}
+
+	public String getHoroscope() {
+		return horoscope;
+	}
+
+	public void setHoroscope(String horoscope) {
+		this.horoscope = horoscope;
+	}
+
+	public String getExposure_level() {
+		return exposure_level;
+	}
+
+	public void setExposure_level(String exposure_level) {
+		this.exposure_level = exposure_level;
+	}
+
+
+
+	public int getUser_level() {
+		return user_level;
+	}
+	public void setUser_level(int user_level) {
+		this.user_level = user_level;
+	}
+	public int getIs_head_passed() {
+		return is_head_passed;
+	}
+	public void setIs_head_passed(int is_head_passed) {
+		this.is_head_passed = is_head_passed;
+	}
+	public int getEmotion_state() {
+		return emotion_state;
+	}
+
+	public void setEmotion_state(int emotion_state) {
+		this.emotion_state = emotion_state;
+	}
+
+	public int getMarriage_state() {
+		return marriage_state;
+	}
+
+	public void setMarriage_state(int marriage_state) {
+		this.marriage_state = marriage_state;
+	}
+
+	public String getHead_path() {
+		return head_path;
+	}
+
+	public void setHead_path(String head_path) {
+		this.head_path = head_path;
+	}
+
+	public int getIsMatchMaker() {
+		return isMatchMaker;
+	}
+
+	public void setIsMatchMaker(int isMatchMaker) {
+		this.isMatchMaker = isMatchMaker;
+	}
+
+	public String getIs_text_passed() {
+		return is_text_passed;
+	}
+
+	public void setIs_text_passed(String is_text_passed) {
+		this.is_text_passed = is_text_passed;
+	}
+	public String getEdu_background() {
+		return edu_background;
+	}
+	public void setEdu_background(String edu_background) {
+		this.edu_background = edu_background;
+	}
+	public String getIndustry() {
+		return industry;
+	}
+	public void setIndustry(String industry) {
+		this.industry = industry;
+	}
+	public int getIsForbidden() {
+		return isForbidden;
+	}
+	public void setIsForbidden(int isForbidden) {
+		this.isForbidden = isForbidden;
+	}
+
+}

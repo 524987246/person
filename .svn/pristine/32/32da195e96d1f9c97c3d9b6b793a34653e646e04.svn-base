@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" 
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="org.great.web.mapper.CostInfoMapper">
+	<sql id="beanAttr">
+	a.sid,a.payname,a.paymoney,
+	DATE_FORMAT(a.createtime,'%Y-%m-%d') createtime,
+	DATE_FORMAT(a.endtime,'%Y-%m-%d') endtime,
+	a.remark,a.income_expend,a.user,a.isemploy
+	</sql>
+	<select id="findCostInfoByCostInfo" resultType="org.great.web.bean.CostInfo"
+		parameterType="org.great.web.bean.CostInfo">
+		SELECT
+		<include refid="beanAttr"/>
+		FROM
+		tb_costinfo a
+		<where>
+			a.isemploy=1
+			<if test="costInfo.payname !=null and costInfo.payname !=''">AND a.payname like concat('%',#{costInfo.payname},'%') </if>
+			<if test="costInfo.income_expend !=null and costInfo.income_expend !=0">AND a.income_expend=#{costInfo.income_expend} </if>
+			<if test="costInfo.createtime !=null and costInfo.createtime !=''">AND a.createtime &gt;= #{costInfo.createtime} </if>
+			<if test="costInfo.endtime !=null and costInfo.endtime !=''">AND a.createtime &lt;= #{costInfo.endtime} </if>
+			<if test="costInfo.user !=null and costInfo.user !=''">AND a.user like concat('%',#{costInfo.user},'%') </if>
+		</where>
+		ORDER BY a.createtime desc
+		Limit #{page_new},#{page_num}
+	</select>
+	<update id="delCostInfoBySid">
+		UPDATE
+		tb_costinfo 
+		SET
+		isemploy=#{isemploy}
+		WHERE
+		sid=#{sid}
+	</update>
+	 <insert id="insertCostInfo" parameterType="org.great.web.bean.CostInfo">
+		INSERT INTO
+		tb_costinfo(sid,payname,paymoney
+		<if test="createtime !=null and createtime !=''">,createtime</if>
+		<if test="endtime !=null and endtime !=''">,endtime</if>
+		<if test="remark !=null and remark !=''">,remark</if>
+		<if test="user !=null and user !=''">,user</if>
+		<if test="income_expend !=null and income_expend !=''">,income_expend</if>
+		,isemploy
+		)VALUES(null,#{payname},#{paymoney}
+		<if test="createtime !=null and createtime !=''">,#{createtime}</if>
+		<if test="createtime ==null ">,now()</if>
+		<if test="endtime !=null and endtime !=''">,#{endtime}</if>
+		<if test="endtime ==null ">,now()</if>
+		<if test="remark !=null and remarek !=''">,#{remark}</if>
+		<if test="user !=null and user !=''">,#{user}</if>
+		<if test="income_expend !=null and income_expend !=''">,#{income_expend}</if>
+		,1)
+	</insert>
+	<update id="updateCostInfoBySid" parameterType="org.great.web.bean.CostInfo">
+		UPDATE
+		tb_costinfo
+		SET
+		isemploy=1
+		<if test="payname !=null and payname !=''">,payname=#{payname}</if>
+		<if test="paymoney !=null and paymoney !=''">,paymoney=#{paymoney}</if>
+		<if test="createtime !=null and createtime !=''">,createtime=#{createtime}</if>
+		<if test="endtime !=null and endtime !=''">,endtime=#{endtime}</if>
+		<if test="remark !=null and remark !=''">,remark=#{remark}</if>
+		<if test="user !=null and user !=''">,user=#{user}</if>
+		<if test="income_expend !=null and income_expend !=''">,income_expend=#{income_expend}</if>
+		WHERE
+		sid=#{sid}
+	</update>
+	
+	<select id="costSumByCostInfo" parameterType="org.great.web.bean.CostInfo"
+	resultType="Double">
+	SELECT SUM(paymoney) paymoney 
+	FROM tb_costinfo 
+	<where>
+		isemploy=1,
+		<if test="payname !=null and payname !=0">AND payname=#{payname} </if>
+		<if test="income_expend !=null and income_expend !=0">AND income_expend=#{income_expend} </if>
+		<if test="costInfo.createtime !=null and costInfo.createtime !=''">AND createtime &gt;= #{costInfo.createtime} </if>
+			<if test="costInfo.endtime !=null and costInfo.endtime !=''">AND createtime &lt;= #{costInfo.endtime} </if>
+		<if test="user !=null and user !=''">AND user LIKE CONCAT('%',#{user},'%') </if>
+	</where>
+	</select>
+</mapper>

@@ -1,0 +1,25 @@
+#set($greet = 'hello')
+//$greet $name
+
+package bean;
+
+import java.io.Serializable;
+
+/**
+ * 
+ * @author xiej
+ * @since 1.0
+ */
+public class $name  implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8540662529458064782L;
+	
+#foreach($i in $list)
+	/**
+	 * $i.comments
+	 */
+	private $i.attrType $i.columnName;
+#end
+
