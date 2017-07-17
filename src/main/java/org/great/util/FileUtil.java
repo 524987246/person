@@ -14,6 +14,8 @@ import org.apache.tools.zip.ZipEntry;
 import org.apache.tools.zip.ZipFile;
 import org.apache.tools.zip.ZipOutputStream;
 
+import sun.net.TelnetOutputStream;
+
 public class FileUtil {
 	/**
 	 * 递归删除目录下的所有文件及子目录下所有文件
