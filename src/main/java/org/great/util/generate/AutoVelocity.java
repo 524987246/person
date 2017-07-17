@@ -1,15 +1,9 @@
 package org.great.util.generate;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.StringWriter;
-import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-
-import javax.management.Query;
 
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
@@ -27,6 +21,8 @@ public class AutoVelocity {
 	private List<Template> templatelist = new ArrayList<Template>();
 	//文件路径集合
 	private List<String> list = new ArrayList<String>();
+	//生成代码路径
+	private String filepath="D:\\";
 
 	public AutoVelocity() {
 		// 初始化模板引擎
@@ -36,10 +32,10 @@ public class AutoVelocity {
 				ClasspathResourceLoader.class.getName());
 		ve.init();
 		// 获取模板文件
-		//模板文件路径在WEB-INF下
+		//模板文件路径在src/main/resources下
 		templatelist.add(ve.getTemplate("template\\hellovelocity.vm"));
 		templatelist.add(ve.getTemplate("template\\hellovelocity2.vm"));
-		//生成的目标路径
+		//临时文件生成的目标路径,压缩完成后删除
 		list.add("src\\test\\replaceflageEntity.java");
 		list.add("src\\test\\replaceflageDao.java");
 	}
@@ -65,7 +61,7 @@ public class AutoVelocity {
 			filenamelist.add(name);
 		}
 		// 压缩
-		String zipFileName = "D:\\" + NameRandom.filename(null) + ".zip";
+		String zipFileName = filepath + NameRandom.filename(null) + ".zip";
 		try {
 			boolean bo = MyZipUtil.zipCompression(zipFileName, filenamelist);
 			if (bo) {
@@ -76,7 +72,6 @@ public class AutoVelocity {
 				}
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return "成功";

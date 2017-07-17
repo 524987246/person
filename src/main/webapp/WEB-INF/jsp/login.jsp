@@ -125,7 +125,7 @@ input[type="text"],input[type="password"] {
 					</div>
 					<div class="form-group">
 						<input type="submit" class="btn btn-success pull-right"
-							value="注册" /> <input type="submit"
+							value="注册" /> <input type="button"
 							class="btn btn-info pull-left" id="back_btn" value="返回" />
 					</div>
 				</div>
