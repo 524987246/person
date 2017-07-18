@@ -153,6 +153,17 @@
 			<scope>test</scope>
 		</dependency>
 		<!-- java 爬虫 结束 -->
+		<!-- 微信支付工具包 -->
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>core</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>javase</artifactId>
+			<version>3.1.0</version>
+		</dependency>
 
 	</dependencies>
 	<!-- 构建节点. -->
