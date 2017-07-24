@@ -51,6 +51,7 @@ public class ToExcel {
 					Row row = sheet.getRow(r);
 					int cellCount = row.getPhysicalNumberOfCells(); // 获取总列数
 					// 遍历每一列
+					list = new ArrayList<String>();
 					for (int c = 0; c < cellCount; c++) {
 						Cell cell = row.getCell(c);
 						int cellType = cell.getCellType();

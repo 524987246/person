@@ -7,7 +7,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Enumeration;
 
 import org.apache.tools.zip.ZipEntry;
@@ -46,13 +48,11 @@ public class FileUtil {
 	 * @param inputFile
 	 * @throws Exception
 	 */
-	public static void zipCompression(String zipFileName, String inputFile)
-			throws Exception {
+	public static void zipCompression(String zipFileName, String inputFile) throws Exception {
 		System.out.println("压缩中...");
 		zipFileName = new String(zipFileName.getBytes(), "ISO-8859-1");
 		File file = new File(inputFile);
-		ZipOutputStream out = new ZipOutputStream(new FileOutputStream(
-				zipFileName));
+		ZipOutputStream out = new ZipOutputStream(new FileOutputStream(zipFileName));
 		BufferedOutputStream bo = new BufferedOutputStream(out);
 		zip(out, file, file.getName(), bo);
 		bo.close();
@@ -60,8 +60,7 @@ public class FileUtil {
 		System.out.println("压缩完成");
 	}
 
-	public static void zip(ZipOutputStream out, File f, String base,
-			BufferedOutputStream bo) throws Exception { // 方法重载
+	public static void zip(ZipOutputStream out, File f, String base, BufferedOutputStream bo) throws Exception { // 方法重载
 		if (f.isDirectory()) {
 			File[] fl = f.listFiles();
 			if (fl.length == 0) {
@@ -113,22 +112,17 @@ public class FileUtil {
 					name = name.substring(0, name.length() - 1);
 					File f = new File(inputFile + File.separator + name);
 					f.mkdir();
-					System.out.println("创建目录：" + inputFile + File.separator
-							+ name);
+					System.out.println("创建目录：" + inputFile + File.separator + name);
 				} else {
 					String fileName = zipEntry.getName();
 					fileName = fileName.replace('\\', '/');
 					System.out.println("解压文件：" + fileName);
 					if (fileName.indexOf("/") != -1) {
-						createDirectory(inputFile, fileName.substring(0,
-								fileName.lastIndexOf("/")));
-						fileName = fileName.substring(
-								fileName.lastIndexOf("/") + 1,
-								fileName.length());
+						createDirectory(inputFile, fileName.substring(0, fileName.lastIndexOf("/")));
+						fileName = fileName.substring(fileName.lastIndexOf("/") + 1, fileName.length());
 					}
 
-					File f = new File(inputFile + File.separator
-							+ zipEntry.getName());
+					File f = new File(inputFile + File.separator + zipEntry.getName());
 
 					f.createNewFile();
 					InputStream in = zipFile.getInputStream(zipEntry);
@@ -207,6 +201,7 @@ public class FileUtil {
 		}
 		return filename;
 	}
+
 	/**
 	 * 首字母及下划线后字母大写,并删除下划线
 	 * 
@@ -222,15 +217,37 @@ public class FileUtil {
 			if (i == -1) {
 				break;
 			}
-			temp = name.substring(i + 1, i + 2 > name.length() ? name.length()
-					: i + 2);
+			temp = name.substring(i + 1, i + 2 > name.length() ? name.length() : i + 2);
 			temp = temp.toUpperCase();
-			name = name.substring(0, i)
-					+ temp
-					+ name.substring(i + 2 > name.length() ? name.length()
-							: i + 2);
+			name = name.substring(0, i) + temp + name.substring(i + 2 > name.length() ? name.length() : i + 2);
 
 		} while (i != -1);
 		return name;
+	}
+
+	public static String StreamToFile(String filepath, InputStream inputStream) {
+		File file = new File(filepath);
+		OutputStream out = null;
+		try {
+			out = new FileOutputStream(file);
+			byte[] buffer = new byte[1024];
+			int num = 0;
+			while ((num = inputStream.read(buffer)) != -1) {
+				out.write(buffer, 0, num);
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (out != null) {
+					out.close();
+				}
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return file.getAbsolutePath();
 	}
 }
