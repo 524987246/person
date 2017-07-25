@@ -7,7 +7,6 @@ import javax.annotation.Resource;
 
 import org.great.util.Dboperate;
 import org.great.web.bean.DbName;
-import org.great.web.dao.GenUtils;
 import org.great.web.jdbc.BaseDao;
 import org.great.web.jdbc.ColumnEntity;
 import org.great.web.jdbc.QueryDao;
