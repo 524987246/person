@@ -61,8 +61,8 @@ public class ToExcel {
 							cellValue = cell.getStringCellValue();
 							break;
 						case Cell.CELL_TYPE_NUMERIC: // 数字、日期
-							cellValue = String.valueOf((int) cell
-									.getNumericCellValue()); // 数字
+							cell.setCellType(Cell.CELL_TYPE_STRING);
+							cellValue = cell.getStringCellValue();
 							break;
 						case Cell.CELL_TYPE_BOOLEAN: // 布尔型
 							cellValue = String.valueOf(cell
