@@ -10,6 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Date;
 import java.util.Enumeration;
 
 import org.apache.tools.zip.ZipEntry;
@@ -244,10 +245,44 @@ public class FileUtil {
 					out.close();
 				}
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 		return file.getAbsolutePath();
+	}
+
+	public static long forJava(File f1, File f2) {
+		long time = new Date().getTime();
+		int length = 2097152;
+		FileInputStream in = null;
+		FileOutputStream out = null;
+		try {
+			in = new FileInputStream(f1);
+			out = new FileOutputStream(f2);
+			byte[] buffer = new byte[length];
+			while (true) {
+				int ins = in.read(buffer);
+				if (ins == -1) {
+					in.close();
+					out.flush();
+					out.close();
+					return new Date().getTime() - time;
+				} else
+					out.write(buffer, 0, ins);
+			}
+		} catch (IOException e) {
+		} finally {
+			try {
+				if (in != null) {
+					in.close();
+				}
+				if (out != null) {
+					out.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		return new Date().getTime() - time;
 	}
 }
