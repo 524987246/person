@@ -17,3 +17,12 @@ var basePath='${ctx}';
 </script>
 <meta id="token" name="${_csrf.token}" />
 <meta id="header" name="${_csrf.headerName}" />
+<!-- fileinput 插件 开始 -->
+<link type="text/css" rel="stylesheet" href="${ctx}/statis/fileinput/css/fileinput.css" />
+<script type="text/javascript" src="${ctx}/statis/fileinput/js/fileinput.js"></script>
+<script type="text/javascript" src="${ctx}/statis/fileinput/js/fileinput_locale_zh.js"></script>
+<!-- fileinput 插件 结束 -->
+<!-- webupload 插件 开始 -->
+<link type="text/css" rel="stylesheet" href="${ctx}/statis/webupload/webuploader.css" />
+<script type="text/javascript" src="${ctx}/statis/webupload/webuploader.js"></script>
+<!-- webupload 插件 结束 -->
