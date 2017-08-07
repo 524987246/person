@@ -20,7 +20,7 @@ public class $name  implements Serializable {
 	/**
 	 * ${i.comments}
 	 */
-	private ${.attrType} ${i.columnName};
+	private ${i.attrType} ${i.columnName};
 #end
 	
 #foreach($i in $list)

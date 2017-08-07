@@ -1,4 +1,5 @@
-  <%@ page language="java" pageEncoding="UTF-8" %>
+
+<%@ page language="java" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +10,6 @@
 <script type="text/javascript">
 	var webSocketUrl = "ws://127.0.0.1:8081/PersonTool/websocket";
 </script>
-<script type="text/javascript" src="${ctx}/viewjs/webupload.js"></script>
 <title>Java后端WebSocket的Tomcat实现</title>
 </head>
 <body>
@@ -21,8 +21,6 @@
 	<button onclick="closeWebSocket()">关闭WebSocket连接</button>
 	<hr />
 	<div id="message"></div>
-	<div id="add_video"></div>
-</body>
 
 <script type="text/javascript">
 	var websocket = null;

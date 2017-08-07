@@ -20,8 +20,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/Reception")
 public class ToJsp{
 	@RequestMapping(value = "/websocket.html", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
-	public String toweberror() {
+	public String websocket() {
 		return "jsp/test/websocketClienk";
 	}
-	
+	@RequestMapping(value = "/webUpload.html", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
+	public String webUpload() {
+		return "jsp/test/webUpload";
+	}
 }

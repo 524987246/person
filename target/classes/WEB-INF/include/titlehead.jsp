@@ -20,7 +20,7 @@ var basePath='${ctx}';
 <!-- fileinput 插件 开始 -->
 <link type="text/css" rel="stylesheet" href="${ctx}/statis/fileinput/css/fileinput.css" />
 <script type="text/javascript" src="${ctx}/statis/fileinput/js/fileinput.js"></script>
-<script type="text/javascript" src="${ctx}/statis/fileinput/js/fileinput_locale_zh.js"></script>
+<%-- <script type="text/javascript" src="${ctx}/statis/fileinput/js/fileinput_locale_zh.js"></script> --%>
 <!-- fileinput 插件 结束 -->
 <!-- webupload 插件 开始 -->
 <link type="text/css" rel="stylesheet" href="${ctx}/statis/webupload/webuploader.css" />
