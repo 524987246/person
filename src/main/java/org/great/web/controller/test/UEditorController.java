@@ -1,12 +1,15 @@
 package org.great.web.controller.test;
 
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 
 @Controller
 @RequestMapping("/Reception/UEditor")
@@ -17,7 +20,15 @@ public class UEditorController {
 	 */
 	@RequestMapping(value = "/image.html", method = RequestMethod.POST)
 	public void uoloadimage(HttpServletRequest request, HttpServletResponse response) {
-
+		Map<String, Object> param = new HashMap<String, Object>();
+		Enumeration e = request.getParameterNames();
+		while (e.hasMoreElements()) {
+			String next = e.nextElement().toString();
+			System.out.println(next);
+			next = (request.getParameter(next) == null ? "空" : request.getParameter(next));
+			System.out.println(next);
+			param.put(next, request.getParameter(next));
+		}
 	}
 
 	/**
