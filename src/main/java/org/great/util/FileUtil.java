@@ -233,13 +233,13 @@ public class FileUtil {
 			out = new FileOutputStream(file);
 			byte[] buffer = new byte[1024];
 			int num = 0;
+			long sum=0;
 			while (num!=-1){
 				out.write(buffer, 0, num);
 				num = inputStream.read(buffer);
-				if(num!=1024){
-					System.out.println(filepath+"===>"+num);
-				}
+				sum+=num;
 			};
+			System.out.println(filepath+"===>"+sum);
 			if (out != null) {
 				out.close();
 			}

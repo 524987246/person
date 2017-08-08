@@ -1,4 +1,3 @@
-var flag=1;
 jQuery(function() {  
     /*******************初始化参数*********************************/  
     var $list = $('#thelist'),//文件列表  
@@ -26,9 +25,9 @@ jQuery(function() {
             var deferred = WebUploader.Deferred();    
             //1、计算文件的唯一标记fileMd5，用于断点续传  如果.md5File(file)方法里只写一个file参数则计算MD5值会很慢 所以加了后面的参数：10*1024*1024  
             (new WebUploader.Uploader()).md5File(file,0,10*1024*1024).progress(function(percentage){  
-                $('#'+file.id ).find('p.state').text('正在读取文件信息...');  
+            	$('#'+file.id ).find('p.state').text('正在读取文件信息...');  
             })    
-            .then(function(val){    
+            .then(function(val){   
                 $('#'+file.id ).find("p.state").text("成功获取文件信息...");    
                 fileMd5=val;    
                 //获取文件信息后进入下一步    
@@ -53,9 +52,9 @@ jQuery(function() {
                 },    
                 cache: false,  
                 async: false,  // 与js同步  
-                timeout: 1000, //todo 超时的话，只能认为该分片未上传过  
+                //timeout: 1000, //todo 超时的话，只能认为该分片未上传过  
                 dataType:"json",    
-                success:function(response){    
+                success:function(response){  
                     if(response.ifExist){  
                         //分块存在，跳过    
                         deferred.reject();    
@@ -80,10 +79,12 @@ jQuery(function() {
                     fileName : fileName,  
                     fileMd5:fileMd5,  
                 },    
-                success:function(data){  
+                success:function(data){
                     count++; //每上传完成一个文件 count+1  
                     if(count<=filesArr.length-1){  
                         uploader.upload(filesArr[count].id);//上传文件列表中的下一个文件  
+                    }else{
+                    	//全部上传完成
                     }  
                      //合并成功之后的操作  
                 }    
@@ -96,8 +97,8 @@ jQuery(function() {
     uploader = WebUploader.create({  
         auto:false,//选择文件后是否自动上传  
         chunked: true,//开启分片上传  
-        chunkSize:10*1024*1024,// 如果要分片，分多大一片？默认大小为5M  
-        chunkRetry: 3,//如果某个分片由于网络问题出错，允许自动重传多少次  
+        chunkSize:200*1024*1024,// 如果要分片，分多大一片？默认大小为5M  5*1024*1024 
+        chunkRetry: 0,//如果某个分片由于网络问题出错，允许自动重传多少次  
         threads: 3,//上传并发数。允许同时最大上传进程数[默认值：3]  
         duplicate : false,//是否重复上传（同时选择多个一样的文件），true可以重复上传  
         prepareNextFile: true,//上传当前分片时预处理下一分片  

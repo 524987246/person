@@ -51,7 +51,7 @@ import redis.clients.jedis.JedisPool;
 
 @Controller
 @RequestMapping("/Reception")
-public class FileUpload extends HttpServlet {
+public class FileUpload{
 	@Autowired
 	protected JedisPool jedisPool;
 
@@ -74,7 +74,7 @@ public class FileUpload extends HttpServlet {
 		String fileName = null;
 		try {
 			List<FileItem> items = sfu.parseRequest(request);
-
+			System.out.println(items.size());
 			for (FileItem item : items) {
 				// 上传文件的真实名称
 				fileName = item.getName();
@@ -109,15 +109,15 @@ public class FileUpload extends HttpServlet {
 						// FileUtils.copyInputStreamToFile(item.getInputStream(),
 						// chunkFile);
 					} catch (Exception e) {
-						//e.printStackTrace();
+						// e.printStackTrace();
 					} finally {
 						jedisPool.returnResource(jedis);
 					}
 				}
 			}
 		} catch (FileUploadException e) {
-			System.out.println(e.getMessage());
-			//e.printStackTrace();
+			System.out.println("文件传输出错");
+			// e.printStackTrace();
 		} finally {
 		}
 	}
@@ -132,116 +132,115 @@ public class FileUpload extends HttpServlet {
 	@RequestMapping(value = "/mergeFile.html", method = RequestMethod.POST)
 	@ResponseBody
 	public String mergeFile(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String param = request.getParameter("param");
 		String fileName = request.getParameter("fileName");
 
 		// 当前登录用户信息
 		// SysUser sysUser = (SysUser)request.getSession().getAttribute("user");
-		String folad = "uploads";
+		String folad = "upload";
 		String newFilePath = folad + "_" + fileName;
 		String savePath = request.getServletContext().getRealPath("");
 		savePath = savePath + "\\" + folad + "\\";
 		// 文件上传的临时文件保存在项目的temp文件夹下 定时删除
-		savePath = new File(savePath) + "/upload/";
-		if (param.equals("mergeChunks")) {
-			// 合并文件
-			Jedis jedis = null;
+		//savePath = new File(savePath) + "/upload/";
+		// 合并文件
+		Jedis jedis = null;
+		try {
+			jedis = jedisPool.getResource();
+			// 读取目录里的所有文件
+			File f = new File(savePath + "/" + jedis.get("fileName_" + fileName));
+			File[] fileArray = f.listFiles(new FileFilter() {
+				// 排除目录只要文件
+				@Override
+				public boolean accept(File pathname) {
+					if (pathname.isDirectory()) {
+						return false;
+					}
+					return true;
+				}
+			});
+
+			// 转成集合，便于排序
+			List<File> fileList = new ArrayList<File>(Arrays.asList(fileArray));
+			Collections.sort(fileList, new Comparator<File>() {
+				@Override
+				public int compare(File o1, File o2) {
+					if (Integer.parseInt(o1.getName()) < Integer.parseInt(o2.getName())) {
+						return -1;
+					}
+					return 1;
+				}
+			});
+
+			// 截取文件名的后缀名
+			// 最后一个"."的位置
+			int pointIndex = fileName.lastIndexOf(".");
+			// 后缀名
+			String suffix = fileName.substring(pointIndex);
+			// 合并后的文件
+			File outputFile = new File(savePath + "/" + jedis.get("fileName_" + fileName) + suffix);
+			// 创建文件
 			try {
-				jedis = jedisPool.getResource();
-				// 读取目录里的所有文件
-				File f = new File(savePath + "/" + jedis.get("fileName_" + fileName));
-				File[] fileArray = f.listFiles(new FileFilter() {
-					// 排除目录只要文件
-					@Override
-					public boolean accept(File pathname) {
-						if (pathname.isDirectory()) {
-							return false;
-						}
-						return true;
-					}
-				});
-
-				// 转成集合，便于排序
-				List<File> fileList = new ArrayList<File>(Arrays.asList(fileArray));
-				Collections.sort(fileList, new Comparator<File>() {
-					@Override
-					public int compare(File o1, File o2) {
-						if (Integer.parseInt(o1.getName()) < Integer.parseInt(o2.getName())) {
-							return -1;
-						}
-						return 1;
-					}
-				});
-
-				// 截取文件名的后缀名
-				// 最后一个"."的位置
-				int pointIndex = fileName.lastIndexOf(".");
-				// 后缀名
-				String suffix = fileName.substring(pointIndex);
-				// 合并后的文件
-				File outputFile = new File(savePath + "/" + jedis.get("fileName_" + fileName) + suffix);
-				// 创建文件
-				try {
-					outputFile.createNewFile();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-				// 输出流
-				FileChannel outChnnel = new FileOutputStream(outputFile).getChannel();
-				// 合并
-				FileChannel inChannel;
-				for (File file : fileList) {
-					inChannel = new FileInputStream(file).getChannel();
-					try {
-						inChannel.transferTo(0, inChannel.size(), outChnnel);
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-					try {
-						inChannel.close();
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-					// 删除分片
-					file.delete();
-				}
-				try {
-					outChnnel.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-
-				// 清除文件夹
-				File tempFile = new File(savePath + "/" + jedis.get("fileName_" + fileName));
-				if (tempFile.isDirectory() && tempFile.exists()) {
-					tempFile.delete();
-				}
-
-				Map<String, String> resultMap = new HashMap<String, String>();
-				// 将文件的最后上传时间和生成的文件名返回
-				resultMap.put("lastUploadTime", jedis.get("lastUploadTime_" + newFilePath));
-				resultMap.put("pathFileName", jedis.get("fileName_" + fileName) + suffix);
-
-				/**************** 清除redis中的相关信息 **********************/
-				// 合并成功后删除redis中的进度信息
-				jedis.del("jindutiao_" + newFilePath);
-				// 合并成功后删除redis中的最后上传时间，只存没上传完成的
-				jedis.del("lastUploadTime_" + newFilePath);
-				// 合并成功后删除文件名称与该文件上传时生成的存储分片的临时文件夹的名称在redis中的信息 key：上传文件的真实名称
-				// value：存储分片的临时文件夹名称（由上传文件的MD5值+时间戳组成）
-				// 如果下次再上传同名文件 redis中将存储新的临时文件夹名称 没有上传完成的还要保留在redis中 直到定时任务生效
-				jedis.del("fileName_" + fileName);
-
-				Gson gson = new Gson();
-				String json = gson.toJson(resultMap);
-				return json;
-			} catch (Exception e) {
+				outputFile.createNewFile();
+			} catch (IOException e) {
 				e.printStackTrace();
-			} finally {
-				jedisPool.returnResource(jedis);
 			}
+			// 输出流
+			FileChannel outChnnel = new FileOutputStream(outputFile).getChannel();
+			// 合并
+			FileChannel inChannel;
+			for (File file : fileList) {
+				inChannel = new FileInputStream(file).getChannel();
+				try {
+					inChannel.transferTo(0, inChannel.size(), outChnnel);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				try {
+					inChannel.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				// 删除分片
+				file.delete();
+			}
+			try {
+				outChnnel.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+			// 清除文件夹
+			File tempFile = new File(savePath + "/" + jedis.get("fileName_" + fileName));
+			if (tempFile.isDirectory() && tempFile.exists()) {
+				tempFile.delete();
+			}
+
+			Map<String, String> resultMap = new HashMap<String, String>();
+			// 将文件的最后上传时间和生成的文件名返回
+			resultMap.put("lastUploadTime", jedis.get("lastUploadTime_" + newFilePath));
+			resultMap.put("pathFileName", jedis.get("fileName_" + fileName) + suffix);
+
+			/**************** 清除redis中的相关信息 **********************/
+			// 合并成功后删除redis中的进度信息
+			jedis.del("jindutiao_" + newFilePath);
+			// 合并成功后删除redis中的最后上传时间，只存没上传完成的
+			jedis.del("lastUploadTime_" + newFilePath);
+			// 合并成功后删除文件名称与该文件上传时生成的存储分片的临时文件夹的名称在redis中的信息 key：上传文件的真实名称
+			// value：存储分片的临时文件夹名称（由上传文件的MD5值+时间戳组成）
+			// 如果下次再上传同名文件 redis中将存储新的临时文件夹名称 没有上传完成的还要保留在redis中 直到定时任务生效
+			jedis.del("fileName_" + fileName);
+
+			Gson gson = new Gson();
+			String json = gson.toJson(resultMap);
 			System.out.println("合并成功");
+			return json;
+		} catch (Exception e) {
+			System.out.println("合并文件出错");
+			//e.printStackTrace();
+		} finally {
+			jedisPool.returnResource(jedis);
 		}
+		
 		return savePath;
 	}
 
