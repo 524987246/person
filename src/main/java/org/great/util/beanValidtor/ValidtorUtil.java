@@ -8,6 +8,8 @@ import javax.validation.ValidationException;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
+import org.great.util.MyStringUtils;
+
 public class ValidtorUtil {
 	/**
 	 * 验证属性是否正常
@@ -22,6 +24,7 @@ public class ValidtorUtil {
 			StringBuilder validateError = new StringBuilder();
 			for (ConstraintViolation<T> val : set) {
 				validateError.append(val.getMessage());
+				validateError.append("\r\n");
 			}
 			return validateError.toString();
 		}
