@@ -18,7 +18,6 @@ public class TestFunction {
 		UserValidtorTest user = new UserValidtorTest();
 		List<String> list = new ArrayList<String>();
 		list.add("1");
-		list.add(null);
 		list.add("2");
 		user.setList(list);
 		user.setName("12345");

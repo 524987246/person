@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="${ctx}/css/bootstrap.css" media="screen" title="no title" charset="utf-8">
 <script type="text/javascript" src="${ctx}/js/bootstrap.js" charset="utf-8">
 </script>
+<script src="${ctx}/js/cookieUtil.js"></script>
 <script src="${ctx}/viewjs/index.js"></script>
 <script src="${ctx}/js/public_function.js"></script>
 <script type="text/javascript" src="${ctx}/js/this_project_function.js" charset="utf-8">
