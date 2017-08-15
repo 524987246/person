@@ -2,6 +2,7 @@ package org.great;
 
 import java.util.List;
 
+import org.great.datasource.DynamicDataSourceRegister;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -17,9 +18,11 @@ import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Import;
 
 @EnableAutoConfiguration(exclude = { MultipartAutoConfiguration.class })
 @SpringBootApplication
+@Import({ DynamicDataSourceRegister.class }) // 注册动态多数据源
 @MapperScan("org.great.web.mapper")
 // 扫描：该包下相应的class,主要是MyBatis的持久化类.
 public class App extends WebMvcConfigurerAdapter {
