@@ -74,8 +74,11 @@
 		</dependency>
 		<!-- 添加thymeleaf 依赖 <dependency> <groupId>org.springframework.boot</groupId> 
 			<artifactId>spring-boot-starter-thymeleaf</artifactId> </dependency> -->
-		<!-- freemarker依赖 <dependency> <groupId>org.springframework.boot</groupId> 
-			<artifactId>spring-boot-starter-freemarker</artifactId> </dependency> -->
+		<!-- freemarker依赖 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-freemarker</artifactId>
+		</dependency>
 		<!-- servlet 依赖. -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
