@@ -4,7 +4,13 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
-
+/**
+ * 计时器
+ * 
+ * @author xiejun
+ * @date 2017-8-25 10:30:03
+ * @since 1.0
+ */
 public class MyTimedtask {
 	static int count = 0;
 

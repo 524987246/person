@@ -6,7 +6,13 @@ import java.util.List;
 import java.util.Map;
 
 import org.junit.Test;
-
+/**
+ * 打印信息辅助类
+ * 
+ * @author xiejun
+ * @date 2017-8-25 10:30:03
+ * @since 1.0
+ */
 public class MyPrintUtil {
 	public static void printMap(Map<String, Object> map) {
 		Iterator iterator = map.keySet().iterator();

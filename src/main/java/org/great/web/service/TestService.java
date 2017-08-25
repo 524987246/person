@@ -7,7 +7,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.great.datasource.TargetDataSource;
-import org.great.util.myutil.MyListUtil;
+import org.great.util.myutil.MyCollectionUtils;
 import org.great.web.bean.Menus;
 import org.great.web.mapper.MenusMapper;
 import org.great.web.mapper.TestMapper;
@@ -32,7 +32,7 @@ public class TestService {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("id", "2");
 		List<Map> list = testMapper.find1(map);
-		bo = MyListUtil.listEmpty(list);
+		bo = MyCollectionUtils.listEmpty(list);
 		return bo;
 	}
 
@@ -43,7 +43,7 @@ public class TestService {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("id", "1");
 		List<Map> list = testMapper.find2(map);
-		bo = MyListUtil.listEmpty(list);
+		bo = MyCollectionUtils.listEmpty(list);
 		return bo;
 	}
 }

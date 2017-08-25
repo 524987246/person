@@ -8,7 +8,13 @@ import java.util.List;
 import java.util.Random;
 
 import org.great.util.DateUtil;
-
+/**
+ * String工具类
+ * 
+ * @author xiejun
+ * @date 2017-8-25 10:30:03
+ * @since 1.0
+ */
 public class MyStringUtils {
 	/**
 	 * 创建UUID

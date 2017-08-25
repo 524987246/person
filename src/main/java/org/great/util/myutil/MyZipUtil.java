@@ -17,7 +17,11 @@ import java.util.List;
 import org.apache.tools.zip.ZipOutputStream;
 
 /**
- * 程序实现了ZIP压缩。共分为2部分 ：
+ * 文件压缩工具类
+ * 
+ * @author xiejun
+ * @date 2017-8-25 10:30:03
+ * @since 1.0
  */
 public class MyZipUtil {
 

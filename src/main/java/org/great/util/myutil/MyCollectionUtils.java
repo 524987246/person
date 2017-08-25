@@ -8,7 +8,13 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.beanutils.BeanUtils;
-
+/**
+ * 集合工具类
+ * 
+ * @author xiejun
+ * @date 2017-8-25 10:30:03
+ * @since 1.0
+ */
 public class MyCollectionUtils {
 
 	/**
@@ -67,5 +73,16 @@ public class MyCollectionUtils {
 			return null;
 
 		return new org.apache.commons.beanutils.BeanMap(obj);
+	}
+	/**
+	 * @param list
+	 * @return false 为空 true 不为空
+	 */
+	public static boolean listEmpty(List list) {
+		boolean bo = false;
+		if (list != null && list.size() > 0) {
+			bo = true;
+		}
+		return bo;
 	}
 }
