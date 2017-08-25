@@ -13,16 +13,52 @@ public class DateUtil {
 	/** 时间格式(yyyy-MM-dd HH:mm:ss) */
 	public final static String DATE_TIME_PATTERN = "yyyy-MM-dd HH:mm:ss";
 
-	public static String format(Date date) {
-		return format(date, DATE_PATTERN);
+	public static String dateToString(Date date) {
+		return dateToString(date, DATE_PATTERN);
 	}
 
-	public static String format(Date date, String pattern) {
+	public static String dateToString(Date date, String pattern) {
 		if (date != null) {
 			SimpleDateFormat df = new SimpleDateFormat(pattern);
 			return df.format(date);
 		}
 		return null;
+	}
+
+	/**
+	 * String TO Date
+	 * 
+	 * @param dateStr
+	 * @param pattern
+	 * @return
+	 * @throws ParseException
+	 */
+	public static Date stringToDate(String dateStr, String pattern) throws ParseException {
+		if (!MyStringUtils.StringEmpty(pattern)) {
+			pattern = DATE_PATTERN;
+		}
+		SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+		Date date = sdf.parse(dateStr);
+		return date;
+	}
+
+	/**
+	 * 计算两个时间差
+	 * 
+	 * @param enddate
+	 *            结束时间
+	 * @param begindate
+	 *            开始时间
+	 * @param flag
+	 *            1 精确到小时 2精确到天 3精确到分
+	 * @return
+	 * @throws ParseException
+	 */
+	public static long compareDate(String endStr, String beginStr, int flag) throws ParseException {
+		Date begindate = stringToDate(beginStr, DATE_TIME_PATTERN);
+		Date enddate = stringToDate(endStr, DATE_TIME_PATTERN);
+		long date = compareDate(enddate, begindate, flag);
+		return date;
 	}
 
 	/**
@@ -88,7 +124,7 @@ public class DateUtil {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = null;
 		if (bo1 && bo2) {
-			endtime = format(new Date(), "yyyy-MM-dd");
+			endtime = dateToString(new Date(), "yyyy-MM-dd");
 			begintime = getDate(null, -30);
 		} else if (bo1 & !bo2) {
 			// 结束时间不为空
@@ -121,15 +157,18 @@ public class DateUtil {
 	 * @param enddate
 	 * @throws ParseException
 	 */
-	public static void getworkhours(String begindate, String enddate) throws ParseException {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		Date begindate_date = sdf.parse(begindate);
-		Date enddate_date = sdf.parse(enddate);
+	public static long getworkhours(String begindate, String enddate) throws ParseException {
 		long days = 0;
-		days += getworkhours(begindate);
+		days += (480 - getworkhours(begindate));
 		days += getworkhours(enddate);
-		days += (compareDate(enddate_date, begindate_date, 2) - 1) * 8 * 60;
-		System.out.println(days);
+		days += (compareDate(enddate, begindate, 2) - 1) * 8 * 60;
+		return days;
+	}
+
+	public static double getworkhours(Date date) throws ParseException {
+		String dateStr = dateToString(date, DATE_TIME_PATTERN);
+		double d = getworkhours(dateStr);
+		return d;
 	}
 
 	/**
@@ -139,18 +178,17 @@ public class DateUtil {
 	 * @return
 	 * @throws ParseException
 	 */
-	public static long getworkhours(String dateStr) throws ParseException {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	public static double getworkhours(String dateStr) throws ParseException {
 		String morning_end = dateStr.substring(0, 9) + " 12:00:00";
 		String morning_begin = dateStr.substring(0, 9) + " 08:30:00";
 		String afternoon_end = dateStr.substring(0, 9) + " 17:30:00";
 		String afternoon_begin = dateStr.substring(0, 9) + " 13:00:00";
-		Date morning_end_date = sdf.parse(morning_end);
-		Date morning_begin_date = sdf.parse(morning_begin);
-		Date afternoon_end_date = sdf.parse(afternoon_end);
-		Date afternoon_begin_date = sdf.parse(afternoon_begin);
-		Date date = sdf.parse(dateStr);
-		long days = 0;
+		Date morning_end_date = stringToDate(morning_end, DATE_TIME_PATTERN);
+		Date morning_begin_date = stringToDate(morning_begin, DATE_TIME_PATTERN);
+		Date afternoon_end_date = stringToDate(afternoon_end, DATE_TIME_PATTERN);
+		Date afternoon_begin_date = stringToDate(afternoon_begin, DATE_TIME_PATTERN);
+		Date date = stringToDate(dateStr, DATE_TIME_PATTERN);
+		double days = 0;
 		if (date.compareTo(morning_end_date) < 0 && date.compareTo(morning_begin_date) > 0) {// 现在时间比早上时间大
 			days = compareDate(date, morning_begin_date, 3);
 		} else if (date.compareTo(morning_end_date) >= 0) {
@@ -166,9 +204,11 @@ public class DateUtil {
 	}
 
 	public static void main(String[] args) throws ParseException {
-		String begin = "2017-8-24 08:30:00";
-		String end = "2017-8-25 17:30:00";
-		getworkhours(begin, end);
+		String begin = "2017-8-24 09:00:00";
+		String end = "2017-8-24 17:30:00";
+		double date = getworkhours(begin, end);
+		date /= 60;
+		System.out.println(date);
 		// getworkhours(begin, end);
 		// SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		// Date begindate = sdf.parse(begin);
