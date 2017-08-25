@@ -34,7 +34,7 @@ public class DateUtil {
 	 * @throws ParseException
 	 */
 	public static Date stringToDate(String dateStr, String pattern) throws ParseException {
-		if (!MyStringUtils.StringEmpty(pattern)) {
+		if (!MyStringUtils.isEmpty(pattern)) {
 			pattern = DATE_PATTERN;
 		}
 		SimpleDateFormat sdf = new SimpleDateFormat(pattern);
