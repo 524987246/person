@@ -13,7 +13,7 @@ import java.util.TreeMap;
 import java.util.UUID;
 
 import org.great.util.MD5Util;
-import org.great.util.MyStringUtils;
+import org.great.util.myutil.MyStringUtils;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.XmlFriendlyNameCoder;
@@ -93,51 +93,51 @@ public class PayMentUtil {
 		String sign = MD5Util.MD5Encode(sb.toString()).toUpperCase();// MD5加密
 		return sign;
 	}
-	
-	/** 
-	 * 调统一下单API 
-	 * @param orderInfo 
-	 * @return 
-	 */  
-	public static String httpOrder(String orderInfo) {  
-	    String url = "https://api.mch.weixin.qq.com/pay/unifiedorder";  
-	    try {  
-			HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();  
-	        //加入数据    
-	           conn.setRequestMethod("POST");    
-	           conn.setDoOutput(true);    
-	               
-	           BufferedOutputStream buffOutStr = new BufferedOutputStream(conn.getOutputStream());    
-	           buffOutStr.write(orderInfo.getBytes());  
-	           buffOutStr.flush();    
-	           buffOutStr.close();    
-	               
-	           //获取输入流    
-	           BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));    
-	               
-	           String line = null;    
-	           StringBuffer sb = new StringBuffer();    
-	           while((line = reader.readLine())!= null){    
-	               sb.append(line);    
-	           }    
-	             
-	           XStream xStream = new XStream(new XppDriver(new XmlFriendlyNameCoder("_-", "_")));//说明3(见文末)  
-	           //将请求返回的内容通过xStream转换为UnifiedOrderRespose对象  
-	           xStream.alias("xml", UnifiedOrderRespose.class);  
-	           UnifiedOrderRespose unifiedOrderRespose = (UnifiedOrderRespose) xStream.fromXML(sb.toString());  
-	             
-	           //根据微信文档return_code 和result_code都为SUCCESS的时候才会返回code_url  
-	           //<span style="color:#ff0000;"><strong>说明4(见文末)</strong></span>  
-	           if(null!=unifiedOrderRespose   
-	                && "SUCCESS".equals(unifiedOrderRespose.getReturn_code())   
-	                && "SUCCESS".equals(unifiedOrderRespose.getResult_code())){  
-	            return unifiedOrderRespose.getCode_url();  
-	           }else{  
-	            return null;  
-	           }  
-	    } catch (Exception e) {  
-	        e.printStackTrace();  
-	    }  
-	    return null;  
-	}  
+
+	/**
+	 * 调统一下单API
+	 * 
+	 * @param orderInfo
+	 * @return
+	 */
+	public static String httpOrder(String orderInfo) {
+		String url = "https://api.mch.weixin.qq.com/pay/unifiedorder";
+		try {
+			HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
+			// 加入数据
+			conn.setRequestMethod("POST");
+			conn.setDoOutput(true);
+
+			BufferedOutputStream buffOutStr = new BufferedOutputStream(conn.getOutputStream());
+			buffOutStr.write(orderInfo.getBytes());
+			buffOutStr.flush();
+			buffOutStr.close();
+
+			// 获取输入流
+			BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+
+			String line = null;
+			StringBuffer sb = new StringBuffer();
+			while ((line = reader.readLine()) != null) {
+				sb.append(line);
+			}
+
+			XStream xStream = new XStream(new XppDriver(new XmlFriendlyNameCoder("_-", "_")));// 说明3(见文末)
+			// 将请求返回的内容通过xStream转换为UnifiedOrderRespose对象
+			xStream.alias("xml", UnifiedOrderRespose.class);
+			UnifiedOrderRespose unifiedOrderRespose = (UnifiedOrderRespose) xStream.fromXML(sb.toString());
+
+			// 根据微信文档return_code 和result_code都为SUCCESS的时候才会返回code_url
+			// <span style="color:#ff0000;"><strong>说明4(见文末)</strong></span>
+			if (null != unifiedOrderRespose && "SUCCESS".equals(unifiedOrderRespose.getReturn_code())
+					&& "SUCCESS".equals(unifiedOrderRespose.getResult_code())) {
+				return unifiedOrderRespose.getCode_url();
+			} else {
+				return null;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

@@ -1,4 +1,4 @@
-package org.great.util;
+package org.great.util.myutil;
 
 import java.io.BufferedInputStream;
 

@@ -11,8 +11,8 @@ import org.apache.velocity.app.VelocityEngine;
 import org.apache.velocity.runtime.RuntimeConstants;
 import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 import org.great.util.FileUtil;
-import org.great.util.MyZipUtil;
 import org.great.util.NameRandom;
+import org.great.util.myutil.MyZipUtil;
 import org.great.web.jdbc.ColumnEntity;
 
 public class AutoVelocity {

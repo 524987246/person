@@ -3,6 +3,8 @@ package org.great.util;
 import java.util.Date;
 import java.util.Random;
 
+import org.great.util.myutil.MyPrintUtil;
+
 public class TestUtils {
 	public static void main(String[] args) {
 		String str = "KL";
@@ -11,7 +13,8 @@ public class TestUtils {
 			temp += filename(str, new Date());
 			temp += ",";
 		}
-		System.out.println(temp);
+		//System.out.println(temp);
+		MyPrintUtil.println(temp);
 
 	}
 

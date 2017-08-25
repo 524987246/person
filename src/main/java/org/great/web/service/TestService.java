@@ -7,7 +7,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.great.datasource.TargetDataSource;
-import org.great.util.MyListUtil;
+import org.great.util.myutil.MyListUtil;
 import org.great.web.bean.Menus;
 import org.great.web.mapper.MenusMapper;
 import org.great.web.mapper.TestMapper;
