@@ -7,7 +7,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
+import org.apache.commons.validator.GenericValidator;
 import org.great.util.DateUtil;
+
 /**
  * String工具类
  * 
@@ -111,6 +113,19 @@ public class MyStringUtils {
 			i = str.indexOf(flag, (i + 1));
 		}
 		return list;
+	}
+
+	/**
+	 * 验证日期/时间格式
+	 * 
+	 * @param dateStr
+	 *            待验证的字符串
+	 * @param format
+	 *            类型
+	 * @return 是返回ture,否则返回false
+	 */
+	public static boolean isDateTime(String dateStr, String format) {
+		return GenericValidator.isDate(dateStr, format, true);
 	}
 
 	public static void main(String[] args) {
