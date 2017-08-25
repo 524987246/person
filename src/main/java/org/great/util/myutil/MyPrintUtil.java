@@ -1,11 +1,14 @@
 package org.great.util.myutil;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.junit.Test;
+
 /**
  * 打印信息辅助类
  * 
@@ -22,6 +25,14 @@ public class MyPrintUtil {
 			print("==");
 			print(map.get(key));
 			println("");
+		}
+	}
+
+	public static void printSet(Set<Object> set) {
+		Iterator iterator = set.iterator();
+		while (iterator.hasNext()) {
+			String key = iterator.next().toString();
+			println(key);
 		}
 	}
 
@@ -45,6 +56,11 @@ public class MyPrintUtil {
 		tempMap.put("a", 1);
 		tempMap.put("b", 2);
 		tempMap.put("c", 3);
-		printMap(tempMap);
+		// printMap(tempMap);
+		Set<Object> set = new HashSet<Object>();
+		set.add("1");
+		set.add("9");
+		set.add("6");
+		printSet(set);
 	}
 }
