@@ -1,4 +1,4 @@
-package org.great.web.controller.test;
+package org.great.web;
 
 import java.io.IOException;
 import java.util.concurrent.CopyOnWriteArraySet;

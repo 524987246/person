@@ -41,6 +41,11 @@
 			<optional>true</optional>
 			<scope>true</scope>
 		</dependency>
+		<!-- AOP 的支持. -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
 		<!-- redis 的支持. -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -192,6 +197,12 @@
 			<artifactId>commons-validator</artifactId>
 			<version>1.6</version>
 		</dependency>
+		<dependency>
+			<groupId>net.sf.ezmorph</groupId>
+			<artifactId>ezmorph</artifactId>
+			<version>1.0.6</version>
+		</dependency>
+		<!-- GENERAL UTILS end -->
 		<!-- 微信支付工具包 -->
 		<dependency>
 			<groupId>com.google.zxing</groupId>
