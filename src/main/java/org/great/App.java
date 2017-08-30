@@ -7,6 +7,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration;
 import org.springframework.boot.autoconfigure.web.MultipartAutoConfiguration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.multipart.MultipartResolver;
@@ -20,7 +21,7 @@ import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 
-@EnableAutoConfiguration(exclude = { MultipartAutoConfiguration.class })
+@EnableAutoConfiguration(exclude = { SecurityAutoConfiguration.class, MultipartAutoConfiguration.class })
 @SpringBootApplication
 @Import({ DynamicDataSourceRegister.class }) // 注册动态多数据源
 @MapperScan("org.great.web.mapper")
@@ -83,7 +84,7 @@ public class App extends WebMvcConfigurerAdapter {
 		resolver.setResolveLazily(true);// resolveLazily属性启用是为了推迟文件解析，以在在UploadAction中捕获文件大小异常
 		resolver.setMaxInMemorySize(40960);
 		resolver.setMaxUploadSize(5000 * 1024 * 1024);// 上传文件大小 50M 50*1024*1024
-		System.out.println("MultipartResolver");
+		System.out.println("MultipartResolver初始化");
 		return resolver;
 	}
 }
