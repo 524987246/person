@@ -18,7 +18,7 @@ import org.junit.Test;
  */
 public class MyPrintUtil {
 	public static void printMap(Map<String, Object> map) {
-		Iterator iterator = map.keySet().iterator();
+		Iterator<String> iterator = map.keySet().iterator();
 		while (iterator.hasNext()) {
 			String key = iterator.next().toString();
 			print(key);
@@ -29,7 +29,7 @@ public class MyPrintUtil {
 	}
 
 	public static void printSet(Set<Object> set) {
-		Iterator iterator = set.iterator();
+		Iterator<Object> iterator = set.iterator();
 		while (iterator.hasNext()) {
 			String key = iterator.next().toString();
 			println(key);

@@ -15,6 +15,7 @@ import java.util.Enumeration;
 import java.util.List;
 
 import org.apache.tools.zip.ZipOutputStream;
+import org.junit.Test;
 
 /**
  * 文件压缩工具类
@@ -25,16 +26,17 @@ import org.apache.tools.zip.ZipOutputStream;
  */
 public class MyZipUtil {
 
-	public static void main(String[] args) {
-		 try {
-		 String zipFileName = "D:\\test\\test.zip";
-		 String inputFile = "D:\\参考代码\\个人总结\\js常用判断";
-		 String inputFile2 = "D:\\test\\test2";
-		 //zipCompression(zipFileName, inputFile);
-		 zipDecompression(zipFileName, inputFile2);
-		 } catch (Exception e) {
-		 e.printStackTrace();
-		 }
+	@Test
+	public static void getTest() {
+		try {
+			String zipFileName = "D:\\test\\test.zip";
+			//String inputFile = "D:\\参考代码\\个人总结\\js常用判断";
+			String inputFile2 = "D:\\test\\test2";
+			// zipCompression(zipFileName, inputFile);
+			zipDecompression(zipFileName, inputFile2);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -42,11 +44,10 @@ public class MyZipUtil {
 	 * 
 	 * @param zipFileName
 	 * @param inputFile
-	 * @return 
+	 * @return
 	 * @throws Exception
 	 */
-	public static boolean zipCompression(String zipFileName,
-			List<String> filenamelist) throws Exception {
+	public static boolean zipCompression(String zipFileName, List<String> filenamelist) throws Exception {
 		System.out.println("压缩中...");
 		List<File> filelist = new ArrayList<File>();
 		zipFileName = new String(zipFileName.getBytes(), "ISO-8859-1");
@@ -54,18 +55,16 @@ public class MyZipUtil {
 			File file = new File(inputFile);
 			filelist.add(file);
 		}
-		ZipOutputStream out = new ZipOutputStream(new FileOutputStream(
-				zipFileName));
+		ZipOutputStream out = new ZipOutputStream(new FileOutputStream(zipFileName));
 		BufferedOutputStream bo = new BufferedOutputStream(out);
 		zip(out, filelist, bo);
 		bo.close();
-		//out.close(); // 输出流关闭
+		// out.close(); // 输出流关闭
 		System.out.println("压缩完成");
 		return true;
 	}
 
-	public static void zip(ZipOutputStream out, List<File> filelist,
-			BufferedOutputStream bo) throws Exception { // 方法重载
+	public static void zip(ZipOutputStream out, List<File> filelist, BufferedOutputStream bo) throws Exception { // 方法重载
 		// if (f.isDirectory()) {
 		// File[] fl = f.listFiles();
 		// if (fl.length == 0) {
@@ -121,22 +120,17 @@ public class MyZipUtil {
 					name = name.substring(0, name.length() - 1);
 					File f = new File(inputFile + File.separator + name);
 					f.mkdir();
-					System.out.println("创建目录：" + inputFile + File.separator
-							+ name);
+					System.out.println("创建目录：" + inputFile + File.separator + name);
 				} else {
 					String fileName = zipEntry.getName();
 					fileName = fileName.replace('\\', '/');
 					System.out.println("解压文件：" + fileName);
 					if (fileName.indexOf("/") != -1) {
-						createDirectory(inputFile, fileName.substring(0,
-								fileName.lastIndexOf("/")));
-						fileName = fileName.substring(
-								fileName.lastIndexOf("/") + 1,
-								fileName.length());
+						createDirectory(inputFile, fileName.substring(0, fileName.lastIndexOf("/")));
+						fileName = fileName.substring(fileName.lastIndexOf("/") + 1, fileName.length());
 					}
 
-					File f = new File(inputFile + File.separator
-							+ zipEntry.getName());
+					File f = new File(inputFile + File.separator + zipEntry.getName());
 
 					f.createNewFile();
 					InputStream in = zipFile.getInputStream(zipEntry);

@@ -8,6 +8,8 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.beanutils.BeanUtils;
+import org.apache.poi.ss.formula.functions.T;
+
 /**
  * 集合工具类
  * 
@@ -19,12 +21,13 @@ public class MyCollectionUtils {
 
 	/**
 	 * list to Set
+	 * 
 	 * @param list
 	 * @return
 	 */
-	public static Set ListToSet(List list) {
+	public static Set<T> ListToSet(List<T> list) {
 		// list To Set
-		Set set = new HashSet();
+		Set<T> set = new HashSet<T>();
 		set.addAll(list);
 		// System.out.println(set.toString());
 		return set;
@@ -32,11 +35,12 @@ public class MyCollectionUtils {
 
 	/**
 	 * Set to List
+	 * 
 	 * @param set
 	 * @return
 	 */
-	public static List SetToList(Set set) {
-		List list = new ArrayList();
+	public static List<Object> SetToList(Set<Object> set) {
+		List<Object> list = new ArrayList<Object>();
 		// set To list
 		list = Arrays.asList(set.toArray());
 		System.out.println(list.toString());
@@ -74,11 +78,12 @@ public class MyCollectionUtils {
 
 		return new org.apache.commons.beanutils.BeanMap(obj);
 	}
+
 	/**
 	 * @param list
 	 * @return false 为空 true 不为空
 	 */
-	public static boolean listEmpty(List list) {
+	public static boolean listEmpty(List<?> list) {
 		boolean bo = false;
 		if (list != null && list.size() > 0) {
 			bo = true;
