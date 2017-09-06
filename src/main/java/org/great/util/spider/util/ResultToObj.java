@@ -26,11 +26,11 @@ public class ResultToObj {
 				FiveEight data = new FiveEight();
 				Element link = links.get(i);
 				// 必要的筛选
-				// String linkHref = link.attr("href");
-				// String linkText = link.text();
-				// str = link.toString();
+//				 String linkHref = link.attr("href");
+//				 String linkText = link.text();
+//				String str = link.toString();
 				// 输出获取到的html代码
-				// System.out.println(str);
+//				 System.out.println(str);
 				Elements dttag = link.getElementsByTag("dt");
 				for (Element dttagtemp : dttag) {
 					// 获取标题
