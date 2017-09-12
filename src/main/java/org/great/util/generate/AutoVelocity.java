@@ -47,12 +47,12 @@ public class AutoVelocity {
 		String path = "";
 		// 生成模板文件
 		tbname=FileUtil.setfilenam(tbname);
+		setAttrType(resultlist);// 设置java属性
+		ctx.put("name", tbname);
+		ctx.put("list", resultlist);
 		for (int i = 0; i < templatelist.size(); i++) {
 			Template template = templatelist.get(i);
-			setAttrType(resultlist);// 设置java属性
 			String name = list.get(i).replace("replaceflage", tbname);
-			ctx.put("name", tbname);
-			ctx.put("list", resultlist);
 			// 输出
 			StringWriter sw = new StringWriter();
 			template.merge(ctx, sw);
