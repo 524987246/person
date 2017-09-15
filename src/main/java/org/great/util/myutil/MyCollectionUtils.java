@@ -55,7 +55,7 @@ public class MyCollectionUtils {
 	 * @return
 	 * @throws Exception
 	 */
-	public static Object mapToObject3(Map<String, Object> map, Class<?> beanClass) throws Exception {
+	public static Object mapToObject(Map<String, Object> map, Class<?> beanClass) throws Exception {
 		if (map == null)
 			return null;
 
@@ -72,7 +72,7 @@ public class MyCollectionUtils {
 	 * @param obj
 	 * @return
 	 */
-	public static Map<?, ?> objectToMap3(Object obj) {
+	public static Map<?, ?> objectToMap(Object obj) {
 		if (obj == null)
 			return null;
 
