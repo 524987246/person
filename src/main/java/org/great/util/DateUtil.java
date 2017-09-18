@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.great.util.myutil.MyStringUtils;
+import org.junit.Test;
 
 public class DateUtil {
 	/** 时间格式(yyyy-MM-dd) */
@@ -204,7 +205,8 @@ public class DateUtil {
 		return days;
 	}
 
-	public static void main(String[] args) throws ParseException {
+	@Test
+	public void classTest(String[] args) throws ParseException {
 		String begin = "2017-8-24 09:00:00";
 		String end = "2017-8-24 17:30:00";
 		double date = getworkhours(begin, end);
