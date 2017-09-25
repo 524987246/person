@@ -1,11 +1,14 @@
 package org.great.util.myutil;
 
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.junit.Test;
 
@@ -17,6 +20,25 @@ import org.junit.Test;
  * @since 1.0
  */
 public class MyPrintUtil {
+	/**
+	 * 打印全部request中的参数
+	 * @param request
+	 * @return
+	 */
+	public static Map<String, Object> printRequestPara(HttpServletRequest request) {
+		Map<String, Object> param = new HashMap<String, Object>();
+		Enumeration<?> enumeration = request.getParameterNames();
+		while (enumeration.hasMoreElements()) {
+			String next = enumeration.nextElement().toString();
+			print(next);
+			next = (request.getParameter(next) == null ? "空" : request.getParameter(next));
+			print(" : "+next+";");
+			println("");
+			param.put(next, request.getParameter(next));
+		}
+		return param;
+	}
+
 	public static void printMap(Map<String, Object> map) {
 		Iterator<String> iterator = map.keySet().iterator();
 		while (iterator.hasNext()) {
