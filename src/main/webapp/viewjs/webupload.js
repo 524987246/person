@@ -39,7 +39,9 @@ jQuery(function() {
         },    
         //时间点2：如果有分块上传，则每个分块上传之前调用此函数    
         beforeSend:function(block){  
-            var deferred = WebUploader.Deferred();    
+            var deferred = WebUploader.Deferred();  
+            var jindutiao=$("#jindutiao").val();
+            console.log("进度条的值:"+jindutiao);
             $.ajax({    
                 type:"POST",    
                 url:basePath+"/Reception/checkChunk.html",  //ajax验证每一个分片  
@@ -80,6 +82,8 @@ jQuery(function() {
                     fileMd5:fileMd5,  
                 },    
                 success:function(data){
+                	console.dir("传输结果");
+                	console.dir(data);
                     count++; //每上传完成一个文件 count+1  
                     if(count<=filesArr.length-1){  
                         uploader.upload(filesArr[count].id);//上传文件列表中的下一个文件  
@@ -113,8 +117,8 @@ jQuery(function() {
         resize: false,  //不压缩image, 默认如果是jpeg，文件上传前会先压缩再上传！  
         accept: {    
                 //允许上传的文件后缀，不带点，多个用逗号分割  
-            extensions: "txt,jpg,jpeg,bmp,png,zip,rar,war,pdf,cebx,doc,docx,ppt,pptx,xls,xlsx,rmvb",    
-            mimeTypes: '.txt,.jpg,.jpeg,.bmp,.png,.zip,.rar,.war,.pdf,.cebx,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.rmvb',    
+            extensions: "txt,jpg,jpeg,bmp,png,zip,rar,war,pdf,cebx,doc,docx,ppt,pptx,xls,xlsx,rmvb,mkv",    
+            mimeTypes: '.txt,.jpg,.jpeg,.bmp,.png,.zip,.rar,.war,.pdf,.cebx,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.rmvb,.mkv',    
         }    
     });    
     /************************************************************ 初始化WebUploader end ********************************************************************/  
@@ -146,6 +150,8 @@ jQuery(function() {
             cache: false,  
             async: false,  // 同步  
             success:function(data){
+            	console.dir("查询是否上传过");
+            	console.dir(data);
                 //上传过  
                 if(data>0){  
                     //上传过的进度的百分比  
@@ -204,7 +210,6 @@ jQuery(function() {
           
         //将实时进度存入隐藏域  
         $("#jindutiao").val(Math.round(percentage * 100));  
-          
         //根据fielId获得当前要上传的文件的进度  
         var oldJinduValue = map[file.id];  
           

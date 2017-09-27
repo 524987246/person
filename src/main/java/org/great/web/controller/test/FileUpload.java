@@ -129,7 +129,7 @@ public class FileUpload{
 	@ResponseBody
 	public String mergeFile(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String fileName = request.getParameter("fileName");
-
+		
 		// 当前登录用户信息
 		// SysUser sysUser = (SysUser)request.getSession().getAttribute("user");
 		String folad = "upload";
@@ -232,7 +232,7 @@ public class FileUpload{
 			return json;
 		} catch (Exception e) {
 			System.out.println("合并文件出错");
-			//e.printStackTrace();
+			e.printStackTrace();
 		} finally {
 			jedisPool.returnResource(jedis);
 		}
@@ -318,7 +318,9 @@ public class FileUpload{
 		try {
 			jedis = jedisPool.getResource();
 			if (null != fileName && !"".equals(fileName)) {
-				jindutiao = jedis.get("jindutiao_" + fileName);
+				String folad = "uploads";
+				String newFilePath = folad + "_" + fileName;
+				jindutiao = jedis.get("jindutiao_" + newFilePath);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

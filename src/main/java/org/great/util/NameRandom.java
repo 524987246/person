@@ -74,4 +74,10 @@ public class NameRandom {
 		name = NameRandom.filename(new Date()) + name;
 		System.out.println(name);
 	}
+	public static void main(String[] args) {
+		String name = "123.jpg.png";
+		name = name.substring(name.lastIndexOf("."));
+		name = NameRandom.filename(new Date()) + name;
+		System.out.println(name);
+	}
 }
