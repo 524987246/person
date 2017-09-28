@@ -101,7 +101,7 @@ jQuery(function() {
     uploader = WebUploader.create({  
         auto:false,//选择文件后是否自动上传  
         chunked: true,//开启分片上传  
-        chunkSize:100*1024*1024,// 如果要分片，分多大一片？默认大小为5M  5*1024*1024 
+        chunkSize:200*1024*1024,// 如果要分片，分多大一片？默认大小为5M  5*1024*1024 
         chunkRetry: 0,//如果某个分片由于网络问题出错，允许自动重传多少次  
         threads: 3,//上传并发数。允许同时最大上传进程数[默认值：3]  
         duplicate : false,//是否重复上传（同时选择多个一样的文件），true可以重复上传  

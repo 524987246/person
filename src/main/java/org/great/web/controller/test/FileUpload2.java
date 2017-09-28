@@ -3,9 +3,10 @@ package org.great.web.controller.test;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.channels.FileChannel;
 import java.text.SimpleDateFormat;
@@ -15,45 +16,35 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.sound.midi.Synthesizer;
-import javax.swing.JPopupMenu.Separator;
 
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.apache.commons.io.FileUtils;
-import org.great.util.FileUtil;
-import org.great.util.myutil.MyPrintUtil;
-import org.hibernate.annotations.Synchronize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.support.StandardMultipartHttpServletRequest;
 
 import com.google.gson.Gson;
-import com.sun.swing.internal.plaf.synth.resources.synth;
 
-import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisPool;
-
-
+/**
+ * @author xiejun map集合版本
+ */
 @Controller
-@RequestMapping("/Reception")
-public class FileUpload{
+@RequestMapping("/Reception2")
+public class FileUpload2 {
+	/*
+	 * @Autowired protected JedisPool jedisPool;
+	 */
 	@Autowired
-	protected JedisPool jedisPool;
+	protected static Map<String, Object> map = new HashMap<String, Object>();
 
 	/**
 	 * 上传文件
@@ -64,7 +55,7 @@ public class FileUpload{
 	@RequestMapping(value = "/uoloadFile.html", method = RequestMethod.POST)
 	@ResponseBody
 	public synchronized void uoloadFile(HttpServletRequest request, HttpServletResponse response) {
-		//MyPrintUtil.printRequestPara(request);
+		// MyPrintUtil.printRequestPara(request);
 		DiskFileItemFactory factory = new DiskFileItemFactory();
 		ServletFileUpload sfu = new ServletFileUpload(factory);
 		sfu.setHeaderEncoding("utf-8");
@@ -74,8 +65,8 @@ public class FileUpload{
 		String chunk = null;
 		String fileName = null;
 		try {
-	        List<FileItem> items = sfu.parseRequest(request);
-			//System.out.println(items.size());
+			List<FileItem> items = sfu.parseRequest(request);
+			// System.out.println(items.size());
 			for (FileItem item : items) {
 				// 上传文件的真实名称
 				fileName = item.getName();
@@ -96,30 +87,30 @@ public class FileUpload{
 						}
 					}
 				} else {
-					Jedis jedis = null;
+					// Jedis jedis = null;
 					try {
-						jedis = jedisPool.getResource();
-						File file = new File(savePath + "/" + jedis.get("fileName_" + fileName));
+						// jedis = jedisPool.getResource();
+						File file = new File(savePath + "/" + map.get("fileName_" + fileName));
 						if (!file.exists()) {
 							file.mkdirs();
 						}
 						// filetype=jedis.get("fileType_" + fileName);
-						File chunkFile = new File(savePath + "/" + jedis.get("fileName_" + fileName) + "/" + chunk);
-						FileUtil.StreamToFile(chunkFile.getAbsolutePath(), item.getInputStream());
+						File chunkFile = new File(savePath + "/" + map.get("fileName_" + fileName) + "/" + chunk);
+						StreamToFile(chunkFile.getAbsolutePath(), item.getInputStream());
 						// item.getInputStream().close();
 						// FileUtils.copyInputStreamToFile(item.getInputStream(),
 						// chunkFile);
 					} catch (Exception e) {
 						// e.printStackTrace();
 					} finally {
-						jedisPool.returnResource(jedis);
+						// jedisPool.returnResource(jedis);
 					}
 				}
 			}
 		} catch (FileUploadException e) {
 			System.out.println("文件传输出错");
-			StackTraceElement[]list=e.getStackTrace();
-			MyPrintUtil.println(list[0]);
+			StackTraceElement[] list = e.getStackTrace();
+			System.err.println(list[0]);
 		} finally {
 		}
 	}
@@ -142,13 +133,13 @@ public class FileUpload{
 		String savePath = request.getServletContext().getRealPath("");
 		savePath = savePath + "\\" + folad + "\\";
 		// 文件上传的临时文件保存在项目的temp文件夹下 定时删除
-		//savePath = new File(savePath) + "/upload/";
+		// savePath = new File(savePath) + "/upload/";
 		// 合并文件
-		Jedis jedis = null;
+		// Jedis jedis = null;
 		try {
-			jedis = jedisPool.getResource();
+			// jedis = jedisPool.getResource();
 			// 读取目录里的所有文件
-			File f = new File(savePath + "/" + jedis.get("fileName_" + fileName));
+			File f = new File(savePath + "/" + map.get("fileName_" + fileName));
 			File[] fileArray = f.listFiles(new FileFilter() {
 				// 排除目录只要文件
 				@Override
@@ -159,7 +150,7 @@ public class FileUpload{
 					return true;
 				}
 			});
-			if(fileArray==null||fileArray.length==0){
+			if (fileArray == null || fileArray.length == 0) {
 				System.out.println("文件有误或缺失");
 				return "{'result':'文件有误或缺失'}";
 			}
@@ -181,7 +172,7 @@ public class FileUpload{
 			// 后缀名
 			String suffix = fileName.substring(pointIndex);
 			// 合并后的文件
-			File outputFile = new File(savePath + "/" + jedis.get("fileName_" + fileName) + suffix);
+			File outputFile = new File(savePath + "/" + map.get("fileName_" + fileName) + suffix);
 			// 创建文件
 			try {
 				outputFile.createNewFile();
@@ -214,25 +205,25 @@ public class FileUpload{
 			}
 
 			// 清除文件夹
-			File tempFile = new File(savePath + "/" + jedis.get("fileName_" + fileName));
+			File tempFile = new File(savePath + "/" + map.get("fileName_" + fileName));
 			if (tempFile.isDirectory() && tempFile.exists()) {
 				tempFile.delete();
 			}
 
 			Map<String, String> resultMap = new HashMap<String, String>();
 			// 将文件的最后上传时间和生成的文件名返回
-			resultMap.put("lastUploadTime", jedis.get("lastUploadTime_" + newFilePath));
-			resultMap.put("pathFileName", jedis.get("fileName_" + fileName) + suffix);
+			resultMap.put("lastUploadTime", map.get("lastUploadTime_" + newFilePath).toString());
+			resultMap.put("pathFileName", map.get("fileName_" + fileName) + suffix);
 
 			/**************** 清除redis中的相关信息 **********************/
 			// 合并成功后删除redis中的进度信息
-			jedis.del("jindutiao_" + newFilePath);
+			map.remove("jindutiao_" + newFilePath);
 			// 合并成功后删除redis中的最后上传时间，只存没上传完成的
-			jedis.del("lastUploadTime_" + newFilePath);
+			map.remove("lastUploadTime_" + newFilePath);
 			// 合并成功后删除文件名称与该文件上传时生成的存储分片的临时文件夹的名称在redis中的信息 key：上传文件的真实名称
 			// value：存储分片的临时文件夹名称（由上传文件的MD5值+时间戳组成）
 			// 如果下次再上传同名文件 redis中将存储新的临时文件夹名称 没有上传完成的还要保留在redis中 直到定时任务生效
-			jedis.del("fileName_" + fileName);
+			map.remove("fileName_" + fileName);
 
 			Gson gson = new Gson();
 			String json = gson.toJson(resultMap);
@@ -242,9 +233,9 @@ public class FileUpload{
 			System.out.println("合并文件出错");
 			e.printStackTrace();
 		} finally {
-			jedisPool.returnResource(jedis);
+			// jedisPool.returnResource(jedis);
 		}
-		
+
 		return savePath;
 	}
 
@@ -269,34 +260,34 @@ public class FileUpload{
 		String newFilePath = folad + "_" + fileName;
 		String savePath = request.getServletContext().getRealPath("");
 		savePath = savePath + "\\" + folad + "\\";
-		Jedis jedis = null;
+		// Jedis jedis = null;
 		try {
-			jedis = jedisPool.getResource();
+			// jedis = jedisPool.getResource();
 			// 将当前进度存入redis
-			//MyPrintUtil.println("存入的进度为==>"+jindutiao+"<==");
-			jedis.set("jindutiao_" + newFilePath, jindutiao);
+			// MyPrintUtil.println("存入的进度为==>"+jindutiao+"<==");
+			map.put("jindutiao_" + newFilePath, jindutiao);
 
 			// 将系统当前时间转换为字符串
 			Date date = new Date();
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			String lastUploadTime = formatter.format(date);
 			// 将最后上传时间以字符串形式存入redis
-			jedis.set("lastUploadTime_" + newFilePath, lastUploadTime);
+			map.put("lastUploadTime_" + newFilePath, lastUploadTime);
 
 			// 自定义文件名： 时间戳（13位）
 			String tempFileName = String.valueOf(System.currentTimeMillis());
-			if (jedis.get("fileName_" + fileName) == null || "".equals(jedis.get("fileName_" + fileName))) {
+			if (map.get("fileName_" + fileName) == null || "".equals(map.get("fileName_" + fileName))) {
 				// 将文件名与该文件上传时生成的存储分片的临时文件夹的名称存入redis
 				// 文件上传时生成的存储分片的临时文件夹的名称由MD5和时间戳组成
-				jedis.set("fileName_" + fileName, fileMd5 + tempFileName);
-				jedis.set("fileType_" + fileName, fileName.substring(fileName.lastIndexOf(".")));
+				map.put("fileName_" + fileName, fileMd5 + tempFileName);
+				map.put("fileType_" + fileName, fileName.substring(fileName.lastIndexOf(".")));
 			}
 
-			File checkFile = new File(savePath + "/" + jedis.get("fileName_" + fileName) + "/" + chunk);
+			File checkFile = new File(savePath + "/" + map.get("fileName_" + fileName) + "/" + chunk);
 
 			response.setContentType("text/html;charset=utf-8");
 			// 检查文件是否存在，且大小是否一致
-			
+
 			if (checkFile.exists() && checkFile.length() == Integer.parseInt(chunkSize)) {
 				// 上传过
 				try {
@@ -315,7 +306,7 @@ public class FileUpload{
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			jedisPool.returnResource(jedis);
+			// jedisPool.returnResource(jedis);
 		}
 	}
 
@@ -324,19 +315,54 @@ public class FileUpload{
 	@ResponseBody
 	public String selectProgressByFileName(String fileName) {
 		String jindutiao = "";
-		Jedis jedis = null;
+		// Jedis jedis = null;
 		try {
-			jedis = jedisPool.getResource();
+			// jedis = jedisPool.getResource();
 			if (null != fileName && !"".equals(fileName)) {
 				String folad = "upload";
 				String newFilePath = folad + "_" + fileName;
-				jindutiao = jedis.get("jindutiao_" + newFilePath);
+				jindutiao = map.get("jindutiao_" + newFilePath).toString();
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			jedisPool.returnResource(jedis);
+			// jedisPool.returnResource(jedis);
 		}
 		return jindutiao;
+	}
+
+	public static String StreamToFile(String filepath, InputStream inputStream) {
+		File file = new File(filepath);
+		OutputStream out = null;
+		try {
+			out = new FileOutputStream(file);
+			byte[] buffer = new byte[1024];
+			int num = 0;
+			long sum = 0;
+			while (num != -1) {
+				out.write(buffer, 0, num);
+				num = inputStream.read(buffer);
+				sum += num;
+			}
+			;
+			System.out.println(filepath + "===>" + sum);
+			if (out != null) {
+				out.close();
+			}
+		} catch (IOException e) {
+			// e.printStackTrace();
+		} finally {
+			try {
+				// if (inputStream != null) {
+				// inputStream.close();
+				// }
+				if (out != null) {
+					out.close();
+				}
+			} catch (IOException e) {
+				// e.printStackTrace();
+			}
+		}
+		return file.getAbsolutePath();
 	}
 }
