@@ -41,13 +41,12 @@ jQuery(function() {
         beforeSend:function(block){  
             var deferred = WebUploader.Deferred();  
             var jindutiao=$("#jindutiao").val();
-            console.log("进度条的值:"+jindutiao);
             $.ajax({    
                 type:"POST",    
                 url:basePath+"/Reception/checkChunk.html",  //ajax验证每一个分片  
                 data:{    
                     fileName : fileName,  
-                    jindutiao:$("#jindutiao").val(),  
+                    jindutiao:jindutiao,  
                     fileMd5:fileMd5,  //文件唯一标记    
                     chunk:block.chunk,  //当前分块下标    
                     chunkSize:block.end-block.start//当前分块大小    
@@ -62,6 +61,7 @@ jQuery(function() {
                         deferred.reject();    
                     }else{    
                         //分块不存在或不完整，重新发送该分块内容    
+                    	console.log(jindutiao+"该部分文件不存在或不完整")
                         deferred.resolve();    
                     }    
                 }    
@@ -101,7 +101,7 @@ jQuery(function() {
     uploader = WebUploader.create({  
         auto:false,//选择文件后是否自动上传  
         chunked: true,//开启分片上传  
-        chunkSize:200*1024*1024,// 如果要分片，分多大一片？默认大小为5M  5*1024*1024 
+        chunkSize:100*1024*1024,// 如果要分片，分多大一片？默认大小为5M  5*1024*1024 
         chunkRetry: 0,//如果某个分片由于网络问题出错，允许自动重传多少次  
         threads: 3,//上传并发数。允许同时最大上传进程数[默认值：3]  
         duplicate : false,//是否重复上传（同时选择多个一样的文件），true可以重复上传  
@@ -150,8 +150,8 @@ jQuery(function() {
             cache: false,  
             async: false,  // 同步  
             success:function(data){
-            	console.dir("查询是否上传过");
-            	console.dir(data);
+            	data=data.replace(/\"/g,"");
+            	data=parseInt(data);
                 //上传过  
                 if(data>0){  
                     //上传过的进度的百分比  
@@ -292,8 +292,10 @@ jQuery(function() {
                 cache: false,  
                 async: false,  // 同步  
                // dataType:"json",    
-                success:function(data){    
+                success:function(data){
                     //如果上传过 将进度存入map  
+                	data=data.replace(/\"/g,"");
+                	data=parseInt(data);
                     if(data>0){  
                         map[currentFileId]=data/100;  
                     }  

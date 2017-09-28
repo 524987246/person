@@ -48,7 +48,7 @@ public class WebControllerAop {
 		// 用的最多 通知的签名
 		Signature signature = joinPoint.getSignature();
 		// 代理的是哪一个方法
-		//System.out.println(signature.getName());
+		System.out.println(signature.getName());
 		// AOP代理类的名字
 		//System.out.println(signature.getDeclaringTypeName());
 		// AOP代理类的类（class）信息

@@ -15,6 +15,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -31,12 +32,15 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FileUtils;
 import org.great.util.FileUtil;
+import org.great.util.myutil.MyPrintUtil;
 import org.hibernate.annotations.Synchronize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.support.StandardMultipartHttpServletRequest;
 
 import com.google.gson.Gson;
 import com.sun.swing.internal.plaf.synth.resources.synth;
@@ -60,6 +64,7 @@ public class FileUpload{
 	@RequestMapping(value = "/uoloadFile.html", method = RequestMethod.POST)
 	@ResponseBody
 	public synchronized void uoloadFile(HttpServletRequest request, HttpServletResponse response) {
+		//MyPrintUtil.printRequestPara(request);
 		DiskFileItemFactory factory = new DiskFileItemFactory();
 		ServletFileUpload sfu = new ServletFileUpload(factory);
 		sfu.setHeaderEncoding("utf-8");
@@ -69,8 +74,8 @@ public class FileUpload{
 		String chunk = null;
 		String fileName = null;
 		try {
-			List<FileItem> items = sfu.parseRequest(request);
-			System.out.println(items.size());
+	        List<FileItem> items = sfu.parseRequest(request);
+			//System.out.println(items.size());
 			for (FileItem item : items) {
 				// 上传文件的真实名称
 				fileName = item.getName();
@@ -113,7 +118,7 @@ public class FileUpload{
 			}
 		} catch (FileUploadException e) {
 			System.out.println("文件传输出错");
-			// e.printStackTrace();
+			e.getMessage();
 		} finally {
 		}
 	}
@@ -129,7 +134,9 @@ public class FileUpload{
 	@ResponseBody
 	public String mergeFile(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String fileName = request.getParameter("fileName");
-		
+		if(true){
+			return "测试功能中:文件合成完成";
+		}
 		// 当前登录用户信息
 		// SysUser sysUser = (SysUser)request.getSession().getAttribute("user");
 		String folad = "upload";
@@ -257,7 +264,7 @@ public class FileUpload{
 		String jindutiao = request.getParameter("jindutiao");// 文件上传的实时进度
 		String param = request.getParameter("param");
 		String fileName = request.getParameter("fileName");
-		String folad = "uploads";
+		String folad = "upload";
 		String newFilePath = folad + "_" + fileName;
 		String savePath = request.getServletContext().getRealPath("");
 		savePath = savePath + "\\" + folad + "\\";
@@ -265,6 +272,7 @@ public class FileUpload{
 		try {
 			jedis = jedisPool.getResource();
 			// 将当前进度存入redis
+			//MyPrintUtil.println("存入的进度为==>"+jindutiao+"<==");
 			jedis.set("jindutiao_" + newFilePath, jindutiao);
 
 			// 将系统当前时间转换为字符串
@@ -287,6 +295,7 @@ public class FileUpload{
 
 			response.setContentType("text/html;charset=utf-8");
 			// 检查文件是否存在，且大小是否一致
+			
 			if (checkFile.exists() && checkFile.length() == Integer.parseInt(chunkSize)) {
 				// 上传过
 				try {
@@ -318,7 +327,7 @@ public class FileUpload{
 		try {
 			jedis = jedisPool.getResource();
 			if (null != fileName && !"".equals(fileName)) {
-				String folad = "uploads";
+				String folad = "upload";
 				String newFilePath = folad + "_" + fileName;
 				jindutiao = jedis.get("jindutiao_" + newFilePath);
 			}
