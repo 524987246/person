@@ -109,10 +109,10 @@ public class FileUpload{
 						}
 						// filetype=jedis.get("fileType_" + fileName);
 						File chunkFile = new File(savePath + "/" + jedis.get("fileName_" + fileName) + "/" + chunk);
-						FileUtil.StreamToFile(chunkFile.getAbsolutePath(), item.getInputStream());
+						//FileUtil.StreamToFile(chunkFile.getAbsolutePath(), item.getInputStream());
 						// item.getInputStream().close();
-						// FileUtils.copyInputStreamToFile(item.getInputStream(),
-						// chunkFile);
+						 FileUtils.copyInputStreamToFile(item.getInputStream(),
+						 chunkFile);
 					} catch (Exception e) {
 						// e.printStackTrace();
 					} finally {
