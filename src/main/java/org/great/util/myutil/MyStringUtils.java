@@ -113,7 +113,75 @@ public class MyStringUtils {
 		}
 		return list;
 	}
-
+	/**
+	 * 获取某个字符在字符串中的所有位置
+	 * 
+	 * @param str  要替换的字符串
+	 * @param flag 要替换的字符
+	 * @param str1   替换后的字符
+	 * @return     替换后的字符串
+	 */
+	public static String setStringByChar(String str, String flag, String str1) {
+		List<Integer>list= getStringByChar(str,flag);
+		return setStringByChar(str,list,str1);
+	};
+	/**
+	 * 获取某个字符在字符串中的所有位置
+	 * 
+	 * @param str  要替换的字符串
+	 * @param flag 要替换的字符
+	 * @param str1   替换后的字符
+	 * @return     替换后的字符串
+	 */
+	public static String setStringByChar(String str, String flag, String[] str1) {
+		List<Integer>list= getStringByChar(str,flag);
+		return setStringByChar(str,list,str1);
+	};
+	/**
+	 * 字符串中某个字符进行替换
+	 * @param str 要替换的字符串
+	 * @param list 字符的位置集合
+	 * @param str1  替换后的字符
+	 * @return 替换后的字符串
+	 */
+	public static String setStringByChar(String str, List<Integer> list, String str1) {
+		String temp = "";
+		int begin = 0;
+		int end = 0;
+		for (int i = 0; i < list.size(); i++) {
+			end = list.get(i);
+			temp += str.substring(begin, end) + str1;
+			begin = end + 1;
+		}
+		if(end<str.length()){
+			temp+=str.substring(end+1);
+		}
+		return temp;
+	}
+	/**
+	 * 字符串中某个字符进行替换
+	 * @param str  要替换的字符串
+	 * @param list 字符的位置集合
+	 * @param str1   替换后的字符集合
+	 * @return 	         替换后的字符串
+	 */
+	public static String setStringByChar(String str, List<Integer> list, String[] str1) {
+		if(list.size()!=str1.length){
+			return "替换长度有误";
+		}
+		String temp = "";
+		int begin = 0;
+		int end = 0;
+		for (int i = 0; i < list.size(); i++) {
+			end = list.get(i);
+			temp += str.substring(begin, end) + str1[i];
+			begin = end + 1;
+		}
+		if(end<str.length()){
+			temp+=str.substring(end+1);
+		}
+		return temp;
+	}
 	/**
 	 * 验证日期/时间格式
 	 * 
