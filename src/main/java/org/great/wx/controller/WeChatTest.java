@@ -120,7 +120,26 @@ public class WeChatTest {
 			msg = JSONArray.fromObject(textMessage).toString();
 			JSONObject message = WechatUtil.doPostStr(url, msg);
 			return JSONArray.fromObject(message).toString();
+		} catch (Exception e) {
+			return null;
+		}
+	}
 
+	/**
+	 * TODO 待测试2
+	 * 
+	 * @desc 推送信息
+	 * @param token
+	 * @param msg
+	 * @return
+	 */
+	public String sendMessage2(String openId, String msg) {
+		try {
+			AccessToken token = WechatUtil.getAccessToken();
+			String url = WXUrl.SEND_MSG_URL.replace("ACCESS_TOKEN", token.getToken());
+			msg = MessageUtil.PUSH_TEXT_TEMPLATE.replace("OPENID", openId).replace("CONTENT", msg);
+			JSONObject message = WechatUtil.doPostStr(url, msg);
+			return JSONArray.fromObject(message).toString();
 		} catch (Exception e) {
 			return null;
 		}

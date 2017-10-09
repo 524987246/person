@@ -27,6 +27,10 @@ import com.thoughtworks.xstream.XStream;
 import net.sf.json.JSONObject;
 
 public class MessageUtil {
+	//推送文本消息格式
+	public static final String PUSH_TEXT_TEMPLATE = "{\"touser\":[\"OPENID\"],\"msgtype\": \"text\",\"text\": {\"content\":\"CONTENT\"}}";
+	
+	
 	// 定义消息类型
 	public static final String MSGTYPE_TEXT = "text";
 	public static final String MSGTYPE_NEWS = "news";
