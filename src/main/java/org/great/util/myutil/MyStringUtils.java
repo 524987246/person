@@ -189,14 +189,15 @@ public class MyStringUtils {
 	 *            待验证的字符串
 	 * @param format
 	 *            类型
-	 * @return 是返回ture,否则返回false
+	 * @return 是  返回ture,否则  返回false
 	 */
 	public static boolean isDateTime(String dateStr, String format) {
 		return GenericValidator.isDate(dateStr, format, true);
 	}
 
 	public static void main(String[] args) {
-		String str = "[{\"name\":\"a\",\"age\":\"1\"},{\"name\":\"b\",\"age\":\"2\"},{\"name\":\"c\",\"age\":\"3\"}]";
-		toListByJsonStr(str);
+	/*	String str = "[{\"name\":\"a\",\"age\":\"1\"},{\"name\":\"b\",\"age\":\"2\"},{\"name\":\"c\",\"age\":\"3\"}]";
+		toListByJsonStr(str);*/
+		System.out.println(isDateTime("2017-10-09","%Y-%m-%d"));
 	}
 }

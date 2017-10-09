@@ -21,10 +21,10 @@ public class User implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -6964957333569601350L;
-	private Integer id;
+	private Long id;
 	@NotEmpty(message = "用户名不能为空")
 	private String name;
-	@Size(min = 8, max = 16,message="密码应在8-16位")
+	@Size(min = 8, max = 16, message = "密码应在8-16位")
 	private String password;
 	private String phone;
 	private Integer grade;
@@ -34,11 +34,11 @@ public class User implements Serializable {
 	private Integer isemploy;
 	private Integer role;
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -92,9 +92,8 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", password=" + password
-				+ ", phone=" + phone + ", grade=" + grade + ", isemploy="
-				+ isemploy + ", role=" + role + "]";
+		return "User [id=" + id + ", name=" + name + ", password=" + password + ", phone=" + phone + ", grade=" + grade
+				+ ", isemploy=" + isemploy + ", role=" + role + "]";
 	}
 
 }

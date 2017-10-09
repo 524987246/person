@@ -4,26 +4,27 @@
 
 <mapper namespace="org.great.web.mapper.WebErrorMapper">
 	<sql id="beanAttr">
-	a.sid,a.serrorid,a.sname,a.sreason,a.sresolvent,a.isemploy
+		a.sid,a.serrorid,a.sname,a.sreason,a.sresolvent,a.isemploy
 	</sql>
 	<select id="findWebErrorByWebError" resultType="org.great.web.bean.WebError"
 		parameterType="org.great.web.bean.WebError">
 		SELECT
-		<include refid="beanAttr"/>
+		<include refid="beanAttr" />
 		FROM
 		tb_weberror a
 		<where>
 			a.isemploy=1
 			<if test="webError.serrorid !=null and webError.serrorid !=0">AND a.serrorid=#{webError.serrorid} </if>
 			<if test="webError.sname !=null and webError.sname !=''">AND a.sname LIKE CONCAT('%',#{webError.sname},'%') </if>
-			<if test="webError.sreason !=null and webError.sreason !=''">AND a.sreason LIKE CONCAT('%',#{webError.sreason},'%') </if>
+			<if test="webError.sreason !=null and webError.sreason !=''">AND a.sreason LIKE CONCAT('%',#{webError.sreason},'%')
+			</if>
 		</where>
 		ORDER BY a.serrorid
 		Limit #{page_new},#{page_num}
 	</select>
 	<update id="delWebErrorBySid">
 		UPDATE
-		tb_weberror 
+		tb_weberror
 		SET
 		isemploy=#{isemploy}
 		WHERE
@@ -44,10 +45,10 @@
 	</insert>
 	<update id="updateWebErrorBySid" parameterType="org.great.web.bean.WebError">
 		UPDATE
-		tb_weberror
+		tb_weberror a
 		SET
 		serrorid=#{serrorid}
-		<if test="sname !=null and sname !=''">,sname=#{sname}</if>
+		<if test="sreason !=null and sreason !=''">,sname=#{sname}</if>
 		<if test="sreason !=null and sreason !=''">,sreason=#{sreason}</if>
 		<if test="sresolvent !=null and sresolvent !=''">,sresolvent=#{sresolvent}</if>
 		WHERE
