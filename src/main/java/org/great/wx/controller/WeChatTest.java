@@ -2,19 +2,27 @@ package org.great.wx.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.MessageFormat;
 import java.util.Date;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.http.client.methods.HttpPost;
 import org.dom4j.DocumentException;
+import org.great.wx.bean.AccessToken;
 import org.great.wx.bean.TextMessage;
 import org.great.wx.wxutil.MessageUtil;
+import org.great.wx.wxutil.WXUrl;
 import org.great.wx.wxutil.WeChatCheckUtil;
+import org.great.wx.wxutil.WechatUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 /**
  * 代码生成
@@ -65,12 +73,14 @@ public class WeChatTest {
 			String content = map.get("Content");
 			String message = "";
 			if (MessageUtil.MSGTYPE_TEXT.equals(msgType)) {
-				TextMessage textMessage = new TextMessage();
-				textMessage.setFromUserName(toUserName);
-				textMessage.setToUserName(fromUserName);
-				textMessage.setMsgType("text");
-				textMessage.setCreateTime(new Date().getTime());
-				textMessage.setContent("接收成功==>" + content + "<==,返回消息");
+				/*
+				 * TextMessage textMessage = new TextMessage();
+				 * textMessage.setFromUserName(toUserName);
+				 * textMessage.setToUserName(fromUserName);
+				 * textMessage.setMsgType("text"); textMessage.setCreateTime(new
+				 * Date().getTime()); textMessage.setContent("接收成功==>" + content
+				 * + "<==,返回消息");
+				 */
 				message = MessageUtil.initText(toUserName, fromUserName, content);
 			} else if (MessageUtil.MSGTYPE_EVENT.equals(msgType)) {
 				// 事件类型再去细化判断
@@ -88,5 +98,31 @@ public class WeChatTest {
 			out.close();
 		}
 
+	}
+
+	/**
+	 * 待测试
+	 * 
+	 * @desc 推送信息
+	 * @param token
+	 * @param msg
+	 * @return
+	 */
+	public String sendMessage(String openId, String msg) {
+		try {
+			AccessToken token = WechatUtil.getAccessToken();
+			String url = WXUrl.SEND_MSG_URL.replace("ACCESS_TOKEN", token.getToken());
+			TextMessage textMessage = new TextMessage();
+			textMessage.setToUserName(openId);
+			textMessage.setContent(msg);
+			textMessage.setMsgType(MessageUtil.MSGTYPE_TEXT);
+			textMessage.setCreateTime(new Date().getTime());
+			msg = JSONArray.fromObject(textMessage).toString();
+			JSONObject message = WechatUtil.doPostStr(url, msg);
+			return JSONArray.fromObject(message).toString();
+
+		} catch (Exception e) {
+			return null;
+		}
 	}
 }
