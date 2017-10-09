@@ -101,7 +101,7 @@ public class WeChatTest {
 	}
 
 	/**
-	 * 待测试
+	 * TODO 待测试
 	 * 
 	 * @desc 推送信息
 	 * @param token

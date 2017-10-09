@@ -61,19 +61,6 @@ public class WechatUtil {
 		return oAuthInfo;
 	}
 
-	@Test
-	public void add() {
-		// 测试获取token
-		try {
-			System.out.println(getAccessToken());
-		} catch (ParseException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-	}
-
 	/**
 	 * get请求
 	 * 
@@ -113,5 +100,18 @@ public class WechatUtil {
 		String result = EntityUtils.toString(response.getEntity(), "UTF-8");
 		jsonObject = JSONObject.fromObject(result);
 		return jsonObject;
+	}
+
+	@Test
+	public void add() {
+		// 测试获取token
+		try {
+			System.out.println(getAccessToken());
+		} catch (ParseException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 	}
 }

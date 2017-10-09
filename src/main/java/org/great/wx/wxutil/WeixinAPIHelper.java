@@ -88,6 +88,7 @@ public class WeixinAPIHelper {
 	}
 
 	/**
+	 * TODO
 	 * @desc 推送信息
 	 * @param token
 	 * @param msg

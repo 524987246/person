@@ -18,10 +18,10 @@ public class WXUrl {
 
 	// 获取用户列表 一次查询一万条
 	public static final String USER_LIST = "https://api.weixin.qq.com/cgi-bin/user/get?access_token=ACCESS_TOKEN&next_openid=NEXT_OPENID";
-	public static final String USER_LIST_UrlType = "GET";
+	public static final String USER_LIST_Url_Type = "GET";
 
 	// 消息推送
 	public static final String SEND_MSG_URL = "https://api.weixin.qq.com/cgi-bin/message/send?access_token=ACCESS_TOKEN";
-	public static final String SEND_MSG_URLType = "POST";
+	public static final String SEND_MSG_URL_Type = "POST";
 
 }
