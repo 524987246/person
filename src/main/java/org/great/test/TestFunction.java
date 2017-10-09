@@ -1,7 +1,9 @@
 package org.great.test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.great.util.beanValidtor.ValidtorUtil;
 import org.junit.Test;
@@ -16,9 +18,14 @@ public class TestFunction {
 	@Test
 	public void testValidtor() {
 		UserValidtorTest user = new UserValidtorTest();
+		Map<String,String> map=new HashMap<String, String>();
+//		map.put("1","1");
+//		map.put("2","22");
+//		map.put("3","33");
+		user.setMap(map);
 		List<String> list = new ArrayList<String>();
+//		list.add("1");
 		list.add("1");
-		list.add("2");
 		user.setList(list);
 		user.setName("12345");
 		String str = ValidtorUtil.validbean(user);

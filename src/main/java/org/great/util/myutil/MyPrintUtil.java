@@ -22,6 +22,7 @@ import org.junit.Test;
 public class MyPrintUtil {
 	/**
 	 * 打印全部request中的参数
+	 * 
 	 * @param request
 	 * @return
 	 */
@@ -32,7 +33,7 @@ public class MyPrintUtil {
 			String next = enumeration.nextElement().toString();
 			print(next);
 			next = (request.getParameter(next) == null ? "空" : request.getParameter(next));
-			print(" : "+next+";");
+			print(" : " + next + ";");
 			println("");
 			param.put(next, request.getParameter(next));
 		}
@@ -40,6 +41,14 @@ public class MyPrintUtil {
 	}
 
 	public static void printMap(Map<String, Object> map) {
+		if (map == null) {
+			printlnError("map === NULL");
+			return;
+		}
+		if (map.size() == 0) {
+			printlnError("map 长度 === 0");
+			return;
+		}
 		Iterator<String> iterator = map.keySet().iterator();
 		while (iterator.hasNext()) {
 			String key = iterator.next().toString();
@@ -51,6 +60,14 @@ public class MyPrintUtil {
 	}
 
 	public static void printSet(Set<Object> set) {
+		if (set == null) {
+			printlnError("set === NULL");
+			return;
+		}
+		if (set.size() == 0) {
+			printlnError("set 长度 === 0");
+			return;
+		}
 		Iterator<Object> iterator = set.iterator();
 		while (iterator.hasNext()) {
 			String key = iterator.next().toString();
@@ -59,6 +76,14 @@ public class MyPrintUtil {
 	}
 
 	public static void printList(List<Object> list) {
+		if (list == null) {
+			printlnError("list === NULL");
+			return;
+		}
+		if (list.size() == 0) {
+			printlnError("list 长度 === 0");
+			return;
+		}
 		for (Object object : list) {
 			println(object);
 		}
@@ -70,6 +95,10 @@ public class MyPrintUtil {
 
 	public static void print(Object object) {
 		System.out.print(object.toString());
+	}
+
+	public static void printlnError(Object object) {
+		System.err.println(object.toString());
 	}
 
 	@Test
