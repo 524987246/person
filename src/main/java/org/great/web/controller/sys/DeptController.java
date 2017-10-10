@@ -68,7 +68,6 @@ public class DeptController {
 		 */
 		PageHelper.startPage(dept.getPage_new(), dept.getPage_size());
 		List<Dept> list = deptService.findList(dept);
-		map.put("list", list);
 		PageInfo page = new PageInfo(list);
 		map.put("page", page);
 		dept.setPageInfo(page.getTotal());

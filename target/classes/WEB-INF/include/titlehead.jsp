@@ -37,3 +37,7 @@ var basePath='${ctx}';
 <script type="text/javascript" src="${ctx}/statis/ztree/js/jquery.ztree.exhide.js"></script>
 <!-- ztree插件  结束 -->
 
+<!-- pagination 分页插件   开始 -->
+<link href="${ctx}/statis/pagination/pagination.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="${ctx}/statis/pagination/jquery.pagination.js"></script>
+<!-- pagination 分页插件   结束 -->

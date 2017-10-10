@@ -15,33 +15,26 @@
 <title>部门管理</title>
 <body
 	style="width: 100%;height:100%;background-image:url(${ctx}/images/backimage.png);">
-	<button class="btn" onclick="test()">测试数据</button>
+	<table width="80%" align="center">
+		<tr>
+			<td>id</td>
+			<td>名称</td>
+			<td>父类id</td>
+		</tr>
+		<tbody id="datalist1">
+		</tbody>
+	</table>
+	<div class="wrapper">
+		<div class="eg">
+			<div class="M-box"></div>
+			<div class="tips">
+				当前是第<span class="now">1</span>页,总共<span class="total"></span>页,总共<span
+					class="count"></span>条数据
+			</div>
+		</div>
+	</div>
 	<script type="text/javascript">
-	
-		var test = function() {
-			var data = {
-				name : "技术部",
-				parentId : 0
-			}
-			data='{"name":"技术部","parentId":0}';
-			var url = "/Reception/sys/list.html";
-			url = ProjectUrl(url);
-			$.ajax({
-				url : url,
-				type : "POST",
-				data : data,
-				async : true,
-				contentType : "application/json",
-				dataType : "json",
-				success : function(data) {
-					console.dir(data);
-				},
-				error : function(data) {
-					hint("请求异常");
-				}
-			});
-		}
 	</script>
-	<%-- <script src="${ctx}/viewjs/weberror/weberror.js"></script> --%>
+	<script src="${ctx}/viewjs/sys/dept.js"></script>
 </body>
 </html>
