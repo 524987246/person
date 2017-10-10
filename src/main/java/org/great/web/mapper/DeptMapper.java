@@ -14,4 +14,8 @@ import org.great.web.bean.sys.Dept;
  */
 public interface DeptMapper {
 
+	List<Dept> findList(Dept dept);
+
+	Integer queryTotal(Dept dept);
+
 }

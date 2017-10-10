@@ -188,18 +188,21 @@ public class BaseBean {
 		this.updateBy.setId(0L);
 	}
 
-	protected void setQueryDate(int time, Map<String, Object> map) {
+	public void setQueryDate(int time, Map<String, Object> map) {
 		map = MyDateUtils.setQueryDate(this.queryBeginDate, this.queryEndDate, time, map);
 		this.queryBeginDate = map.get("begintime").toString();
 		this.queryEndDate = map.get("endtime").toString();
 	}
 
-	protected void setPageInfo() {
+	public void setPageInfo(Long totalCount) {
 		if (this.page_new == null) {
 			this.page_new = 1;
 		}
 		if (this.page_size == null) {
 			this.page_size = BaseResoure.DEFALUT_PAGE_SIZE;
+		}
+		if (totalCount != null) {
+			this.totalCount = totalCount;
 		}
 		if (this.totalCount == 0) {
 			return;

@@ -20,7 +20,7 @@
 			</if>
 		</where>
 		ORDER BY a.serrorid
-		Limit #{page_new},#{page_num}
+		<!-- Limit #{page_new},#{page_num} -->
 	</select>
 	<update id="delWebErrorBySid">
 		UPDATE

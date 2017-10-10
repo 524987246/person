@@ -45,4 +45,9 @@ public class Dept extends BaseBean implements Serializable {
 		this.parentId = parentId;
 	}
 
+	@Override
+	public String toString() {
+		return "Dept [name=" + name + ", parentId=" + parentId + "]";
+	}
+
 }

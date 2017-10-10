@@ -5,14 +5,17 @@
 <mapper namespace="org.great.web.mapper.DeptMapper">
 	<!--基础属性 -->
 	<sql id="beanAttr">
-		a.id,a.name,a.paymoney,a.parent_id parentId,
-		a.create_by
-		createBy.id,
-		DATE_FORMAT(a.create_date,'%Y-%m-%d') createDate,
-		a.update_by updateBy.id,
-		DATE_FORMAT(a.update_date,'%Y-%m-%d')
-		updateDate,
-		a.remark,a.isemploy
+		a.id,
+		a.name,
+		a.parent_id AS "parentId",
+		a.create_by AS
+		"createBy.id",
+		DATE_FORMAT(a.create_date,'%Y-%m-%d') AS "createDate",
+		a.update_by AS "updateBy.id",
+		DATE_FORMAT(a.update_date,'%Y-%m-%d') AS
+		"updateDate",
+		a.remarks,
+		a.isemploy
 	</sql>
 	<!--主表名 -->
 	<sql id="tableName">
@@ -45,6 +48,7 @@
 			</if>
 		</where>
 	</sql>
+	<!-- 查询集合 -->
 	<select id="findList" resultType="org.great.web.bean.sys.Dept"
 		parameterType="org.great.web.bean.sys.Dept">
 		SELECT
@@ -52,10 +56,14 @@
 		FROM
 		<include refid="tableName" />
 		<include refid="whereInfo" />
-		ORDER BY a.createtime DESC
-		Limit #{page_new},#{page_num}
+		ORDER BY a.create_date DESC
 	</select>
-	<select id="">
-
+	<!-- 查询总数 -->
+	<select id="queryTotal" resultType="Integer" parameterType="org.great.web.bean.sys.Dept">
+		SELECT
+		count(*)
+		FROM
+		<include refid="tableName" />
+		<include refid="whereInfo" />
 	</select>
 </mapper>

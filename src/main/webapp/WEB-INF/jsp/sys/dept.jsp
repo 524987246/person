@@ -15,6 +15,33 @@
 <title>部门管理</title>
 <body
 	style="width: 100%;height:100%;background-image:url(${ctx}/images/backimage.png);">
-	<script src="${ctx}/viewjs/weberror/weberror.js"></script>
+	<button class="btn" onclick="test()">测试数据</button>
+	<script type="text/javascript">
+	
+		var test = function() {
+			var data = {
+				name : "技术部",
+				parentId : 0
+			}
+			data='{"name":"技术部","parentId":0}';
+			var url = "/Reception/sys/list.html";
+			url = ProjectUrl(url);
+			$.ajax({
+				url : url,
+				type : "POST",
+				data : data,
+				async : true,
+				contentType : "application/json",
+				dataType : "json",
+				success : function(data) {
+					console.dir(data);
+				},
+				error : function(data) {
+					hint("请求异常");
+				}
+			});
+		}
+	</script>
+	<%-- <script src="${ctx}/viewjs/weberror/weberror.js"></script> --%>
 </body>
 </html>
