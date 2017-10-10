@@ -33,8 +33,9 @@
 			a.update_date=#{updateDate},
 		</if>
 	</sql>
-	<!--查询信息 -->
+	<!--查询条件信息 -->
 	<sql id="whereInfo">
+		<where>
 			a.isemploy=1
 			<if test="queryBeginDate != null and queryBeginDate != ''">
 				AND a.create_date &gt;= #{queryBeginDate}
@@ -42,19 +43,19 @@
 			<if test="queryEndDate != null and queryEndDate != ''">
 				AND a.create_date &lt;= #{queryEndDate}
 			</if>
+		</where>
 	</sql>
-	<select id="findCostInfoByCostInfo" resultType="org.great.web.bean.sys.Dept"
+	<select id="findList" resultType="org.great.web.bean.sys.Dept"
 		parameterType="org.great.web.bean.sys.Dept">
 		SELECT
 		<include refid="beanAttr" />
 		FROM
 		<include refid="tableName" />
-		<where>
-			a.isemploy=1
-			<if test="name !=null and name !=''">AND a.name like concat('%',#{name},'%')
-			</if>
-		</where>
-		ORDER BY a.createtime desc
+		<include refid="whereInfo" />
+		ORDER BY a.createtime DESC
 		Limit #{page_new},#{page_num}
+	</select>
+	<select id="">
+
 	</select>
 </mapper>

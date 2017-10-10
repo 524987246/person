@@ -21,11 +21,11 @@ public class Dept extends BaseBean implements Serializable {
 	 */
 	private static final long serialVersionUID = 7868942919987195607L;
 	/**
-	 * 支付名称
+	 * 部门名称
 	 */
 	private String name;
 	/**
-	 * 支付名称
+	 * 父类id
 	 */
 	private Long parentId;
 

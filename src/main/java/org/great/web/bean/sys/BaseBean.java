@@ -1,7 +1,9 @@
 package org.great.web.bean.sys;
 
-import java.util.Date;
+import java.util.Map;
 
+import org.great.config.BaseResoure;
+import org.great.util.myutil.MyDateUtils;
 import org.great.util.myutil.MyStringUtils;
 import org.great.web.bean.User;
 
@@ -19,6 +21,14 @@ public class BaseBean {
 	 */
 	private Integer page_size;
 	/**
+	 * 页面总数
+	 */
+	private Integer pageCount;
+	/**
+	 * 总个数
+	 */
+	private long totalCount;
+	/**
 	 * 备注
 	 */
 	private String remarks;
@@ -33,11 +43,11 @@ public class BaseBean {
 	/**
 	 * 查询使用,开始时间
 	 */
-	private Date queryBeginDate;
+	private String queryBeginDate;
 	/**
 	 * 查询使用,结束时间
 	 */
-	private Date queryEndDate;
+	private String queryEndDate;
 	/**
 	 * 更新者
 	 */
@@ -55,7 +65,7 @@ public class BaseBean {
 		return id;
 	}
 
-	public void setSid(Long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -99,19 +109,19 @@ public class BaseBean {
 		this.createDate = createDate;
 	}
 
-	public Date getQueryBeginDate() {
+	public String getQueryBeginDate() {
 		return queryBeginDate;
 	}
 
-	public void setQueryBeginDate(Date queryBeginDate) {
+	public void setQueryBeginDate(String queryBeginDate) {
 		this.queryBeginDate = queryBeginDate;
 	}
 
-	public Date getQueryEndDate() {
+	public String getQueryEndDate() {
 		return queryEndDate;
 	}
 
-	public void setQueryEndDate(Date queryEndDate) {
+	public void setQueryEndDate(String queryEndDate) {
 		this.queryEndDate = queryEndDate;
 	}
 
@@ -139,16 +149,65 @@ public class BaseBean {
 		this.isemploy = isemploy;
 	}
 
+	public Integer getPageCount() {
+		return pageCount;
+	}
+
+	public void setPageCount(Integer pageCount) {
+		this.pageCount = pageCount;
+	}
+
+	public long getTotalCount() {
+		return totalCount;
+	}
+
+	public void setTotalCount(long totalCount) {
+		this.totalCount = totalCount;
+	}
+
 	/**
 	 * 设置基础信息(创建人员,更新人员,创建时间,更新时间)
 	 */
 	protected void setBaseInfo() {
 		if (this.id == null) {
-			boolean bo=MyStringUtils.isEmpty(createDate);
-			if(bo){
-				MyStringUtils.isDateTime(createDate,"%Y-%m-%d");
+			boolean bo = MyStringUtils.isEmpty(this.createDate);
+			if (bo) {
+				bo = MyStringUtils.isDateTime(this.createDate, "yyyy-MM-dd");
+			}
+			if (!bo) {
+				this.createDate = MyDateUtils.dateToString(null);
+			}
+			// 获取当前用户
+			if (this.createBy == null || this.createBy.getId() == null) {
+				this.createBy = new User();
+				this.createBy.setId(0L);
 			}
 		}
+		this.updateDate = MyDateUtils.dateToString(null);
+		// 获取当前用户
+		this.updateBy.setId(0L);
 	}
 
+	protected void setQueryDate(int time, Map<String, Object> map) {
+		map = MyDateUtils.setQueryDate(this.queryBeginDate, this.queryEndDate, time, map);
+		this.queryBeginDate = map.get("begintime").toString();
+		this.queryEndDate = map.get("endtime").toString();
+	}
+
+	protected void setPageInfo() {
+		if (this.page_new == null) {
+			this.page_new = 1;
+		}
+		if (this.page_size == null) {
+			this.page_size = BaseResoure.DEFALUT_PAGE_SIZE;
+		}
+		if (this.totalCount == 0) {
+			return;
+		}
+		this.pageCount = (int) Math.ceil((double) this.totalCount / this.page_size);
+		int total = this.page_new * this.page_size;
+		if (total > this.totalCount) {
+			this.page_new = 1;
+		}
+	}
 }

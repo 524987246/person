@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Random;
 
 import org.apache.commons.validator.GenericValidator;
-import org.great.util.DateUtil;
 
 /**
  * String工具类
@@ -24,7 +23,7 @@ public class MyStringUtils {
 	 */
 	public static synchronized String makeUUID() {
 		Date date = new Date();
-		StringBuffer s = new StringBuffer(DateUtil.dateToString(date, DateUtil.DATE_TIME_PATTERN));
+		StringBuffer s = new StringBuffer(MyDateUtils.dateToString(date, MyDateUtils.DATE_TIME_PATTERN));
 		return s.append((new Random().nextInt(900) + 100)).toString();
 	}
 
@@ -113,35 +112,48 @@ public class MyStringUtils {
 		}
 		return list;
 	}
+
 	/**
 	 * 获取某个字符在字符串中的所有位置
 	 * 
-	 * @param str  要替换的字符串
-	 * @param flag 要替换的字符
-	 * @param str1   替换后的字符
-	 * @return     替换后的字符串
+	 * @param str
+	 *            要替换的字符串
+	 * @param flag
+	 *            要替换的字符
+	 * @param str1
+	 *            替换后的字符
+	 * @return 替换后的字符串
 	 */
 	public static String setStringByChar(String str, String flag, String str1) {
-		List<Integer>list= getStringByChar(str,flag);
-		return setStringByChar(str,list,str1);
+		List<Integer> list = getStringByChar(str, flag);
+		return setStringByChar(str, list, str1);
 	};
+
 	/**
 	 * 获取某个字符在字符串中的所有位置
 	 * 
-	 * @param str  要替换的字符串
-	 * @param flag 要替换的字符
-	 * @param str1   替换后的字符
-	 * @return     替换后的字符串
+	 * @param str
+	 *            要替换的字符串
+	 * @param flag
+	 *            要替换的字符
+	 * @param str1
+	 *            替换后的字符
+	 * @return 替换后的字符串
 	 */
 	public static String setStringByChar(String str, String flag, String[] str1) {
-		List<Integer>list= getStringByChar(str,flag);
-		return setStringByChar(str,list,str1);
+		List<Integer> list = getStringByChar(str, flag);
+		return setStringByChar(str, list, str1);
 	};
+
 	/**
 	 * 字符串中某个字符进行替换
-	 * @param str 要替换的字符串
-	 * @param list 字符的位置集合
-	 * @param str1  替换后的字符
+	 * 
+	 * @param str
+	 *            要替换的字符串
+	 * @param list
+	 *            字符的位置集合
+	 * @param str1
+	 *            替换后的字符
 	 * @return 替换后的字符串
 	 */
 	public static String setStringByChar(String str, List<Integer> list, String str1) {
@@ -153,20 +165,25 @@ public class MyStringUtils {
 			temp += str.substring(begin, end) + str1;
 			begin = end + 1;
 		}
-		if(end<str.length()){
-			temp+=str.substring(end+1);
+		if (end < str.length()) {
+			temp += str.substring(end + 1);
 		}
 		return temp;
 	}
+
 	/**
 	 * 字符串中某个字符进行替换
-	 * @param str  要替换的字符串
-	 * @param list 字符的位置集合
-	 * @param str1   替换后的字符集合
-	 * @return 	         替换后的字符串
+	 * 
+	 * @param str
+	 *            要替换的字符串
+	 * @param list
+	 *            字符的位置集合
+	 * @param str1
+	 *            替换后的字符集合
+	 * @return 替换后的字符串
 	 */
 	public static String setStringByChar(String str, List<Integer> list, String[] str1) {
-		if(list.size()!=str1.length){
+		if (list.size() != str1.length) {
 			return "替换长度有误";
 		}
 		String temp = "";
@@ -177,11 +194,12 @@ public class MyStringUtils {
 			temp += str.substring(begin, end) + str1[i];
 			begin = end + 1;
 		}
-		if(end<str.length()){
-			temp+=str.substring(end+1);
+		if (end < str.length()) {
+			temp += str.substring(end + 1);
 		}
 		return temp;
 	}
+
 	/**
 	 * 验证日期/时间格式
 	 * 
@@ -189,15 +207,18 @@ public class MyStringUtils {
 	 *            待验证的字符串
 	 * @param format
 	 *            类型
-	 * @return 是  返回ture,否则  返回false
+	 * @return 是 返回ture,否则 返回false
 	 */
 	public static boolean isDateTime(String dateStr, String format) {
 		return GenericValidator.isDate(dateStr, format, true);
 	}
 
 	public static void main(String[] args) {
-	/*	String str = "[{\"name\":\"a\",\"age\":\"1\"},{\"name\":\"b\",\"age\":\"2\"},{\"name\":\"c\",\"age\":\"3\"}]";
-		toListByJsonStr(str);*/
-		System.out.println(isDateTime("2017-10-09","%Y-%m-%d"));
+		/*
+		 * String str =
+		 * "[{\"name\":\"a\",\"age\":\"1\"},{\"name\":\"b\",\"age\":\"2\"},{\"name\":\"c\",\"age\":\"3\"}]";
+		 * toListByJsonStr(str);
+		 */
+		System.out.println(isDateTime("2017-10-09", "yyyy-MM-dd"));
 	}
 }

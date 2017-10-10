@@ -1,4 +1,4 @@
-package org.great.util;
+package org.great.util.myutil;
 
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
@@ -9,7 +9,7 @@ import java.util.Map;
 import org.great.util.myutil.MyStringUtils;
 import org.junit.Test;
 
-public class DateUtil {
+public class MyDateUtils {
 	/** 时间格式(yyyy-MM-dd) */
 	public final static String DATE_PATTERN = "yyyy-MM-dd";
 	/** 时间格式(yyyy-MM-dd HH:mm:ss) */
@@ -118,16 +118,17 @@ public class DateUtil {
 	 * @param begintime
 	 * @param endtime
 	 * @param map
+	 * @param time 间隔时间
 	 * @return
 	 */
-	public static Map<String, Object> setQueryDate(String begintime, String endtime, Map<String, Object> map) {
+	public static Map<String, Object> setQueryDate(String begintime, String endtime,int time, Map<String, Object> map) {
 		Boolean bo1 = (begintime == null || begintime.trim().equals(""));
 		Boolean bo2 = (endtime == null || endtime.trim().equals(""));
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = null;
 		if (bo1 && bo2) {
 			endtime = dateToString(new Date(), "yyyy-MM-dd");
-			begintime = getDate(null, -30);
+			begintime = getDate(null, -time);
 		} else if (bo1 & !bo2) {
 			// 结束时间不为空
 			try {
@@ -135,14 +136,14 @@ public class DateUtil {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			begintime = getDate(date, -30);
+			begintime = getDate(date, -time);
 		} else if (!bo1 & bo2) {
 			try {
 				date = sdf.parse(begintime);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			endtime = getDate(date, 30);
+			endtime = getDate(date, time);
 		}
 		if (map == null) {
 			map = new HashMap<String, Object>();
