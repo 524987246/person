@@ -43,7 +43,7 @@ function PaperIntercep(obj) {
 			
  // 验证手机号码的格式
 	function checkPhone(phoneObj) {
-		var checkFormat = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+		var checkFormat = /^((1[3-8]{1}[0-9]{1})+\d{8})$/;
 		if (! checkFormat.test( $(phoneObj).val() )) {
 			return false;	
 		}

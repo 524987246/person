@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.great.web.bean.DbName;
+import org.great.web.bean.buz.DbName;
 
 public class QueryDao extends BaseDao {
 	private final static String TABLEINFO_SQL = "SELECT table_name tableName, "

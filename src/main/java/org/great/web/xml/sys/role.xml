@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" 
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="org.great.web.mapper.sys.RoleMapper">
+	<!--基础属性 -->
+	<sql id="beanAttr">
+		a.id,
+		a.name,
+		a.parent_id AS "parentId",
+		a.create_by AS
+		"createBy.id",
+		DATE_FORMAT(a.create_date,'%Y-%m-%d') AS "createDate",
+		a.update_by AS "updateBy.id",
+		DATE_FORMAT(a.update_date,'%Y-%m-%d') AS
+		"updateDate",
+		a.remarks,
+		a.isemploy
+	</sql>
+	<!--主表名 -->
+	<sql id="tableName">
+		sys_dept a
+	</sql>
+	<!--主表名 基本更新信息 -->
+	<sql id="baseUpdateInfo">
+		<if test="createBy !=null and createBy.id !=null and createBy.id!=''">
+			a.create_by=#{createBy.id},
+		</if>
+		<if test="createDate !=null and createDate !=''">
+			a.create_date=#{createDate},
+		</if>
+		<if test="updateBy !=null and updateBy.id !=null and updateBy.id!=''">
+			a.update_by=#{updateBy.id},
+		</if>
+		<if test="updateDate !=null and updateDate !=''">
+			a.update_date=#{updateDate},
+		</if>
+	</sql>
+	<!--查询条件信息 -->
+	<sql id="whereInfo">
+		<where>
+			a.isemploy=1
+			<if test="queryBeginDate != null and queryBeginDate != ''">
+				AND a.create_date &gt;= #{queryBeginDate}
+			</if>
+			<if test="queryEndDate != null and queryEndDate != ''">
+				AND a.create_date &lt;= #{queryEndDate}
+			</if>
+		</where>
+	</sql>
+	<!-- 查询集合 -->
+	<select id="findList" resultType="org.great.web.bean.sys.Dept"
+		parameterType="org.great.web.bean.sys.Dept">
+		SELECT
+		<include refid="beanAttr" />
+		FROM
+		<include refid="tableName" />
+		<include refid="whereInfo" />
+		ORDER BY a.create_date DESC
+	</select>
+	<!-- 查询总数 -->
+	<select id="queryTotal" resultType="Integer" parameterType="org.great.web.bean.sys.Dept">
+		SELECT
+		count(*)
+		FROM
+		<include refid="tableName" />
+		<include refid="whereInfo" />
+	</select>
+</mapper>

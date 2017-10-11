@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" 
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<mapper namespace="org.great.web.mapper.sys.SysUserMapper">
+
+
+	<sql id="beanAttr">
+	a.sid,a.serrorid,a.sname,a.sreanson,a.sresolvent,a.isemploy
+	</sql>
+	<!-- 查询单个用户,用于登录查找之类 -->
+	<select id="findUserByUser" resultType="org.great.web.bean.User"
+		parameterType="org.great.web.bean.User">
+		select 
+		*
+		from t_user
+		<where>
+			<if test="user_id!=null and user_id!=''">and user_id=#{user_id}</if>
+			<if test="password!=null and password!=''">and password=MD5(#{password})</if>
+			<if test="mobilephone!=null and mobilephone!=''">and mobilephone=#{mobilephone}</if>
+			<if test="idbean_card!=null and idbean_card!=''">and idbean_card=#{idbean_card}</if>
+		</where>
+	</select>
+	<!-- 查询用户总数 -->
+	<select id="findusersum" resultType="Integer">
+		SELECT COUNT(1) sumnum
+		FROM t_user
+	</select>
+</mapper>

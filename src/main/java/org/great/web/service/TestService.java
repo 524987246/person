@@ -8,9 +8,9 @@ import javax.annotation.Resource;
 
 import org.great.datasource.TargetDataSource;
 import org.great.util.myutil.MyCollectionUtils;
-import org.great.web.bean.Menus;
-import org.great.web.mapper.MenusMapper;
-import org.great.web.mapper.TestMapper;
+import org.great.web.bean.buz.Menus;
+import org.great.web.mapper.sys.MenusMapper;
+import org.great.web.mapper.sys.TestMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
