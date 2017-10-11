@@ -7,19 +7,17 @@
 	<sql id="beanAttr">
 		a.id,
 		a.name,
-		a.parent_id AS "parentId",
-		a.create_by AS
-		"createBy.id",
+		a.create_by AS "createBy.id",
 		DATE_FORMAT(a.create_date,'%Y-%m-%d') AS "createDate",
-		a.update_by AS "updateBy.id",
-		DATE_FORMAT(a.update_date,'%Y-%m-%d') AS
-		"updateDate",
+		a.update_by AS
+		"updateBy.id",
+		DATE_FORMAT(a.update_date,'%Y-%m-%d') AS "updateDate",
 		a.remarks,
 		a.isemploy
 	</sql>
 	<!--主表名 -->
 	<sql id="tableName">
-		sys_dept a
+		sys_role
 	</sql>
 	<!--主表名 基本更新信息 -->
 	<sql id="baseUpdateInfo">
@@ -48,22 +46,78 @@
 			</if>
 		</where>
 	</sql>
-	<!-- 查询集合 -->
-	<select id="findList" resultType="org.great.web.bean.sys.Dept"
-		parameterType="org.great.web.bean.sys.Dept">
+	<!-- 查询单个 -->
+	<select id="get" parameterType="Long">
 		SELECT
 		<include refid="beanAttr" />
 		FROM
 		<include refid="tableName" />
+		a
+		where id=#{id}
+	</select>
+	<!-- 查询集合 -->
+	<select id="findList" resultType="org.great.web.bean.sys.Role"
+		parameterType="org.great.web.bean.sys.Role">
+		SELECT
+		<include refid="beanAttr" />
+		FROM
+		<include refid="tableName" />
+		a
 		<include refid="whereInfo" />
 		ORDER BY a.create_date DESC
 	</select>
 	<!-- 查询总数 -->
-	<select id="queryTotal" resultType="Integer" parameterType="org.great.web.bean.sys.Dept">
+	<select id="queryTotal" resultType="Integer" parameterType="org.great.web.bean.sys.Role">
 		SELECT
 		count(*)
 		FROM
 		<include refid="tableName" />
+		a
 		<include refid="whereInfo" />
+	</select>
+	<!-- 删除 -->
+	<select id="delete" parameterType="org.great.web.bean.sys.Role">
+		UPDATE
+		<include refid="tableName" />
+		SET
+		isemploy=#{isemploy}
+		WHERE
+		id=#{id}
+	</select>
+	<!-- 批量删除 -->
+	<select id="batchdelete">
+		UPDATE
+		<include refid="tableName" />
+		SET
+		isemploy=#{isemploy}
+		WHERE
+		id in
+		<foreach item="id" collection="list" open="(" separator=","
+			close=")">
+			#{id}
+		</foreach>
+	</select>
+	<!-- 更新 -->
+	<select id="update" parameterType="org.great.web.bean.sys.Role">
+		UPDATE
+		<include refid="tableName" />
+		<set>
+			<include refid="baseUpdateInfo" />
+			<if test="name !=null and name !=''">name=#{name},</if>
+		</set>
+		WHERE
+		sid=#{sid}
+	</select>
+	<!-- 保存 -->
+	<select id="save" parameterType="org.great.web.bean.sys.Role">
+		INSERT INTO
+		<include refid="tableName" />
+		(create_by,create_date,update_by,update_date
+		<if test="remarks !=null and remarks !=''">,remarks</if>
+		<if test="name !=null and name !=''">,name</if>
+		)VALUES(#{create_by},#{create_date},#{update_by},#{update_date}
+		<if test="remarks !=null and remarks !=''">,#{remarks}</if>
+		<if test="name !=null and name !=''">,#{name}</if>
+		)
 	</select>
 </mapper>

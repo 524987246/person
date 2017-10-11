@@ -6,15 +6,13 @@ import org.apache.ibatis.annotations.Param;
 import org.great.web.bean.buz.CostInfo;
 import org.great.web.bean.sys.Dept;
 import org.great.web.bean.sys.Role;
+import org.great.web.mapper.BaseMapper;
 
 /**
  * 消费信息mapper
  * 
- * @author 谢军
+ * @author xiejun
  * 
  */
-public interface RoleMapper {
-
-	List<Role> findList(Role role);
-
+public interface RoleMapper extends BaseMapper<Role> {
 }

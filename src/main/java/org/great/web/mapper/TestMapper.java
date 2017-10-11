@@ -1,4 +1,4 @@
-package org.great.web.mapper.sys;
+package org.great.web.mapper;
 
 import java.util.List;
 import java.util.Map;
