@@ -33,6 +33,9 @@
 		<if test="updateDate !=null and updateDate !=''">
 			a.update_date=#{updateDate},
 		</if>
+		<if test="remarks !=null and remarks !=''">
+			a.remarks=#{remarks},
+		</if>
 	</sql>
 	<!--查询条件信息 -->
 	<sql id="whereInfo">
@@ -46,15 +49,67 @@
 			</if>
 		</where>
 	</sql>
+	<!--手动装配结果 -->
+	<resultMap id="roleResult" type="org.great.web.bean.sys.Role">
+		<!-- 基本属性 -->
+		<id property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="createBy.id" column="createBy.id" />
+		<result property="createDate" column="createDate" />
+		<result property="updateBy.id" column="updateBy.id" />
+		<result property="updateDate" column="updateDate" />
+		<result property="remarks" column="remarks" />
+		<result property="isemploy" column="isemploy" />
+		<!--菜单集合 -->
+		<collection property="menulist" ofType="org.great.web.bean.sys.Menu">
+			<id property="id" column="menu.id" />
+			<result property="name" column="menu.name" />
+			<result property="url" column="menu.url" />
+			<result property="parentId" column="menu.parentId" />
+			<result property="perms" column="menu.perms" />
+			<result property="type" column="menu.type" />
+			<result property="icon" column="menu.icon" />
+			<result property="orderNum" column="menu.orderNum" />
+			<result property="createBy.id" column="menu.createBy.id" />
+			<result property="createDate" column="menu.createDate" />
+			<result property="updateBy.id" column="menu.updateBy.id" />
+			<result property="updateDate" column="menu.updateDate" />
+			<result property="remarks" column="menu.remarks" />
+			<result property="isemploy" column="menu.isemploy" />
+		</collection>
+	</resultMap>
 	<!-- 查询单个 -->
-	<select id="get" parameterType="Long">
+	<select id="get" parameterType="Long" resultMap="roleResult">
 		SELECT
 		<include refid="beanAttr" />
+		,
+		c.id AS "menu.id",
+		c.name AS "menu.name",
+		c.url AS "menu.url",
+		c.parent_id AS "menu.parentId",
+		c.perms AS "menu.perms",
+		c.type AS
+		"menu.type",
+		c.icon AS "menu.icon",
+		c.order_num AS "menu.orderNum",
+		c.create_by AS "menu.createBy.id",
+		DATE_FORMAT(c.create_date,'%Y-%m-%d') AS "menu.createDate",
+		c.update_by AS"menu.updateBy.id",
+		DATE_FORMAT(c.update_date,'%Y-%m-%d') AS "menu.updateDate",
+		c.remarks
+		AS "menu.remarks",
+		c.isemploy AS "menu.isemploy"
 		FROM
 		<include refid="tableName" />
 		a
-		where id=#{id}
+		left join
+		sys_role_menu b
+		on b.role_id=a.id and b.isemploy=1
+		left join sys_menu c
+		on c.id=b.menu_id and c.isemploy=1
+		where a.id=#{id}
 	</select>
+
 	<!-- 查询集合 -->
 	<select id="findList" resultType="org.great.web.bean.sys.Role"
 		parameterType="org.great.web.bean.sys.Role">
@@ -115,7 +170,7 @@
 		(create_by,create_date,update_by,update_date
 		<if test="remarks !=null and remarks !=''">,remarks</if>
 		<if test="name !=null and name !=''">,name</if>
-		)VALUES(#{create_by},#{create_date},#{update_by},#{update_date}
+		)VALUES(#{createBy.id},#{createDate},#{updateBy.id},#{updateDate}
 		<if test="remarks !=null and remarks !=''">,#{remarks}</if>
 		<if test="name !=null and name !=''">,#{name}</if>
 		)

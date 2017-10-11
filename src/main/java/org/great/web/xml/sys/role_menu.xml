@@ -2,24 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" 
 "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 
-<mapper namespace="org.great.web.mapper.sys.DeptMapper">
+<mapper namespace="org.great.web.mapper.sys.RoleMenuMapper">
 	<!--基础属性 -->
 	<sql id="beanAttr">
 		a.id,
-		a.name,
-		a.parent_id AS "parentId",
-		a.create_by AS
-		"createBy.id",
+		a.role_id,
+		a.menu_id,
+		a.create_by AS "createBy.id",
 		DATE_FORMAT(a.create_date,'%Y-%m-%d') AS "createDate",
-		a.update_by AS "updateBy.id",
-		DATE_FORMAT(a.update_date,'%Y-%m-%d') AS
-		"updateDate",
+		a.update_by AS
+		"updateBy.id",
+		DATE_FORMAT(a.update_date,'%Y-%m-%d') AS "updateDate",
 		a.remarks,
 		a.isemploy
 	</sql>
 	<!--主表名 -->
 	<sql id="tableName">
-		sys_dept
+		sys_role_menu
 	</sql>
 	<!--主表名 基本更新信息 -->
 	<sql id="baseUpdateInfo">
@@ -35,9 +34,6 @@
 		<if test="updateDate !=null and updateDate !=''">
 			a.update_date=#{updateDate},
 		</if>
-		<if test="remarks !=null and remarks !=''">
-			a.remarks=#{remarks},
-		</if>
 	</sql>
 	<!--查询条件信息 -->
 	<sql id="whereInfo">
@@ -51,9 +47,18 @@
 			</if>
 		</where>
 	</sql>
+	<!-- 查询单个 -->
+	<select id="get" parameterType="Long" resultType="org.great.web.bean.sys.RoleMenu">
+		SELECT
+		<include refid="beanAttr" />
+		FROM
+		<include refid="tableName" />
+		a
+		where a.id=#{id}
+	</select>
 	<!-- 查询集合 -->
-	<select id="findList" resultType="org.great.web.bean.sys.Dept"
-		parameterType="org.great.web.bean.sys.Dept">
+	<select id="findList" resultType="org.great.web.bean.sys.RoleMenu"
+		parameterType="org.great.web.bean.sys.RoleMenu">
 		SELECT
 		<include refid="beanAttr" />
 		FROM
@@ -63,7 +68,8 @@
 		ORDER BY a.create_date DESC
 	</select>
 	<!-- 查询总数 -->
-	<select id="queryTotal" resultType="Integer" parameterType="org.great.web.bean.sys.Dept">
+	<select id="queryTotal" resultType="Integer"
+		parameterType="org.great.web.bean.sys.RoleMenu">
 		SELECT
 		count(*)
 		FROM
@@ -72,13 +78,24 @@
 		<include refid="whereInfo" />
 	</select>
 	<!-- 删除 -->
-	<select id="delete" parameterType="org.great.web.bean.sys.Dept">
+	<select id="delete" parameterType="org.great.web.bean.sys.RoleMenu">
 		UPDATE
 		<include refid="tableName" />
 		SET
 		isemploy=#{isemploy}
 		WHERE
 		id=#{id}
+	</select>
+	<!-- 删除 根据角色 -->
+	<select id="deleteByRoleMenu" parameterType="org.great.web.bean.sys.RoleMenu">
+		UPDATE
+		<include refid="tableName" />
+		SET
+		isemploy=#{isemploy}
+		<where>
+			<if test="roleId !=null and roleId !=''"> and role_id=#{roleId}</if>
+			<if test="menuId !=null and menuId !=''"> and menu_id=#{menuId}</if>
+		</where>
 	</select>
 	<!-- 批量删除 -->
 	<select id="batchdelete">
@@ -94,29 +111,26 @@
 		</foreach>
 	</select>
 	<!-- 更新 -->
-	<select id="update" parameterType="org.great.web.bean.sys.Dept">
+	<select id="update" parameterType="org.great.web.bean.sys.RoleMenu">
 		UPDATE
 		<include refid="tableName" />
 		<set>
 			<include refid="baseUpdateInfo" />
 			<if test="name !=null and name !=''">name=#{name},</if>
-			<if test="parentId !=null">parent_id=#{parentId},</if>
+			<if test="roleId !=null and roleId !=''">role_id=#{roleId},</if>
+			<if test="menuId !=null and menuId !=''">menu_id=#{menuId},</if>
 		</set>
 		WHERE
-		sid=#{sid}
+		id=#{id}
 	</select>
 	<!-- 保存 -->
-	<select id="save" parameterType="org.great.web.bean.sys.Dept">
+	<select id="save" parameterType="org.great.web.bean.sys.RoleMenu">
 		INSERT INTO
 		<include refid="tableName" />
-		(create_by,create_date,update_by,update_date
-		<if test="remarks !=null and remarks !=''">,remarks</if>
-		<if test="name !=null and name !=''">,name</if>
-		<if test="parentId !=null">,parent_id</if>
-		)VALUES(#{createBy.id},#{createDate},#{updateBy.id},#{updateDate}
-		<if test="remarks !=null and remarks !=''">,#{remarks}</if>
-		<if test="name !=null and name !=''">,#{name}</if>
-		<if test="parentId !=null">,#{parentId}</if>
+		(create_by,create_date,update_by,
+		update_date,RoleMenu_id,menu_id
+		)VALUES(#{createBy.id},#{createDate},#{updateBy.id},
+		#{updateDate},#{roleId},#{menuId}
 		)
 	</select>
 </mapper>
