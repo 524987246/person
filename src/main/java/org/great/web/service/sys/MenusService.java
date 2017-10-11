@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.great.web.bean.buz.Menus;
+import org.great.web.bean.sys.Menus;
 import org.great.web.mapper.sys.MenusMapper;
 import org.springframework.stereotype.Service;
 

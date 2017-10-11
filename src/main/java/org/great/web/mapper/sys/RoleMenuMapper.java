@@ -1,11 +1,7 @@
 package org.great.web.mapper.sys;
 
-import java.util.List;
-
-import org.apache.ibatis.annotations.Param;
-import org.great.web.bean.buz.CostInfo;
-import org.great.web.bean.sys.Dept;
 import org.great.web.bean.sys.Role;
+import org.great.web.bean.sys.RoleMenu;
 import org.great.web.mapper.BaseMapper;
 
 /**
@@ -14,6 +10,6 @@ import org.great.web.mapper.BaseMapper;
  * @author xiejun
  * 
  */
-public interface RoleMenuMapper extends BaseMapper<Role> {
+public interface RoleMenuMapper extends BaseMapper<RoleMenu> {
 	public int deleteByRoleMenu(Role role);
 }

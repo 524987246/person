@@ -4,13 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.Resource;
-
 import org.great.datasource.TargetDataSource;
 import org.great.util.myutil.MyCollectionUtils;
-import org.great.web.bean.buz.Menus;
 import org.great.web.mapper.TestMapper;
-import org.great.web.mapper.sys.MenusMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,7 +27,7 @@ public class TestService {
 		boolean bo = false;
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("id", "2");
-		List<Map> list = testMapper.find1(map);
+		List<Map<String, Object>> list = testMapper.find1(map);
 		bo = MyCollectionUtils.listEmpty(list);
 		return bo;
 	}
@@ -42,7 +38,7 @@ public class TestService {
 		boolean bo = false;
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("id", "1");
-		List<Map> list = testMapper.find2(map);
+		List<Map<String, Object>> list = testMapper.find2(map);
 		bo = MyCollectionUtils.listEmpty(list);
 		return bo;
 	}

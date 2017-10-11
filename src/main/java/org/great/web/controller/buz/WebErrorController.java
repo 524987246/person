@@ -21,8 +21,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.github.pagehelper.PageHelper;
-
 /**
  * 常见web错误controller
  * 
@@ -58,23 +56,21 @@ public class WebErrorController {
 	 */
 	@RequestMapping(value = "/info.html", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
 	@ResponseBody
-	public String info(@RequestBody Message message,
-			HttpServletRequest request, Model model) {
+	public String info(@RequestBody Message message, HttpServletRequest request, Model model) {
 		// System.out.println("str===="+str);
 		// System.out.println(message.toString());
 		// Message message = (Message)
 		// JSONObject.toBean(JSONObject.fromObject(str), Message.class);
 		WebError webError = new WebError();
 		if (null != message && null != message.getStr()) {
-			webError = (WebError) JSONObject.toBean(
-					JSONObject.fromObject(message.getStr()), WebError.class);
+			webError = (WebError) JSONObject.toBean(JSONObject.fromObject(message.getStr()), WebError.class);
 			// System.out.println(webError.toString());
 		}
 		message.setPage_new(message.getPage_new() * message.getPage_num());
 		message.setPage_num(message.getPage_num() + 1);
-		List<WebError> list = webErrorServices.findWebErrorByWebError(webError,
-				message.getPage_new(), message.getPage_num());
-		
+		List<WebError> list = webErrorServices.findWebErrorByWebError(webError, message.getPage_new(),
+				message.getPage_num());
+
 		msg = JSONArray.fromObject(list).toString();
 		return msg;
 	}
@@ -86,8 +82,7 @@ public class WebErrorController {
 	 */
 	@RequestMapping(value = "/remove.html", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
 	@ResponseBody
-	public String remove(@RequestBody String str, HttpServletRequest request,
-			Model model) {
+	public String remove(@RequestBody String str, HttpServletRequest request, Model model) {
 		boolean bo = webErrorServices.delWebErrorBySid(str, 2);
 		return String.valueOf(bo);
 	}
@@ -98,13 +93,11 @@ public class WebErrorController {
 	 * @return
 	 */
 	@RequestMapping(value = "/update.html", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
-	public void update(WebError webError, HttpServletRequest request,
-			HttpServletResponse response) {
+	public void update(WebError webError, HttpServletRequest request, HttpServletResponse response) {
 		response.setCharacterEncoding("utf-8");
 		boolean bo = false;
 		try {
-			if (!InputCheck.NotNullsString(
-					String.valueOf(webError.getSerrorid()), 10)) {
+			if (!InputCheck.NotNullsString(String.valueOf(webError.getSerrorid()), 10)) {
 				response.getWriter().print("错误代码,输入有误");
 				response.getWriter().flush();
 				response.getWriter().close();
@@ -125,12 +118,10 @@ public class WebErrorController {
 	 * @return
 	 */
 	@RequestMapping(value = "/add.html", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
-	public void add(WebError webError, HttpServletRequest request,
-			HttpServletResponse response) {
+	public void add(WebError webError, HttpServletRequest request, HttpServletResponse response) {
 		response.setCharacterEncoding("utf-8");
 		try {
-			if (!InputCheck.NotNullsString(
-					String.valueOf(webError.getSerrorid()), 10)) {
+			if (!InputCheck.NotNullsString(String.valueOf(webError.getSerrorid()), 10)) {
 				response.getWriter().print("错误代码,输入有误");
 				response.getWriter().flush();
 				response.getWriter().close();

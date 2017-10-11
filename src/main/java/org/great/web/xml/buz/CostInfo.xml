@@ -9,8 +9,8 @@
 		DATE_FORMAT(a.endtime,'%Y-%m-%d') endtime,
 		a.remark,a.income_expend,a.user,a.isemploy
 	</sql>
-	<select id="findCostInfoByCostInfo" resultType="org.great.web.bean.CostInfo"
-		parameterType="org.great.web.bean.CostInfo">
+	<select id="findCostInfoByCostInfo" resultType="org.great.web.bean.buz.CostInfo"
+		parameterType="org.great.web.bean.buz.CostInfo">
 		SELECT
 		<include refid="beanAttr" />
 		FROM
@@ -35,7 +35,7 @@
 		WHERE
 		sid=#{sid}
 	</update>
-	<insert id="insertCostInfo" parameterType="org.great.web.bean.CostInfo">
+	<insert id="insertCostInfo" parameterType="org.great.web.bean.buz.CostInfo">
 		INSERT INTO
 		tb_costinfo(sid,payname,paymoney
 		<if test="createtime !=null and createtime !=''">,createtime</if>
@@ -54,7 +54,7 @@
 		<if test="income_expend !=null and income_expend !=''">,#{income_expend}</if>
 		,1)
 	</insert>
-	<update id="updateCostInfoBySid" parameterType="org.great.web.bean.CostInfo">
+	<update id="updateCostInfoBySid" parameterType="org.great.web.bean.buz.CostInfo">
 		UPDATE
 		tb_costinfo
 		SET
@@ -70,7 +70,7 @@
 		sid=#{sid}
 	</update>
 
-	<select id="costSumByCostInfo" parameterType="org.great.web.bean.CostInfo"
+	<select id="costSumByCostInfo" parameterType="org.great.web.bean.buz.CostInfo"
 		resultType="Double">
 		SELECT SUM(paymoney) paymoney
 		FROM tb_costinfo

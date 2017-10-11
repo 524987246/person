@@ -1,23 +1,13 @@
 package org.great.web.controller.sys;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
-
-import org.great.util.InputCheck;
-import org.great.util.Message;
-import org.great.util.myutil.MyPrintUtil;
-import org.great.web.bean.buz.WebError;
 import org.great.web.bean.sys.Dept;
-import org.great.web.service.buz.WebErrorService;
 import org.great.web.service.sys.DeptService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,7 +27,7 @@ import com.github.pagehelper.PageInfo;
  * @since 2.0
  */
 @Controller
-@RequestMapping("/Reception/sys")
+@RequestMapping("/Reception/sys/dept")
 public class DeptController {
 	@Resource
 	private DeptService deptService;
@@ -47,7 +37,7 @@ public class DeptController {
 	 * 
 	 * @return
 	 */
-	@RequestMapping(value = "/dept.html", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
+	@RequestMapping(value = "/to.html", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
 	public String to() {
 		PageHelper.startPage(1, 2);
 		return "jsp/sys/dept";
@@ -68,7 +58,7 @@ public class DeptController {
 		 */
 		PageHelper.startPage(dept.getPage_new(), dept.getPage_size());
 		List<Dept> list = deptService.findList(dept);
-		PageInfo page = new PageInfo(list);
+		PageInfo<Dept> page = new PageInfo<Dept>(list);
 		map.put("page", page);
 		dept.setPageInfo(page.getTotal());
 		map.put("obj", dept);

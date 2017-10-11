@@ -21,7 +21,7 @@ public class UEditorController {
 	@RequestMapping(value = "/image.html", method = RequestMethod.POST)
 	public void uoloadimage(HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> param = new HashMap<String, Object>();
-		Enumeration e = request.getParameterNames();
+		Enumeration<?> e = request.getParameterNames();
 		while (e.hasMoreElements()) {
 			String next = e.nextElement().toString();
 			System.out.println(next);

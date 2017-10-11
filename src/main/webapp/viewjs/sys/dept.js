@@ -6,7 +6,7 @@ PageClick = function(index) {
 	loadList(index.getCurrent()); //点击分页加载列表数据  */  
 }
 var loadList = function(page_new) {
-	var url = "/Reception/sys/list.html";
+	var url = "/Reception/sys/dept/list.html";
 	url = ProjectUrl(url);
 	var data = {
 		page_new : page_new,

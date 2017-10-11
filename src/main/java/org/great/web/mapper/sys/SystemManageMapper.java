@@ -2,7 +2,7 @@ package org.great.web.mapper.sys;
 
 import java.util.List;
 
-import org.great.web.bean.buz.DbName;
+import org.great.web.bean.sys.DbName;
 
 /**
  * 用户mapper

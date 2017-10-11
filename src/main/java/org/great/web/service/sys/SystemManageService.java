@@ -6,23 +6,16 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.great.util.Dboperate;
-import org.great.web.bean.buz.DbName;
-import org.great.web.jdbc.BaseDao;
+import org.great.web.bean.sys.DbName;
 import org.great.web.jdbc.ColumnEntity;
 import org.great.web.jdbc.QueryDao;
 import org.great.web.mapper.sys.SystemManageMapper;
 import org.springframework.stereotype.Service;
-import java.io.ByteArrayOutputStream;
 import java.util.Map;
-import java.util.zip.ZipOutputStream;
-
-import org.apache.commons.io.IOUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * 用户表操作
  * 
- * @author 谢军
+ * @author xiejun
  * 
  */
 @Service
@@ -69,8 +62,7 @@ public class SystemManageService {
 	 * @param con
 	 * @return
 	 */
-	public Map<String, String> queryTable(DbName dbName, String tableName,
-			Connection con) {
+	public Map<String, String> queryTable(DbName dbName, String tableName, Connection con) {
 		QueryDao querydao = new QueryDao();
 		Map<String, String> list = querydao.queryTable(dbName, tableName, con);
 		return list;
@@ -84,8 +76,7 @@ public class SystemManageService {
 	 * @param con
 	 * @return
 	 */
-	public List<ColumnEntity> queryColumns(DbName dbName, String tableName,
-			Connection con) {
+	public List<ColumnEntity> queryColumns(DbName dbName, String tableName, Connection con) {
 		QueryDao querydao = new QueryDao();
 		List<ColumnEntity> list = querydao.queryColumns(dbName, tableName, con);
 		return list;
@@ -134,15 +125,13 @@ public class SystemManageService {
 		} else {
 			surl = surl.replaceAll("/dbname", "");
 		}
-		Connection con = Dboperate.getConnection(dbName.getSdriver(), surl,
-				dbName.getUsername(), dbName.getUserpwd());
+		Connection con = Dboperate.getConnection(dbName.getSdriver(), surl, dbName.getUsername(), dbName.getUserpwd());
 		return con;
 	}
 
 	public List<ColumnEntity> generatorCode(DbName dbName, Connection con) {
 		QueryDao querydao = new QueryDao();
-		List<ColumnEntity> resultlist = querydao.queryColumns(dbName,
-				dbName.getTbname(), con);
+		List<ColumnEntity> resultlist = querydao.queryColumns(dbName, dbName.getTbname(), con);
 		return resultlist;
 	}
 

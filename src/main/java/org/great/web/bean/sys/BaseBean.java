@@ -5,7 +5,6 @@ import java.util.Map;
 import org.great.config.BaseResoure;
 import org.great.util.myutil.MyDateUtils;
 import org.great.util.myutil.MyStringUtils;
-import org.great.web.bean.buz.User;
 
 public class BaseBean {
 	/**

@@ -1,6 +1,6 @@
 package org.great.web.mapper.sys;
 
-import org.great.web.bean.buz.User;
+import org.great.web.bean.sys.User;
 /**
  * 用户mapper
  * @author 谢军

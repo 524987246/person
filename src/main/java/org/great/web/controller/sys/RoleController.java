@@ -27,7 +27,7 @@ import com.github.pagehelper.PageInfo;
  * @since 2.0
  */
 @Controller
-@RequestMapping("/Reception/sys")
+@RequestMapping("/Reception/sys/role")
 public class RoleController {
 	@Resource
 	private RoleService roleService;
@@ -37,7 +37,7 @@ public class RoleController {
 	 * 
 	 * @return
 	 */
-	@RequestMapping(value = "/role.html", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
+	@RequestMapping(value = "/to.html", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
 	public String to() {
 		PageHelper.startPage(1, 2);
 		return "jsp/sys/role";
@@ -54,7 +54,7 @@ public class RoleController {
 		Map<String, Object> map = new HashMap<String, Object>();
 		PageHelper.startPage(role.getPage_new(), role.getPage_size());
 		List<Role> list = roleService.findList(role);
-		PageInfo page = new PageInfo(list);
+		PageInfo<Role> page = new PageInfo<Role>(list);
 		map.put("page", page);
 		role.setPageInfo(page.getTotal());
 		map.put("obj", role);

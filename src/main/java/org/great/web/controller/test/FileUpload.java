@@ -3,7 +3,6 @@ package org.great.web.controller.test;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -15,45 +14,32 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.sound.midi.Synthesizer;
-import javax.swing.JPopupMenu.Separator;
 
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FileUtils;
-import org.great.util.FileUtil;
 import org.great.util.myutil.MyPrintUtil;
-import org.hibernate.annotations.Synchronize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
-import org.springframework.web.multipart.support.StandardMultipartHttpServletRequest;
 
 import com.google.gson.Gson;
-import com.sun.swing.internal.plaf.synth.resources.synth;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
-
 @Controller
 @RequestMapping("/Reception")
-public class FileUpload{
+public class FileUpload {
 	@Autowired
 	protected JedisPool jedisPool;
 
@@ -66,9 +52,9 @@ public class FileUpload{
 	@RequestMapping(value = "/uoloadFile.html", method = RequestMethod.POST)
 	@ResponseBody
 	public synchronized void uoloadFile(HttpServletRequest request, HttpServletResponse response) {
-		//MyPrintUtil.printRequestPara(request);
-//		@RequestParam("file")CommonsMultipartFile file1,
-//		System.out.println("==>"+file1);
+		// MyPrintUtil.printRequestPara(request);
+		// @RequestParam("file")CommonsMultipartFile file1,
+		// System.out.println("==>"+file1);
 		DiskFileItemFactory factory = new DiskFileItemFactory();
 		ServletFileUpload sfu = new ServletFileUpload(factory);
 		sfu.setHeaderEncoding("utf-8");
@@ -78,8 +64,8 @@ public class FileUpload{
 		String chunk = null;
 		String fileName = null;
 		try {
-	        List<FileItem> items = sfu.parseRequest(request);
-			//System.out.println(items.size());
+			List<FileItem> items = sfu.parseRequest(request);
+			// System.out.println(items.size());
 			for (FileItem item : items) {
 				// 上传文件的真实名称
 				fileName = item.getName();
@@ -109,10 +95,10 @@ public class FileUpload{
 						}
 						// filetype=jedis.get("fileType_" + fileName);
 						File chunkFile = new File(savePath + "/" + jedis.get("fileName_" + fileName) + "/" + chunk);
-						//FileUtil.StreamToFile(chunkFile.getAbsolutePath(), item.getInputStream());
+						// FileUtil.StreamToFile(chunkFile.getAbsolutePath(),
+						// item.getInputStream());
 						// item.getInputStream().close();
-						 FileUtils.copyInputStreamToFile(item.getInputStream(),
-						 chunkFile);
+						FileUtils.copyInputStreamToFile(item.getInputStream(), chunkFile);
 					} catch (Exception e) {
 						// e.printStackTrace();
 					} finally {
@@ -122,7 +108,7 @@ public class FileUpload{
 			}
 		} catch (FileUploadException e) {
 			System.out.println("文件传输出错");
-			StackTraceElement[]list=e.getStackTrace();
+			StackTraceElement[] list = e.getStackTrace();
 			MyPrintUtil.println(list[0]);
 		} finally {
 		}
@@ -146,7 +132,7 @@ public class FileUpload{
 		String savePath = request.getServletContext().getRealPath("");
 		savePath = savePath + "\\" + folad + "\\";
 		// 文件上传的临时文件保存在项目的temp文件夹下 定时删除
-		//savePath = new File(savePath) + "/upload/";
+		// savePath = new File(savePath) + "/upload/";
 		// 合并文件
 		Jedis jedis = null;
 		try {
@@ -163,7 +149,7 @@ public class FileUpload{
 					return true;
 				}
 			});
-			if(fileArray==null||fileArray.length==0){
+			if (fileArray == null || fileArray.length == 0) {
 				System.out.println("文件有误或缺失");
 				return "{'result':'文件有误或缺失'}";
 			}
@@ -248,7 +234,7 @@ public class FileUpload{
 		} finally {
 			jedisPool.returnResource(jedis);
 		}
-		
+
 		return savePath;
 	}
 
@@ -277,7 +263,7 @@ public class FileUpload{
 		try {
 			jedis = jedisPool.getResource();
 			// 将当前进度存入redis
-			//MyPrintUtil.println("存入的进度为==>"+jindutiao+"<==");
+			// MyPrintUtil.println("存入的进度为==>"+jindutiao+"<==");
 			jedis.set("jindutiao_" + newFilePath, jindutiao);
 
 			// 将系统当前时间转换为字符串
@@ -300,7 +286,7 @@ public class FileUpload{
 
 			response.setContentType("text/html;charset=utf-8");
 			// 检查文件是否存在，且大小是否一致
-			
+
 			if (checkFile.exists() && checkFile.length() == Integer.parseInt(chunkSize)) {
 				// 上传过
 				try {

@@ -7,8 +7,8 @@
 		a.sid,a.sname,a.sdriver,a.isemploy,a.surl,a.stype
 	</sql>
 	<!-- 获取数据库信息 -->
-	<select id="getDbName" resultType="org.great.web.bean.DbName"
-		parameterType="org.great.web.bean.DbName">
+	<select id="getDbName" resultType="org.great.web.bean.sys.DbName"
+		parameterType="org.great.web.bean.sys.DbName">
 		SELECT
 		<include refid="beanAttr" />
 		FROM

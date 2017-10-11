@@ -1,4 +1,4 @@
-package org.great.web.bean.buz;
+package org.great.web.bean.sys;
 
 import java.io.Serializable;
 import java.util.Arrays;

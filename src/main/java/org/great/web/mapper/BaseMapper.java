@@ -2,10 +2,6 @@ package org.great.web.mapper;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
-import org.great.web.bean.buz.CostInfo;
-import org.great.web.bean.sys.Dept;
-
 /**
  * 基础mapper
  * 

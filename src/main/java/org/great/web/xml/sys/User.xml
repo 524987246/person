@@ -10,8 +10,8 @@
 	a.sid,a.serrorid,a.sname,a.sreanson,a.sresolvent,a.isemploy
 	</sql>
 	<!-- 查询单个用户,用于登录查找之类 -->
-	<select id="findUserByUser" resultType="org.great.web.bean.User"
-		parameterType="org.great.web.bean.User">
+	<select id="findUserByUser" resultType="org.great.web.bean.sys.User"
+		parameterType="org.great.web.bean.sys.User">
 		select 
 		*
 		from t_user

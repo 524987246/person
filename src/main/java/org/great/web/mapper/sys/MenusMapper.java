@@ -3,7 +3,7 @@ package org.great.web.mapper.sys;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
-import org.great.web.bean.buz.Menus;
+import org.great.web.bean.sys.Menus;
 /**
  * 用户mapper
  * @author 谢军

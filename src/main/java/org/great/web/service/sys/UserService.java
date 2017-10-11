@@ -2,16 +2,13 @@ package org.great.web.service.sys;
 
 import javax.annotation.Resource;
 
-import org.great.datasource.TargetDataSource;
-import org.great.web.bean.buz.User;
+import org.great.web.bean.sys.User;
 import org.great.web.mapper.sys.UserMapper;
 import org.springframework.stereotype.Service;
 
 /**
- * 用户表操作
  * 
- * @author 谢军
- * 
+ * @author xiejun
  */
 @Service
 public class UserService {

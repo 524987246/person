@@ -2,16 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" 
 "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 
-<mapper namespace="org.great.web.mapper.sys.DeptMapper">
+
+<mapper namespace="org.great.web.mapper.sys.MenuMapper">
 	<!--基础属性 -->
 	<sql id="beanAttr">
 		a.id,
 		a.name,
+		a.url,
 		a.parent_id AS "parentId",
+		a.perms,
+		a.type,
+		a.icon,
+		a.order_num AS "orderNum",
 		a.create_by AS
 		"createBy.id",
-		DATE_FORMAT(a.create_date,'%Y-%m-%d') AS "createDate",
-		a.update_by AS "updateBy.id",
+		DATE_FORMAT(a.create_date,'%Y-%m-%d') AS
+		"createDate",
+		a.update_by AS
+		"updateBy.id",
 		DATE_FORMAT(a.update_date,'%Y-%m-%d') AS
 		"updateDate",
 		a.remarks,
@@ -19,7 +27,7 @@
 	</sql>
 	<!--主表名 -->
 	<sql id="tableName">
-		sys_dept
+		sys_menu
 	</sql>
 	<!--主表名 基本更新信息 -->
 	<sql id="baseUpdateInfo">
@@ -52,8 +60,8 @@
 		</where>
 	</sql>
 	<!-- 查询集合 -->
-	<select id="findList" resultType="org.great.web.bean.sys.Dept"
-		parameterType="org.great.web.bean.sys.Dept">
+	<select id="findList" resultType="org.great.web.bean.sys.Menu"
+		parameterType="org.great.web.bean.sys.Menu">
 		SELECT
 		<include refid="beanAttr" />
 		FROM
@@ -63,7 +71,7 @@
 		ORDER BY a.create_date DESC
 	</select>
 	<!-- 查询总数 -->
-	<select id="queryTotal" resultType="Integer" parameterType="org.great.web.bean.sys.Dept">
+	<select id="queryTotal" resultType="Integer" parameterType="org.great.web.bean.sys.Menu">
 		SELECT
 		count(*)
 		FROM
@@ -72,7 +80,7 @@
 		<include refid="whereInfo" />
 	</select>
 	<!-- 删除 -->
-	<select id="delete" parameterType="org.great.web.bean.sys.Dept">
+	<select id="delete" parameterType="org.great.web.bean.sys.Menu">
 		UPDATE
 		<include refid="tableName" />
 		SET
@@ -94,29 +102,44 @@
 		</foreach>
 	</select>
 	<!-- 更新 -->
-	<select id="update" parameterType="org.great.web.bean.sys.Dept">
+	<select id="update" parameterType="org.great.web.bean.sys.Menu">
 		UPDATE
 		<include refid="tableName" />
 		<set>
 			<include refid="baseUpdateInfo" />
 			<if test="name !=null and name !=''">name=#{name},</if>
-			<if test="parentId !=null">parent_id=#{parentId},</if>
+			<if test="url !=null and url !=''">url=#{url},</if>
+			<if test="parentId !=null and parentId !=''">parent_id=#{parentId},</if>
+			<if test="perms !=null and perms !=''">perms=#{perms},</if>
+			<if test="type !=null and type !=''">type=#{type},</if>
+			<if test="icon !=null and icon !=''">icon=#{icon},</if>
+			<if test="orderNum !=null and orderNum !=''">order_num=#{orderNum},</if>
 		</set>
 		WHERE
 		id=#{id}
 	</select>
 	<!-- 保存 -->
-	<select id="save" parameterType="org.great.web.bean.sys.Dept">
+	<select id="save" parameterType="org.great.web.bean.sys.Menu">
 		INSERT INTO
 		<include refid="tableName" />
 		(create_by,create_date,update_by,update_date
 		<if test="remarks !=null">,remarks</if>
 		<if test="name !=null and name !=''">,name</if>
-		<if test="parentId !=null">,parent_id</if>
+		<if test="url !=null and url !=''">,url</if>
+		<if test="parentId !=null and parentId !=''">,parent_id</if>
+		<if test="perms !=null and perms !=''">,perms</if>
+		<if test="type !=null and type !=''">,type</if>
+		<if test="icon !=null and icon !=''">,icon</if>
+		<if test="orderNum !=null and orderNum !=''">,order_num</if>
 		)VALUES(#{createBy.id},#{createDate},#{updateBy.id},#{updateDate}
 		<if test="remarks !=null">,#{remarks}</if>
 		<if test="name !=null and name !=''">,#{name}</if>
-		<if test="parentId !=null">,#{parentId}</if>
+		<if test="url !=null and url !=''">,#{url}</if>
+		<if test="parentId !=null and parentId !=''">,#{parentId}</if>
+		<if test="perms !=null and perms !=''">,#{perms}</if>
+		<if test="type !=null and type !=''">,#{type}</if>
+		<if test="icon !=null and icon !=''">,#{icon}</if>
+		<if test="orderNum !=null and orderNum !=''">,#{orderNum}</if>
 		)
 	</select>
 </mapper>

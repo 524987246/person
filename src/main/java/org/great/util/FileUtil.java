@@ -17,8 +17,6 @@ import org.apache.tools.zip.ZipEntry;
 import org.apache.tools.zip.ZipFile;
 import org.apache.tools.zip.ZipOutputStream;
 
-import sun.net.TelnetOutputStream;
-
 public class FileUtil {
 	/**
 	 * 递归删除目录下的所有文件及子目录下所有文件
@@ -233,28 +231,29 @@ public class FileUtil {
 			out = new FileOutputStream(file);
 			byte[] buffer = new byte[1024];
 			int num = 0;
-			long sum=0;
-			while (num!=-1){
+			long sum = 0;
+			while (num != -1) {
 				out.write(buffer, 0, num);
 				num = inputStream.read(buffer);
-				sum+=num;
-			};
-			System.out.println(filepath+"===>"+sum);
+				sum += num;
+			}
+			;
+			System.out.println(filepath + "===>" + sum);
 			if (out != null) {
 				out.close();
 			}
 		} catch (IOException e) {
-			//e.printStackTrace();
+			// e.printStackTrace();
 		} finally {
 			try {
-//				if (inputStream != null) {
-//					inputStream.close();
-//				}
+				// if (inputStream != null) {
+				// inputStream.close();
+				// }
 				if (out != null) {
 					out.close();
 				}
 			} catch (IOException e) {
-				//e.printStackTrace();
+				// e.printStackTrace();
 			}
 		}
 		return file.getAbsolutePath();

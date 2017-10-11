@@ -10,11 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
-import org.great.util.InputCheck;
 import org.great.util.Message;
 import org.great.web.bean.buz.CostInfo;
 import org.great.web.service.buz.CostInfoService;
-import org.great.web.service.sys.SystemManageService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -57,22 +55,20 @@ public class CostInfoCotroller {
 	 */
 	@RequestMapping(value = "/info.html", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
 	@ResponseBody
-	public String info(@RequestBody Message message,
-			HttpServletRequest request, Model model) {
+	public String info(@RequestBody Message message, HttpServletRequest request, Model model) {
 		// System.out.println("str===="+str);
-		//System.out.println(message.toString());
+		// System.out.println(message.toString());
 		// Message message = (Message)
 		// JSONObject.toBean(JSONObject.fromObject(str), Message.class);
 		CostInfo costInfo = new CostInfo();
 		if (null != message && null != message.getStr()) {
-			costInfo = (CostInfo) JSONObject.toBean(
-					JSONObject.fromObject(message.getStr()), CostInfo.class);
+			costInfo = (CostInfo) JSONObject.toBean(JSONObject.fromObject(message.getStr()), CostInfo.class);
 			// System.out.println(CostInfo.toString());
 		}
 		message.setPage_new(message.getPage_new() * message.getPage_num());
 		message.setPage_num(message.getPage_num() + 1);
-		List<CostInfo> list = costInfoServices.findCostInfoByCostInfo(costInfo,
-				message.getPage_new(), message.getPage_num());
+		List<CostInfo> list = costInfoServices.findCostInfoByCostInfo(costInfo, message.getPage_new(),
+				message.getPage_num());
 		msg = JSONArray.fromObject(list).toString();
 		return msg;
 	}
@@ -84,8 +80,7 @@ public class CostInfoCotroller {
 	 */
 	@RequestMapping(value = "/remove.html", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
 	@ResponseBody
-	public String remove(@RequestBody String str, HttpServletRequest request,
-			Model model) {
+	public String remove(@RequestBody String str, HttpServletRequest request, Model model) {
 		boolean bo = costInfoServices.delCostInfoBySid(str, 2);
 		return String.valueOf(bo);
 	}
@@ -96,8 +91,7 @@ public class CostInfoCotroller {
 	 * @return
 	 */
 	@RequestMapping(value = "/update.html", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
-	public void update(CostInfo CostInfo, HttpServletRequest request,
-			HttpServletResponse response) {
+	public void update(CostInfo CostInfo, HttpServletRequest request, HttpServletResponse response) {
 		response.setCharacterEncoding("utf-8");
 		boolean bo = false;
 		try {
@@ -116,8 +110,7 @@ public class CostInfoCotroller {
 	 * @return
 	 */
 	@RequestMapping(value = "/add.html", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
-	public void add(CostInfo CostInfo, HttpServletRequest request,
-			HttpServletResponse response) {
+	public void add(CostInfo CostInfo, HttpServletRequest request, HttpServletResponse response) {
 		response.setCharacterEncoding("utf-8");
 		try {
 			boolean bo = costInfoServices.insertCostInfo(CostInfo);

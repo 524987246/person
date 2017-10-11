@@ -6,8 +6,8 @@
 	<sql id="beanAttr">
 		a.sid,a.serrorid,a.sname,a.sreason,a.sresolvent,a.isemploy
 	</sql>
-	<select id="findWebErrorByWebError" resultType="org.great.web.bean.WebError"
-		parameterType="org.great.web.bean.WebError">
+	<select id="findWebErrorByWebError" resultType="org.great.web.bean.buz.WebError"
+		parameterType="org.great.web.bean.buz.WebError">
 		SELECT
 		<include refid="beanAttr" />
 		FROM
@@ -30,7 +30,7 @@
 		WHERE
 		sid=#{sid}
 	</update>
-	<insert id="insertWebError" parameterType="org.great.web.bean.WebError">
+	<insert id="insertWebError" parameterType="org.great.web.bean.buz.WebError">
 		INSERT INTO
 		tb_weberror(sid,serrorid
 		<if test="sname !=null and sname !=''">,sname</if>
@@ -43,7 +43,7 @@
 		<if test="sresolvent !=null and sresolvent !=''">,#{sresolvent}</if>
 		,1)
 	</insert>
-	<update id="updateWebErrorBySid" parameterType="org.great.web.bean.WebError">
+	<update id="updateWebErrorBySid" parameterType="org.great.web.bean.buz.WebError">
 		UPDATE
 		tb_weberror a
 		SET
