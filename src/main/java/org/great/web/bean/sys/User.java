@@ -1,6 +1,7 @@
 package org.great.web.bean.sys;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.validation.constraints.Size;
 
@@ -22,8 +23,9 @@ public class User implements Serializable {
 	 */
 	private static final long serialVersionUID = -6964957333569601350L;
 	private Long id;
-	@NotEmpty(message = "用户名不能为空")
 	private String name;
+	@NotEmpty(message = "登录名不能为空")
+	private String loginName;
 	@Size(min = 8, max = 16, message = "密码应在8-16位")
 	private String password;
 	private String phone;
@@ -33,6 +35,8 @@ public class User implements Serializable {
 	 */
 	private Integer isemploy;
 	private Integer role;
+	private List<Role> rolelist;
+	private List<Menu> menulist;
 
 	public Long getId() {
 		return id;
@@ -90,10 +94,28 @@ public class User implements Serializable {
 		this.role = role;
 	}
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", password=" + password + ", phone=" + phone + ", grade=" + grade
-				+ ", isemploy=" + isemploy + ", role=" + role + "]";
+	public String getLoginName() {
+		return loginName;
+	}
+
+	public void setLoginName(String loginName) {
+		this.loginName = loginName;
+	}
+
+	public List<Role> getRolelist() {
+		return rolelist;
+	}
+
+	public void setRolelist(List<Role> rolelist) {
+		this.rolelist = rolelist;
+	}
+
+	public List<Menu> getMenulist() {
+		return menulist;
+	}
+
+	public void setMenulist(List<Menu> menulist) {
+		this.menulist = menulist;
 	}
 
 }

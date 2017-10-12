@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 
 import org.great.web.bean.sys.User;
 import org.great.web.mapper.sys.UserMapper;
+import org.great.web.mapper.sys.UserRoleMapper;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,6 +15,8 @@ import org.springframework.stereotype.Service;
 public class UserService {
 	@Resource
 	private UserMapper usermapper;
+	@Resource
+	private UserRoleMapper userRoleMapper;
 
 	/**
 	 * 用于查找用户
@@ -21,16 +24,12 @@ public class UserService {
 	 * @param user
 	 * @return 数据库查询出的对象
 	 */
-	public User findUserByUser(User user) {
-		User loginuser = usermapper.findUserByUser(user);
+	public User get(User user) {
+		User loginuser = usermapper.get(user);
 		return loginuser;
 	}
-
-	public UserMapper getUsermapper() {
-		return usermapper;
+	private void setUserBaseInfo(User user){
+		
 	}
 
-	public void setUsermapper(UserMapper usermapper) {
-		this.usermapper = usermapper;
-	}
 }

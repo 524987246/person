@@ -36,6 +36,6 @@ public class ToJsp {
 	 */
 	@RequestMapping(value = "/toNewMain.html", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
 	public String toNewMain() {
-		return "jsp/test/newMain";
+		return "newjsp/login";
 	}
 }

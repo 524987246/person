@@ -128,7 +128,7 @@
 		INSERT INTO
 		<include refid="tableName" />
 		(create_by,create_date,update_by,
-		update_date,RoleMenu_id,menu_id
+		update_date,role_id,menu_id
 		)VALUES(#{createBy.id},#{createDate},#{updateBy.id},
 		#{updateDate},#{roleId},#{menuId}
 		)
