@@ -95,6 +95,7 @@
 		on b.role_id=e.id and e.isemploy=1
 		<where>
 			a.isemploy=1
+			<if test="id !=null">and a.id=#{id}</if>
 			<if test="name !=null and name !=''">and a.name=#{name}</if>
 			<if test="loginName !=null and loginName !=''">and a.login_name=#{loginName}</if>
 			<if test="password !=null and password !=''">and a.password=MD5(#{password})</if>

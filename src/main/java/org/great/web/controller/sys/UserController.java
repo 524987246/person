@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping("/Reception/sys/user")
+@RequestMapping("/Reception/sys/user/")
 public class UserController {
 	@Resource
 	private UserService userService;
 
 	@ResponseBody
-	@RequestMapping(value = "/login.html", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
+	@RequestMapping(value = "login.html", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
 	public String to(@RequestBody User user, HttpServletRequest request, Model model) {
 		String str = ValidtorUtil.validbean(user);
 		if (str != null) {
@@ -36,6 +36,38 @@ public class UserController {
 			str = "1";
 		}
 		return str;
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "toMain.html", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
+	public String toNewMain(HttpServletRequest request, Model model) {
+		User user = MyUserUtils.getLoginUser(request);
+		if (user == null) {
+			return "newjsp/login";
+		}
+		model.addAttribute("user", user);
+		return "newjsp/main";
+	}
+
+	/**
+	 * 测试之用,免登录
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "toMain2.html", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
+	public String toNewMain2(HttpServletRequest request, Model model) {
+		User user = MyUserUtils.getLoginUser(request);
+		if (user == null) {
+			user = new User();
+			user.setId(1L);
+			user = userService.get(user);
+		}
+		MyUserUtils.saveLoginUser(user, request);
+		model.addAttribute("user", user);
+		return "newjsp/main";
 	}
 
 }

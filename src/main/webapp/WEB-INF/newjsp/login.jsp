@@ -74,7 +74,7 @@
 		var login = function() {
 			var password = $("#password").val();
 			var loginName = $("#loginName").val();
-			var url = "/Reception/sys/user/login.html";
+			var url = "Reception/sys/user/login.html";
 			var data = {
 				loginName : loginName,
 				password : password
@@ -90,6 +90,10 @@
 				dataType : "json",
 				success : function(data) {
 					alert(data);
+					if (data == "1") {
+						url = basePath + "/Reception/sys/user/toMain.html";
+						window.location.href = url;
+					}
 				},
 				error : function(data) {
 					alert("请求错误")
