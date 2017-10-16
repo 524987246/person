@@ -1,13 +1,20 @@
 package org.great.web.bean.sys;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.validation.constraints.Size;
 
+import org.great.util.myutil.MyCollectionUtils;
+import org.great.util.myutil.MyStringUtils;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+
+import com.mysql.fabric.xmlrpc.base.Array;
 
 /**
  * 用户bean
@@ -37,6 +44,8 @@ public class User implements Serializable {
 	private Integer role;
 	private List<Role> rolelist;
 	private List<Menu> menulist;
+	private Set<String> permlist;
+	private boolean init_perm_flag = false;
 
 	public Long getId() {
 		return id;
@@ -118,4 +127,35 @@ public class User implements Serializable {
 		this.menulist = menulist;
 	}
 
+	public Set<String> getPermlist() {
+		initPerm();
+		return permlist;
+	}
+
+	/**
+	 * 初始化权限
+	 */
+	private void initPerm() {
+		if (init_perm_flag) {
+			return;
+		}
+		init_perm_flag = true;
+		Set<String> templist = new HashSet<String>();
+		boolean bo = (this.menulist != null && this.menulist.size() > 0);
+		if (!bo) {
+			return;
+		}
+		for (Menu menu : this.menulist) {
+			bo = MyStringUtils.isEmpty(menu.getPerms());
+			if (bo) {
+				String[] array = menu.getPerms().split(",");
+				for (String str : array) {
+					if (!templist.contains(str)) {
+						templist.add(str);
+					}
+				}
+			}
+		}
+		this.permlist = templist;
+	}
 }

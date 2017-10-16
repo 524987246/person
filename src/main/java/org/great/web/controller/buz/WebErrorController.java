@@ -45,6 +45,7 @@ public class WebErrorController {
 	 * 
 	 * @return
 	 */
+	@RequiresPermissions("buz:weberror:view")  
 	@RequestMapping(value = "/weberror.html", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
 	public String toweberror() {
 		return "jsp/weberror/weberror";
