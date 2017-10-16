@@ -16,8 +16,7 @@
 	<header class="navbar-wrapper">
 		<div class="navbar navbar-fixed-top">
 			<div class="container-fluid cl">
-				<a class="logo navbar-logo f-l mr-10 hidden-xs"
-					href="#">后台管理</a> <a
+				<a class="logo navbar-logo f-l mr-10 hidden-xs" href="#">后台管理</a> <a
 					class="logo navbar-logo-m f-l mr-10 visible-xs"
 					href="/aboutHui.shtml"></a> <span
 					class="logo navbar-slogan f-l mr-10 hidden-xs"></span> <a
@@ -52,11 +51,9 @@
 				<nav id="Hui-userbar"
 					class="nav navbar-nav navbar-userbar hidden-xs">
 					<ul class="cl">
-						<li>
-						<c:forEach items="${user.rolelist }" var="role">
+						<li><c:forEach items="${user.rolelist }" var="role">
 							${role.name}&nbsp;&nbsp;
-						</c:forEach>
-						</li>
+						</c:forEach></li>
 						<li class="dropDown dropDown_hover"><a href="#"
 							class="dropDown_A">${user.name} <i class="Hui-iconfont">&#xe6d5;</i></a>
 							<ul class="dropDown-menu menu radius box-shadow">
@@ -86,6 +83,20 @@
 	</header>
 	<aside class="Hui-aside">
 		<div class="menu_dropdown bk_2">
+			<dl id="menu-article">
+				<dt>
+					<i class="Hui-iconfont">&#xe616;</i> 菜单测试<i
+						class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
+				</dt>
+				<dd>
+					<ul>
+						<c:forEach items="${user.menulist }" var="menu">
+							<li><a data-href="${ctx}/${menu.url}" data-title="${menu.name}"
+								href="javascript:void(0)">${menu.name}</a></li>
+						</c:forEach>
+					</ul>
+				</dd>
+			</dl>
 			<dl id="menu-article">
 				<dt>
 					<i class="Hui-iconfont">&#xe616;</i> 资讯管理<i
@@ -280,7 +291,7 @@
 		<div id="Hui-tabNav" class="Hui-tabNav hidden-xs">
 			<div class="Hui-tabNav-wp">
 				<ul id="min_title_list" class="acrossTab cl">
-					<li class="active"><span title="我的桌面" data-href="welcome.html">我的桌面</span>
+					<li class="active"><span title="我的桌面" data-href="http://www.baidu.com">我的桌面</span>
 						<em></em></li>
 				</ul>
 			</div>
@@ -294,7 +305,7 @@
 		<div id="iframe_box" class="Hui-article">
 			<div class="show_iframe">
 				<div style="display:none" class="loading"></div>
-				<iframe scrolling="yes" frameborder="0" src="welcome.html"></iframe>
+				<iframe scrolling="yes" frameborder="0" src="http://www.baidu.com"></iframe>
 			</div>
 		</div>
 	</section>

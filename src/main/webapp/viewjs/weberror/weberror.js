@@ -41,7 +41,7 @@ function getPageInfo(str) {
 			// data=data.replace(/\\/g,'');
 			// console.log(data);
 			var info = $.parseJSON(data);
-			console.log(info);
+			//console.log(info);
 			objarray = info;
 			$("#tableinfo tr:gt(0)").remove();
 			var html = "";

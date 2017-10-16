@@ -1,33 +1,33 @@
 @charset "UTF-8";
 
-.M-box{
+.wrapper .M-box{
 	text-align: center;
 }
 
-.demo-image {
+.wrapper .demo-image {
 	width: 100%;
 }
 
-.M-box, .M-box1, .M-box2, .M-box3, .M-box4 {
+.wrapper .M-box, .wrapper .M-box1, .wrapper .M-box2, .wrapper .M-box3, .wrapper .M-box4 {
 	position: relative;
 	text-align: center;
 	zoom: 1;
 }
 
-.M-box:before, .M-box:after, .M-box1:before, .M-box1:after, .M-box2:before,
-	.M-box2:after, .M-box3:before, .M-box3:after, .M-box4:before, .M-box4:after
+.wrapper .M-box:before, .wrapper .M-box:after, .wrapper .M-box1:before, .wrapper .M-box1:after, .wrapper .M-box2:before,
+	.wrapper .M-box2:after, .wrapper .M-box3:before, .wrapper .M-box3:after, .wrapper .M-box4:before, .wrapper .M-box4:after
 	{
 	content: "";
 	display: table;
 }
 
-.M-box:after, .M-box1:after, .M-box2:after, .M-box3:after, .M-box4:after
+.wrapper .M-box:after, .wrapper .M-box1:after, .wrapper .M-box2:after, .wrapper .M-box3:after, .wrapper .M-box4:after
 	{
 	clear: both;
 	overflow: hidden;
 }
 
-.M-box span, .M-box1 span, .M-box2 span, .M-box3 span, .M-box4 span{
+.wrapper .M-box span, .wrapper .M-box1 span, .wrapper .M-box2 span, .wrapper .M-box3 span, .wrapper .M-box4 span{
 	float: left;
 	margin: 0 5px;
 	width: 38px;
@@ -37,8 +37,8 @@
 	font-size: 14px;
 }
 
-.M-box .active, .M-box1 .active, .M-box2 .active, .M-box3 .active,
-	.M-box4 .active {
+.wrapper .M-box .active, .wrapper .M-box1 .active, .wrapper .M-box2 .active, .wrapper .M-box3 .active,
+	.wrapper .M-box4 .active {
 	float: left;
 	margin: 0 1px;
 	width: 38px;
@@ -51,7 +51,7 @@
 	border-radius: 10px;
 }
 
-.M-box a, .M-box1 a, .M-box2 a, .M-box3 a, .M-box4 a {
+.wrapper .M-box a, .wrapper .M-box1 a, .wrapper .M-box2 a, .wrapper .M-box3 a, .wrapper .M-box4 a {
 	float: left;
 	margin: 0 2px;
 	width: 38px;
@@ -64,28 +64,28 @@
 	border-radius: 10px;
 }
 
-.M-box a:hover, .M-box1 a:hover, .M-box2 a:hover, .M-box3 a:hover,
-	.M-box4 a:hover {
+.wrapper .M-box a:hover, .wrapper .M-box1 a:hover, .wrapper .M-box2 a:hover, .wrapper .M-box3 a:hover,
+	.wrapper .M-box4 a:hover {
 	color: #fff;
 	background: #7dd2fb;
 }
 
-.M-box .next, .M-box .prev, .M-box1 .next, .M-box1 .prev {
+.wrapper .M-box .next, .wrapper .M-box .prev, .wrapper .M-box1 .next, .wrapper .M-box1 .prev {
 	font-family: "Simsun";
 	font-size: 16px;
 }
 
-.now, .count {
+.wrapper .now, .wrapper .count {
 	padding: 0 3px;
 	color: #f00;
 }
 
-.eg img {
+.wrapper .eg img {
 	max-width: 800px;
 	min-height: 500px;
 }
 
-input {
+.wrapper input {
 	float: left;
 	margin: 0 5px;
 	width: 38px;
