@@ -5,6 +5,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <script src="${ctx}/js/jquery-2.2.1.js"></script>
 <link rel="stylesheet" href="${ctx}/css/bootstrap.css" media="screen" title="no title" charset="utf-8">
+<link rel="stylesheet" href="${ctx}/css/font-awesome.css" media="screen" title="no title" charset="utf-8">
 <script type="text/javascript" src="${ctx}/js/bootstrap.js" charset="utf-8">
 </script>
 <script src="${ctx}/js/cookieUtil.js"></script>
@@ -41,6 +42,11 @@ var basePath='${ctx}';
 <%-- <link href="${ctx}/statis/pagination/pagination.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="${ctx}/statis/pagination/jquery.pagination.js"></script>
  --%><!-- pagination 分页插件   结束 -->
+ 
+<!-- 拖拽界面样式   开始-->
+<link rel="stylesheet" href="${ctx}/css/ace.min.css" media="screen" title="no title" charset="utf-8">
+<script type="text/javascript" src="${ctx}/js/jquery.nestable.min.js" charset="utf-8">
+<!-- 拖拽界面样式   结束 -->
 
 <!-- 新界面样式   开始-->
 <link rel="stylesheet" type="text/css" href="${ctx}/statis/newjsp/static/h-ui/css/H-ui.min.css" />
