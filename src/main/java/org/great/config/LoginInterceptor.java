@@ -21,13 +21,13 @@ public class LoginInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		// System.out.println(">>>MyInterceptor1>>>>>>>在请求处理之前进行调用（Controller方法调用之前）");
-		User user = MyUserUtils.getLoginUser(request);
-		if (user == null) {
-			//测试过程 默认登录ip为1的账户
-			response.sendRedirect(request.getContextPath()+"/Reception/sys/user/toMain2.html");
-			//response.sendRedirect(request.getContextPath()+"/Reception/toNewMain.html");
-			return false;
-		}
+		// User user = MyUserUtils.getLoginUser(request);
+		// if (user == null) {
+		// //测试过程 默认登录ip为1的账户
+		// response.sendRedirect(request.getContextPath()+"/Reception/sys/user/toMain2.html");
+		// //response.sendRedirect(request.getContextPath()+"/Reception/toNewMain.html");
+		// return false;
+		// }
 		return true;// 只有返回true才会继续向下执行，返回false取消当前请求
 	}
 

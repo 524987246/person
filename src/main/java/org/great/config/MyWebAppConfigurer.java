@@ -17,11 +17,11 @@ public class MyWebAppConfigurer extends WebMvcConfigurerAdapter {
 		InterceptorRegistration loginir = registry.addInterceptor(new LoginInterceptor());
 		// 拦截路径
 		loginir.addPathPatterns("/**");
-		// 不拦截路径
-		loginir.excludePathPatterns("/**/toNewMain.html");
-		loginir.excludePathPatterns("/**/login.html");
-		// 不拦截路径(测试)
-		loginir.excludePathPatterns("/**/toMain2.html");
+//		// 不拦截路径
+//		loginir.excludePathPatterns("/**/toNewMain.html");
+//		loginir.excludePathPatterns("/**/login.html");
+//		// 不拦截路径(测试)
+//		loginir.excludePathPatterns("/**/toMain2.html");
 		registry.addInterceptor(new TestInterceptor()).addPathPatterns("/**");
 		super.addInterceptors(registry);
 		System.out.println("拦截器初始化");
