@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.great.util.InputCheck;
 import org.great.util.Message;
 import org.great.web.bean.buz.WebError;
