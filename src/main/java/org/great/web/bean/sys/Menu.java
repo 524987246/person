@@ -105,4 +105,10 @@ public class Menu extends BaseBean implements Serializable {
 		this.orderNum = orderNum;
 	}
 
+	@Override
+	public String toString() {
+		return "Menu [name=" + name + ", url=" + url + ", parentId=" + parentId + ", perms=" + perms + ", type=" + type
+				+ ", icon=" + icon + ", orderNum=" + orderNum + "]";
+	}
+
 }

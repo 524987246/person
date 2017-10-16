@@ -1,5 +1,6 @@
 package org.great.util.myutil;
 
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -10,6 +11,8 @@ import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.great.web.bean.sys.Menu;
+import org.great.web.bean.sys.Role;
 import org.junit.Test;
 
 /**
@@ -40,7 +43,7 @@ public class MyPrintUtil {
 		return param;
 	}
 
-	public static void printMap(Map<String, Object> map) {
+	public static void printMap(Map<String, ? extends Object> map) {
 		if (map == null) {
 			printlnError("map === NULL");
 			return;
@@ -59,7 +62,7 @@ public class MyPrintUtil {
 		}
 	}
 
-	public static void printSet(Set<Object> set) {
+	public static void printSet(Set<? extends Object> set) {
 		if (set == null) {
 			printlnError("set === NULL");
 			return;
@@ -68,14 +71,14 @@ public class MyPrintUtil {
 			printlnError("set 长度 === 0");
 			return;
 		}
-		Iterator<Object> iterator = set.iterator();
+		Iterator<? extends Object> iterator = set.iterator();
 		while (iterator.hasNext()) {
 			String key = iterator.next().toString();
 			println(key);
 		}
 	}
 
-	public static void printList(List<Object> list) {
+	public static void printList(List<? extends Object> list) {
 		if (list == null) {
 			printlnError("list === NULL");
 			return;
@@ -103,15 +106,19 @@ public class MyPrintUtil {
 
 	@Test
 	public void mytest() {
-		Map<String, Object> tempMap = new HashMap<String, Object>();
-		tempMap.put("a", 1);
-		tempMap.put("b", 2);
-		tempMap.put("c", 3);
-		// printMap(tempMap);
-		Set<Object> set = new HashSet<Object>();
-		set.add("1");
-		set.add("9");
-		set.add("6");
-		printSet(set);
+		// 输出方法测试
+		Role role = new Role();
+		Menu menu = new Menu();
+		menu.setName("克隆前");
+		List<Menu> list = new ArrayList<Menu>();
+		list.add(menu);
+		role.setMenulist(list);
+		// MyPrintUtil.printList(list);
+		Set<Menu> set = new HashSet<Menu>();
+		set.add(menu);
+		// MyPrintUtil.printSet(set);
+		Map<String, Menu> map = new HashMap<String, Menu>();
+		map.put("key", menu);
+		MyPrintUtil.printMap(map);
 	}
 }

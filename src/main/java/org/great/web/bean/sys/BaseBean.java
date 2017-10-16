@@ -1,12 +1,22 @@
 package org.great.web.bean.sys;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.Map;
 
 import org.great.config.BaseResoure;
 import org.great.util.myutil.MyDateUtils;
 import org.great.util.myutil.MyStringUtils;
 
-public class BaseBean {
+public class BaseBean implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6235136741075310727L;
 	/**
 	 * 主键id
 	 */

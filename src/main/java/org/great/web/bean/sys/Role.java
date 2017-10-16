@@ -49,7 +49,7 @@ public class Role extends BaseBean implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Dept [name=" + name + "]";
+		return "Role [name=" + name + ", menulist=" + menulist + "]";
 	}
 
 }
