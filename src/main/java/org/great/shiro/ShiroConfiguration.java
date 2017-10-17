@@ -61,8 +61,9 @@ public class ShiroConfiguration {
 		filterChainDefinitionMap.put("/**/*.jpg", "anon");
 		filterChainDefinitionMap.put("/*.jpg", "anon");
 		
-		filterChainDefinitionMap.put("/**/*.*", "user");
+		//filterChainDefinitionMap.put("/**/login.html", "anon");
 		filterChainDefinitionMap.put("/**/login.html", "anon");
+		filterChainDefinitionMap.put("/**/*.*", "authc");
 		
 
 		// 如果不设置默认会自动寻找Web工程根目录下的"请求路径"
