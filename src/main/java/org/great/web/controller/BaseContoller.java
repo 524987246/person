@@ -23,7 +23,7 @@ public class BaseContoller {
 	private static final Logger logger = LoggerFactory.getLogger(BaseContoller.class);
 	private static final String LOGIN_URL = "newjsp/login";
 
-	@RequestMapping(value = "tologin.html", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
+	@RequestMapping(value = "tologin.html",produces = "text/html;charset=UTF-8")
 	public String tologin(Model model) {
 		User user = MyUserUtils.getLoginUser();
 		if (user != null) {
@@ -33,7 +33,7 @@ public class BaseContoller {
 		return LOGIN_URL;
 	}
 
-	@RequestMapping(value = "logout.html", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
+	@RequestMapping(value = "logout.html", produces = "text/html;charset=UTF-8")
 	public String logout() {
 		Subject subject = SecurityUtils.getSubject();
 		subject.logout();
@@ -45,7 +45,7 @@ public class BaseContoller {
 	 * 
 	 * @return
 	 */
-	@RequestMapping(value = "login.html", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
+	@RequestMapping(value = "login.html", produces = "text/html;charset=UTF-8")
 	public String login(User user, Model model, HttpServletRequest request) {
 		if (user == null) {
 			model.addAttribute("message", "请输入用户名,密码");
@@ -54,7 +54,7 @@ public class BaseContoller {
 		String message = ValidtorUtil.validbean(user);
 		if (MyStringUtils.isEmpty(message)) {
 			model.addAttribute("message", message);
-			return "newjsp/login";
+			return LOGIN_URL;
 		}
 		;
 		UsernamePasswordToken token = new UsernamePasswordToken(user.getLoginName(),
@@ -90,7 +90,7 @@ public class BaseContoller {
 	 * 
 	 * @return
 	 */
-	@RequestMapping(value = "index.html", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
+	@RequestMapping(value = "index.html", produces = "text/html;charset=UTF-8")
 	public String index(HttpServletRequest request, Model model) {
 		// User user = MyUserUtils.getLoginUser(request);
 		User user = MyUserUtils.getLoginUser();
@@ -106,7 +106,7 @@ public class BaseContoller {
 	 * 
 	 * @return
 	 */
-	@RequestMapping(value = "403.html", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
+	@RequestMapping(value = "403.html", produces = "text/html;charset=UTF-8")
 	public String errorhtml(HttpServletRequest request, Model model) {
 		return "newjsp/403";
 	}
