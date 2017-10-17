@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/Reception/base/")
 public class BaseContoller {
 	private static final Logger logger = LoggerFactory.getLogger(BaseContoller.class);
+	private static final String LOGIN_URL = "newjsp/login";
 
 	@RequestMapping(value = "tologin.html", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
 	public String tologin(Model model) {
@@ -29,14 +30,14 @@ public class BaseContoller {
 			model.addAttribute("user", user);
 			return "newjsp/main";
 		}
-		return "newjsp/login";
+		return LOGIN_URL;
 	}
 
 	@RequestMapping(value = "logout.html", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
 	public String logout() {
 		Subject subject = SecurityUtils.getSubject();
 		subject.logout();
-		return "redirect:/Reception/base/tologin.html";
+		return LOGIN_URL;
 	}
 
 	/**
@@ -47,13 +48,13 @@ public class BaseContoller {
 	@RequestMapping(value = "login.html", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
 	public String login(User user, Model model, HttpServletRequest request) {
 		if (user == null) {
-			model.addAttribute("msg", "请输入用户名,密码");
-			return "redirect:/Reception/base/tologin.html";
+			model.addAttribute("message", "请输入用户名,密码");
+			return LOGIN_URL;
 		}
-		String msg = ValidtorUtil.validbean(user);
-		if (MyStringUtils.isEmpty(msg)) {
-			model.addAttribute("msg", msg);
-			return "redirect:/Reception/base/tologin.html";
+		String message = ValidtorUtil.validbean(user);
+		if (MyStringUtils.isEmpty(message)) {
+			model.addAttribute("message", message);
+			return "newjsp/login";
 		}
 		;
 		UsernamePasswordToken token = new UsernamePasswordToken(user.getLoginName(),
@@ -79,7 +80,8 @@ public class BaseContoller {
 			return "newjsp/main";
 		} else {
 			token.clear();
-			return "redirect:/Reception/base/tologin.html";
+			model.addAttribute("message", "账号或密码有误");
+			return LOGIN_URL;
 		}
 	}
 
@@ -93,7 +95,7 @@ public class BaseContoller {
 		// User user = MyUserUtils.getLoginUser(request);
 		User user = MyUserUtils.getLoginUser();
 		if (user == null) {
-			return "redirect:/Reception/base/tologin.html";
+			return LOGIN_URL;
 		}
 		model.addAttribute("user", user);
 		return "newjsp/main";

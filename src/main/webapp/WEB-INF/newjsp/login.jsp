@@ -33,9 +33,6 @@
 			<form class="form form-horizontal"
 				action="${ctx }/Reception/base/login.html" method="post">
 				<div class="row cl">
-					<label class="form-label col-xs-3"><i class="Hui-iconfont">${msg}</i></label>
-				</div>
-				<div class="row cl">
 					<label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60d;</i></label>
 					<div class="formControls col-xs-8">
 						<input id="loginName" name="loginName" type="text"
@@ -49,6 +46,7 @@
 							placeholder="密码" class="input-text size-L">
 					</div>
 				</div>
+				<div class="row cl"><label class="form-label col-xs-3"></label><div class="formControls col-xs-8"><span style="color:red;">${message }</span></div></div>
 				<!--  <div class="row cl">
         <div class="formControls col-xs-8 col-xs-offset-3">
           <input class="input-text size-L" type="text" placeholder="验证码" onblur="if(this.value==''){this.value='验证码:'}" onclick="if(this.value=='验证码:'){this.value='';}" value="验证码:" style="width:150px;">
@@ -64,7 +62,7 @@
 				<div class="row cl">
 					<div class="formControls col-xs-8 col-xs-offset-3">
 						<input name="" type="submit" class="btn btn-success radius size-L"
-							value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;"> 
+							value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;">
 						<!-- <input
 							name="" type="button" class="btn btn-success radius size-L"
 							value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;" onclick="login()"> -->

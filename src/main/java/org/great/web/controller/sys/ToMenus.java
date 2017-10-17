@@ -29,11 +29,6 @@ import com.alibaba.fastjson.JSONObject;
 public class ToMenus {
 	@Resource
 	private MenusService menusService;
-
-	/**
-	 * 传输数据
-	 */
-	private String msg;
 	
 	
 	/**
@@ -47,7 +42,7 @@ public class ToMenus {
 			HttpServletRequest request, Model model) {
 		Integer npartentid=Integer.valueOf(str);
 		List<Menus> list=menusService.findUserByUser(npartentid);
-		msg=JSONObject.toJSONString(list);
-		return msg;
+		String message=JSONObject.toJSONString(list);
+		return message;
 	}
 }

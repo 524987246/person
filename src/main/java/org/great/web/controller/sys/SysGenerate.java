@@ -36,11 +36,6 @@ public class SysGenerate {
 	private SystemManageService manageServices;
 
 	/**
-	 * 传输数据
-	 */
-	private String msg;
-
-	/**
 	 * 获取页面
 	 * 
 	 * @return
@@ -60,8 +55,8 @@ public class SysGenerate {
 	public String dbinfo() {
 		DbName dbName = new DbName();
 		List<DbName> list = manageServices.getDbName(dbName);
-		msg = JSONArray.fromObject(list).toString();
-		return msg;
+		String message = JSONArray.fromObject(list).toString();
+		return message;
 	}
 
 	/**

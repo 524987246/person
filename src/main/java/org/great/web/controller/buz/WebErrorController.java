@@ -36,11 +36,6 @@ public class WebErrorController {
 	private WebErrorService webErrorServices;
 
 	/**
-	 * 传输数据
-	 */
-	private String msg;
-
-	/**
 	 * 获取常见错误页面
 	 * 
 	 * @return
@@ -73,7 +68,7 @@ public class WebErrorController {
 		List<WebError> list = webErrorServices.findWebErrorByWebError(webError, message.getPage_new(),
 				message.getPage_num());
 
-		msg = JSONArray.fromObject(list).toString();
+		String msg = JSONArray.fromObject(list).toString();
 		return msg;
 	}
 
