@@ -100,6 +100,7 @@ public class MyShiroRealm extends AuthorizingRealm {
 		if (user.getAuthorizationInfo() != null) {
 			return user.getAuthorizationInfo();
 		}
+		//进行权限匹配,每次都要重新获取后匹配,故第一次获取所有权限保存至用户属性中
 		SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
 		System.out.println("权限配置-->MyShiroRealm.doGetAuthorizationInfo()");
 		// 实际项目中，这里可以根据实际情况做缓存，如果不做，Shiro自己也是有时间间隔机制，2分钟内不会重复执行该方法

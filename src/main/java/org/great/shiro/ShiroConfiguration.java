@@ -70,7 +70,7 @@ public class ShiroConfiguration {
 		shiroFilterFactoryBean.setLoginUrl("/Reception/base/tologin.html");
 		// 登录成功后要跳转的链接
 		shiroFilterFactoryBean.setSuccessUrl("/Reception/base/index.html");
-		// 未授权界面;
+		// 未授权界面--权限不匹配跳转的页面;
 		shiroFilterFactoryBean.setUnauthorizedUrl("/Reception/base/403.html");
 
 		shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
