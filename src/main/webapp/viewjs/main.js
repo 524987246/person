@@ -1,4 +1,6 @@
-$(function() {});
+$(function() {
+	//$('.bk_2').nestable();
+});
 $('#logout').on('click', function() {
 	layer.confirm('确认退出？', {
 		btn : [ '确定', '取消' ] //按钮

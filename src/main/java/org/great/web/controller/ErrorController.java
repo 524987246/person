@@ -18,6 +18,6 @@ public class ErrorController {
 		System.out.println("AuthorizationException权限不足异常");
 		model.addAttribute("e", e);
 		model.addAttribute("message", "权限不足");
-		return "newjsp/403";
+		return "error/403";
 	}
 }
