@@ -13,7 +13,7 @@
 <title>主页</title>
 </head>
 <body>
-	<span class="red">权限不足 </span>
+	<span class="red">${message} </span>
 	<br>${e}
 </body>
 </html>

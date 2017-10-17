@@ -17,6 +17,7 @@ public class ErrorController {
 	public String defaultErrorHandler(HttpServletRequest request, Model model, Exception e) {
 		System.out.println("AuthorizationException权限不足异常");
 		model.addAttribute("e", e);
+		model.addAttribute("message", "权限不足");
 		return "newjsp/403";
 	}
 }
