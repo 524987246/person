@@ -7,7 +7,9 @@
 
 
 	<sql id="beanAttr">
-		a.id,a.name,a.login_name AS "loginName",a.password,a.phone,
+		a.id,a.name,
+		a.login_name AS "loginName",
+		a.password,a.phone,
 		a.isemploy,a.grade,a.dept
 	</sql>
 	<sql id="tableName">
@@ -17,6 +19,7 @@
 		<!-- 基本属性 -->
 		<id property="id" column="id" />
 		<result property="name" column="name" />
+		<result property="password" column="password" />
 		<result property="createBy.id" column="createBy.id" />
 		<result property="createDate" column="createDate" />
 		<result property="updateBy.id" column="updateBy.id" />

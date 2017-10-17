@@ -33,22 +33,21 @@ public class MyShiroRealm extends AuthorizingRealm {
 	 */
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-		System.out.println("MyShiroRealm.doGetAuthenticationInfo()");
-
+		//System.out.println("MyShiroRealm.doGetAuthenticationInfo()");
+		System.out.println("shiro登录认证");
 		// 获取用户的输入的账号.
 		String username = (String) token.getPrincipal();
-		System.out.println(token.getCredentials());
+		//System.out.println(token.getCredentials());
 
 		// 通过username从数据库中查找 User对象，如果找到，没找到.
 		// 实际项目中，这里可以根据实际情况做缓存，如果不做，Shiro自己也是有时间间隔机制，2分钟内不会重复执行该方法
 		User temp = new User();
-		temp.setName(username);
+		temp.setLoginName(username);
 		User user = userService.get(temp);
-		System.out.println("----->>userInfo=" + user);
 		if (user == null) {
 			return null;
 		}
-
+		System.out.println("----->>登录的用户=" + user.getName());
 		/*
 		 * 获取权限信息:这里没有进行实现， 请自行根据UserInfo,Role,Permission进行实现；
 		 * 获取之后可以在前端for循环显示所有链接;
@@ -65,7 +64,7 @@ public class MyShiroRealm extends AuthorizingRealm {
 		 * ByteSource.Util.bytes(user.getCredentialsSalt()), //
 		 * salt=username+salt getName() // realm name );
 		 */
-		SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(username, // 用户名
+		SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(user, // 用户名
 				user.getPassword(), // 密码
 				getName() // realm name
 		);
@@ -101,7 +100,6 @@ public class MyShiroRealm extends AuthorizingRealm {
 
 		SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
 		User user = (User) principals.getPrimaryPrincipal();
-
 		// 实际项目中，这里可以根据实际情况做缓存，如果不做，Shiro自己也是有时间间隔机制，2分钟内不会重复执行该方法
 		// UserInfo userInfo = userInfoService.findByUsername(username)
 
@@ -124,7 +122,6 @@ public class MyShiroRealm extends AuthorizingRealm {
 		for (String role : user.getPermlist()) {
 			authorizationInfo.addStringPermission(role);
 		}
-
 		// 设置权限信息.
 		// authorizationInfo.setStringPermissions(getStringPermissions(userInfo.getRoleList()));
 

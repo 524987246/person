@@ -2,9 +2,15 @@ package org.great.util;
 
 import java.security.MessageDigest;
 
+import org.great.util.myutil.MyStringUtils;
+
 public class MD5Util {
 
 	public final static String MD5Encode(String s) {
+		if (!MyStringUtils.isEmpty(s)) {
+			return "";
+		}
+		;
 		char hexDigits[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
 		try {
 			byte[] btInput = s.getBytes();

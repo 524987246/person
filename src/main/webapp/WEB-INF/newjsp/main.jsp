@@ -59,7 +59,7 @@
 							<ul class="dropDown-menu menu radius box-shadow">
 								<li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
 								<li><a href="#">切换账户</a></li>
-								<li><a href="#">退出</a></li>
+								<li><a href="javascript:;" id="logout">退出</a></li>
 							</ul></li>
 						<li id="Hui-msg"><a href="#" title="消息"><span
 								class="badge badge-danger">1</span><i class="Hui-iconfont"
@@ -305,7 +305,7 @@
 		<div id="iframe_box" class="Hui-article">
 			<div class="show_iframe">
 				<div style="display:none" class="loading"></div>
-				<iframe scrolling="yes" frameborder="0" src="http://www.baidu.com"></iframe>
+				<iframe scrolling="yes" frameborder="0" src="${ctx }/Reception/weberror/weberror.html"></iframe>
 			</div>
 		</div>
 	</section>
@@ -388,5 +388,7 @@
 			layer_show(title, url, w, h);
 		}
 	</script>
+	<script type="text/javascript"
+		src="${ctx}/viewjs/main.js"></script>
 </body>
 </html>

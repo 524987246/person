@@ -30,7 +30,11 @@
 	<div class="header"></div>
 	<div class="loginWraper">
 		<div id="loginform" class="loginBox">
-			<form class="form form-horizontal" action="index.html" method="post">
+			<form class="form form-horizontal"
+				action="${ctx }/Reception/base/login.html" method="post">
+				<div class="row cl">
+					<label class="form-label col-xs-3"><i class="Hui-iconfont">${msg}</i></label>
+				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60d;</i></label>
 					<div class="formControls col-xs-8">
@@ -59,8 +63,11 @@
 				</div>
 				<div class="row cl">
 					<div class="formControls col-xs-8 col-xs-offset-3">
-						<input name="" type="button" class="btn btn-success radius size-L"
-							value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;" onclick="login()">
+						<input name="" type="submit" class="btn btn-success radius size-L"
+							value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;"> 
+						<!-- <input
+							name="" type="button" class="btn btn-success radius size-L"
+							value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;" onclick="login()"> -->
 						<input name="" type="reset" class="btn btn-default radius size-L"
 							value="&nbsp;取&nbsp;&nbsp;&nbsp;&nbsp;消&nbsp;">
 					</div>
@@ -74,7 +81,7 @@
 		var login = function() {
 			var password = $("#password").val();
 			var loginName = $("#loginName").val();
-			var url = "Reception/sys/user/login.html";
+			var url = "Reception/base/login.html";
 			var data = {
 				loginName : loginName,
 				password : password
@@ -91,7 +98,7 @@
 				success : function(data) {
 					alert(data);
 					if (data == "1") {
-						url = basePath + "/Reception/sys/user/toMain.html";
+						url = basePath + "/Reception/base/index.html";
 						window.location.href = url;
 					}
 				},

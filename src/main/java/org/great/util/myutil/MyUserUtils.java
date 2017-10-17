@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.poi.ss.formula.functions.T;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
+import org.apache.shiro.util.ThreadContext;
 import org.great.config.BaseResoure;
 import org.great.web.bean.sys.User;
 
@@ -37,14 +40,18 @@ public class MyUserUtils {
 	 * @param user
 	 * @param request
 	 */
-	public static User getLoginUser(HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		User user = (User) session.getAttribute(BaseResoure.LOGIN_USER_FLAG);
+	public static User getLoginUser() {
+		/*if (ThreadContext.getSecurityManager() == null) {
+			return null;
+		}*/
+		Subject subject = SecurityUtils.getSubject();
+		User user = (User) subject.getPrincipal();
 		return user;
 	}
 
 	/**
 	 * 深度克隆
+	 * 
 	 * @param object
 	 * @return
 	 */

@@ -32,42 +32,9 @@ public class UserController {
 			str = "登录失败<br>用户名错误或密码错误";
 		} else {
 			// 保存登录后的用户
-			MyUserUtils.saveLoginUser(user, request);
+			//MyUserUtils.saveLoginUser(user, request);
 			str = "1";
 		}
 		return str;
 	}
-
-	/**
-	 * 
-	 * @return
-	 */
-	@RequestMapping(value = "toMain.html", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
-	public String toNewMain(HttpServletRequest request, Model model) {
-		User user = MyUserUtils.getLoginUser(request);
-		if (user == null) {
-			return "newjsp/login";
-		}
-		model.addAttribute("user", user);
-		return "newjsp/main";
-	}
-
-	/**
-	 * 测试之用,免登录
-	 * 
-	 * @return
-	 */
-	@RequestMapping(value = "toMain2.html", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
-	public String toNewMain2(HttpServletRequest request, Model model) {
-		User user = MyUserUtils.getLoginUser(request);
-		if (user == null) {
-			user = new User();
-			user.setId(1L);
-			user = userService.get(user);
-		}
-		MyUserUtils.saveLoginUser(user, request);
-		model.addAttribute("user", user);
-		return "newjsp/main";
-	}
-
 }
