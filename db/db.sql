@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50149
 File Encoding         : 65001
 
-Date: 2017-10-11 14:50:13
+Date: 2017-10-17 15:54:56
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -217,10 +217,10 @@ CREATE TABLE `sys_menu` (
 -- ----------------------------
 -- Records of sys_menu
 -- ----------------------------
-INSERT INTO `sys_menu` VALUES ('1', '测试菜单1', '1', '0', 'test1', '1', null, '1', '0', '2017-10-11 14:44:03', '0', '2017-10-11 14:44:06', null, '1');
-INSERT INTO `sys_menu` VALUES ('2', '测试菜单2', '2', '0', 'test2', '1', null, '1', '0', '2017-10-11 14:44:03', '0', '2017-10-11 14:44:06', null, '1');
+INSERT INTO `sys_menu` VALUES ('1', '网络常见错误', 'Reception/weberror/weberror.html', '0', 'buz:weberror:view1,buz:weberror:add', '1', null, '1', '0', '2017-10-11 14:44:03', '0', '2017-10-11 14:44:06', null, '1');
+INSERT INTO `sys_menu` VALUES ('2', '测试菜单2', '2', '0', 'buz:test2:view', '1', null, '1', '0', '2017-10-11 14:44:03', '0', '2017-10-11 14:44:06', null, '1');
 INSERT INTO `sys_menu` VALUES ('3', '测试菜单3', '3', '0', 'test3', '1', null, '1', '0', '2017-10-11 14:44:03', '0', '2017-10-11 14:44:06', null, '1');
-INSERT INTO `sys_menu` VALUES ('4', '测试菜单4', '4', '0', 'test4', '1', null, '1', '0', '2017-10-11 14:44:03', '0', '2017-10-11 14:44:06', null, '1');
+INSERT INTO `sys_menu` VALUES ('4', '测试菜单4', '4', '0', 'buz:test4:view,buz:weberror:view', '1', null, '1', '0', '2017-10-11 14:44:03', '0', '2017-10-11 14:44:06', null, '1');
 
 -- ----------------------------
 -- Table structure for sys_role
@@ -266,11 +266,10 @@ CREATE TABLE `sys_role_menu` (
 -- Records of sys_role_menu
 -- ----------------------------
 INSERT INTO `sys_role_menu` VALUES ('1', '1', '1', '0', '2017-10-11 14:35:45', '0', '2017-10-11 14:35:48', null, '1');
-INSERT INTO `sys_role_menu` VALUES ('2', '1', '2', '0', '2017-10-11 14:35:45', '0', '2017-10-11 14:35:48', null, '1');
 INSERT INTO `sys_role_menu` VALUES ('3', '1', '3', '0', '2017-10-11 14:35:45', '0', '2017-10-11 14:35:48', null, '1');
 INSERT INTO `sys_role_menu` VALUES ('4', '2', '1', '0', '2017-10-11 14:35:45', '0', '2017-10-11 14:35:48', null, '1');
 INSERT INTO `sys_role_menu` VALUES ('5', '2', '2', '0', '2017-10-11 14:35:45', '0', '2017-10-11 14:35:48', null, '1');
-INSERT INTO `sys_role_menu` VALUES ('6', '3', '1', '0', '2017-10-11 14:35:45', '0', '2017-10-11 14:35:48', null, '1');
+INSERT INTO `sys_role_menu` VALUES ('6', '3', '2', '0', '2017-10-11 14:35:45', '0', '2017-10-11 14:35:48', null, '1');
 INSERT INTO `sys_role_menu` VALUES ('7', '3', '3', '0', '2017-10-11 14:35:45', '0', '2017-10-11 14:35:48', null, '1');
 
 -- ----------------------------
@@ -280,11 +279,11 @@ DROP TABLE IF EXISTS `sys_user`;
 CREATE TABLE `sys_user` (
   `id` int(10) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `name` varchar(100) DEFAULT '新用户' COMMENT '用户名称',
+  `login_name` varchar(100) NOT NULL COMMENT '登录名',
   `password` varchar(100) NOT NULL COMMENT '用户密码',
   `phone` varchar(11) NOT NULL COMMENT '手机号码',
   `isemploy` int(1) NOT NULL DEFAULT '1' COMMENT '状态1:正常2删除3审核',
   `grade` int(1) DEFAULT '1' COMMENT '用户等级:0最高级',
-  `role` int(11) DEFAULT '1' COMMENT '用户角色',
   `dept` int(11) DEFAULT NULL COMMENT '部门',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
@@ -292,10 +291,10 @@ CREATE TABLE `sys_user` (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES ('0', '系统', '系统保留', '0', '1', '0', '1', null);
-INSERT INTO `sys_user` VALUES ('1', '张三', 'e10adc3949ba59abbe56e057f20f883e', '15345042356', '1', '0', '1', null);
-INSERT INTO `sys_user` VALUES ('2', '李四', 'e10adc3949ba59abbe56e057f20f883e', '15345042357', '1', '1', '2', null);
-INSERT INTO `sys_user` VALUES ('3', '王五', 'e10adc3949ba59abbe56e057f20f883e', '15345042358', '1', '1', '3', null);
+INSERT INTO `sys_user` VALUES ('0', '系统', '0', '系统保留', '0', '1', '0', null);
+INSERT INTO `sys_user` VALUES ('1', '张三', 'zansan', '25D55AD283AA400AF464C76D713C07AD', '15345042356', '1', '0', null);
+INSERT INTO `sys_user` VALUES ('2', '李四', 'lisi', '25D55AD283AA400AF464C76D713C07AD', '15345042357', '1', '1', null);
+INSERT INTO `sys_user` VALUES ('3', '王五', 'wangwu', '25D55AD283AA400AF464C76D713C07AD', '15345042358', '1', '1', null);
 
 -- ----------------------------
 -- Table structure for sys_user_role
@@ -312,7 +311,7 @@ CREATE TABLE `sys_user_role` (
   `remarks` varchar(765) COLLATE utf8_bin DEFAULT NULL COMMENT '备注',
   `isemploy` char(3) COLLATE utf8_bin NOT NULL DEFAULT '1' COMMENT '删除标记 1正常2删除',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用户角色关系表';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用户角色关系表';
 
 -- ----------------------------
 -- Records of sys_user_role
@@ -320,6 +319,7 @@ CREATE TABLE `sys_user_role` (
 INSERT INTO `sys_user_role` VALUES ('1', '1', '1', '0', '2017-10-11 14:30:37', '0', '2017-10-11 14:30:40', '0', '1');
 INSERT INTO `sys_user_role` VALUES ('2', '2', '2', '0', '2017-10-11 14:30:37', '0', '2017-10-11 14:30:40', '0', '1');
 INSERT INTO `sys_user_role` VALUES ('3', '3', '3', '0', '2017-10-11 14:30:37', '0', '2017-10-11 14:30:40', '0', '1');
+INSERT INTO `sys_user_role` VALUES ('4', '1', '2', '0', '2017-10-11 14:30:37', '0', '2017-10-11 14:30:40', '0', '1');
 
 -- ----------------------------
 -- Table structure for sys_wx_token
