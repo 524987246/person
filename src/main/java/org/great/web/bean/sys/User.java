@@ -8,6 +8,7 @@ import java.util.Set;
 
 import javax.validation.constraints.Size;
 
+import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.great.util.myutil.MyCollectionUtils;
 import org.great.util.myutil.MyStringUtils;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -46,6 +47,7 @@ public class User implements Serializable {
 	private List<Menu> menulist;
 	private Set<String> permlist;
 	private boolean init_perm_flag = false;
+	private SimpleAuthorizationInfo authorizationInfo;
 
 	public Long getId() {
 		return id;
@@ -157,5 +159,13 @@ public class User implements Serializable {
 			}
 		}
 		this.permlist = templist;
+	}
+
+	public SimpleAuthorizationInfo getAuthorizationInfo() {
+		return authorizationInfo;
+	}
+
+	public void setAuthorizationInfo(SimpleAuthorizationInfo authorizationInfo) {
+		this.authorizationInfo = authorizationInfo;
 	}
 }

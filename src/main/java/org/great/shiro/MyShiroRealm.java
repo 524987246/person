@@ -33,11 +33,11 @@ public class MyShiroRealm extends AuthorizingRealm {
 	 */
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-		//System.out.println("MyShiroRealm.doGetAuthenticationInfo()");
+		// System.out.println("MyShiroRealm.doGetAuthenticationInfo()");
 		System.out.println("shiro登录认证");
 		// 获取用户的输入的账号.
 		String username = (String) token.getPrincipal();
-		//System.out.println(token.getCredentials());
+		// System.out.println(token.getCredentials());
 
 		// 通过username从数据库中查找 User对象，如果找到，没找到.
 		// 实际项目中，这里可以根据实际情况做缓存，如果不做，Shiro自己也是有时间间隔机制，2分钟内不会重复执行该方法
@@ -96,10 +96,12 @@ public class MyShiroRealm extends AuthorizingRealm {
 		 * 当没有使用缓存的时候，不断刷新页面的话，这个代码会不断执行， 当其实没有必要每次都重新设置权限信息，所以我们需要放到缓存中进行管理；
 		 * 当放到缓存中时，这样的话，doGetAuthorizationInfo就只会执行一次了， 缓存过期之后会再次执行。
 		 */
-		System.out.println("权限配置-->MyShiroRealm.doGetAuthorizationInfo()");
-
-		SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
 		User user = (User) principals.getPrimaryPrincipal();
+		if (user.getAuthorizationInfo() != null) {
+			return user.getAuthorizationInfo();
+		}
+		SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
+		System.out.println("权限配置-->MyShiroRealm.doGetAuthorizationInfo()");
 		// 实际项目中，这里可以根据实际情况做缓存，如果不做，Shiro自己也是有时间间隔机制，2分钟内不会重复执行该方法
 		// UserInfo userInfo = userInfoService.findByUsername(username)
 
@@ -122,6 +124,7 @@ public class MyShiroRealm extends AuthorizingRealm {
 		for (String role : user.getPermlist()) {
 			authorizationInfo.addStringPermission(role);
 		}
+		user.setAuthorizationInfo(authorizationInfo);
 		// 设置权限信息.
 		// authorizationInfo.setStringPermissions(getStringPermissions(userInfo.getRoleList()));
 

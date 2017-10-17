@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="shiro" uri="/WEB-INF/tlds/shiros.tld" %>
 <script src="${ctx}/js/jquery-2.2.1.js"></script>
 <link rel="stylesheet" href="${ctx}/css/bootstrap.css" media="screen" title="no title" charset="utf-8">
 <link rel="stylesheet" href="${ctx}/css/font-awesome.css" media="screen" title="no title" charset="utf-8">

@@ -91,9 +91,19 @@
 				<dd>
 					<ul>
 						<c:forEach items="${user.menulist }" var="menu">
-							<li><a data-href="${ctx}/${menu.url}" data-title="${menu.name}"
-								href="javascript:void(0)">${menu.name}</a></li>
+							<li><a data-href="${ctx}/${menu.url}"
+								data-title="${menu.name}" href="javascript:void(0)">${menu.name}</a></li>
 						</c:forEach>
+						<shiro:hasPermission name="buz:weberror:view">
+							<li>权限测试buz:weberror:view1</li>
+						</shiro:hasPermission>
+						<shiro:hasPermission name="buz:test2:view">
+							<li>权限测试buz:test2:view</li>
+						</shiro:hasPermission>
+						<shiro:hasPermission name="111">
+							<li>权限测试111</li>
+						</shiro:hasPermission>
+
 					</ul>
 				</dd>
 			</dl>
@@ -291,8 +301,8 @@
 		<div id="Hui-tabNav" class="Hui-tabNav hidden-xs">
 			<div class="Hui-tabNav-wp">
 				<ul id="min_title_list" class="acrossTab cl">
-					<li class="active"><span title="我的桌面" data-href="http://www.baidu.com">我的桌面</span>
-						<em></em></li>
+					<li class="active"><span title="我的桌面"
+						data-href="http://www.baidu.com">我的桌面</span> <em></em></li>
 				</ul>
 			</div>
 			<div class="Hui-tabNav-more btn-group">
@@ -305,7 +315,8 @@
 		<div id="iframe_box" class="Hui-article">
 			<div class="show_iframe">
 				<div style="display:none" class="loading"></div>
-				<iframe scrolling="yes" frameborder="0" src="${ctx }/Reception/weberror/weberror.html"></iframe>
+				<iframe scrolling="yes" frameborder="0"
+					src="${ctx }/Reception/weberror/weberror.html"></iframe>
 			</div>
 		</div>
 	</section>
@@ -388,7 +399,6 @@
 			layer_show(title, url, w, h);
 		}
 	</script>
-	<script type="text/javascript"
-		src="${ctx}/viewjs/main.js"></script>
+	<script type="text/javascript" src="${ctx}/viewjs/main.js"></script>
 </body>
 </html>

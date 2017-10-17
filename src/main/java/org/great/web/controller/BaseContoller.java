@@ -104,5 +104,15 @@ public class BaseContoller {
 		model.addAttribute("user", user);
 		return "newjsp/main";
 	}
+	/**
+	 * 主页面
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "403.html", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
+	public String errorhtml(HttpServletRequest request, Model model) {
+		// User user = MyUserUtils.getLoginUser(request);
+		return "newjsp/403";
+	}
 
 }
