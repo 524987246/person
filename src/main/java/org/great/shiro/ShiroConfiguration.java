@@ -62,7 +62,7 @@ public class ShiroConfiguration {
 		filterChainDefinitionMap.put("/*.jpg", "anon");
 		
 		//filterChainDefinitionMap.put("/**/login.html", "anon");
-		filterChainDefinitionMap.put("/**/login.html", "anon");
+		filterChainDefinitionMap.put("/Reception/base/login.html", "anon");
 		filterChainDefinitionMap.put("/**/*.*", "authc");
 		
 
