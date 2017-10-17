@@ -4,7 +4,6 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.great.util.beanValidtor.ValidtorUtil;
-import org.great.util.myutil.MyUserUtils;
 import org.great.web.bean.sys.User;
 import org.great.web.service.sys.UserService;
 import org.springframework.stereotype.Controller;
@@ -32,7 +31,7 @@ public class UserController {
 			str = "登录失败<br>用户名错误或密码错误";
 		} else {
 			// 保存登录后的用户
-			//MyUserUtils.saveLoginUser(user, request);
+			// MyUserUtils.saveLoginUser(user, request);
 			str = "1";
 		}
 		return str;

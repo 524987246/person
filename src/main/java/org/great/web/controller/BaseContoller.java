@@ -3,10 +3,6 @@ package org.great.web.controller;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.ExcessiveAttemptsException;
-import org.apache.shiro.authc.IncorrectCredentialsException;
-import org.apache.shiro.authc.LockedAccountException;
-import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.great.util.MD5Util;
@@ -18,10 +14,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/Reception/base/")
@@ -42,7 +36,7 @@ public class BaseContoller {
 	public String logout() {
 		Subject subject = SecurityUtils.getSubject();
 		subject.logout();
-		return "newjsp/login";
+		return "redirect:/Reception/base/tologin.html";
 	}
 
 	/**
@@ -54,12 +48,12 @@ public class BaseContoller {
 	public String login(User user, Model model, HttpServletRequest request) {
 		if (user == null) {
 			model.addAttribute("msg", "请输入用户名,密码");
-			return "newjsp/login";
+			return "redirect:/Reception/base/tologin.html";
 		}
 		String msg = ValidtorUtil.validbean(user);
 		if (MyStringUtils.isEmpty(msg)) {
 			model.addAttribute("msg", msg);
-			return "newjsp/login";
+			return "redirect:/Reception/base/tologin.html";
 		}
 		;
 		UsernamePasswordToken token = new UsernamePasswordToken(user.getLoginName(),
@@ -85,7 +79,7 @@ public class BaseContoller {
 			return "newjsp/main";
 		} else {
 			token.clear();
-			return "newjsp/login";
+			return "redirect:/Reception/base/tologin.html";
 		}
 	}
 
@@ -99,11 +93,12 @@ public class BaseContoller {
 		// User user = MyUserUtils.getLoginUser(request);
 		User user = MyUserUtils.getLoginUser();
 		if (user == null) {
-			return "newjsp/login";
+			return "redirect:/Reception/base/tologin.html";
 		}
 		model.addAttribute("user", user);
 		return "newjsp/main";
 	}
+
 	/**
 	 * 主页面
 	 * 
@@ -111,7 +106,6 @@ public class BaseContoller {
 	 */
 	@RequestMapping(value = "403.html", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
 	public String errorhtml(HttpServletRequest request, Model model) {
-		// User user = MyUserUtils.getLoginUser(request);
 		return "newjsp/403";
 	}
 

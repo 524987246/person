@@ -1,6 +1,5 @@
 package org.great.web.controller;
 
-import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authz.AuthorizationException;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -11,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * 全局异常处理类
  */
-@ControllerAdvice // 控制器增强
+@ControllerAdvice
 public class ErrorController {
 
 	@ExceptionHandler(value = AuthorizationException.class) // 异常捕获

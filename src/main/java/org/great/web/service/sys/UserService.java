@@ -28,8 +28,5 @@ public class UserService {
 		User loginuser = usermapper.get(user);
 		return loginuser;
 	}
-	private void setUserBaseInfo(User user){
-		
-	}
 
 }

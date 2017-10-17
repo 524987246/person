@@ -12,6 +12,8 @@
 <%@ include file="/WEB-INF/include/newtitlehead.jsp"%>
 <title>主页</title>
 </head>
-<body>权限不足 ${e}
+<body>
+	<span class="red">权限不足 </span>
+	<br>${e}
 </body>
 </html>

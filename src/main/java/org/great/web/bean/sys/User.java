@@ -1,7 +1,6 @@
 package org.great.web.bean.sys;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -9,20 +8,11 @@ import java.util.Set;
 import javax.validation.constraints.Size;
 
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
-import org.great.util.myutil.MyCollectionUtils;
 import org.great.util.myutil.MyStringUtils;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.mysql.fabric.xmlrpc.base.Array;
-
-/**
- * 用户bean
- * 
- * @author 谢军
- * 
- */
 @Component
 @Scope("prototype")
 public class User implements Serializable {
