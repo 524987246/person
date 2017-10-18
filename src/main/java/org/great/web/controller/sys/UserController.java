@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.great.util.beanValidtor.ValidtorUtil;
+import org.great.util.myutil.MyUserUtils;
 import org.great.web.bean.sys.User;
 import org.great.web.service.sys.UserService;
 import org.springframework.stereotype.Controller;
@@ -35,5 +36,13 @@ public class UserController {
 			str = "1";
 		}
 		return str;
+	}
+	@ResponseBody
+	@RequestMapping(value = "get.html", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
+	public User get() {
+		User user = MyUserUtils.getLoginUser();
+		User temp = (User) MyUserUtils.myclone(user);
+		temp.setPassword(null);
+		return temp;
 	}
 }

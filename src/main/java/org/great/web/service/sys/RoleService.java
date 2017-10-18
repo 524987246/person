@@ -30,22 +30,28 @@ public class RoleService {
 	}
 
 	public int save(Role role) {
+		role.setBaseInfo();
 		int i = roleMapper.save(role);
 		return i;
 	}
 
 	public int update(Role role) {
+		role.setBaseInfo();
 		int i = roleMapper.update(role);
 		return i;
 	}
 
 	public int delete(Role role) {
+		role.setIsemploy(2);
+		role.setBaseInfo();
 		int i = roleMapper.delete(role);
 		return i;
 	}
 
-	public int batchdelete(List<Long> list) {
-		int i = roleMapper.batchdelete(list);
+	public int batchdelete(Role role) {
+		role.setIsemploy(2);
+		role.setBaseInfo();
+		int i = roleMapper.batchdelete(role);
 		return i;
 	}
 

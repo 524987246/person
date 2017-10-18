@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.great.web.bean.sys.Menu;
 import org.great.web.mapper.sys.MenuMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
  * 
  */
 @Service
+@Transactional(readOnly = true)
 public class MenuService {
 	@Resource
 	private MenuMapper menuMapper;
@@ -29,22 +31,28 @@ public class MenuService {
 	}
 
 	public int save(Menu menu) {
+		menu.setBaseInfo();
 		int i = menuMapper.save(menu);
 		return i;
 	}
 
 	public int update(Menu menu) {
+		menu.setBaseInfo();
 		int i = menuMapper.update(menu);
 		return i;
 	}
 
 	public int delete(Menu menu) {
+		menu.setIsemploy(2);
+		menu.setBaseInfo();
 		int i = menuMapper.delete(menu);
 		return i;
 	}
 
-	public int batchdelete(List<Long> list) {
-		int i = menuMapper.batchdelete(list);
+	public int batchdelete(Menu menu) {
+		menu.setIsemploy(2);
+		menu.setBaseInfo();
+		int i = menuMapper.batchdelete(menu);
 		return i;
 	}
 

@@ -1,8 +1,11 @@
 package org.great.web.bean.sys;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.validation.constraints.Size;
@@ -124,6 +127,14 @@ public class User implements Serializable {
 		return permlist;
 	}
 
+	public SimpleAuthorizationInfo getAuthorizationInfo() {
+		return authorizationInfo;
+	}
+
+	public void setAuthorizationInfo(SimpleAuthorizationInfo authorizationInfo) {
+		this.authorizationInfo = authorizationInfo;
+	}
+
 	/**
 	 * 初始化权限
 	 */
@@ -151,11 +162,99 @@ public class User implements Serializable {
 		this.permlist = templist;
 	}
 
-	public SimpleAuthorizationInfo getAuthorizationInfo() {
-		return authorizationInfo;
+	private String firstMenuHtml;
+	private List<String> childHtml;
+
+	public String getFirstMenuHtml() {
+		return firstMenuHtml;
 	}
 
-	public void setAuthorizationInfo(SimpleAuthorizationInfo authorizationInfo) {
-		this.authorizationInfo = authorizationInfo;
+	public void setFirstMenuHtml(String firstMenuHtml) {
+		this.firstMenuHtml = firstMenuHtml;
+	}
+
+	public List<String> getChildHtml() {
+		return childHtml;
+	}
+
+	public void setChildHtml(List<String> childHtml) {
+		this.childHtml = childHtml;
+	}
+
+	/**
+	 * 生成菜单html
+	 */
+	public void createMenuHtml(String ctx) {
+		if (this.menulist == null || this.menulist.size() == 0) {
+			return;
+		}
+		List<Menu> firstlist = new ArrayList<Menu>();
+		Map<Long, Menu> map = new HashMap<Long, Menu>();
+		for (int i = 0; i < this.menulist.size(); i++) {
+			Menu temp = menulist.get(i);
+			map.put(temp.getId(), temp);
+			if (temp.getParentId() == 0L) {
+				firstlist.add(temp);
+			}
+
+		}
+		// 生成一级菜单的html字符串
+		String firstMenuHtml = "";
+		String template = "<li class=\"navbar-levelone\"><a href=\"javascript:;\">CONTENT</a></li>";
+		for (int i = 0; i < firstlist.size(); i++) {
+			Menu temp = firstlist.get(i);
+			String html = "";
+			if (i == 0) {
+				html = template.replaceAll("CONTENT", temp.getName()).replace("navbar-levelone",
+						"navbar-levelone current");
+			} else {
+				html = template.replaceAll("CONTENT", temp.getName());
+			}
+			firstMenuHtml += html;
+		}
+		this.setFirstMenuHtml(firstMenuHtml);
+		// 剩余菜单生成
+		for (Menu menu : this.menulist) {
+			if (menu.getParentId() != 0L && !menu.getType().equals("3")) {
+				Menu temp = map.get(menu.getParentId());
+				temp.getChildlist().add(menu);
+			}
+		}
+		List<String> childHtml = new ArrayList<String>();
+		for (Menu menu : firstlist) {
+			// 生成每个一级菜单的所有子菜单
+			String result = createHtml(menu, ctx);
+			System.out.println(result);
+			childHtml.add(result);
+		}
+		this.childHtml = childHtml;
+	}
+
+	// 循环遍历创建子菜单
+	private String createHtml(Menu menu, String ctx) {
+		String result = "";
+		for (Menu temp : menu.getChildlist()) {
+			result += createChildMenuHtml(temp, ctx);
+		}
+		return result;
+	}
+
+	private String template = "<li><a data-href=\"URL\" data-title=\"NAME\" href=\"javascript:void(0)\">NAME</a></li>";
+	private String templateMain = "<dl><dt><i class=\"Hui-iconfont\">ICON</i>NAME<i class=\"Hui-iconfont menu_dropdown-arrow\">&#xe6d5;</i></dt><dd><ul>CHILDHTML</ul></dd></dl>";
+
+	private String createChildMenuHtml(Menu menu, String ctx) {
+		String html = "";
+		String result = "";
+		String icon = menu.getIcon() == null ? "" : menu.getIcon();
+		result = templateMain.replaceAll("ICON", icon).replaceAll("NAME", menu.getName());
+		for (Menu temp : menu.getChildlist()) {
+			if (temp.getChildlist().size() > 0) {
+				html += "<li>" + createChildMenuHtml(temp, ctx) + "</li>";
+			} else {
+				html += template.replaceAll("URL", ctx + "/" + temp.getUrl()).replaceAll("NAME", temp.getName());
+			}
+		}
+		result = result.replaceAll("CHILDHTML", html);
+		return result;
 	}
 }

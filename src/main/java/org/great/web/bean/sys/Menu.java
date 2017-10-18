@@ -1,9 +1,14 @@
 package org.great.web.bean.sys;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+
+import com.mysql.fabric.xmlrpc.base.Array;
 
 /**
  * 菜单bean
@@ -23,6 +28,7 @@ public class Menu extends BaseBean implements Serializable {
 	/**
 	 * 名称
 	 */
+	@NotEmpty(message = "名称不能为空")
 	private String name;
 	/**
 	 * 路径
@@ -48,6 +54,8 @@ public class Menu extends BaseBean implements Serializable {
 	 * 排序
 	 */
 	private String orderNum;
+
+	private List<Menu> childlist = new ArrayList<Menu>();
 
 	public String getName() {
 		return name;
@@ -109,6 +117,14 @@ public class Menu extends BaseBean implements Serializable {
 	public String toString() {
 		return "Menu [name=" + name + ", url=" + url + ", parentId=" + parentId + ", perms=" + perms + ", type=" + type
 				+ ", icon=" + icon + ", orderNum=" + orderNum + "]";
+	}
+
+	public List<Menu> getChildlist() {
+		return childlist;
+	}
+
+	public void setChildlist(List<Menu> childlist) {
+		this.childlist = childlist;
 	}
 
 }

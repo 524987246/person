@@ -29,22 +29,28 @@ public class DeptService {
 	}
 
 	public int save(Dept dept) {
+		dept.setBaseInfo();
 		int i = deptMapper.save(dept);
 		return i;
 	}
 
 	public int update(Dept dept) {
+		dept.setBaseInfo();
 		int i = deptMapper.update(dept);
 		return i;
 	}
 
 	public int delete(Dept dept) {
+		dept.setIsemploy(2);
+		dept.setBaseInfo();
 		int i = deptMapper.delete(dept);
 		return i;
 	}
 
-	public int batchdelete(List<Long> list) {
-		int i = deptMapper.batchdelete(list);
+	public int batchdelete(Dept dept) {
+		dept.setIsemploy(2);
+		dept.setBaseInfo();
+		int i = deptMapper.batchdelete(dept);
 		return i;
 	}
 

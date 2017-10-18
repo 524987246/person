@@ -83,8 +83,10 @@
 	<select id="delete" parameterType="org.great.web.bean.sys.Menu">
 		UPDATE
 		<include refid="tableName" />
-		SET
+		<set>
+		<include refid="baseUpdateInfo" />
 		isemploy=#{isemploy}
+		</set>
 		WHERE
 		id=#{id}
 	</select>
@@ -92,11 +94,13 @@
 	<select id="batchdelete">
 		UPDATE
 		<include refid="tableName" />
-		SET
+		<set>
+		<include refid="baseUpdateInfo" />
 		isemploy=#{isemploy}
+		</set>
 		WHERE
 		id in
-		<foreach item="id" collection="list" open="(" separator=","
+		<foreach item="id" collection="batchId" open="(" separator=","
 			close=")">
 			#{id}
 		</foreach>

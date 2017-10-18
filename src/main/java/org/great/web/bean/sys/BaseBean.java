@@ -1,11 +1,14 @@
 package org.great.web.bean.sys;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Map;
 
 import org.great.config.BaseResoure;
+import org.great.util.beanValidtor.ValidtorUtil;
 import org.great.util.myutil.MyDateUtils;
 import org.great.util.myutil.MyStringUtils;
+import org.great.util.myutil.MyUserUtils;
 
 public class BaseBean implements Serializable {
 	/**
@@ -64,6 +67,10 @@ public class BaseBean implements Serializable {
 	 * 删除标记（1：正常；2：删除；3：审核）
 	 */
 	private Integer isemploy;
+	/**
+	 * 批量操作时的id集合(批量删除或更新)
+	 */
+	private List<Long> batchId;
 
 	public Long getId() {
 		return id;
@@ -172,7 +179,8 @@ public class BaseBean implements Serializable {
 	/**
 	 * 设置基础信息(创建人员,更新人员,创建时间,更新时间)
 	 */
-	protected void setBaseInfo() {
+	public void setBaseInfo() {
+		Long id = MyUserUtils.getLoginUser().getId();
 		if (this.id == null) {
 			boolean bo = MyStringUtils.isEmpty(this.createDate);
 			if (bo) {
@@ -184,14 +192,21 @@ public class BaseBean implements Serializable {
 			// 获取当前用户
 			if (this.createBy == null || this.createBy.getId() == null) {
 				this.createBy = new User();
-				this.createBy.setId(0L);
+				this.createBy.setId(id);
 			}
 		}
 		this.updateDate = MyDateUtils.dateToString(null);
 		// 获取当前用户
-		this.updateBy.setId(0L);
+		this.updateBy.setId(id);
 	}
 
+	/**
+	 * 设置查询时间
+	 * 
+	 * @param time
+	 *            时间间隔
+	 * @param map
+	 */
 	public void setQueryDate(int time, Map<String, Object> map) {
 		map = MyDateUtils.setQueryDate(this.queryBeginDate, this.queryEndDate, time, map);
 		this.queryBeginDate = map.get("begintime").toString();
@@ -216,5 +231,13 @@ public class BaseBean implements Serializable {
 		if (total > this.totalCount) {
 			this.page_new = 1;
 		}
+	}
+
+	public List<Long> getBatchId() {
+		return batchId;
+	}
+
+	public void setBatchId(List<Long> batchId) {
+		this.batchId = batchId;
 	}
 }

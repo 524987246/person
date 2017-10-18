@@ -5,12 +5,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="shiro" uri="/WEB-INF/tlds/shiros.tld" %>
 <script src="${ctx}/js/jquery-2.2.1.js"></script>
+<!-- js中的map集合 -->
+<script src="${ctx}/js/mapObject.js"></script>
 <link rel="stylesheet" href="${ctx}/css/bootstrap.css" media="screen" title="no title" charset="utf-8">
 <link rel="stylesheet" href="${ctx}/css/font-awesome.css" media="screen" title="no title" charset="utf-8">
 <script type="text/javascript" src="${ctx}/js/bootstrap.js" charset="utf-8">
 </script>
 <script src="${ctx}/js/cookieUtil.js"></script>
-<script src="${ctx}/viewjs/index.js"></script>
 <script src="${ctx}/js/public_function.js"></script>
 <script type="text/javascript" src="${ctx}/js/this_project_function.js" charset="utf-8">
 </script>
@@ -21,11 +22,11 @@ var basePath='${ctx}';
 <meta id="token" name="${_csrf.token}" />
 <meta id="header" name="${_csrf.headerName}" />
 
-<!-- fileinput 插件 开始 -->
+<!-- fileinput 插件 开始 
 <link type="text/css" rel="stylesheet" href="${ctx}/statis/fileinput/css/fileinput.css" />
 <script type="text/javascript" src="${ctx}/statis/fileinput/js/fileinput.js"></script>
 <%-- <script type="text/javascript" src="${ctx}/statis/fileinput/js/fileinput_locale_zh.js"></script> --%>
-<!-- fileinput 插件 结束 -->
+ fileinput 插件 结束 -->
 
 <!-- webupload 插件 开始 -->
 <link type="text/css" rel="stylesheet" href="${ctx}/statis/webupload/webuploader.css" />
@@ -39,15 +40,15 @@ var basePath='${ctx}';
 <script type="text/javascript" src="${ctx}/statis/ztree/js/jquery.ztree.exhide.js"></script>
 <!-- ztree插件  结束 -->
 
-<!-- pagination 分页插件   开始 -->
+<!-- pagination 分页插件   开始
 <link href="${ctx}/statis/pagination/pagination.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="${ctx}/statis/pagination/jquery.pagination.js"></script>
-<!-- pagination 分页插件   结束 -->
+ pagination 分页插件   结束 -->
  
-<!-- 拖拽界面样式   开始-->
+<!-- 拖拽界面样式   开始
 <link rel="stylesheet" href="${ctx}/css/ace.min.css" media="screen" title="no title" charset="utf-8">
 <script type="text/javascript" src="${ctx}/js/jquery.nestable.min.js" charset="utf-8"></script>
-<!-- 拖拽界面样式   结束 -->
+ 拖拽界面样式   结束 -->
 
 <!-- 新界面样式   开始-->
 <link rel="stylesheet" type="text/css" href="${ctx}/statis/newjsp/static/h-ui/css/H-ui.min.css" />

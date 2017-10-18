@@ -39,12 +39,11 @@ public class DeptController {
 	 */
 	@RequestMapping(value = "/to.html", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
 	public String to() {
-		PageHelper.startPage(1, 2);
 		return "jsp/sys/dept";
 	}
 
 	/**
-	 * 获取错误数据
+	 * 获取数据
 	 * 
 	 * 
 	 */

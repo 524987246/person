@@ -23,7 +23,7 @@ public class BaseContoller {
 	private static final Logger logger = LoggerFactory.getLogger(BaseContoller.class);
 	private static final String LOGIN_URL = "newjsp/login";
 
-	@RequestMapping(value = "tologin.html",produces = "text/html;charset=UTF-8")
+	@RequestMapping(value = "tologin.html", produces = "text/html;charset=UTF-8")
 	public String tologin(Model model) {
 		User user = MyUserUtils.getLoginUser();
 		if (user != null) {
@@ -75,6 +75,8 @@ public class BaseContoller {
 		// 验证是否登录成功
 		if (currentUser.isAuthenticated()) {
 			user = MyUserUtils.getLoginUser();
+			String ctx=request.getContextPath();
+			user.createMenuHtml(ctx);
 			model.addAttribute("user", user);
 			logger.info("用户[" + loginnname + "]登录认证通过(这里可以进行一些认证通过后的一些系统参数初始化操作)");
 			return "newjsp/main";

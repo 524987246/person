@@ -22,5 +22,5 @@ public interface BaseMapper<T> {
 
 	public int delete(T t);
 
-	public int batchdelete(List<Long> list);
+	public int batchdelete(T t);
 }
