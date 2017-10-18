@@ -13,7 +13,9 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.great.wx.bean.AccessToken;
+import org.great.wx.bean.MessageTemplate;
 import org.great.wx.bean.OAuthInfo;
+import org.great.wx.bean.SendTemplate;
 import org.json.JSONException;
 import org.junit.Test;
 
@@ -106,7 +108,17 @@ public class WechatUtil {
 	public void add() {
 		// 测试获取token
 		try {
-			System.out.println(getAccessToken());
+			System.out.println("1");
+			AccessToken accessToken = getAccessToken();
+			String url = WXUrl.GET_ALL_TEMPLATE.replaceAll("ACCESS_TOKEN", accessToken.getToken());
+			JSONObject json = doGetStr(url);
+			System.out.println("==" + json.toString());
+			SendTemplate temp = new SendTemplate();
+			JSONObject jsonStu = JSONObject.fromObject(temp);
+			System.out.println(jsonStu.toString());
+			url = WXUrl.SEND_TEMPLATE_MESSAGE.replaceAll("ACCESS_TOKEN", accessToken.getToken());
+			json = doPostStr(url, jsonStu.toString());
+			System.out.println(json.toString());
 		} catch (ParseException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

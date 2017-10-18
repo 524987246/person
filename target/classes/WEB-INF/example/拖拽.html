@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script src="../static/jquery-2.2.1.js" type="text/javascript"></script>
+<link href="../static/bootstrap.css" rel="stylesheet">
+<script src="../static/bootstrap.js" type="text/javascript"></script>
+<link href="../static/font-awesome.min.css" type="text/css"
+	rel="stylesheet" />
+<link href="../static/ace.min.css" rel="stylesheet">
+<script src="../static/jquery.nestable.min.js" type="text/javascript"></script>
+</head>
+<body>
+	<div class="dd">
+		<ol class="dd-list">
+			<li class="dd-item" data-id="1">
+				<div class="dd-handle">Item 1</div>
+			</li>
+			<li class="dd-item" data-id="2">
+				<div class="dd-handle">Item 2</div>
+			</li>
+			<li class="dd-item" data-id="3">
+				<div class="dd-handle">Item 3</div>
+				<ol class="dd-list">
+					<li class="dd-item" data-id="4">
+						<div class="dd-handle">Item 4</div>
+					</li>
+					<li class="dd-item" data-id="5">
+						<div class="dd-handle">Item 5</div>
+					</li>
+				</ol>
+			</li>
+		</ol>
+	</div>
+	<input class="btn red" type="button" value="获取排列数据" onclick="getJson()">
+	<input class="btn red" type="button" value="关闭所有节点"
+		onclick="closeAll()">
+	<input class="btn red" type="button" value="打开所有节点" onclick="openAll()">
+	<script type="text/javascript">
+		jQuery(function() {
+			$('.dd').nestable();
+		});
+		function getJson() {
+			var json = $('.dd').nestable('serialize');
+			json = JSON.stringify(json);
+			alert(json);
+		}
+		function closeAll() {
+			$('.dd').nestable('collapseAll'); //折叠所有节点
+		}
+		function openAll() {
+			$('.dd').nestable('expandAll'); //展开所有节点
+		}
+	</script>
+</body>
+</html>

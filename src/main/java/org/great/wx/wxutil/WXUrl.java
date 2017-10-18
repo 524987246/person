@@ -3,8 +3,11 @@ package org.great.wx.wxutil;
 public class WXUrl {
 
 	// 账户基本信息
-	public static final String APPID = "wx59f1afdea7f76a12";
-	public static final String APPSECRET = "3d61d68030a9556c2dd9a68fd497222f";
+//	public static final String APPID = "wx59f1afdea7f76a12";
+//	public static final String APPSECRET = "3d61d68030a9556c2dd9a68fd497222f";
+	// 账户基本信息
+	public static final String APPID = "wx67bb4be9f4ecc428";
+	public static final String APPSECRET = "80fbad6ad9f5aaa0d2add7f2ff8dccc3";
 
 	// 获取access_token
 	public static final String ACCESS_TOKEN_URL = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET";
@@ -18,10 +21,18 @@ public class WXUrl {
 
 	// 获取用户列表 一次查询一万条
 	public static final String USER_LIST = "https://api.weixin.qq.com/cgi-bin/user/get?access_token=ACCESS_TOKEN&next_openid=NEXT_OPENID";
-	public static final String USER_LIST_Url_Type = "GET";
+	public static final String USER_LIST_URL_TYPE = "GET";
 
 	// 消息推送
 	public static final String SEND_MSG_URL = "https://api.weixin.qq.com/cgi-bin/message/send?access_token=ACCESS_TOKEN";
-	public static final String SEND_MSG_URL_Type = "POST";
+	public static final String SEND_MSG_URL_TYPE = "POST";
+	
+	//获取所有消息模板
+	public static final String GET_ALL_TEMPLATE = "https://api.weixin.qq.com/cgi-bin/template/get_all_private_template?access_token=ACCESS_TOKEN";
+	public static final String GET_ALL_TEMPLATE_TYPE = "GET";
+	
+	//发送消息模板
+	public static final String SEND_TEMPLATE_MESSAGE = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=ACCESS_TOKEN";
+	public static final String SEND_TEMPLATE_MESSAGE_TYPE = "POST";
 
 }
