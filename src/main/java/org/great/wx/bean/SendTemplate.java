@@ -1,11 +1,11 @@
 package org.great.wx.bean;
 
 public class SendTemplate {
-	private String template_id = "q0Tqox93zAkXGPRRjem0BYchWBwP5YE_0nF7K4qTntQ";
-	private String touser="o3BO7uObiwTgPfQ5NTh9fQJed_7I";
+	private String template_id = "0J2b1QKwllBAsdExYj7zmHi_82e1yRE77qIuX6nnbZY";
+	private String touser = "o3BO7uObiwTgPfQ5NTh9fQJed_7I";
 	private String url = "";
 	private String miniprogram = "";
-	private MessageTemplate data = new MessageTemplate();
+	private Object data = new Object();
 
 	public String getTouser() {
 		return touser;
@@ -39,11 +39,11 @@ public class SendTemplate {
 		this.miniprogram = miniprogram;
 	}
 
-	public MessageTemplate getData() {
+	public Object getData() {
 		return data;
 	}
 
-	public void setData(MessageTemplate data) {
+	public void setData(Object data) {
 		this.data = data;
 	}
 

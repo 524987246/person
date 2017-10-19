@@ -43,7 +43,7 @@ public class MyPrintUtil {
 		return param;
 	}
 
-	public static void printMap(Map<String, ? extends Object> map) {
+	public static void printMap(Map<? extends Object, ? extends Object> map) {
 		if (map == null) {
 			printlnError("map === NULL");
 			return;
@@ -52,7 +52,7 @@ public class MyPrintUtil {
 			printlnError("map 长度 === 0");
 			return;
 		}
-		Iterator<String> iterator = map.keySet().iterator();
+		Iterator<? extends Object> iterator = map.keySet().iterator();
 		while (iterator.hasNext()) {
 			String key = iterator.next().toString();
 			print(key);

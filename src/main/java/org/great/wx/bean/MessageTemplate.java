@@ -2,50 +2,41 @@ package org.great.wx.bean;
 
 public class MessageTemplate {
 
-	private String title = "订阅模板消息";
-	private String primary_industry = "";
-	private String deputy_industry = "";
-	private String example = "";
-	private String content = "{{result.DATA} }";
+	private SendMesBaseInfo first = new SendMesBaseInfo();
+	private SendMesBaseInfo keyword1 = new SendMesBaseInfo();
+	private SendMesBaseInfo keyword2 = new SendMesBaseInfo();
+	private SendMesBaseInfo remark = new SendMesBaseInfo();
 
-	public String getTitle() {
-		return title;
+	public SendMesBaseInfo getFirst() {
+		return first;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setFirst(SendMesBaseInfo first) {
+		this.first = first;
 	}
 
-	public String getPrimary_industry() {
-		return primary_industry;
+	public SendMesBaseInfo getKeyword1() {
+		return keyword1;
 	}
 
-	public void setPrimary_industry(String primary_industry) {
-		this.primary_industry = primary_industry;
+	public void setKeyword1(SendMesBaseInfo keyword1) {
+		this.keyword1 = keyword1;
 	}
 
-	public String getDeputy_industry() {
-		return deputy_industry;
+	public SendMesBaseInfo getKeyword2() {
+		return keyword2;
 	}
 
-	public void setDeputy_industry(String deputy_industry) {
-		this.deputy_industry = deputy_industry;
+	public void setKeyword2(SendMesBaseInfo keyword2) {
+		this.keyword2 = keyword2;
 	}
 
-	public String getExample() {
-		return example;
+	public SendMesBaseInfo getRemark() {
+		return remark;
 	}
 
-	public void setExample(String example) {
-		this.example = example;
-	}
-
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
+	public void setRemark(SendMesBaseInfo remark) {
+		this.remark = remark;
 	}
 
 }

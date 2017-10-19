@@ -1,6 +1,7 @@
 package org.great.wx.wxutil;
 
 import java.io.IOException;
+import java.util.Map;
 
 import net.sf.json.JSONObject;
 
@@ -12,6 +13,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
+import org.great.util.myutil.MyPrintUtil;
 import org.great.wx.bean.AccessToken;
 import org.great.wx.bean.MessageTemplate;
 import org.great.wx.bean.OAuthInfo;
@@ -20,6 +22,7 @@ import org.json.JSONException;
 import org.junit.Test;
 
 public class WechatUtil {
+	private static AccessToken token;
 
 	/**
 	 * 获取accessToken
@@ -29,12 +32,23 @@ public class WechatUtil {
 	 * @throws IOException
 	 */
 	public static AccessToken getAccessToken() throws ParseException, IOException {
-		AccessToken token = new AccessToken();
+		if (token != null) {
+			Long end = System.currentTimeMillis();
+			Long begin = token.getTime();
+			boolean bo = (end - begin) > (7200 * 1000) ? true : false;
+			if (!bo) {
+				return token;
+			}
+		}
+		token = new AccessToken();
 		String url = WXUrl.ACCESS_TOKEN_URL_TRUE;
 		JSONObject jsonObject = doGetStr(url);
 		if (jsonObject != null) {
 			token.setToken(jsonObject.getString("access_token"));
 			token.setExpiresIn(jsonObject.getInt("expires_in"));
+			token.setTime(System.currentTimeMillis());
+		} else {
+			token = null;
 		}
 		return token;
 	}
@@ -104,21 +118,33 @@ public class WechatUtil {
 		return jsonObject;
 	}
 
+	// @Test
+	public void systime() throws InterruptedException {
+		Long begin = System.currentTimeMillis();
+		Thread.sleep(1000);
+		Long end = System.currentTimeMillis();
+		System.out.println(end - begin);
+	}
+
 	@Test
 	public void add() {
 		// 测试获取token
 		try {
-			System.out.println("1");
 			AccessToken accessToken = getAccessToken();
 			String url = WXUrl.GET_ALL_TEMPLATE.replaceAll("ACCESS_TOKEN", accessToken.getToken());
-			JSONObject json = doGetStr(url);
-			System.out.println("==" + json.toString());
+			MessageTemplate messageTemplate = new MessageTemplate();
+			messageTemplate.getFirst().setValue("您好，您有新的技术任务");
+			messageTemplate.getKeyword1().setValue("张三有新装的技术任务");
+			messageTemplate.getKeyword2().setValue("尚未完成");
+			messageTemplate.getRemark().setValue("请及时完成");
 			SendTemplate temp = new SendTemplate();
+			temp.setData(messageTemplate);
 			JSONObject jsonStu = JSONObject.fromObject(temp);
 			System.out.println(jsonStu.toString());
 			url = WXUrl.SEND_TEMPLATE_MESSAGE.replaceAll("ACCESS_TOKEN", accessToken.getToken());
-			json = doPostStr(url, jsonStu.toString());
+			JSONObject json = doPostStr(url, jsonStu.toString());
 			System.out.println(json.toString());
+
 		} catch (ParseException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
