@@ -78,16 +78,16 @@
 		<include refid="whereInfo" />
 	</select>
 	<!-- 删除 -->
-	<select id="delete" parameterType="org.great.web.bean.sys.RoleMenu">
+	<update id="delete" parameterType="org.great.web.bean.sys.RoleMenu">
 		UPDATE
 		<include refid="tableName" />
 		SET
 		isemploy=#{isemploy}
 		WHERE
 		id=#{id}
-	</select>
+	</update>
 	<!-- 删除 根据角色 -->
-	<select id="deleteByRoleMenu" parameterType="org.great.web.bean.sys.RoleMenu">
+	<update id="deleteByRoleMenu" parameterType="org.great.web.bean.sys.RoleMenu">
 		UPDATE
 		<include refid="tableName" />
 		SET
@@ -96,9 +96,9 @@
 			<if test="roleId !=null and roleId !=''"> and role_id=#{roleId}</if>
 			<if test="menuId !=null and menuId !=''"> and menu_id=#{menuId}</if>
 		</where>
-	</select>
+	</update>
 	<!-- 批量删除 -->
-	<select id="batchdelete">
+	<update id="batchdelete">
 		UPDATE
 		<include refid="tableName" />
 		SET
@@ -109,9 +109,9 @@
 			close=")">
 			#{id}
 		</foreach>
-	</select>
+	</update>
 	<!-- 更新 -->
-	<select id="update" parameterType="org.great.web.bean.sys.RoleMenu">
+	<update id="update" parameterType="org.great.web.bean.sys.RoleMenu">
 		UPDATE
 		<include refid="tableName" />
 		<set>
@@ -122,9 +122,9 @@
 		</set>
 		WHERE
 		id=#{id}
-	</select>
+	</update>
 	<!-- 保存 -->
-	<select id="save" parameterType="org.great.web.bean.sys.RoleMenu">
+	<insert id="save" parameterType="org.great.web.bean.sys.RoleMenu">
 		INSERT INTO
 		<include refid="tableName" />
 		(create_by,create_date,update_by,
@@ -132,5 +132,5 @@
 		)VALUES(#{createBy.id},#{createDate},#{updateBy.id},
 		#{updateDate},#{roleId},#{menuId}
 		)
-	</select>
+	</insert>
 </mapper>

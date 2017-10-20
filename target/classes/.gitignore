@@ -1,5 +1,13 @@
+/WEB-INF/
+/css/
+/font/
+/fonts/
+/images/
+/index.jsp
 /js/
+/org/
 /statis/
+/tools/
 /commons-beanutils.jar
 /commons-collections-3.2.1.jar
 /commons-configuration-1.10.jar
@@ -13,11 +21,9 @@
 /httpcore-4.2.4.jar
 /json-lib-2.4-jdk15.jar
 /morph-1.1.1.jar
-/org/
 /poi-3.14-20160307.jar
 /poi-ooxml-3.14-20160307.jar
 /servlet-api.jar
-/tools/
 /upload/
 /viewcss/
 /viewjs/

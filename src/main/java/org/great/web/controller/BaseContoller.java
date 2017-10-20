@@ -70,6 +70,7 @@ public class BaseContoller {
 			currentUser.login(token);
 			logger.info("对用户[" + loginnname + "]进行登录验证..验证通过");
 		} catch (Exception uae) {
+			uae.printStackTrace();
 			logger.info("对用户[" + loginnname + "]进行登录验证..验证未通过,未知账户");
 		}
 		// 验证是否登录成功

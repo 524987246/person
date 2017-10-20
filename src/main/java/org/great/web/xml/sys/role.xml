@@ -131,7 +131,7 @@
 		<include refid="whereInfo" />
 	</select>
 	<!-- 删除 -->
-	<select id="delete" parameterType="org.great.web.bean.sys.Role">
+	<update id="delete" parameterType="org.great.web.bean.sys.Role">
 		UPDATE
 		<include refid="tableName" />
 		<set>
@@ -140,9 +140,9 @@
 		</set>
 		WHERE
 		id=#{id}
-	</select>
+	</update>
 	<!-- 批量删除 -->
-	<select id="batchdelete">
+	<update id="batchdelete">
 		UPDATE
 		<include refid="tableName" />
 		<set>
@@ -155,9 +155,9 @@
 			close=")">
 			#{id}
 		</foreach>
-	</select>
+	</update>
 	<!-- 更新 -->
-	<select id="update" parameterType="org.great.web.bean.sys.Role">
+	<update id="update" parameterType="org.great.web.bean.sys.Role">
 		UPDATE
 		<include refid="tableName" />
 		<set>
@@ -166,9 +166,9 @@
 		</set>
 		WHERE
 		sid=#{sid}
-	</select>
+	</update>
 	<!-- 保存 -->
-	<select id="save" parameterType="org.great.web.bean.sys.Role">
+	<insert id="save" parameterType="org.great.web.bean.sys.Role">
 		INSERT INTO
 		<include refid="tableName" />
 		(create_by,create_date,update_by,update_date
@@ -178,5 +178,5 @@
 		<if test="remarks !=null and remarks !=''">,#{remarks}</if>
 		<if test="name !=null and name !=''">,#{name}</if>
 		)
-	</select>
+	</insert>
 </mapper>

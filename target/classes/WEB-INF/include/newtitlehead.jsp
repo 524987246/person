@@ -45,7 +45,7 @@ var basePath='${ctx}';
 <script type="text/javascript" src="${ctx}/statis/pagination/jquery.pagination.js"></script>
  pagination 分页插件   结束 -->
  
-<!-- 拖拽界面样式   开始
+<!-- 拖拽界面样式   开始  与样式冲突,有需要自行引入并解决
 <link rel="stylesheet" href="${ctx}/css/ace.min.css" media="screen" title="no title" charset="utf-8">
 <script type="text/javascript" src="${ctx}/js/jquery.nestable.min.js" charset="utf-8"></script>
  拖拽界面样式   结束 -->

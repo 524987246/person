@@ -15,8 +15,6 @@ import org.springframework.stereotype.Service;
 public class UserService {
 	@Resource
 	private UserMapper usermapper;
-	@Resource
-	private UserRoleMapper userRoleMapper;
 
 	/**
 	 * 用于查找用户

@@ -32,21 +32,22 @@
 	<!--主表名 基本更新信息 -->
 	<sql id="baseUpdateInfo">
 		<if test="createBy !=null and createBy.id !=null and createBy.id!=''">
-			a.create_by=#{createBy.id},
+			create_by=#{createBy.id},
 		</if>
 		<if test="createDate !=null and createDate !=''">
-			a.create_date=#{createDate},
+			create_date=#{createDate},
 		</if>
 		<if test="updateBy !=null and updateBy.id !=null and updateBy.id!=''">
-			a.update_by=#{updateBy.id},
+			update_by=#{updateBy.id},
 		</if>
 		<if test="updateDate !=null and updateDate !=''">
-			a.update_date=#{updateDate},
+			update_date=#{updateDate},
 		</if>
 		<if test="remarks !=null">
-			a.remarks=#{remarks},
+			remarks=#{remarks},
 		</if>
 	</sql>
+
 	<!--查询条件信息 -->
 	<sql id="whereInfo">
 		<where>
@@ -57,8 +58,23 @@
 			<if test="queryEndDate != null and queryEndDate != ''">
 				AND a.create_date &lt;= #{queryEndDate}
 			</if>
+			<if test="id != null">
+				AND a.id = #{id}
+			</if>
 		</where>
 	</sql>
+	<!-- 查询单个 -->
+	<select id="get" resultType="org.great.web.bean.sys.Menu"
+		parameterType="org.great.web.bean.sys.Menu">
+		SELECT
+		<include refid="beanAttr" />
+		FROM
+		<include refid="tableName" />
+		a
+		where
+		a.isemploy=1 and
+		a.id = #{id}
+	</select>
 	<!-- 查询集合 -->
 	<select id="findList" resultType="org.great.web.bean.sys.Menu"
 		parameterType="org.great.web.bean.sys.Menu">
@@ -68,7 +84,7 @@
 		<include refid="tableName" />
 		a
 		<include refid="whereInfo" />
-		ORDER BY a.create_date DESC
+		ORDER BY a.order_num 
 	</select>
 	<!-- 查询总数 -->
 	<select id="queryTotal" resultType="Integer" parameterType="org.great.web.bean.sys.Menu">
@@ -80,23 +96,23 @@
 		<include refid="whereInfo" />
 	</select>
 	<!-- 删除 -->
-	<select id="delete" parameterType="org.great.web.bean.sys.Menu">
+	<update id="delete" parameterType="org.great.web.bean.sys.Menu">
 		UPDATE
 		<include refid="tableName" />
 		<set>
-		<include refid="baseUpdateInfo" />
-		isemploy=#{isemploy}
+			<include refid="baseUpdateInfo" />
+			isemploy=#{isemploy}
 		</set>
 		WHERE
 		id=#{id}
-	</select>
+	</update>
 	<!-- 批量删除 -->
-	<select id="batchdelete">
+	<update id="batchdelete">
 		UPDATE
 		<include refid="tableName" />
 		<set>
-		<include refid="baseUpdateInfo" />
-		isemploy=#{isemploy}
+			<include refid="baseUpdateInfo" />
+			isemploy=#{isemploy}
 		</set>
 		WHERE
 		id in
@@ -104,9 +120,9 @@
 			close=")">
 			#{id}
 		</foreach>
-	</select>
+	</update>
 	<!-- 更新 -->
-	<select id="update" parameterType="org.great.web.bean.sys.Menu">
+	<update id="update" parameterType="org.great.web.bean.sys.Menu">
 		UPDATE
 		<include refid="tableName" />
 		<set>
@@ -121,9 +137,9 @@
 		</set>
 		WHERE
 		id=#{id}
-	</select>
+	</update>
 	<!-- 保存 -->
-	<select id="save" parameterType="org.great.web.bean.sys.Menu">
+	<insert id="save" parameterType="org.great.web.bean.sys.Menu">
 		INSERT INTO
 		<include refid="tableName" />
 		(create_by,create_date,update_by,update_date
@@ -145,5 +161,5 @@
 		<if test="icon !=null and icon !=''">,#{icon}</if>
 		<if test="orderNum !=null and orderNum !=''">,#{orderNum}</if>
 		)
-	</select>
+	</insert>
 </mapper>

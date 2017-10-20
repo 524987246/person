@@ -1,10 +1,10 @@
-package org.great.util;
+package org.great.util.myutil;
 
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletResponse;
 
-import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 /**
  * 请求返回数据工具类
@@ -13,7 +13,7 @@ import net.sf.json.JSONArray;
  * @date 2017-9-11 14:02:13
  * @since 2.0
  */
-public class ActionUtil {
+public class MyActionUtil {
 	/**
 	 * 客户端返回JSON字符串
 	 *
@@ -22,7 +22,7 @@ public class ActionUtil {
 	 * @return
 	 */
 	public static String renderString(HttpServletResponse response, Object object) {
-		return renderString(response, JSONArray.fromObject(object).toString(), "application/json");
+		return renderString(response, JSONObject.fromObject(object).toString(), "application/json");
 	}
 
 	/**

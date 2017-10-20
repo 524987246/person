@@ -2,6 +2,12 @@
 function seletstate(obj) {
 	$("input[type='checkbox']").prop("checked", $(obj).is(':checked'));
 }
+function msgLayer(msg){
+	layer.open({
+		title : '信息',
+		content : msg
+	});
+}
 
 /**
  * @param obj
