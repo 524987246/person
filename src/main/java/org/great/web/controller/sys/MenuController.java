@@ -24,11 +24,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import net.sf.json.JSONArray;
 
 /**
- * 常见web错误controller
  * 
- * @author xiej
- * @date 2016-12-27 2017-3-21
- * @since 2.0
+ * @author xiejun
+ * @date 2017-10-23 09:52:10
+ * @since 3.0
  */
 @Controller
 @RequestMapping("/Reception/sys/menu/")
@@ -67,6 +66,21 @@ public class MenuController {
 		map.put("list", list);
 		map.put("obj", menu);
 		return map;
+	}
+
+	/**
+	 * 获取数据
+	 * 
+	 * 
+	 */
+	@RequiresPermissions("sys:menu:view")
+	@RequestMapping(value = "one.html", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
+	public String one(Menu menu, HttpServletRequest request, Model model) {
+		if (menu.getId() != null) {
+			menu = menuService.get(menu.getId());
+		}
+		model.addAttribute("menu", menu);
+		return "newjsp/sys/menu-one";
 	}
 
 	@RequiresPermissions("sys:menu:save")

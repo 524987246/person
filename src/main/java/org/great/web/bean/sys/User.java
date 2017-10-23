@@ -224,7 +224,7 @@ public class User implements Serializable {
 		for (Menu menu : firstlist) {
 			// 生成每个一级菜单的所有子菜单
 			String result = createHtml(menu, ctx);
-			System.out.println(result);
+			//System.out.println(result);
 			childHtml.add(result);
 		}
 		this.childHtml = childHtml;

@@ -8,6 +8,41 @@ function msgLayer(msg){
 		content : msg
 	});
 }
+/*新开窗口*/
+function Hui_admin_tab_js(title,href){
+	var bStop = false,
+		bStopIndex = 0,
+		topWindow = $(window.parent.document),
+		show_navLi = topWindow.find("#min_title_list li"),
+		iframe_box = topWindow.find("#iframe_box");
+	//console.log(topWindow);
+	if(!href||href==""){
+		alert("data-href不存在，v2.5版本之前用_href属性，升级后请改为data-href属性");
+		return false;
+	}if(!title){
+		alert("v2.5版本之后使用data-title属性");
+		return false;
+	}
+	if(title==""){
+		alert("data-title属性不能为空");
+		return false;
+	}
+	show_navLi.each(function() {
+		if($(this).find('span').attr("data-href")==href){
+			bStop=true;
+			bStopIndex=show_navLi.index($(this));
+			return false;
+		}
+	});
+	if(!bStop){
+		creatIframe(href,title);
+		min_titleList();
+	}
+	else{
+		show_navLi.removeClass("active").eq(bStopIndex).addClass("active");			
+		iframe_box.find(".show_iframe").hide().eq(bStopIndex).show().find("iframe").attr("src",href);
+	}	
+}
 
 /**
  * @param obj
