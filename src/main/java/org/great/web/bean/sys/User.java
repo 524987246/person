@@ -192,9 +192,11 @@ public class User implements Serializable {
 		Map<Long, Menu> map = new HashMap<Long, Menu>();
 		for (int i = 0; i < this.menulist.size(); i++) {
 			Menu temp = menulist.get(i);
-			map.put(temp.getId(), temp);
-			if (temp.getParentId() == 0L) {
-				firstlist.add(temp);
+			if (temp != null && null != temp.getId()) {
+				map.put(temp.getId(), temp);
+				if (temp.getParentId() == 0L) {
+					firstlist.add(temp);
+				}
 			}
 
 		}
@@ -215,16 +217,21 @@ public class User implements Serializable {
 		this.setFirstMenuHtml(firstMenuHtml);
 		// 剩余菜单生成
 		for (Menu menu : this.menulist) {
-			if (menu.getParentId() != 0L && !menu.getType().equals("3")) {
+			if (menu.getId() == null) {
+				continue;
+			}
+			if (0L != menu.getParentId() && !"3".equals(menu.getType())) {
 				Menu temp = map.get(menu.getParentId());
-				temp.getChildlist().add(menu);
+				if (null != temp) {
+					temp.getChildlist().add(menu);
+				}
 			}
 		}
 		List<String> childHtml = new ArrayList<String>();
 		for (Menu menu : firstlist) {
 			// 生成每个一级菜单的所有子菜单
 			String result = createHtml(menu, ctx);
-			//System.out.println(result);
+			// System.out.println(result);
 			childHtml.add(result);
 		}
 		this.childHtml = childHtml;

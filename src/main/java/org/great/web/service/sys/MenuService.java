@@ -32,18 +32,21 @@ public class MenuService {
 		return list;
 	}
 
+	@Transactional(readOnly = false)
 	public int save(Menu menu) {
 		menu.setBaseInfo();
 		int i = menuMapper.save(menu);
 		return i;
 	}
 
+	@Transactional(readOnly = false)
 	public int update(Menu menu) {
 		menu.setBaseInfo();
 		int i = menuMapper.update(menu);
 		return i;
 	}
 
+	@Transactional(readOnly = false)
 	public int delete(Menu menu) {
 		menu.setIsemploy(2);
 		menu.setBaseInfo();
@@ -51,6 +54,7 @@ public class MenuService {
 		return i;
 	}
 
+	@Transactional(readOnly = false)
 	public int batchdelete(Menu menu) {
 		menu.setIsemploy(2);
 		menu.setBaseInfo();
@@ -58,10 +62,12 @@ public class MenuService {
 		return i;
 	}
 
+	@Transactional(readOnly = false)
 	public Integer queryTotal(Menu menu) {
 		Integer totalCount = menuMapper.queryTotal(menu);
 		return totalCount;
 	}
+
 	@Transactional(readOnly = false)
 	public void ordersave(List<MenuOrder> menuOrderlist) {
 		List<Menu> list = new ArrayList<Menu>();
@@ -72,13 +78,13 @@ public class MenuService {
 			i += 10;
 			menu.setParentId(0L);
 			list.add(menu);
-			if (menuOrder.getChildren()!=null&&menuOrder.getChildren().size() > 0) {
+			if (menuOrder.getChildren() != null && menuOrder.getChildren().size() > 0) {
 				setMenuChild(menu, menuOrder.getChildren(), list);
 			}
 		}
 		for (Menu menu : list) {
 			update(menu);
-			//System.out.println(menu);
+			// System.out.println(menu);
 		}
 	}
 
@@ -92,7 +98,7 @@ public class MenuService {
 			menu.setParentId(parentMenu.getId());
 			i += 10;
 			mainlist.add(menu);
-			if (menuOrder.getChildren()!=null&&menuOrder.getChildren().size() > 0) {
+			if (menuOrder.getChildren() != null && menuOrder.getChildren().size() > 0) {
 				setMenuChild(menu, menuOrder.getChildren(), mainlist);
 			}
 		}

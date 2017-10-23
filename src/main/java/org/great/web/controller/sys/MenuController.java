@@ -147,7 +147,9 @@ public class MenuController {
 			Long parentId = menu.getParentId();
 			if (parentId != 0L) {
 				Menu temp = map.get(menu.getParentId());
-				temp.getChildlist().add(menu);
+				if(temp!=null){
+					temp.getChildlist().add(menu);
+				}
 			} else {
 				firstlist.add(menu);
 			}

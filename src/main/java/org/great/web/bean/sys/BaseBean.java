@@ -195,6 +195,9 @@ public class BaseBean implements Serializable {
 				this.createBy.setId(id);
 			}
 		}
+		if (this.updateBy == null) {
+			this.updateBy = new User();
+		}
 		this.updateDate = MyDateUtils.dateToString(null);
 		// 获取当前用户
 		this.updateBy.setId(id);

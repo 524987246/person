@@ -35,21 +35,19 @@
 	</nav>
 	<div class="page-container">
 		<div class="cl pd-5 bg-1 bk-gray mt-20">
-			<span class="l"> 
-			<shiro:hasPermission name="sys:menu:save">
-				<a class="btn btn-primary radius" data-title="添加菜单"
-					data-href="${ctx }/Reception/sys/menu/one.html"
-					onclick="Hui_admin_tab(this)" href="javascript:;"><i
-					class="Hui-iconfont">&#xe600;</i> 添加菜单</a>
-			</shiro:hasPermission>
-			<a class="btn btn-primary radius" data-title="合上"
+			<span class="l"> <shiro:hasPermission name="sys:menu:save">
+					<a class="btn btn-primary radius" data-title="添加菜单"
+						data-href="${ctx }/Reception/sys/menu/one.html"
+						onclick="Hui_admin_tab(this)" href="javascript:;"><i
+						class="Hui-iconfont">&#xe600;</i> 添加菜单</a>
+				</shiro:hasPermission> <a class="btn btn-primary radius" data-title="合上"
 				data-href="article-add.html" onclick="openAll(this)"
-				href="javascript:;"><i class="Hui-iconfont">&#xe6d6;</i>&nbsp; 合上</a>
-			<shiro:hasPermission name="sys:menu:ordersave">
-				<a class="btn btn-primary radius" data-title="保存菜单顺序"
-					onclick="getJson(this)" href="javascript:;"><i
-					class="Hui-iconfont">&#xe632;</i>&nbsp;保存菜单顺序</a>
-			</shiro:hasPermission>
+				href="javascript:;"><i class="Hui-iconfont">&#xe6d6;</i>&nbsp;
+					合上</a> <shiro:hasPermission name="sys:menu:ordersave">
+					<a class="btn btn-primary radius" data-title="保存菜单顺序"
+						onclick="getJson(this)" href="javascript:;"><i
+						class="Hui-iconfont">&#xe632;</i>&nbsp;保存菜单顺序</a>
+				</shiro:hasPermission>
 			</span> <span class="r">共有数据：<strong>${list.size() }</strong> 条
 			</span>
 		</div>
@@ -103,6 +101,31 @@
 		}
 		function del(obj) {
 			var id = $(obj).parent().parent().parent().attr("data-id");
+			layer.confirm('确认删除？', {
+				btn : [ '确定', '取消' ] //按钮
+			}, function() {
+				var url = "Reception/sys/menu/del.html";
+				url = ProjectUrl(url);
+				var json = {
+					id : id
+				};
+				json = JSON.stringify(json);
+				$.ajax({
+					url : url,
+					type : "POST",
+					data : json,
+					async : true, //异步请求,默认true
+					contentType : "application/json;charset=UTF-8",
+					success : function(data) {
+						msgLayer(data);
+					},
+					error : function(data) {
+						msgLayer("请求错误");
+					}
+				});
+			}, function() {
+				layer.close();
+			});
 		}
 	
 		/*资讯-添加*/
