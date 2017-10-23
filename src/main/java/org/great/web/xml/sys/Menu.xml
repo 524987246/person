@@ -10,6 +10,7 @@
 		a.name,
 		a.url,
 		a.parent_id AS "parentId",
+		COALESCE(b.name,"一级菜单") AS "parentName",
 		a.perms,
 		a.type,
 		a.icon,
@@ -31,13 +32,13 @@
 	</sql>
 	<!--主表名 基本更新信息 -->
 	<sql id="baseUpdateInfo">
-		<if test="createBy !=null and createBy.id !=null and createBy.id!=''">
+		<if test="createBy !=null and createBy.id !=null">
 			create_by=#{createBy.id},
 		</if>
 		<if test="createDate !=null and createDate !=''">
 			create_date=#{createDate},
 		</if>
-		<if test="updateBy !=null and updateBy.id !=null and updateBy.id!=''">
+		<if test="updateBy !=null and updateBy.id !=null">
 			update_by=#{updateBy.id},
 		</if>
 		<if test="updateDate !=null and updateDate !=''">
@@ -63,6 +64,12 @@
 			</if>
 		</where>
 	</sql>
+	<sql id="leftjoin">
+		LEFT JOIN
+		sys_menu
+		b
+		ON a.parent_id=b.id
+	</sql>
 	<!-- 查询单个 -->
 	<select id="get" resultType="org.great.web.bean.sys.Menu"
 		parameterType="org.great.web.bean.sys.Menu">
@@ -71,6 +78,7 @@
 		FROM
 		<include refid="tableName" />
 		a
+		<include refid="leftjoin" />
 		where
 		a.isemploy=1 and
 		a.id = #{id}
@@ -83,8 +91,9 @@
 		FROM
 		<include refid="tableName" />
 		a
+		<include refid="leftjoin" />
 		<include refid="whereInfo" />
-		ORDER BY a.order_num 
+		ORDER BY a.order_num
 	</select>
 	<!-- 查询总数 -->
 	<select id="queryTotal" resultType="Integer" parameterType="org.great.web.bean.sys.Menu">
@@ -146,7 +155,7 @@
 		<if test="remarks !=null">,remarks</if>
 		<if test="name !=null and name !=''">,name</if>
 		<if test="url !=null and url !=''">,url</if>
-		<if test="parentId !=null and parentId !=''">,parent_id</if>
+		<if test="parentId !=null">,parent_id</if>
 		<if test="perms !=null and perms !=''">,perms</if>
 		<if test="type !=null and type !=''">,type</if>
 		<if test="icon !=null and icon !=''">,icon</if>
@@ -155,7 +164,7 @@
 		<if test="remarks !=null">,#{remarks}</if>
 		<if test="name !=null and name !=''">,#{name}</if>
 		<if test="url !=null and url !=''">,#{url}</if>
-		<if test="parentId !=null and parentId !=''">,#{parentId}</if>
+		<if test="parentId !=null">,#{parentId}</if>
 		<if test="perms !=null and perms !=''">,#{perms}</if>
 		<if test="type !=null and type !=''">,#{type}</if>
 		<if test="icon !=null and icon !=''">,#{icon}</if>

@@ -39,6 +39,10 @@ public class Menu extends BaseBean implements Serializable {
 	 */
 	private Long parentId;
 	/**
+	 * 父类名称
+	 */
+	private String parentName;
+	/**
 	 * 授权(多个用逗号分隔如：user:list,user:create)
 	 */
 	private String perms;
@@ -126,6 +130,13 @@ public class Menu extends BaseBean implements Serializable {
 		return "Menu [name=" + name + ", url=" + url + ", parentId=" + parentId + ", perms=" + perms + ", type=" + type
 				+ ", icon=" + icon + ", orderNum=" + orderNum + ", childlist=" + childlist + "]";
 	}
-	
+
+	public String getParentName() {
+		return parentName;
+	}
+
+	public void setParentName(String parentName) {
+		this.parentName = parentName;
+	}
 
 }

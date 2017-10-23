@@ -20,11 +20,11 @@ public class MyDateUtils {
 	}
 
 	public static String dateToString(Date date, String pattern) {
-		if (date != null) {
-			SimpleDateFormat df = new SimpleDateFormat(pattern);
-			return df.format(date);
+		if (date == null) {
+			date = new Date();
 		}
-		return null;
+		SimpleDateFormat df = new SimpleDateFormat(pattern);
+		return df.format(date);
 	}
 
 	/**
@@ -118,10 +118,12 @@ public class MyDateUtils {
 	 * @param begintime
 	 * @param endtime
 	 * @param map
-	 * @param time 间隔时间
+	 * @param time
+	 *            间隔时间
 	 * @return
 	 */
-	public static Map<String, Object> setQueryDate(String begintime, String endtime,int time, Map<String, Object> map) {
+	public static Map<String, Object> setQueryDate(String begintime, String endtime, int time,
+			Map<String, Object> map) {
 		Boolean bo1 = (begintime == null || begintime.trim().equals(""));
 		Boolean bo2 = (endtime == null || endtime.trim().equals(""));
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

@@ -8,6 +8,23 @@ function msgLayer(msg){
 		content : msg
 	});
 }
+//form表单转成json对象
+$.fn.serializeObject = function()    
+{    
+   var o = {};    
+   var a = this.serializeArray();    
+   $.each(a, function() {    
+       if (o[this.name]) {    
+           if (!o[this.name].push) {    
+               o[this.name] = [o[this.name]];    
+           }    
+           o[this.name].push(this.value || '');    
+       } else {    
+           o[this.name] = this.value || '';    
+       }    
+   });    
+   return o;    
+};  
 /*新开窗口*/
 function Hui_admin_tab_js(title,href){
 	var bStop = false,
