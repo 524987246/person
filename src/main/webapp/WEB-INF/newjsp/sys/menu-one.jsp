@@ -25,13 +25,12 @@
 <shiro:hasPermission name="sys:menu:save">
 	<meta id="save" content="1" />
 </shiro:hasPermission>
-<!--/meta 作为公共模版分离出去-->
 <title>菜单修改</title>
 </head>
 <body>
 	<article class="page-container">
 		<form class="form form-horizontal" id="form-main" method="post">
-			<input type="hidden" name="id" value="${menu.id }">
+			<input type="hidden" name="id" id="id" value="${menu.id }">
 			<div class="row cl">
 				<label class="form-label col-xs-4 col-sm-2">名称：</label>
 				<div class="formControls col-xs-8 col-sm-9">
@@ -43,7 +42,7 @@
 			<div class="row cl">
 				<label class="form-label col-xs-4 col-sm-2">url：</label>
 				<div class="formControls col-xs-8 col-sm-9">
-					<input type="text" class="input-text required" value="${menu.url }"
+					<input type="text" class="input-text" value="${menu.url }"
 						placeholder="路径" id="url" name="url"> <span class="c-red">*</span>
 				</div>
 			</div>
@@ -118,7 +117,7 @@
 	<!-- 属性选择框文本 -->
 	<script type="text/javascript">
 		var menu_type = "${menu.type }";
-		var id = $("#parentId").val();
+		var id = $("#id").val();
 		var form_url = "";
 	
 		if (id != null && id != "") {

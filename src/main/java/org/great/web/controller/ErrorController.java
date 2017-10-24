@@ -21,8 +21,8 @@ public class ErrorController {
 	public String defaultErrorHandler(HttpServletResponse response, HttpServletRequest request, Model model,
 			Exception e) {
 		System.out.println("AuthorizationException权限不足异常");
-		String requestType = request.getHeader("X-Requested-With");
-		if (requestType == null) {
+		boolean bo = MyActionUtil.isAjax(request);
+		if (!bo) {
 			model.addAttribute("e", e);
 			model.addAttribute("message", "权限不足");
 			return "error/403";
@@ -32,9 +32,9 @@ public class ErrorController {
 			return null;
 		}
 	}
-	@ResponseStatus(value=HttpStatus.BAD_REQUEST)
-	public String bad_request(HttpServletResponse response, HttpServletRequest request, Model model,
-			Exception e) {
+
+	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
+	public String bad_request(HttpServletResponse response, HttpServletRequest request, Model model, Exception e) {
 		System.out.println("400");
 		String requestType = request.getHeader("X-Requested-With");
 		if (requestType == null) {
@@ -47,9 +47,9 @@ public class ErrorController {
 			return null;
 		}
 	}
-	@ResponseStatus(value=HttpStatus.NOT_FOUND)
-	public String not_found(HttpServletResponse response, HttpServletRequest request, Model model,
-			Exception e) {
+
+	@ResponseStatus(value = HttpStatus.NOT_FOUND)
+	public String not_found(HttpServletResponse response, HttpServletRequest request, Model model, Exception e) {
 		System.out.println("404");
 		String requestType = request.getHeader("X-Requested-With");
 		if (requestType == null) {

@@ -2,6 +2,7 @@ package org.great.util.myutil;
 
 import java.io.IOException;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONObject;
@@ -14,6 +15,23 @@ import net.sf.json.JSONObject;
  * @since 2.0
  */
 public class MyActionUtil {
+
+	public static final String AJAX_ACCEPT_CONTENT_TYPE = "text/html;type=ajax";
+	public static final String AJAX_SOURCE_PARAM = "ajaxSource";
+
+	/**
+	 * 判断请求是否为ajax
+	 * 
+	 * @param request
+	 * @param response
+	 * @return true ajax false 传统请求
+	 */
+	public static boolean isAjax(HttpServletRequest request) {
+		String requestType = request.getHeader("X-Requested-With");
+		boolean isAjax = "XMLHttpRequest".equals(requestType) ? true : false;
+		return isAjax;
+	}
+
 	/**
 	 * 客户端返回JSON字符串
 	 *
