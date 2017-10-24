@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50149
 File Encoding         : 65001
 
-Date: 2017-10-17 15:54:56
+Date: 2017-10-24 10:20:31
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -212,15 +212,37 @@ CREATE TABLE `sys_menu` (
   `remarks` varchar(765) COLLATE utf8_bin DEFAULT NULL COMMENT '备注',
   `isemploy` char(3) COLLATE utf8_bin NOT NULL DEFAULT '1' COMMENT '删除标记 1正常2删除',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='菜单表';
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='菜单表';
 
 -- ----------------------------
 -- Records of sys_menu
 -- ----------------------------
-INSERT INTO `sys_menu` VALUES ('1', '网络常见错误', 'Reception/weberror/weberror.html', '0', 'buz:weberror:view1,buz:weberror:add', '1', null, '1', '0', '2017-10-11 14:44:03', '0', '2017-10-11 14:44:06', null, '1');
-INSERT INTO `sys_menu` VALUES ('2', '测试菜单2', '2', '0', 'buz:test2:view', '1', null, '1', '0', '2017-10-11 14:44:03', '0', '2017-10-11 14:44:06', null, '1');
-INSERT INTO `sys_menu` VALUES ('3', '测试菜单3', '3', '0', 'test3', '1', null, '1', '0', '2017-10-11 14:44:03', '0', '2017-10-11 14:44:06', null, '1');
-INSERT INTO `sys_menu` VALUES ('4', '测试菜单4', '4', '0', 'buz:test4:view,buz:weberror:view', '1', null, '1', '0', '2017-10-11 14:44:03', '0', '2017-10-11 14:44:06', null, '1');
+INSERT INTO `sys_menu` VALUES ('1', '平台', '', '0', '', '1', '1', '0', '0', '2017-10-11 00:00:00', '1', '2017-10-11 14:44:06', null, '1');
+INSERT INTO `sys_menu` VALUES ('2', '编程辅助', '2', '0', '', '1', '1', '10', '0', '2017-10-11 00:00:00', '1', '2017-10-11 14:44:06', null, '1');
+INSERT INTO `sys_menu` VALUES ('3', '系统功能', '3', '0', '', '1', '1', '20', '0', '2017-10-11 00:00:00', '1', '2017-10-11 14:44:06', null, '1');
+INSERT INTO `sys_menu` VALUES ('4', '测试菜单4', '4', '3', '', '1', '1', '10', '0', '2017-10-11 00:00:00', '1', '2017-10-11 14:44:06', null, '1');
+INSERT INTO `sys_menu` VALUES ('5', '子菜单1-1', '5', '1', '', '1', '1', '10', '0', '2017-10-11 00:00:00', '1', '2017-10-11 14:44:06', null, '1');
+INSERT INTO `sys_menu` VALUES ('6', '子菜单1-2', '6', '1', '', '1', '1', '20', '0', '2017-10-11 00:00:00', '1', '2017-10-11 14:44:06', null, '1');
+INSERT INTO `sys_menu` VALUES ('7', '子菜单1-3', '7', '1', '', '1', '1', '30', '0', '2017-10-11 00:00:00', '1', '2017-10-11 14:44:06', null, '1');
+INSERT INTO `sys_menu` VALUES ('8', '子菜单1-1-1', '8', '6', '', '1', '1', '30', '0', '2017-10-11 00:00:00', '1', '2017-10-11 14:44:06', null, '1');
+INSERT INTO `sys_menu` VALUES ('9', '子菜单1-1-2', '9', '6', '', '1', '1', '10', '0', '2017-10-11 00:00:00', '1', '2017-10-11 14:44:06', null, '1');
+INSERT INTO `sys_menu` VALUES ('10', '子菜单1-2-1', '10', '5', '', '1', '1', '10', '0', '2017-10-11 00:00:00', '1', '2017-10-11 14:44:06', null, '1');
+INSERT INTO `sys_menu` VALUES ('11', '子菜单1-2-2', '11', '5', '', '1', '1', '20', '0', '2017-10-11 00:00:00', '1', '2017-10-11 14:44:06', null, '1');
+INSERT INTO `sys_menu` VALUES ('12', '开发辅助', '', '3', '', '1', '1', '20', '0', '2017-10-11 00:00:00', '1', '2017-10-11 14:44:06', null, '1');
+INSERT INTO `sys_menu` VALUES ('13', '代码生成', 'Reception/manage/generate.html', '12', '', '1', '1', '10', '0', '2017-10-11 00:00:00', '1', '2017-10-11 14:44:06', null, '1');
+INSERT INTO `sys_menu` VALUES ('14', '子菜单1-1-2-1', '14', '6', '', '1', '1', '20', '0', '2017-10-11 00:00:00', '1', '2017-10-11 14:44:06', null, '1');
+INSERT INTO `sys_menu` VALUES ('15', '子菜单1-1-1-1', '15', '8', '', '1', '1', '10', '0', '2017-10-11 00:00:00', '1', '2017-10-11 14:44:06', null, '1');
+INSERT INTO `sys_menu` VALUES ('16', 'web功能', '', '2', '', '1', '&#xe69f;', '10', '0', '2017-10-11 00:00:00', '1', '2017-10-11 14:44:06', null, '1');
+INSERT INTO `sys_menu` VALUES ('17', 'web常见错误', 'Reception/weberror/weberror.html', '16', 'buz:weberror:view', '1', '&#xe69f;', '10', '0', '2017-10-11 00:00:00', '1', '2017-10-11 14:44:06', null, '1');
+INSERT INTO `sys_menu` VALUES ('18', '系统设置', '', '3', '', '1', '1', '30', '0', '2017-10-11 00:00:00', '1', '2017-10-11 14:44:06', null, '1');
+INSERT INTO `sys_menu` VALUES ('19', '菜单管理', '/Reception/sys/menu/to.html', '18', '', '1', '1', '10', '0', '2017-10-11 00:00:00', '1', '2017-10-11 14:44:06', null, '1');
+INSERT INTO `sys_menu` VALUES ('20', '查看', '', '19', 'sys:menu:view', '3', '1', '10', '0', '2017-10-11 00:00:00', '1', '2017-10-11 14:44:06', null, '1');
+INSERT INTO `sys_menu` VALUES ('21', '增加', '', '19', 'sys:menu:save', '3', '1', '20', '0', '2017-10-11 00:00:00', '1', '2017-10-11 14:44:06', null, '1');
+INSERT INTO `sys_menu` VALUES ('22', '修改', '', '19', 'sys:menu:update', '3', '1', '30', '0', '2017-10-11 00:00:00', '1', '2017-10-11 14:44:06', null, '1');
+INSERT INTO `sys_menu` VALUES ('23', '删除', '', '19', 'sys:menu:delete', '3', '1', '40', '0', '2017-10-11 00:00:00', '1', '2017-10-11 14:44:06', null, '1');
+INSERT INTO `sys_menu` VALUES ('24', '批量删除', '', '19', 'sys:menu:batchdelete', '3', '1', '60', '0', '2017-10-11 00:00:00', '1', '2017-10-11 14:44:06', null, '1');
+INSERT INTO `sys_menu` VALUES ('25', '顺序调整', '', '19', 'sys:menu:ordersave', '3', '1', '50', '0', '2017-10-11 00:00:00', '1', '2017-10-11 14:44:06', null, '1');
+INSERT INTO `sys_menu` VALUES ('28', '321', '123', '0', null, '1', null, '0', '1', '2017-10-23 00:00:00', '1', '2017-10-23 00:00:00', null, '2');
 
 -- ----------------------------
 -- Table structure for sys_role
@@ -260,7 +282,7 @@ CREATE TABLE `sys_role_menu` (
   `remarks` varchar(765) COLLATE utf8_bin DEFAULT NULL COMMENT '备注',
   `isemploy` char(3) COLLATE utf8_bin NOT NULL DEFAULT '1' COMMENT '删除标记 1正常2删除',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='角色菜单关系表';
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='角色菜单关系表';
 
 -- ----------------------------
 -- Records of sys_role_menu
@@ -271,6 +293,28 @@ INSERT INTO `sys_role_menu` VALUES ('4', '2', '1', '0', '2017-10-11 14:35:45', '
 INSERT INTO `sys_role_menu` VALUES ('5', '2', '2', '0', '2017-10-11 14:35:45', '0', '2017-10-11 14:35:48', null, '1');
 INSERT INTO `sys_role_menu` VALUES ('6', '3', '2', '0', '2017-10-11 14:35:45', '0', '2017-10-11 14:35:48', null, '1');
 INSERT INTO `sys_role_menu` VALUES ('7', '3', '3', '0', '2017-10-11 14:35:45', '0', '2017-10-11 14:35:48', null, '1');
+INSERT INTO `sys_role_menu` VALUES ('8', '1', '5', '0', '2017-10-11 14:35:45', '0', '2017-10-11 14:35:48', null, '1');
+INSERT INTO `sys_role_menu` VALUES ('9', '1', '6', '0', '2017-10-11 14:35:45', '0', '2017-10-11 14:35:48', null, '1');
+INSERT INTO `sys_role_menu` VALUES ('10', '1', '7', '0', '2017-10-11 14:35:45', '0', '2017-10-11 14:35:48', null, '1');
+INSERT INTO `sys_role_menu` VALUES ('11', '1', '8', '0', '2017-10-11 14:35:45', '0', '2017-10-11 14:35:48', null, '1');
+INSERT INTO `sys_role_menu` VALUES ('12', '1', '9', '0', '2017-10-11 14:35:45', '0', '2017-10-11 14:35:48', null, '1');
+INSERT INTO `sys_role_menu` VALUES ('13', '1', '10', '0', '2017-10-11 14:35:45', '0', '2017-10-11 14:35:48', null, '1');
+INSERT INTO `sys_role_menu` VALUES ('14', '1', '11', '0', '2017-10-11 14:35:45', '0', '2017-10-11 14:35:48', null, '1');
+INSERT INTO `sys_role_menu` VALUES ('15', '1', '12', '0', '2017-10-11 14:35:45', '0', '2017-10-11 14:35:48', null, '1');
+INSERT INTO `sys_role_menu` VALUES ('16', '1', '13', '0', '2017-10-11 14:35:45', '0', '2017-10-11 14:35:48', null, '1');
+INSERT INTO `sys_role_menu` VALUES ('17', '1', '14', '0', '2017-10-11 14:35:45', '0', '2017-10-11 14:35:48', null, '1');
+INSERT INTO `sys_role_menu` VALUES ('18', '1', '15', '0', '2017-10-11 14:35:45', '0', '2017-10-11 14:35:48', null, '1');
+INSERT INTO `sys_role_menu` VALUES ('19', '1', '16', '0', '2017-10-11 14:35:45', '0', '2017-10-11 14:35:48', null, '1');
+INSERT INTO `sys_role_menu` VALUES ('20', '3', '2', '0', '2017-10-11 14:35:45', '0', '2017-10-11 14:35:48', null, '1');
+INSERT INTO `sys_role_menu` VALUES ('21', '1', '17', '0', '2017-10-11 14:35:45', '0', '2017-10-11 14:35:48', null, '1');
+INSERT INTO `sys_role_menu` VALUES ('22', '1', '18', '0', '2017-10-11 14:35:45', '0', '2017-10-11 14:35:48', null, '1');
+INSERT INTO `sys_role_menu` VALUES ('23', '1', '19', '0', '2017-10-11 14:35:45', '0', '2017-10-11 14:35:48', null, '1');
+INSERT INTO `sys_role_menu` VALUES ('24', '1', '20', '0', '2017-10-11 14:35:45', '0', '2017-10-11 14:35:48', null, '1');
+INSERT INTO `sys_role_menu` VALUES ('25', '1', '21', '0', '2017-10-11 14:35:45', '0', '2017-10-11 14:35:48', null, '1');
+INSERT INTO `sys_role_menu` VALUES ('26', '1', '22', '0', '2017-10-11 14:35:45', '0', '2017-10-11 14:35:48', null, '1');
+INSERT INTO `sys_role_menu` VALUES ('27', '1', '23', '0', '2017-10-11 14:35:45', '0', '2017-10-11 14:35:48', null, '1');
+INSERT INTO `sys_role_menu` VALUES ('28', '1', '24', '0', '2017-10-11 14:35:45', '0', '2017-10-11 14:35:48', null, '1');
+INSERT INTO `sys_role_menu` VALUES ('29', '1', '25', '0', '2017-10-11 14:35:45', '0', '2017-10-11 14:35:48', null, '1');
 
 -- ----------------------------
 -- Table structure for sys_user
