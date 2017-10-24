@@ -1,0 +1,12 @@
+package org.great.web.mapper.sys;
+
+import org.great.web.bean.sys.${name};
+import org.great.web.mapper.BaseMapper;
+
+/**
+ * 
+ * @author xiejun
+ * 
+ */
+public interface ${name}Mapper extends BaseMapper<${name}> {
+}

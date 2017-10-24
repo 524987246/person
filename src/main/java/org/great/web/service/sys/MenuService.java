@@ -23,8 +23,8 @@ public class MenuService {
 	private MenuMapper menuMapper;
 
 	public Menu get(Long id) {
-		Menu Menu = menuMapper.get(id);
-		return Menu;
+		Menu menu = menuMapper.get(id);
+		return menu;
 	}
 
 	public List<Menu> findList(Menu menu) {

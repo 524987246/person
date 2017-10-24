@@ -5,6 +5,7 @@ var urlarray = {
 	dbnameUrl : "Reception/manage/dbnames.html",
 	tbnameUrl : "Reception/manage/tbnames.html",
 	codeUrl : "Reception/manage/code.html",
+	updownload : "Reception/manage/updownload2.html",
 	addUrl : "Reception/web/add.html",
 	updateUrl : "Reception/web/update.html"
 };
@@ -16,16 +17,16 @@ $(function() {
 	$("#next_page").attr("disabled", "disabled").hide();
 	$("#page_num").val(page_num);
 });
-var page_new = 0;// 当前页面
-var page_num = 10;// 每页显示的条数
-var remove_id = 0;// 删除数据时的主键id
-var dbarray;// 保存数据库信息集合
-var objarray;// 保存每次查询的结果
-var obj_num;// 修改对象在数组的序号
-var formtable = "tableContent";// 主要表单的名称
-var username = "";// 保存测试连接成功的账号
-var userpwd = "";// 保存测试连接成功的密码
-var tablearray;// 保存当前界面表格信息
+var page_new = 0; // 当前页面
+var page_num = 10; // 每页显示的条数
+var remove_id = 0; // 删除数据时的主键id
+var dbarray; // 保存数据库信息集合
+var objarray; // 保存每次查询的结果
+var obj_num; // 修改对象在数组的序号
+var formtable = "tableContent"; // 主要表单的名称
+var username = ""; // 保存测试连接成功的账号
+var userpwd = ""; // 保存测试连接成功的密码
+var tablearray; // 保存当前界面表格信息
 
 /**
  * 获取数据库名称
@@ -45,9 +46,9 @@ function getDBname() {
 			var select = $("#dbtype");
 			dbarray = info;
 			obj_num = 0;
-			for ( var i = 0; i < info.length; i++) {
+			for (var i = 0; i < info.length; i++) {
 				html = "<option value='" + i + "'>" + info[i].stype
-						+ "</option>";
+					+ "</option>";
 				$(select).append(html);
 			}
 		},
@@ -155,12 +156,12 @@ function find_db() {
 			} else {
 				var table = $("#tables");
 				var html = "";
-				for ( var i = 0; i < data.length; i++) {
+				for (var i = 0; i < data.length; i++) {
 					if (i % 5 == 0) {
 						html += "<tr>"
 					}
 					html += "<td><a onclick='settbname(this)'>" + data[i]
-							+ "</a></td>";
+						+ "</a></td>";
 					if (i % 5 == 4) {
 						html += "</tr>"
 					} else if (i == data.length - 1) {
@@ -249,13 +250,13 @@ function tdInfo(i, item) {
 	var html = "";
 	html = '<tr><td>' + (page_new * page_num + i + 1);
 	html += '</td><td>' + datanull(item.tableName) + '</td><td>'
-			+ datanull(item.createTime);
+	+ datanull(item.createTime);
 	html += '</td><td>' + datanull(item.ENGINE) + '</td><td>'
-			+ datanull(item.tableComment);
+	+ datanull(item.tableComment);
 	html += '</td><td>';
 	html += '<a title="代码生成" href="javascript:void(0)"'
-			+ 'style="color:red" onclick="generate(' + i
-			+ ')"><span  class="glyphicon glyphicon-remove"' + ' ></span></a>';
+		+ 'style="color:red" onclick="generate(' + i
+		+ ')"><span  class="glyphicon glyphicon-remove"' + ' ></span></a>';
 	html += '</td><td><input type="checkbox" value="' + i + '"></td></tr>';
 	return html;
 }
@@ -272,10 +273,10 @@ function generate(i) {
 	getdata.sdriver = dbarray[obj_num].sdriver;
 	getdata.stype = dbarray[obj_num].stype;
 	getdata.sname = $("#newname").text();
-	console.log(i);
-	console.dir(tablearray);
+	//	console.log(i);
+	//	console.dir(tablearray);
 	getdata.tbname = tablearray[i].tableName;
-	console.dir(getdata);
+	//console.dir(getdata);
 	//TODO 自动生成有问题，报以下错误
 	//ERROR 8604 --- [nio-8081-exec-6] org.apache.velocity
 	//: ResourceManager : unable to find resource 
@@ -289,12 +290,25 @@ function generate(i) {
 		async : true,
 		dataType : "json",
 		success : function(data) {
-			console.dir(data);
-			alert(data);
+			if (data != null && data.url != null) {
+				url = ProjectUrl(urlarray.updownload) + "?fileurl=" + data.url;
+				url += "&filename=" + getdata.tbname + ".zip";
+				sureDownload(url);
+			}
 		},
 		error : function(data) {
 			hint("请求异常");
 		}
+	});
+}
+function sureDownload(url) {
+	var index = layer.confirm('确认下载？', {
+		btn : [ '确定', '取消' ] //按钮
+	}, function() {
+		location.href = url;
+		layer.close(index);
+	}, function() {
+		layer.close(index);
 	});
 }
 /**
@@ -316,7 +330,7 @@ function pageMethod(bo) {
  * 查询方法
  */
 function search(num) {
-	var sname=$("#newname").text();
+	var sname = $("#newname").text();
 	if (num != null) {
 		page_new += num;
 	}
@@ -326,9 +340,9 @@ function search(num) {
  * 显示
  */
 function settbname(obj) {
-	var sname=$(obj).text();
-	page_new = 0;//
-	page_num = 10;//
+	var sname = $(obj).text();
+	page_new = 0; //
+	page_num = 10; //
 	find_tb(sname);
 }
 /**
@@ -401,7 +415,7 @@ function remove_save() {
  * 添加信息
  */
 function addInfo() {
-	table_add_check();// 初始化表单验证
+	table_add_check(); // 初始化表单验证
 	$(".titleInfo").text("添加");
 	$(".inputcontent").val("");
 	$(".inputcontent").removeAttr("disabled");
@@ -416,7 +430,7 @@ function addInfo() {
  *            标志 1查看 2修改
  */
 function updatedlg(num, obj, flag) {
-	table_add_check();// 初始化表单验证
+	table_add_check(); // 初始化表单验证
 
 	if (flag == 1) {
 		$(".titleInfo").text("查看信息");

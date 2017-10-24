@@ -1,6 +1,10 @@
 package org.great.web.controller.sys;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
@@ -12,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONArray;
 
+import org.great.util.FileUtil;
 import org.great.util.InputCheck;
 import org.great.util.generate.AutoVelocity;
 import org.great.web.bean.sys.DbName;
@@ -166,91 +171,63 @@ public class SysGenerate {
 	 * 生成代码
 	 */
 	@RequestMapping(value = "/code", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
-	public void code(DbName dbName, HttpServletResponse response) throws IOException {
+	public void code(DbName dbName, HttpServletResponse response, HttpServletRequest request) throws IOException {
 		AutoVelocity autoVelocity = new AutoVelocity();
+		String url = autoVelocity.getFilepath();
+		url = request.getSession().getServletContext().getRealPath("/") + url;
+		autoVelocity.setFilepath(url);// 设置生成代码路径
 		Connection con = manageServices.getConnection(dbName);
 		List<ColumnEntity> resultlist = manageServices.generatorCode(dbName, con);
 		String str = autoVelocity.autocode(resultlist, dbName.getTbname());
-		str = "{'type':'" + str + "'}";
+		str = "{\"url\":\"" + str + "\"}";
 		response.getWriter().print(str);
 		response.getWriter().flush();
 		response.getWriter().close();
-		// response.reset();
-		// response.setHeader("Content-Disposition", "attachment;
-		// filename=\"openBoot.zip\"");
-		// response.addHeader("Content-Length", "" + data.length);
-		// response.setContentType("application/octet-stream; charset=UTF-8");
-		//
-		// IOUtils.write(data, response.getOutputStream());
 	}
-	// /**
-	// * 获取错误数据
-	// *
-	// * @return
-	// */
-	// @RequestMapping(value = "/info.html", method = RequestMethod.POST,
-	// produces = "text/html;charset=UTF-8")
-	// @ResponseBody
-	// public String info(@RequestBody String str, HttpServletRequest request,
-	// Model model) {
-	// Gson gson = new Gson();
-	// // System.out.println("str===="+str);
-	// Message message = gson.fromJson(str, Message.class);
-	// WebError webError = new WebError();
-	// if (message.getStr() != null) {
-	// webError = gson.fromJson(message.getStr(), WebError.class);
-	// // System.out.println(webError.toString());
-	// }
-	// message.setPage_new(message.getPage_new() * message.getPage_num());
-	// message.setPage_num(message.getPage_num() + 1);
-	// List<WebError> list = webErrorServices.findWebErrorByWebError(webError,
-	// message.getPage_new(), message.getPage_num());
-	// msg = gson.toJson(list);
-	// return msg;
-	// }
-	//
-	// /**
-	// * 更新数据状态(伪删除)
-	// *
-	// * @return
-	// */
-	// @RequestMapping(value = "/remove.html", method = RequestMethod.POST,
-	// produces = "text/html;charset=UTF-8")
-	// @ResponseBody
-	// public String remove(@RequestBody String str, HttpServletRequest request,
-	// Model model) {
-	// boolean bo = webErrorServices.delWebErrorBySid(str, 2);
-	// return String.valueOf(bo);
-	// }
-	//
 
-	//
-	// /**
-	// * 添加
-	// *
-	// * @return
-	// */
-	// @RequestMapping(value = "/add.html", method = RequestMethod.POST,
-	// produces = "text/html;charset=UTF-8")
-	// public void add(WebError webError, HttpServletRequest request,
-	// HttpServletResponse response) {
-	// response.setCharacterEncoding("utf-8");
-	// try {
-	// if (!InputCheck.NotNullsString(
-	// String.valueOf(webError.getSerrorid()), 10)) {
-	// response.getWriter().print("错误代码,输入有误");
-	// response.getWriter().flush();
-	// response.getWriter().close();
-	// return;
-	// }
-	// boolean bo = webErrorServices.insertWebError(webError);
-	// response.getWriter().print(bo);
-	// response.getWriter().flush();
-	// response.getWriter().close();
-	// } catch (IOException e) {
-	// // TODO Auto-generated catch block
-	// e.printStackTrace();
-	// }
-	//
-	// }
+	/**
+	 * 生成代码
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/updownload", method = RequestMethod.GET)
+	public String updownload(String fileurl, String filename, HttpServletResponse response, HttpServletRequest request)
+			throws IOException {
+		// String url =
+		// request.getSession().getServletContext().getRealPath("/");
+		String url = "/download/" + fileurl;
+		request.setAttribute("filePath", url);// 即将下载的文件的相对路径
+		request.setAttribute("fileName", filename);// 显示的文件名
+		return "newjsp/sys/download";
+	}
+
+	/**
+	 * 生成代码
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/updownload2", method = RequestMethod.GET)
+	public void updownload2(String fileurl, String filename, HttpServletResponse response, HttpServletRequest request)
+			throws IOException {
+		// 设置文件MIME类型
+		response.setContentType(request.getServletContext().getMimeType(filename));
+		// 设置Content-Disposition
+		response.setHeader("Content-Disposition", "attachment;filename=" + filename);
+		// 读取目标文件，通过response将目标文件写到客户端
+		// 获取目标文件的绝对路径
+		String fullFileName = request.getServletContext().getRealPath("/download/" + fileurl);
+		// System.out.println(fullFileName);
+		// 读取文件
+		InputStream in = new FileInputStream(fullFileName);
+		OutputStream out = response.getOutputStream();
+		// 写文件
+		int b;
+		while ((b = in.read()) != -1) {
+			out.write(b);
+		}
+		in.close();
+		out.close();
+		File file = new File(fullFileName);
+		FileUtil.deleteFile(file);
+	}
 }

@@ -1,0 +1,69 @@
+package org.great.web.service.sys;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.great.web.bean.sys.${name};
+import org.great.web.mapper.sys.${name}Mapper;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+/**
+ * 
+ * @author xiejun
+ * 
+ */
+@Service
+@Transactional(readOnly = true)
+public class ${name}Service {
+	@Resource
+	private ${name}Mapper ${name2}Mapper;
+
+	public ${name} get(Long id) {
+		${name} ${name2} = ${name2}Mapper.get(id);
+		return ${name2};
+	}
+
+	public List<${name}> findList(${name} ${name2}) {
+		List<${name}> list = ${name2}Mapper.findList(${name2});
+		return list;
+	}
+
+	@Transactional(readOnly = false)
+	public int save(${name} ${name2}) {
+		${name2}.setBaseInfo();
+		int i = ${name2}Mapper.save(${name2});
+		return i;
+	}
+
+	@Transactional(readOnly = false)
+	public int update(${name} ${name2}) {
+		${name2}.setBaseInfo();
+		int i = ${name2}Mapper.update(${name2});
+		return i;
+	}
+
+	@Transactional(readOnly = false)
+	public int delete(${name} ${name2}) {
+		${name2}.setIsemploy(2);
+		${name2}.setBaseInfo();
+		int i = ${name2}Mapper.delete(${name2});
+		return i;
+	}
+
+	@Transactional(readOnly = false)
+	public int batchdelete(${name} ${name2}) {
+		${name2}.setIsemploy(2);
+		${name2}.setBaseInfo();
+		int i = ${name2}Mapper.batchdelete(${name2});
+		return i;
+	}
+
+	@Transactional(readOnly = false)
+	public Integer queryTotal(${name} ${name2}) {
+		Integer totalCount = ${name2}Mapper.queryTotal(${name2});
+		return totalCount;
+	}
+}

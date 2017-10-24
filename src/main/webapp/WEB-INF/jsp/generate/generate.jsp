@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<%@ include file="/WEB-INF/include/titlehead.jsp"%>
+<%@ include file="/WEB-INF/include/newtitlehead.jsp"%>
 <%--<link rel="stylesheet" href="${ctx}/viewcss/weberror.css" media="screen"
 	title="no title" charset="utf-8">
 --%>
