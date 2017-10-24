@@ -2,19 +2,13 @@ package org.great.util;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
-import java.util.Set;
 
-import org.apache.commons.collections.map.HashedMap;
 import org.great.util.myutil.MyPrintUtil;
 import org.great.util.myutil.MyUserUtils;
 import org.great.web.bean.sys.Menu;
 import org.great.web.bean.sys.Role;
-import org.junit.Test;
 
 public class TestUtils {
 

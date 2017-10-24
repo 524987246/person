@@ -1,10 +1,5 @@
 package org.great.util;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-
-import com.alibaba.fastjson.JSONObject;
-
 public class Message {
 	/**
 	 * 传输对象的字符串
@@ -57,8 +52,8 @@ public class Message {
 
 	@Override
 	public String toString() {
-		return "Message [str=" + str + ", page_new=" + page_new + ", chainfo="
-				+ chainfo + ", page_num=" + page_num + "]";
+		return "Message [str=" + str + ", page_new=" + page_new + ", chainfo=" + chainfo + ", page_num=" + page_num
+				+ "]";
 	}
 
 }

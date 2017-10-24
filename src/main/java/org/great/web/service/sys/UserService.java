@@ -4,7 +4,6 @@ import javax.annotation.Resource;
 
 import org.great.web.bean.sys.User;
 import org.great.web.mapper.sys.UserMapper;
-import org.great.web.mapper.sys.UserRoleMapper;
 import org.springframework.stereotype.Service;
 
 /**

@@ -3,7 +3,6 @@ package org.great.test;
 import java.util.List;
 import java.util.Map;
 
-import javax.validation.constraints.Size;
 
 import org.great.util.beanValidtor.ListNotHasNull;
 import org.great.util.beanValidtor.MapNotOne;

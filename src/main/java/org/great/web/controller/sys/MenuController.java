@@ -21,8 +21,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import net.sf.json.JSONArray;
-
 /**
  * 
  * @author xiejun
@@ -100,7 +98,7 @@ public class MenuController {
 	@RequestMapping(value = "ordersave.html")
 	@ResponseBody
 	public String ordersave(@RequestBody List<MenuOrder> menuOrderlist, HttpServletRequest request) {
-		String msg = JSONArray.fromObject(menuOrderlist).toString();
+		// String msg = JSONArray.fromObject(menuOrderlist).toString();
 		menuService.ordersave(menuOrderlist);
 		return "{\"message\":\"成功\"}";
 	}
@@ -147,7 +145,7 @@ public class MenuController {
 			Long parentId = menu.getParentId();
 			if (parentId != 0L) {
 				Menu temp = map.get(menu.getParentId());
-				if(temp!=null){
+				if (temp != null) {
 					temp.getChildlist().add(menu);
 				}
 			} else {

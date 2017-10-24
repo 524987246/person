@@ -1,28 +1,28 @@
 package org.great.util.spider.rule;
 
-public class RuleException extends RuntimeException
-{
+public class RuleException extends RuntimeException {
 
-	public RuleException()
-	{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4470269646520669435L;
+
+	public RuleException() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public RuleException(String message, Throwable cause)
-	{
+	public RuleException(String message, Throwable cause) {
 		super(message, cause);
 		// TODO Auto-generated constructor stub
 	}
 
-	public RuleException(String message)
-	{
+	public RuleException(String message) {
 		super(message);
 		// TODO Auto-generated constructor stub
 	}
 
-	public RuleException(Throwable cause)
-	{
+	public RuleException(Throwable cause) {
 		super(cause);
 		// TODO Auto-generated constructor stub
 	}

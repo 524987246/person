@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.great.config.BaseResoure;
-import org.great.util.beanValidtor.ValidtorUtil;
 import org.great.util.myutil.MyDateUtils;
 import org.great.util.myutil.MyStringUtils;
 import org.great.util.myutil.MyUserUtils;

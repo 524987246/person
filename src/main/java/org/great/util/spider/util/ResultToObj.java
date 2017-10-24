@@ -1,7 +1,6 @@
 package org.great.util.spider.util;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.jsoup.nodes.Element;
@@ -26,11 +25,11 @@ public class ResultToObj {
 				FiveEight data = new FiveEight();
 				Element link = links.get(i);
 				// 必要的筛选
-//				 String linkHref = link.attr("href");
-//				 String linkText = link.text();
-//				String str = link.toString();
+				// String linkHref = link.attr("href");
+				// String linkText = link.text();
+				// String str = link.toString();
 				// 输出获取到的html代码
-//				 System.out.println(str);
+				// System.out.println(str);
 				Elements dttag = link.getElementsByTag("dt");
 				for (Element dttagtemp : dttag) {
 					// 获取标题
@@ -39,7 +38,7 @@ public class ResultToObj {
 					// 获取要求
 					Elements spantag = dttagtemp.getElementsByTag("span");
 					data.setRequirement(spantag.text());
-					getFiveEightInfo(data,spantag.attr("onclick"));
+					getFiveEightInfo(data, spantag.attr("onclick"));
 				}
 				Elements temp1 = link.getElementsByTag("dd");
 				// 页面上为选择框，无用
@@ -56,12 +55,12 @@ public class ResultToObj {
 		return datas;
 	}
 
-	public static FiveEight getFiveEightInfo(FiveEight fiveEight,String url) {
-		//http://zp.service.58.com/api/infoPreview?
-		//infoid=25842332669774&
-		//callback=jQuery1102034422953448290805_1494828117712
-		//&_=1494828117730
-		//获取详细信息
+	public static FiveEight getFiveEightInfo(FiveEight fiveEight, String url) {
+		// http://zp.service.58.com/api/infoPreview?
+		// infoid=25842332669774&
+		// callback=jQuery1102034422953448290805_1494828117712
+		// &_=1494828117730
+		// 获取详细信息
 		System.out.println(url);
 		return fiveEight;
 	}

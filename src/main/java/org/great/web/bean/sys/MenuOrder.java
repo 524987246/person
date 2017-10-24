@@ -1,14 +1,10 @@
 package org.great.web.bean.sys;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
-import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-
-import com.mysql.fabric.xmlrpc.base.Array;
 
 /**
  * 菜单bean

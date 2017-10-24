@@ -8,8 +8,6 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.mysql.fabric.xmlrpc.base.Array;
-
 /**
  * 菜单bean
  * 

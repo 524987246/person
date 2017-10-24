@@ -3,8 +3,6 @@ package org.great.config;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.great.util.myutil.MyUserUtils;
-import org.great.web.bean.sys.User;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
