@@ -2,12 +2,11 @@ package org.great.web.controller;
 
 import org.apache.shiro.authz.AuthorizationException;
 import org.great.util.myutil.MyActionUtil;
+import org.springframework.http.HttpStatus;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-
-import ch.qos.logback.core.joran.action.Action;
-
+import org.springframework.web.bind.annotation.ResponseStatus;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -32,6 +31,35 @@ public class ErrorController {
 			MyActionUtil.renderString(response, message, "application/json");
 			return null;
 		}
-
+	}
+	@ResponseStatus(value=HttpStatus.BAD_REQUEST)
+	public String bad_request(HttpServletResponse response, HttpServletRequest request, Model model,
+			Exception e) {
+		System.out.println("400");
+		String requestType = request.getHeader("X-Requested-With");
+		if (requestType == null) {
+			model.addAttribute("e", e);
+			model.addAttribute("message", "BAD_REQUEST");
+			return "error/403";
+		} else {
+			String message = ERROR_MESSAGE_TEMPLATE.replaceAll("CONTETN", "BAD_REQUEST");
+			MyActionUtil.renderString(response, message, "application/json");
+			return null;
+		}
+	}
+	@ResponseStatus(value=HttpStatus.NOT_FOUND)
+	public String not_found(HttpServletResponse response, HttpServletRequest request, Model model,
+			Exception e) {
+		System.out.println("404");
+		String requestType = request.getHeader("X-Requested-With");
+		if (requestType == null) {
+			model.addAttribute("e", e);
+			model.addAttribute("message", "NOT_FOUND");
+			return "error/403";
+		} else {
+			String message = ERROR_MESSAGE_TEMPLATE.replaceAll("CONTETN", "NOT_FOUND");
+			MyActionUtil.renderString(response, message, "application/json");
+			return null;
+		}
 	}
 }

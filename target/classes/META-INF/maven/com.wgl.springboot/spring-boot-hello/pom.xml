@@ -226,7 +226,7 @@
 			<artifactId>sqljdbc4</artifactId>
 			<version>4.0</version>
 		</dependency>
-		<!-- shiro 权限控制 开始-->
+		<!-- shiro 权限控制 开始 -->
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
 			<artifactId>shiro-spring</artifactId>
@@ -252,7 +252,7 @@
 			<artifactId>shiro-web</artifactId>
 			<version>1.2.3</version>
 		</dependency>
-		<!-- shiro 权限控制 结束-->
+		<!-- shiro 权限控制 结束 -->
 	</dependencies>
 	<!-- 构建节点. -->
 	<build>
