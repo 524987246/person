@@ -14,6 +14,7 @@ import org.apache.velocity.runtime.RuntimeConstants;
 import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 import org.great.util.FileUtil;
 import org.great.util.NameRandom;
+import org.great.util.myutil.MyStringUtils;
 import org.great.util.myutil.MyZipUtil;
 import org.great.web.jdbc.ColumnEntity;
 
@@ -47,11 +48,13 @@ public class AutoVelocity {
 		templatelist.add(ve.getTemplate("template\\mapper.vm"));
 		templatelist.add(ve.getTemplate("template\\service.vm"));
 		templatelist.add(ve.getTemplate("template\\controller.vm"));
+		templatelist.add(ve.getTemplate("template\\xml.vm"));
 		// 临时文件生成的目标路径,压缩完成后删除
 		list.add("src\\test\\replaceflage.java");
 		list.add("src\\test\\replaceflageMapper.java");
 		list.add("src\\test\\replaceflageService.java");
 		list.add("src\\test\\replaceflageController.java");
+		list.add("src\\test\\replaceflage.xml");
 	}
 
 	public String autocode(List<ColumnEntity> resultlist, String tbname) {
@@ -60,6 +63,7 @@ public class AutoVelocity {
 		VelocityContext ctx = new VelocityContext();
 		String path = "";
 		// 生成模板文件
+		ctx.put("tablename", tbname);
 		tbname = FileUtil.setfilenam(tbname);
 		resultlist = setAttrType(resultlist);// 设置java属性
 		ctx.put("name", tbname);
@@ -103,12 +107,10 @@ public class AutoVelocity {
 				continue;
 			}
 			// 属性首字符大写
-			str = temp.getColumnName().substring(0, 1).toUpperCase();
-			str += temp.getColumnName().substring(1);
-			temp.setAttrName(str);
-			str = temp.getColumnName().substring(0, 1).toLowerCase();
-			str += temp.getColumnName().substring(1);
-			temp.setAttrname(str);
+			str=temp.getColumnName();
+			// 下划线名称进行更换
+			temp.setAttrName(MyStringUtils.setColName2(str));
+			temp.setAttrname(MyStringUtils.setColName(str));
 			str = temp.getDataType();
 			if (str.equals("int")) {
 				temp.setAttrType("Long");
@@ -127,8 +129,7 @@ public class AutoVelocity {
 			} else {
 				temp.setAttrType("请为数据库类型\"" + str + "\"设置对应java类型");
 			}
-			// 下划线名称进行更换
-
+			
 			templist.add(temp);
 		}
 		return templist;

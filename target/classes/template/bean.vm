@@ -10,7 +10,7 @@ import java.io.Serializable;
  * @author xiej
  * @since 1.0
  */
-public class $name  extends BaseBean implements Serializable {
+public class ${name}  extends BaseBean implements Serializable {
 	
 #foreach($i in $collist)
 	/**
@@ -20,7 +20,7 @@ public class $name  extends BaseBean implements Serializable {
 #end
 	
 #foreach($i in $collist)
-	public ${i.attrType} get${i.attrName}() {
+	public ${i.attrType} get${i.attrname}() {
 		return $i.columnName;
 	}
 
@@ -33,7 +33,7 @@ public class $name  extends BaseBean implements Serializable {
 	public String toString() {
 		return "DbName ["+
 #foreach($i in $collist)
-		"${i.columnName}=" + ${i.columnName} + 
+		"${i.attrname}=" + ${i.attrname} + 
 #end
 		"]";
 	}

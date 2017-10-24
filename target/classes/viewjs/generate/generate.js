@@ -282,34 +282,32 @@ function generate(i) {
 	//: ResourceManager : unable to find resource 
 	//'jsp/generate/generate.html.vm' 
 	//in any resource loader.
-	var url = ProjectUrl(urlarray.codeUrl);
-	$.ajax({
-		url : url,
-		type : "POST",
-		data : getdata,
-		async : true,
-		dataType : "json",
-		success : function(data) {
-			if (data != null && data.url != null) {
-				url = ProjectUrl(urlarray.updownload) + "?fileurl=" + data.url;
-				url += "&filename=" + getdata.tbname + ".zip";
-				sureDownload(url);
-			}
-		},
-		error : function(data) {
-			hint("请求异常");
-		}
-	});
-}
-function sureDownload(url) {
 	var index = layer.confirm('确认下载？', {
 		btn : [ '确定', '取消' ] //按钮
 	}, function() {
-		location.href = url;
+		var url = ProjectUrl(urlarray.codeUrl);
+		$.ajax({
+			url : url,
+			type : "POST",
+			data : getdata,
+			async : true,
+			dataType : "json",
+			success : function(data) {
+				if (data != null && data.url != null) {
+					url = ProjectUrl(urlarray.updownload) + "?fileurl=" + data.url;
+					url += "&filename=" + getdata.tbname + ".zip";
+					location.href = url;
+				}
+			},
+			error : function(data) {
+				hint("请求异常");
+			}
+		});
 		layer.close(index);
 	}, function() {
 		layer.close(index);
 	});
+
 }
 /**
  * 分页方法

@@ -187,6 +187,7 @@ public class SysGenerate {
 
 	/**
 	 * 生成代码
+	 * 暂无用
 	 * 
 	 * @return
 	 */
@@ -203,7 +204,7 @@ public class SysGenerate {
 
 	/**
 	 * 生成代码
-	 * 
+	 * 暂用
 	 * @return
 	 */
 	@RequestMapping(value = "/updownload2", method = RequestMethod.GET)

@@ -213,12 +213,54 @@ public class MyStringUtils {
 		return GenericValidator.isDate(dateStr, format, true);
 	}
 
-	public static void main(String[] args) {
-		/*
-		 * String str =
-		 * "[{\"name\":\"a\",\"age\":\"1\"},{\"name\":\"b\",\"age\":\"2\"},{\"name\":\"c\",\"age\":\"3\"}]";
-		 * toListByJsonStr(str);
-		 */
-		System.out.println(isDateTime("2017-10-09", "yyyy-MM-dd"));
+	/**
+	 * parent_id ===>parentId;
+	 * 
+	 * @param name
+	 * @return
+	 */
+	public static String setColName(String name) {
+		if (isEmpty(name)) {
+			String[] array = name.split("_");
+			name = "";
+			for (int i = 0; i < array.length; i++) {
+				if (i == 0) {
+					name += array[i];
+				} else {
+					name += array[i].substring(0, 1).toUpperCase() + array[i].substring(1);
+					;
+				}
+			}
+			name = name.trim();
+		}
+		return name;
 	}
+
+	/**
+	 * parent_id ===>ParentId;
+	 * 
+	 * @param name
+	 * @return
+	 */
+	public static String setColName2(String name) {
+		if (isEmpty(name)) {
+			String[] array = name.split("_");
+			name = "";
+			for (int i = 0; i < array.length; i++) {
+				name += array[i].substring(0, 1).toUpperCase() + array[i].substring(1);
+			}
+			name = name.trim();
+		}
+		return name;
+	}
+
+	public static void main(String[] args) {
+		String str = "parent";
+		System.out.println(setColName(str));
+		// String str =
+		// "[{\"name\":\"a\",\"age\":\"1\"},{\"name\":\"b\",\"age\":\"2\"},{\"name\":\"c\",\"age\":\"3\"}]";
+		// toListByJsonStr(str);
+		// System.out.println(isDateTime("2017-10-09", "yyyy-MM-dd"));
+	}
+
 }

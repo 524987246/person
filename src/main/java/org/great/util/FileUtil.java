@@ -191,6 +191,7 @@ public class FileUtil {
 			FileWriter fileWritter = new FileWriter(file);
 
 			BufferedWriter bufferWritter = new BufferedWriter(fileWritter);
+			str = new String(str.getBytes("iso8859-1"), "UTF-8");
 			bufferWritter.write(str);
 			bufferWritter.flush();
 			bufferWritter.close();
@@ -222,6 +223,11 @@ public class FileUtil {
 
 		} while (i != -1);
 		return name;
+	}
+
+	public static void main(String[] args) {
+		String tablename = "sys_name";
+		System.out.println(setfilenam(tablename));
 	}
 
 	public static String StreamToFile(String filepath, InputStream inputStream) {
