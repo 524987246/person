@@ -1,6 +1,7 @@
 var urlArray = {
 	add_edit_url : ProjectUrl("Reception/sys/user/one.html"),
-	list_url : ProjectUrl("Reception/sys/user/list.html")
+	list_url : ProjectUrl("Reception/sys/user/list.html"),
+	del_url : ProjectUrl("Reception/sys/user/del.html")
 }
 var columnsArray = [
 	{
@@ -13,6 +14,7 @@ var columnsArray = [
 	},
 	{
 		data : "id",
+		true_col : "id"
 	},
 	{
 		data : "name",
@@ -85,18 +87,13 @@ function init() {
 		"bServerSide" : true, //指定从服务器端获取数据  
 		"pading" : false,
 		"ajax" : function(data, callback, settings) {
-			//封装请求参数
-			//if (user == null || user=="") {
-			//}
 			if (data.order != null && data.order.length > 0) {
 				var orderby = columnsArray[data.order[0].column].true_col + " " + data.order[0].dir;
-				console.dir(orderby);
 				queryobj.orderBy = orderby; //页面显示记录条数，在页面显示每页显示多少项的时候
 			}
 			queryobj.page_size = data.length; //页面显示记录条数，在页面显示每页显示多少项的时候
 			queryobj.page_new = (data.start / data.length) + 1; //当前页码
 			var json = JSON.stringify(queryobj);
-			//console.dir(json);
 			//ajax请求数据
 			$.ajax({
 				type : "POST",
@@ -113,9 +110,6 @@ function init() {
 					returnData.recordsTotal = data.object.obj.totalCount; //返回数据全部记录
 					returnData.recordsFiltered = data.object.obj.totalCount; //后台不实现过滤功能，每次查询均视作全部结果
 					returnData.data = data.object.page.list; //返回的数据列表
-					//console.log(returnData.data);
-					//调用DataTables提供的callback方法，代表数据已封装完成并传回DataTables进行渲染
-					//此时的数据需确保正确无误，异常判断应在执行此回调前自行处理完毕
 					callback(returnData);
 
 				}
@@ -157,18 +151,21 @@ function edit(obj) {
 Hui_admin_tab_js("修改", url);*/
 }
 function del(obj) {
-	var id = $(obj).parent().parent().parent().attr("data-id");
 	layer.confirm('确认删除？', {
 		btn : [ '确定', '取消' ] //按钮
 	}, function() {
-		var url = "Reception/sys/user/del.html";
-		url = ProjectUrl(url);
+		var rowIndex = $(obj).parents().parents().index();
+		//此处拿到隐藏列的id 
+		if (rowIndex < 0) {
+			return;
+		}
+		var id = $('.table-sort').DataTable().row(rowIndex).data().id;
 		var json = {
 			id : id
 		};
 		json = JSON.stringify(json);
 		$.ajax({
-			url : url,
+			url : urlArray.del_url,
 			type : "POST",
 			data : json,
 			async : true, //异步请求,默认true
