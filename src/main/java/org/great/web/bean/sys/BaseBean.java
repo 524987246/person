@@ -55,6 +55,10 @@ public class BaseBean implements Serializable {
 	 */
 	private String queryEndDate;
 	/**
+	 * 排序
+	 */
+	private String orderBy;
+	/**
 	 * 更新者
 	 */
 	private User updateBy;
@@ -229,7 +233,7 @@ public class BaseBean implements Serializable {
 			return;
 		}
 		this.pageCount = (int) Math.ceil((double) this.totalCount / this.page_size);
-		int total = (this.page_new-1) * this.page_size;
+		int total = (this.page_new - 1) * this.page_size;
 		if (total > this.totalCount) {
 			this.page_new = 1;
 		}
@@ -241,5 +245,13 @@ public class BaseBean implements Serializable {
 
 	public void setBatchId(List<Long> batchId) {
 		this.batchId = batchId;
+	}
+
+	public String getOrderBy() {
+		return orderBy;
+	}
+
+	public void setOrderBy(String orderBy) {
+		this.orderBy = orderBy;
 	}
 }

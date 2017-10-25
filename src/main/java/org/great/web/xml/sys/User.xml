@@ -40,7 +40,7 @@
 			<if test="id != null">
 				AND a.id = #{id}
 			</if>
-			<if test="name !=null and name !=''">AND a.name=#{name}</if>
+			<if test="name !=null and name !=''">AND a.name concat('%',#{name},'%')</if>
 			<if test="loginName !=null and loginName !=''">AND a.login_name=#{loginName}</if>
 			<if test="password !=null and password !=''">AND a.password=MD5(#{password})</if>
 			<if test="phone !=null and phone !=''">AND a.phone=#{phone}</if>
@@ -170,7 +170,15 @@
 		a
 		<include refid="leftjoin" />
 		<include refid="whereInfo" />
-		ORDER BY a.update_date
+		<choose>
+			<when test="orderBy !=null and orderBy != ''">
+				ORDER BY a.${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date
+			</otherwise>
+		</choose>
+	
 	</select>
 	<!-- 查询总数 -->
 	<select id="queryTotal" resultType="Long" parameterType="org.great.web.bean.sys.User">
