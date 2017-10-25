@@ -19,16 +19,18 @@ var html = "<div style='float:right'>" + edithtml + delhtml + "</div>";
 jQuery(function() {
 	init();
 });
+var dataTable;
 function init() {
-	$('.table-sort').dataTable({
+	dataTable=$('.table-sort').dataTable({
 		"aLengthMenu" : [ 2, 4, 5 ], //更改显示记录数选项  
+		"searching" : false,
 		"iDisplayLength" : 2, //默认显示的记录数 
 		"bAutoWidth" : false, //是否自适应宽度  
 		"bPaginate" : true, //是否显示（应用）分页器  
 		"bInfo" : true, //是否显示页脚信息，DataTables插件左下角显示记录数  
 		"bSort" : true, //是否启动各个字段的排序功能  
 		"bStateSave" : true, //状态保存
-		"bLengthChange" : true, //用户不可改变每页显示数量     
+		"bLengthChange" : true, //用户可改变每页显示数量     
 		"bProcessing" : true, //加载数据时显示正在加载信息     
 		"bServerSide" : true, //指定从服务器端获取数据  
 		"pading" : false,
@@ -43,7 +45,6 @@ function init() {
 			var user = {};
 			user.page_size = data.length; //页面显示记录条数，在页面显示每页显示多少项的时候
 			user.page_new = (data.start / data.length) + 1; //当前页码
-			//console.dir(user);
 			user = JSON.stringify(user);
 			//console.dir(user);
 			//ajax请求数据
@@ -59,7 +60,7 @@ function init() {
 					//console.dir(data);
 					var returnData = {};
 					returnData.draw = data.draw; //这里直接自行返回了draw计数器,应该由后台返回
-					returnData.recordsTotal = data.object.obj.totalCount; //返回数据全部记录
+					returnData.recordsTotal = data.object.page.list.length; //返回数据全部记录
 					returnData.recordsFiltered = data.object.obj.totalCount; //后台不实现过滤功能，每次查询均视作全部结果
 					returnData.data = data.object.page.list; //返回的数据列表
 					//console.log(returnData);
@@ -78,10 +79,10 @@ function init() {
 				className : "text-center",
 				render : function(data, type, row, meta) {
 					// 显示行号  
-					console.dir(meta);
+					/*console.dir(meta);
 					console.dir(data);
 					console.dir(type);
-					console.dir(row);
+					console.dir(row);*/
 					return '<input type="checkbox" name="" value="">';
 				}
 			},
@@ -120,7 +121,37 @@ function init() {
 		]
 	});
 }
-
+function search() {
+	var queryBeginDate = $("#queryBeginDate").val();
+	var queryEndDate = $("#queryEndDate").val();
+	var name = $("#name").val();
+	var user = {
+		name : name,
+		queryBeginDate : queryBeginDate,
+		queryEndDate : queryEndDate
+	}
+	user = JSON.stringify(user);
+	$.ajax({
+		type : "POST",
+		url : urlArray.list_url,
+		cache : false, //禁用缓存
+		data : user, //传入组装的参数
+		dataType : "json",
+		async : true, //异步请求,默认true
+		contentType : "application/json;charset=UTF-8",
+		success : function(data) {
+			console.dir(dataTable);
+			var returnData = {};
+			returnData.draw = data.draw; //这里直接自行返回了draw计数器,应该由后台返回
+			returnData.recordsTotal = data.object.page.list.length; //返回数据全部记录
+			returnData.recordsFiltered = data.object.obj.totalCount; //后台不实现过滤功能，每次查询均视作全部结果
+			returnData.data = data.object.page.list; //返回的数据列表
+			//console.log(returnData);
+			//调用DataTables提供的callback方法，代表数据已封装完成并传回DataTables进行渲染
+			//此时的数据需确保正确无误，异常判断应在执行此回调前自行处理完毕
+		}
+	});
+}
 function edit(obj) {
 	var id = $(obj).parent().parent().parent().attr("data-id");
 	var url = urlArray.add_edit_url + "?id=" + id;

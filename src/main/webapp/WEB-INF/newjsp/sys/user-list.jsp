@@ -34,6 +34,20 @@
 			class="Hui-iconfont">&#xe68f;</i></a>
 	</nav>
 	<div class="page-container">
+		<div class="text-c">
+			<button onclick="removeIframe()" class="btn btn-primary radius">关闭选项卡</button>
+			日期范围： <input type="text"
+				onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'queryEndDate\')||\'%y-%M-%d\'}' })"
+				id="queryBeginDate" class="input-text Wdate" style="width:120px;"> -
+			<input type="text"
+				onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'queryBeginDate\')}',maxDate:'%y-%M-%d' })"
+				id="queryEndDate" class="input-text Wdate" style="width:120px;"> <input
+				type="text" name="name" id="name" placeholder="用户名称" style="width:250px"
+				class="input-text">
+			<button name="" id="" class="btn btn-success" onclick="search()">
+				<i class="Hui-iconfont">&#xe665;</i> 搜索
+			</button>
+		</div>
 		<div class="cl pd-5 bg-1 bk-gray mt-20">
 			<span class="l"> <shiro:hasPermission name="sys:user:save">
 					<a class="btn btn-primary radius" data-title="添加菜单"
@@ -47,26 +61,27 @@
 			</span>
 		</div>
 		<div class="mt-20">
-		<table class="table table-border table-bordered table-bg table-hover table-sort table-responsive">
-			<thead>
-				<tr class="text-c">
-					<th><input type="checkbox" name="" value=""></th>
-					<th>用户Id</th>
-					<th>用户名</th>
-					<th>登录名</th>
-					<th>手机号</th>
-					<th>用户等级</th>
-					<th>所属部门</th>
-					<th>状态</th>
-					<th>更新时间</th>
-					<th>操作</th>
-				</tr>
-			</thead>
-			<tbody>
-				
-			</tbody>
-		</table>
-	</div>
+			<table
+				class="table table-border table-bordered table-bg table-hover table-sort table-responsive">
+				<thead>
+					<tr class="text-c">
+						<th><input type="checkbox" name="" value=""></th>
+						<th>用户Id</th>
+						<th>用户名</th>
+						<th>登录名</th>
+						<th>手机号</th>
+						<th>用户等级</th>
+						<th>所属部门</th>
+						<th>状态</th>
+						<th>更新时间</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+
+				</tbody>
+			</table>
+		</div>
 	</div>
 	<!--请在下方写此页面业务相关的脚本-->
 	<script type="text/javascript">
