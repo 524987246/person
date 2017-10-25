@@ -14,7 +14,7 @@ public interface BaseMapper<T> {
 
 	public List<T> findList(T t);
 
-	public Integer queryTotal(T t);
+	public Long queryTotal(T t);
 
 	public int save(T t);
 

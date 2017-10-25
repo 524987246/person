@@ -96,7 +96,7 @@
 		ORDER BY a.order_num
 	</select>
 	<!-- 查询总数 -->
-	<select id="queryTotal" resultType="Integer" parameterType="org.great.web.bean.sys.Menu">
+	<select id="queryTotal" resultType="Long" parameterType="org.great.web.bean.sys.Menu">
 		SELECT
 		count(*)
 		FROM

@@ -63,7 +63,7 @@
 		ORDER BY a.create_date DESC
 	</select>
 	<!-- 查询总数 -->
-	<select id="queryTotal" resultType="Integer" parameterType="org.great.web.bean.sys.Dept">
+	<select id="queryTotal" resultType="Long" parameterType="org.great.web.bean.sys.Dept">
 		SELECT
 		count(*)
 		FROM

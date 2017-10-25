@@ -55,8 +55,8 @@ public class RoleService {
 		return i;
 	}
 
-	public Integer queryTotal(Role role) {
-		Integer totalCount = roleMapper.queryTotal(role);
+	public Long queryTotal(Role role) {
+		Long totalCount = roleMapper.queryTotal(role);
 		return totalCount;
 	}
 

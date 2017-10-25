@@ -1,10 +1,14 @@
 package org.great.web.service.sys;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
+import org.great.web.bean.sys.Menu;
 import org.great.web.bean.sys.User;
 import org.great.web.mapper.sys.UserMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 
@@ -24,6 +28,52 @@ public class UserService {
 	public User get(User user) {
 		User loginuser = usermapper.get(user);
 		return loginuser;
+	}
+
+	public User get(Long id) {
+		User user = usermapper.get(id);
+		return user;
+	}
+
+	public List<User> findList(User user) {
+		List<User> list = usermapper.findList(user);
+		return list;
+	}
+
+	@Transactional(readOnly = false)
+	public int save(User user) {
+		user.setBaseInfo();
+		int i = usermapper.save(user);
+		return i;
+	}
+
+	@Transactional(readOnly = false)
+	public int update(User user) {
+		user.setBaseInfo();
+		int i = usermapper.update(user);
+		return i;
+	}
+
+	@Transactional(readOnly = false)
+	public int delete(User user) {
+		user.setIsemploy(2);
+		user.setBaseInfo();
+		int i = usermapper.delete(user);
+		return i;
+	}
+
+	@Transactional(readOnly = false)
+	public int batchdelete(User user) {
+		user.setIsemploy(2);
+		user.setBaseInfo();
+		int i = usermapper.batchdelete(user);
+		return i;
+	}
+
+	@Transactional(readOnly = false)
+	public Long queryTotal(User user) {
+		Long totalCount = usermapper.queryTotal(user);
+		return totalCount;
 	}
 
 }

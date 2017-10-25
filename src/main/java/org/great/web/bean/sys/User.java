@@ -18,37 +18,70 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Scope("prototype")
-public class User implements Serializable {
+public class User extends BaseBean implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -6964957333569601350L;
-	private Long id;
+	/**
+	 * 用户名称
+	 */
 	private String name;
+	/**
+	 * 登录名
+	 */
 	@NotEmpty(message = "登录名不能为空")
 	private String loginName;
+	/**
+	 * 密码
+	 */
 	@Size(min = 8, max = 16, message = "密码应在8-16位")
 	private String password;
+
+	/**
+	 * 密码修改时的新密码
+	 */
+	private String newpassword;
+	/**
+	 * 手机号
+	 */
 	private String phone;
+	/**
+	 * 用户等级
+	 */
 	private Integer grade;
 	/**
-	 * 状态:1启用2禁用
+	 * 所属部门id
+	 */
+	private Long dept;
+	/**
+	 * 状态:1启用2禁用3审核
 	 */
 	private Integer isemploy;
+	/**
+	 * 角色
+	 */
 	private Integer role;
+	/**
+	 * 角色集合
+	 */
 	private List<Role> rolelist;
+	/**
+	 * 菜单集合
+	 */
 	private List<Menu> menulist;
+	/**
+	 * 权限集合
+	 */
 	private Set<String> permlist;
+	/**
+	 * 权限集合是否初始化过
+	 */
 	private boolean init_perm_flag = false;
+	/**
+	 * 权限集合
+	 */
 	private SimpleAuthorizationInfo authorizationInfo;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getName() {
 		return name;
@@ -263,5 +296,21 @@ public class User implements Serializable {
 		}
 		result = result.replaceAll("CHILDHTML", html);
 		return result;
+	}
+
+	public String getNewpassword() {
+		return newpassword;
+	}
+
+	public void setNewpassword(String newpassword) {
+		this.newpassword = newpassword;
+	}
+
+	public Long getDept() {
+		return dept;
+	}
+
+	public void setDept(Long dept) {
+		this.dept = dept;
 	}
 }

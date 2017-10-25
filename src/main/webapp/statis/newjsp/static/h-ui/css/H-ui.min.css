@@ -2805,9 +2805,9 @@ table th {
 	word-break: break-all
 }
 
-.table td {
+/* .table td {
 	text-align: left
-}
+} */
 
 .table tbody tr.success>td {
 	background-color: #dff0d8

@@ -229,7 +229,7 @@ public class BaseBean implements Serializable {
 			return;
 		}
 		this.pageCount = (int) Math.ceil((double) this.totalCount / this.page_size);
-		int total = this.page_new * this.page_size;
+		int total = (this.page_new-1) * this.page_size;
 		if (total > this.totalCount) {
 			this.page_new = 1;
 		}

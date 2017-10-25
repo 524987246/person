@@ -54,8 +54,8 @@ public class DeptService {
 		return i;
 	}
 
-	public Integer queryTotal(Dept dept) {
-		Integer totalCount = deptMapper.queryTotal(dept);
+	public Long queryTotal(Dept dept) {
+		Long totalCount = deptMapper.queryTotal(dept);
 		return totalCount;
 	}
 

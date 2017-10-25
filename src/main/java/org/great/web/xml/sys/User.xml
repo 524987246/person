@@ -10,10 +10,59 @@
 		a.id,a.name,
 		a.login_name AS "loginName",
 		a.password,a.phone,
-		a.isemploy,a.grade,a.dept
+		a.grade,a.dept,
+		a.create_by AS
+		"createBy.id",
+		DATE_FORMAT(a.create_date,'%Y-%m-%d') AS
+		"createDate",
+		a.update_by AS
+		"updateBy.id",
+		DATE_FORMAT(a.update_date,'%Y-%m-%d') AS
+		"updateDate",
+		a.remarks,
+		a.isemploy
 	</sql>
 	<sql id="tableName">
 		sys_user
+	</sql>
+	<sql id="leftjoin">
+	</sql>
+	<!--查询条件信息 -->
+	<sql id="whereInfo">
+		<where>
+			a.isemploy=1 AND a.id &gt; 0
+			<if test="queryBeginDate != null and queryBeginDate != ''">
+				AND a.create_date &gt;= #{queryBeginDate}
+			</if>
+			<if test="queryEndDate != null and queryEndDate != ''">
+				AND a.create_date &lt;= #{queryEndDate}
+			</if>
+			<if test="id != null">
+				AND a.id = #{id}
+			</if>
+			<if test="name !=null and name !=''">AND a.name=#{name}</if>
+			<if test="loginName !=null and loginName !=''">AND a.login_name=#{loginName}</if>
+			<if test="password !=null and password !=''">AND a.password=MD5(#{password})</if>
+			<if test="phone !=null and phone !=''">AND a.phone=#{phone}</if>
+		</where>
+	</sql>
+	<!--主表名 基本更新信息 -->
+	<sql id="baseUpdateInfo">
+		<if test="createBy !=null and createBy.id !=null">
+			create_by=#{createBy.id},
+		</if>
+		<if test="createDate !=null and createDate !=''">
+			create_date=#{createDate},
+		</if>
+		<if test="updateBy !=null and updateBy.id !=null">
+			update_by=#{updateBy.id},
+		</if>
+		<if test="updateDate !=null and updateDate !=''">
+			update_date=#{updateDate},
+		</if>
+		<if test="remarks !=null">
+			remarks=#{remarks},
+		</if>
 	</sql>
 	<resultMap id="userResult" type="org.great.web.bean.sys.User">
 		<!-- 基本属性 -->
@@ -56,14 +105,16 @@
 		</collection>
 	</resultMap>
 	<!-- 查询单个用户,用于登录查找之类 -->
-	<select id="get" resultMap="userResult"
-		parameterType="org.great.web.bean.sys.User">
+	<select id="get" resultMap="userResult" parameterType="org.great.web.bean.sys.User">
 		select
-		<include refid="beanAttr" />,
+		<include refid="beanAttr" />
+		,
 		e.id AS "role.id",
 		e.name AS "role.name",
-		e.create_by AS "role.createBy.id",
-		DATE_FORMAT(e.create_date,'%Y-%m-%d') AS "role.createDate",
+		e.create_by AS
+		"role.createBy.id",
+		DATE_FORMAT(e.create_date,'%Y-%m-%d') AS
+		"role.createDate",
 		e.update_by AS"menu.updateBy.id",
 		DATE_FORMAT(e.update_date,'%Y-%m-%d') AS "role.updateDate",
 		e.remarks
@@ -73,36 +124,125 @@
 		d.id AS "menu.id",
 		d.name AS "menu.name",
 		d.url AS "menu.url",
-		d.parent_id AS "menu.parentId",
+		d.parent_id AS
+		"menu.parentId",
 		d.perms AS "menu.perms",
 		d.type AS
 		"menu.type",
-		d.icon AS "menu.icon",
+		d.icon AS
+		"menu.icon",
 		d.order_num AS "menu.orderNum",
-		d.create_by AS "menu.createBy.id",
-		DATE_FORMAT(d.create_date,'%Y-%m-%d') AS "menu.createDate",
+		d.create_by AS
+		"menu.createBy.id",
+		DATE_FORMAT(d.create_date,'%Y-%m-%d') AS
+		"menu.createDate",
 		d.update_by AS"menu.updateBy.id",
 		DATE_FORMAT(d.update_date,'%Y-%m-%d') AS "menu.updateDate",
 		d.remarks
 		AS "menu.remarks",
 		d.isemploy AS "menu.isemploy"
 		from
-		<include refid="tableName" /> a
-		left join sys_user_role b 
+		<include refid="tableName" />
+		a
+		left join sys_user_role b
 		on b.user_id=a.id and b.isemploy=1
-		left join sys_role_menu c
-		on c.role_id=b.role_id and c.isemploy=1
-		left join sys_menu d
-		on d.id=c.menu_id and d.isemploy=1
-		left join sys_role e 
-		on b.role_id=e.id and e.isemploy=1
-		<where>
-			a.isemploy=1
-			<if test="id !=null">and a.id=#{id}</if>
-			<if test="name !=null and name !=''">and a.name=#{name}</if>
-			<if test="loginName !=null and loginName !=''">and a.login_name=#{loginName}</if>
-			<if test="password !=null and password !=''">and a.password=MD5(#{password})</if>
-		</where>
+		left join
+		sys_role_menu c
+		on
+		c.role_id=b.role_id and c.isemploy=1
+		left join
+		sys_menu d
+		on
+		d.id=c.menu_id and d.isemploy=1
+		left join sys_role e
+		on
+		b.role_id=e.id and e.isemploy=1
+		<include refid="whereInfo" />
 		GROUP BY d.id
 	</select>
+	<!-- 查询集合 -->
+	<select id="findList" resultType="org.great.web.bean.sys.User"
+		parameterType="org.great.web.bean.sys.User">
+		SELECT
+		<include refid="beanAttr" />
+		FROM
+		<include refid="tableName" />
+		a
+		<include refid="leftjoin" />
+		<include refid="whereInfo" />
+		ORDER BY a.update_date
+	</select>
+	<!-- 查询总数 -->
+	<select id="queryTotal" resultType="Long" parameterType="org.great.web.bean.sys.User">
+		SELECT
+		count(*)
+		FROM
+		<include refid="tableName" />
+		a
+		<include refid="whereInfo" />
+	</select>
+	<!-- 删除 -->
+	<update id="delete" parameterType="org.great.web.bean.sys.User">
+		UPDATE
+		<include refid="tableName" />
+		<set>
+			<include refid="baseUpdateInfo" />
+			isemploy=#{isemploy}
+		</set>
+		WHERE
+		id=#{id}
+	</update>
+	<!-- 批量删除 -->
+	<update id="batchdelete" parameterType="org.great.web.bean.sys.User">
+		UPDATE
+		<include refid="tableName" />
+		<set>
+			<include refid="baseUpdateInfo" />
+			isemploy=#{isemploy}
+		</set>
+		WHERE
+		id in
+		<foreach item="id" collection="batchId" open="(" separator=","
+			close=")">
+			#{id}
+		</foreach>
+	</update>
+	<!-- 更新 -->
+	<update id="update" parameterType="org.great.web.bean.sys.User">
+		UPDATE
+		<include refid="tableName" />
+		<set>
+			<include refid="baseUpdateInfo" />
+			<if test="name !=null and name !=''">name=#{name},</if>
+			<if test="loginName !=null and loginName !=''">login_name=#{loginName},</if>
+			<if test="password !=null and password !=''">password=MD5(#{password}),</if>
+			<if test="phone !=null and phone !=''">phone=#{phone},</if>
+			<if test="grade !=null and grade !=''">grade=#{grade},</if>
+			<if test="dept !=null and dept !=''">dept=#{dept},</if>
+		</set>
+		WHERE
+		id=#{id}
+	</update>
+	<!-- 保存 -->
+	<insert id="save" parameterType="org.great.web.bean.sys.User">
+		INSERT INTO
+		<include refid="tableName" />
+		(create_by,create_date,update_by,update_date
+		<if test="remarks !=null">,remarks</if>
+		<if test="name !=null and name !=''">,name</if>
+		<if test="loginName !=null and loginName !=''">,login_name</if>
+		<if test="password !=null and password !=''">,password</if>
+		<if test="phone !=null and phone !=''">,phone</if>
+		<if test="grade !=null and grade !=''">,grade</if>
+		<if test="dept !=null and dept !=''">,dept</if>
+		)VALUES(#{createBy.id},#{createDate},#{updateBy.id},#{updateDate}
+		<if test="remarks !=null">,#{remarks}</if>
+		<if test="name !=null and name !=''">,#{name}</if>
+		<if test="loginName !=null and loginName !=''">,#{loginName}</if>
+		<if test="password !=null and password !=''">,MD5(#{password})</if>
+		<if test="phone !=null and phone !=''">,#{phone}</if>
+		<if test="grade !=null and grade !=''">,#{grade}</if>
+		<if test="dept !=null and dept !=''">,#{dept}</if>
+		)
+	</insert>
 </mapper>

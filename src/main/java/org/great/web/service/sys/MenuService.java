@@ -63,8 +63,8 @@ public class MenuService {
 	}
 
 	@Transactional(readOnly = false)
-	public Integer queryTotal(Menu menu) {
-		Integer totalCount = menuMapper.queryTotal(menu);
+	public Long queryTotal(Menu menu) {
+		Long totalCount = menuMapper.queryTotal(menu);
 		return totalCount;
 	}
 

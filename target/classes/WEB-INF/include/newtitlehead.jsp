@@ -59,6 +59,8 @@ var basePath='${ctx}';
 <script type="text/javascript" src="${ctx}/statis/newjsp/lib/layer/2.4/layer.js"></script>
 <script type="text/javascript" src="${ctx}/statis/newjsp/static/h-ui/js/H-ui.min.js"></script>
 <script type="text/javascript" src="${ctx}/statis/newjsp/static/h-ui.admin/js/H-ui.admin.js"></script>
+<script type="text/javascript" src="${ctx}/statis/newjsp/lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
+<script type="text/javascript" src="${ctx}/statis/newjsp/lib/laypage/1.2/laypage.js"></script>
 <!-- 新界面样式   结束 -->
 <!-- 富文本编辑器  开始 -->
 <script type="text/javascript" src="${ctx}/statis/ueditor/ueditor.config.js"></script> 
