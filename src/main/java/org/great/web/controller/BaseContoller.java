@@ -1,6 +1,7 @@
 package org.great.web.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -14,7 +15,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/Reception/base/")
@@ -44,8 +47,9 @@ public class BaseContoller {
 	 * 
 	 * @return
 	 */
+	@ResponseBody
 	@RequestMapping(value = "login.html", produces = "text/html;charset=UTF-8")
-	public String login(User user, Model model, HttpServletRequest request) {
+	public String login(@RequestBody User user, Model model, HttpServletRequest request,HttpServletResponse response) {
 		if (user == null) {
 			model.addAttribute("message", "请输入用户名,密码");
 			return LOGIN_URL;
@@ -79,11 +83,11 @@ public class BaseContoller {
 			user.createMenuHtml(ctx);
 			model.addAttribute("user", user);
 			logger.info("用户[" + loginnname + "]登录认证通过(这里可以进行一些认证通过后的一些系统参数初始化操作)");
-			return "newjsp/main";
+			return "1";
 		} else {
 			token.clear();
 			model.addAttribute("message", "账号或密码有误");
-			return LOGIN_URL;
+			return "0";
 		}
 	}
 

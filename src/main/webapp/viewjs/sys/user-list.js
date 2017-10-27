@@ -88,12 +88,16 @@ function init() {
 		"pading" : false,
 		"ajax" : function(data, callback, settings) {
 			if (data.order != null && data.order.length > 0) {
-				var orderby = columnsArray[data.order[0].column].true_col + " " + data.order[0].dir;
-				queryobj.orderBy = orderby; //页面显示记录条数，在页面显示每页显示多少项的时候
+				var str = columnsArray[data.order[0].column].true_col;
+				if (str != null && str != '') {
+					var orderby = str + " " + data.order[0].dir;
+					queryobj.orderBy = orderby; //页面显示记录条数，在页面显示每页显示多少项的时候
+				}
 			}
 			queryobj.page_size = data.length; //页面显示记录条数，在页面显示每页显示多少项的时候
 			queryobj.page_new = (data.start / data.length) + 1; //当前页码
 			var json = JSON.stringify(queryobj);
+			//console.log(queryobj);
 			//ajax请求数据
 			$.ajax({
 				type : "POST",

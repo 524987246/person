@@ -57,6 +57,10 @@ public class UserController {
 		user.setPageInfo(totalCount);
 		PageHelper.startPage(user.getPage_new(), user.getPage_size());
 		List<User> list = userService.findList(user);
+		for (User user2 : list) {
+			// 避免前台展示密码
+			user2.setPassword("");
+		}
 		PageInfo<User> page = new PageInfo<User>(list);
 		map.put("page", page);
 		map.put("obj", user);
@@ -122,6 +126,7 @@ public class UserController {
 		return MyResult.ok(str);
 	}
 
+	@RequiresPermissions("sys:user:view")
 	@ResponseBody
 	@RequestMapping(value = "get.html", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
 	public MyResult get() {
