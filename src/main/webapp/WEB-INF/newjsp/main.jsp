@@ -45,8 +45,6 @@
 				</nav>
 				<nav id="Hui-userbar"
 					class="nav navbar-nav navbar-userbar hidden-xs">
-					<input type="hidden" value="${user.loginName}" id="loginName">
-					
 					<ul class="cl">
 						<li><c:forEach items="${user.rolelist }" var="role">
 							${role.name}&nbsp;&nbsp;

@@ -9,7 +9,8 @@
 	<sql id="beanAttr">
 		a.id,a.name,
 		a.login_name AS "loginName",
-		a.password,a.phone,
+		a.password,
+		a.phone,
 		a.grade,a.dept,
 		a.create_by AS
 		"createBy.id",
@@ -69,6 +70,7 @@
 		<id property="id" column="id" />
 		<result property="name" column="name" />
 		<result property="password" column="password" />
+		<result property="loginName" column="loginName" />
 		<result property="createBy.id" column="createBy.id" />
 		<result property="createDate" column="createDate" />
 		<result property="updateBy.id" column="updateBy.id" />

@@ -196,7 +196,7 @@
 			var argv = SetCookie.arguments;
 			var argc = SetCookie.arguments.length;
 			var expires = (argc > 2) ? argv[2] : null;
-			var path = (argc > 3) ? argv[3] : null;
+			var path = (argc > 3) ? argv[3] : "/";
 			var domain = (argc > 4) ? argv[4] : null;
 			var secure = (argc > 5) ? argv[5] : false;
 			document.cookie = name
