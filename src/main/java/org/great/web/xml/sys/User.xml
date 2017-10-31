@@ -14,7 +14,8 @@
 		a.grade,
 		a.dept AS "dept.id",
 		f.name AS "dept.name",
-		a.create_by AS
+		a.create_by
+		AS
 		"createBy.id",
 		DATE_FORMAT(a.create_date,'%Y-%m-%d') AS
 		"createDate",
@@ -57,6 +58,9 @@
 	</sql>
 	<!--主表名 基本更新信息 -->
 	<sql id="baseUpdateInfo">
+		<if test="isemploy !=null">
+			isemploy=#{isemploy},
+		</if>
 		<if test="createBy !=null and createBy.id !=null">
 			create_by=#{createBy.id},
 		</if>
@@ -80,6 +84,7 @@
 		<result property="password" column="password" />
 		<result property="loginName" column="loginName" />
 		<result property="phone" column="phone" />
+		<result property="grade" column="grade" />
 		<result property="dept.id" column="dept.id" />
 		<result property="dept.name" column="dept.name" />
 		<result property="createBy.id" column="createBy.id" />
@@ -242,7 +247,7 @@
 			<if test="password !=null and password !=''">password=MD5(#{password}),</if>
 			<if test="phone !=null and phone !=''">phone=#{phone},</if>
 			<if test="grade !=null and grade !=''">grade=#{grade},</if>
-			<if test="dept !=null and dept !=''">dept=#{dept},</if>
+			<if test="dept !=null and dept.id !=null and dept.id !=''">dept=#{dept.id},</if>
 		</set>
 		WHERE
 		id=#{id}
@@ -258,7 +263,7 @@
 		<if test="password !=null and password !=''">,password</if>
 		<if test="phone !=null and phone !=''">,phone</if>
 		<if test="grade !=null and grade !=''">,grade</if>
-		<if test="dept !=null and dept !=''">,dept</if>
+		<if test="dept !=null and dept.id !=null and dept.id !=''">,dept</if>
 		)VALUES(#{createBy.id},#{createDate},#{updateBy.id},#{updateDate}
 		<if test="remarks !=null">,#{remarks}</if>
 		<if test="name !=null and name !=''">,#{name}</if>
@@ -266,7 +271,18 @@
 		<if test="password !=null and password !=''">,MD5(#{password})</if>
 		<if test="phone !=null and phone !=''">,#{phone}</if>
 		<if test="grade !=null and grade !=''">,#{grade}</if>
-		<if test="dept !=null and dept !=''">,#{dept}</if>
+		<if test="dept !=null and dept.id !=null and dept.id !=''">,#{dept.id}</if>
 		)
 	</insert>
+	<select id="checkLoginName" resultType="org.great.web.bean.sys.User"
+		parameterType="org.great.web.bean.sys.User">
+		SELECT
+		*
+		FROM
+		<include refid="tableName" />
+		a
+		where
+		a.login_name=#{loginName}
+		and a.id != #{id}
+	</select>
 </mapper>

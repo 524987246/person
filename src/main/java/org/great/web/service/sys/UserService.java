@@ -77,4 +77,9 @@ public class UserService {
 		return totalCount;
 	}
 
+	public List<User> checkLoginName(User user) {
+		List<User> list = usermapper.checkLoginName(user);// 登录名称验证
+		return list;
+	}
+
 }

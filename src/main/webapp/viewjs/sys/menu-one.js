@@ -7,7 +7,7 @@ $(function() {
 	$("#form-main").validate({
 		submitHandler : function(form) {
 			console.log("通过表单验证");
-			if(form_url==""){
+			if (form_url == "") {
 				msgLayer("权限不足,请联系管理员");
 				return;
 			}
@@ -42,7 +42,8 @@ $(function() {
 	if (form_url != "") {
 		urlArray.save = ProjectUrl(form_url);
 	}
-	$(".formControls input[name='type']").val(menu_type);
+	$(".formControls input[name='type'][value='" + menu_type + "']").attr('checked', 'true');
+	;
 });
 function save() {
 	$("#form-main").submit();

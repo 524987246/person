@@ -86,26 +86,42 @@ public class UserController {
 	@RequestMapping(value = "save.html", produces = "text/html;charset=UTF-8")
 	@ResponseBody
 	public MyResult save(@RequestBody User user, HttpServletRequest request) {
-		String str = ValidtorUtil.validbean(user);
-		if (MyStringUtils.isEmpty(str)) {
-			return MyResult.error(str);
+		String password = user.getPassword() == null ? "" : user.getPassword();
+		String newpassword = user.getNewpassword() == null ? "" : user.getNewpassword();
+		;
+		String str = "";
+		if (password.equals(newpassword)) {
+			str = ValidtorUtil.validbean(user);
+			if (MyStringUtils.isEmpty(str)) {
+				return MyResult.error(str);
+			}
+		} else {
+			return MyResult.error("两次输入密码不相同,请重新输入");
 		}
 		int i = userService.save(user);
-		str = i > 0 ? "保存成功" : "保存失败";
-		return MyResult.ok(str);
+		return i > 0 ? MyResult.ok("保存成功") : MyResult.error("保存失败");
 	}
 
 	@RequiresPermissions("sys:user:update")
 	@RequestMapping(value = "update.html")
 	@ResponseBody
 	public MyResult update(@RequestBody User user, HttpServletRequest request) {
-		String str = ValidtorUtil.validbean(user);
-		if (MyStringUtils.isEmpty(str)) {
-			return MyResult.error(str);
+		String password = user.getPassword() == null ? "" : user.getPassword();
+		String newpassword = user.getNewpassword() == null ? "" : user.getNewpassword();
+		;
+		String str = "";
+		if (password.equals(newpassword)) {
+			if (!password.equals("")) {
+				str = ValidtorUtil.validbean(user);
+				if (MyStringUtils.isEmpty(str)) {
+					return MyResult.error(str);
+				}
+			}
+		} else {
+			return MyResult.error("两次输入密码不相同,请重新输入");
 		}
 		int i = userService.update(user);
-		str = i > 0 ? "修改成功" : "修改失败";
-		return MyResult.ok(str);
+		return i > 0 ? MyResult.ok("修改成功") : MyResult.error("修改成功");
 	}
 
 	@RequiresPermissions("sys:user:delete")
@@ -113,8 +129,7 @@ public class UserController {
 	@ResponseBody
 	public MyResult delete(@RequestBody User user, HttpServletRequest request) {
 		int i = userService.delete(user);
-		String str = i > 0 ? "删除成功" : "删除失败";
-		return MyResult.ok(str);
+		return i > 0 ? MyResult.ok("删除成功") : MyResult.error("删除失败");
 	}
 
 	@RequiresPermissions("sys:user:batchdelete")
@@ -122,8 +137,7 @@ public class UserController {
 	@ResponseBody
 	public MyResult batchdelete(@RequestBody User user, HttpServletRequest request) {
 		int i = userService.batchdelete(user);
-		String str = i > 0 ? ("批量" + i + "个删除成功") : "批量删除失败";
-		return MyResult.ok(str);
+		return i > 0 ? MyResult.ok("批量" + i + "个删除成功") : MyResult.error("批量删除失败");
 	}
 
 	@RequiresPermissions("sys:user:view")
@@ -134,5 +148,21 @@ public class UserController {
 		User temp = (User) MyUserUtils.myclone(user);
 		temp.setPassword(null);
 		return MyResult.ok(temp);
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "check.html", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
+	public MyResult check(@RequestBody User user, HttpServletRequest request) {
+		if (user.getId() == null) {
+			user.setId(0L);
+		}
+		List<User> list = userService.checkLoginName(user);
+		MyResult myResult = new MyResult();
+		if (list != null && list.size() > 0) {
+			myResult = MyResult.error("2");
+		} else {
+			myResult = MyResult.ok("1");
+		}
+		return myResult;
 	}
 }

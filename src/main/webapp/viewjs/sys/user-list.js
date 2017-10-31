@@ -41,7 +41,7 @@ var columnsArray = [
 				console.dir(type);
 				console.dir(row);//本行对象
 				console.dir(meta);*/
-			return data.name;
+			return data.name == null ? "" : data.name;
 		}
 	},
 	{

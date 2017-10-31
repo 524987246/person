@@ -62,7 +62,7 @@
 				</div>
 			</div>
 			<div class="row cl">
-				<label class="form-label col-xs-4 col-sm-2">登录名：</label>
+				<label class="form-label col-xs-4 col-sm-2">手机号：</label>
 				<div class="formControls col-xs-8 col-sm-9">
 					<input type="text" class="input-text required"
 						value="${obj.phone }" placeholder="手机号" id="phone" name="phone">
