@@ -27,7 +27,7 @@
 <body>
 	<nav class="breadcrumb" style="width:98%">
 		<i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span>
-		资讯管理 <span class="c-gray en">&gt;</span> 资讯列表 <a
+		系统管理 <span class="c-gray en">&gt;</span> 菜单列表 <a
 			class="btn btn-success radius r"
 			style="line-height:1.6em;margin-top:3px;float: right!important"
 			href="javascript:location.replace(location.href);" title="刷新"><i

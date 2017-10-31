@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" 
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<mapper namespace="org.great.web.mapper.sys.MenuMapper">
+	<!--基础属性 -->
+	<sql id="beanAttr">
+		a.id,
+		a.name,
+		a.url,
+		a.parent_id AS "parentId",
+		COALESCE(b.name,"一级菜单") AS "parentName",
+		a.perms,
+		a.type,
+		a.icon,
+		a.order_num AS "orderNum",
+		a.create_by AS
+		"createBy.id",
+		DATE_FORMAT(a.create_date,'%Y-%m-%d') AS
+		"createDate",
+		a.update_by AS
+		"updateBy.id",
+		DATE_FORMAT(a.update_date,'%Y-%m-%d') AS
+		"updateDate",
+		a.remarks,
+		a.isemploy
+	</sql>
+	<!--主表名 -->
+	<sql id="tableName">
+		sys_menu
+	</sql>
+	<!--主表名 基本更新信息 -->
+	<sql id="baseUpdateInfo">
+		<if test="createBy !=null and createBy.id !=null">
+			create_by=#{createBy.id},
+		</if>
+		<if test="createDate !=null and createDate !=''">
+			create_date=#{createDate},
+		</if>
+		<if test="updateBy !=null and updateBy.id !=null">
+			update_by=#{updateBy.id},
+		</if>
+		<if test="updateDate !=null and updateDate !=''">
+			update_date=#{updateDate},
+		</if>
+		<if test="remarks !=null">
+			remarks=#{remarks},
+		</if>
+	</sql>
+
+	<!--查询条件信息 -->
+	<sql id="whereInfo">
+		<where>
+			a.isemploy=1
+			<if test="queryBeginDate != null and queryBeginDate != ''">
+				AND a.create_date &gt;= #{queryBeginDate}
+			</if>
+			<if test="queryEndDate != null and queryEndDate != ''">
+				AND a.create_date &lt;= #{queryEndDate}
+			</if>
+			<if test="id != null">
+				AND a.id = #{id}
+			</if>
+		</where>
+	</sql>
+	<sql id="leftjoin">
+		LEFT JOIN
+		sys_menu
+		b
+		ON a.parent_id=b.id
+	</sql>
+	<!-- 查询单个 -->
+	<select id="get" resultType="org.great.web.bean.sys.Menu"
+		parameterType="org.great.web.bean.sys.Menu">
+		SELECT
+		<include refid="beanAttr" />
+		FROM
+		<include refid="tableName" />
+		a
+		<include refid="leftjoin" />
+		where
+		a.isemploy=1 and
+		a.id = #{id}
+	</select>
+	<!-- 查询集合 -->
+	<select id="findList" resultType="org.great.web.bean.sys.Menu"
+		parameterType="org.great.web.bean.sys.Menu">
+		SELECT
+		<include refid="beanAttr" />
+		FROM
+		<include refid="tableName" />
+		a
+		<include refid="leftjoin" />
+		<include refid="whereInfo" />
+		ORDER BY a.order_num
+	</select>
+	<!-- 查询总数 -->
+	<select id="queryTotal" resultType="Long" parameterType="org.great.web.bean.sys.Menu">
+		SELECT
+		count(*)
+		FROM
+		<include refid="tableName" />
+		a
+		<include refid="whereInfo" />
+	</select>
+	<!-- 删除 -->
+	<update id="delete" parameterType="org.great.web.bean.sys.Menu">
+		UPDATE
+		<include refid="tableName" />
+		<set>
+			<include refid="baseUpdateInfo" />
+			isemploy=#{isemploy}
+		</set>
+		WHERE
+		id=#{id}
+	</update>
+	<!-- 批量删除 -->
+	<update id="batchdelete">
+		UPDATE
+		<include refid="tableName" />
+		<set>
+			<include refid="baseUpdateInfo" />
+			isemploy=#{isemploy}
+		</set>
+		WHERE
+		id in
+		<foreach item="id" collection="batchId" open="(" separator=","
+			close=")">
+			#{id}
+		</foreach>
+	</update>
+	<!-- 更新 -->
+	<update id="update" parameterType="org.great.web.bean.sys.Menu">
+		UPDATE
+		<include refid="tableName" />
+		<set>
+			<include refid="baseUpdateInfo" />
+			<if test="name !=null and name !=''">name=#{name},</if>
+			<if test="url !=null and url !=''">url=#{url},</if>
+			<if test="parentId !=null and parentId !=''">parent_id=#{parentId},</if>
+			<if test="perms !=null and perms !=''">perms=#{perms},</if>
+			<if test="type !=null and type !=''">type=#{type},</if>
+			<if test="icon !=null and icon !=''">icon=#{icon},</if>
+			<if test="orderNum !=null and orderNum !=''">order_num=#{orderNum},</if>
+		</set>
+		WHERE
+		id=#{id}
+	</update>
+	<!-- 保存 -->
+	<insert id="save" parameterType="org.great.web.bean.sys.Menu">
+		INSERT INTO
+		<include refid="tableName" />
+		(create_by,create_date,update_by,update_date
+		<if test="remarks !=null">,remarks</if>
+		<if test="name !=null and name !=''">,name</if>
+		<if test="url !=null and url !=''">,url</if>
+		<if test="parentId !=null">,parent_id</if>
+		<if test="perms !=null and perms !=''">,perms</if>
+		<if test="type !=null and type !=''">,type</if>
+		<if test="icon !=null and icon !=''">,icon</if>
+		<if test="orderNum !=null and orderNum !=''">,order_num</if>
+		)VALUES(#{createBy.id},#{createDate},#{updateBy.id},#{updateDate}
+		<if test="remarks !=null">,#{remarks}</if>
+		<if test="name !=null and name !=''">,#{name}</if>
+		<if test="url !=null and url !=''">,#{url}</if>
+		<if test="parentId !=null">,#{parentId}</if>
+		<if test="perms !=null and perms !=''">,#{perms}</if>
+		<if test="type !=null and type !=''">,#{type}</if>
+		<if test="icon !=null and icon !=''">,#{icon}</if>
+		<if test="orderNum !=null and orderNum !=''">,#{orderNum}</if>
+		)
+	</insert>
+</mapper>
