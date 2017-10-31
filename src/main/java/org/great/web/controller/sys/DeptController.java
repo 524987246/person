@@ -63,4 +63,18 @@ public class DeptController {
 		map.put("obj", dept);
 		return map;
 	}
+
+	/**
+	 * 获取数据
+	 * 
+	 * 
+	 */
+	@RequestMapping(value = "/allList.html", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
+	@ResponseBody
+	public Map<String, Object> allList(@RequestBody Dept dept, HttpServletRequest request, Model model) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		List<Dept> list = deptService.findList(dept);
+		map.put("list", list);
+		return map;
+	}
 }

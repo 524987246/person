@@ -67,7 +67,7 @@ public class BaseBean implements Serializable {
 	 */
 	private String updateDate;
 	/**
-	 * 删除标记（1：正常；2：删除；3：审核）
+	 * 删除标记（1：正常；2：审核 ；3：删除）
 	 */
 	private Integer isemploy;
 	/**

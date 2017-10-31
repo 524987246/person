@@ -11,7 +11,9 @@
 		a.login_name AS "loginName",
 		a.password,
 		a.phone,
-		a.grade,a.dept,
+		a.grade,
+		a.dept AS "dept.id",
+		f.name AS "dept.name",
 		a.create_by AS
 		"createBy.id",
 		DATE_FORMAT(a.create_date,'%Y-%m-%d') AS
@@ -27,11 +29,17 @@
 		sys_user
 	</sql>
 	<sql id="leftjoin">
+		left join sys_dept f
+		on a.dept=f.id and
+		f.isemploy=1
 	</sql>
 	<!--查询条件信息 -->
 	<sql id="whereInfo">
 		<where>
-			a.isemploy=1 AND a.id &gt; 0
+			a.id &gt; 0
+			<if test="isemploy != null">
+				AND a.isemploy = #{isemploy}
+			</if>
 			<if test="queryBeginDate != null and queryBeginDate != ''">
 				AND a.create_date &gt;= #{queryBeginDate}
 			</if>
@@ -71,6 +79,9 @@
 		<result property="name" column="name" />
 		<result property="password" column="password" />
 		<result property="loginName" column="loginName" />
+		<result property="phone" column="phone" />
+		<result property="dept.id" column="dept.id" />
+		<result property="dept.name" column="dept.name" />
 		<result property="createBy.id" column="createBy.id" />
 		<result property="createDate" column="createDate" />
 		<result property="updateBy.id" column="updateBy.id" />
@@ -159,6 +170,9 @@
 		left join sys_role e
 		on
 		b.role_id=e.id and e.isemploy=1
+		left join sys_dept f
+		on a.dept=f.id and
+		f.isemploy=1
 		<include refid="whereInfo" />
 		GROUP BY d.id
 	</select>
@@ -180,7 +194,7 @@
 				ORDER BY a.update_date
 			</otherwise>
 		</choose>
-	
+
 	</select>
 	<!-- 查询总数 -->
 	<select id="queryTotal" resultType="Long" parameterType="org.great.web.bean.sys.User">

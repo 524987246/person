@@ -1,5 +1,6 @@
 var urlArray = {
-	menulist : ProjectUrl("Reception/sys/menu/list.html"),
+	list : ProjectUrl("Reception/sys/user/list.html"),
+	dept_list : ProjectUrl("Reception/sys/dept/allList.html"),
 	save : ""
 }
 $(function() {
@@ -7,7 +8,7 @@ $(function() {
 	$("#form-main").validate({
 		submitHandler : function(form) {
 			console.log("通过表单验证");
-			if(form_url==""){
+			if (form_url == "") {
 				msgLayer("权限不足,请联系管理员");
 				return;
 			}
@@ -36,18 +37,18 @@ $(function() {
 			});
 		}
 	});
-	if (menu_type == null || menu_type == "") {
-		menu_type = 1;
+	if (obj.isemploy == null || obj.isemploy == "") {
+		obj.isemploy = 1;
 	}
 	if (form_url != "") {
 		urlArray.save = ProjectUrl(form_url);
 	}
-	$(".formControls input[name='type']").val(menu_type);
+	$(".formControls input[name='isemploy']").val(obj.isemploy);
 });
 function save() {
 	$("#form-main").submit();
 }
-var settingMenu = {
+var setting = {
 	data : {
 		key : {
 			title : "name", //鼠标悬停显示的信息
@@ -61,48 +62,31 @@ var settingMenu = {
 	}
 };
 //初始化树形
-var zTreeMenu;
-function getMenuZtree() {
+var zTree;
+function getZtree() {
 	$.ajax({
-		url : urlArray.menulist,
+		url : urlArray.dept_list,
 		type : "POST",
 		data : "{}", //有对象接收,必须带参数
 		contentType : "application/json;charset=UTF-8",
 		async : true, //异步请求,默认true
 		dataType : "json",
 		success : function(data) {
-			var html = $("#menu_select_template").html();
+			var html = $("#select_template").html();
 			var index = layer.open({
-				title : "菜单选择",
+				title : "部门选择",
 				content : html,
 				area : [ '300px', '300px' ], //默认"auto",
 				btn : [ '确认', '取消' ],
 				btn1 : function(index, layero) {
-					sureMenu(index);
+					sure(index);
 				}
 			});
-			var array = new Array();
-			var temp = {
-				id : 0,
-				name : "一级菜单",
-				parentId : 0
-			};
-			array.push(temp);
-			for (var i = 0; i < data.list.length; i++) {
-				var obj = data.list[i];
-				var temp = {
-					id : obj.id,
-					name : obj.name,
-					parentId : obj.parentId
-				};
-				array.push(temp);
-			}
-
-			zTreeMenu = $.fn.zTree.init($("#menu_ztree"), settingMenu, array);
-			var id = $("#parentId").val();
+			zTree = $.fn.zTree.init($("#ztree"), setting, data.list);
+			var id = $("#dept_id").val();
 			if (id != null && id != "") {
-				var node = zTreeMenu.getNodeByParam("id", id);
-				zTreeMenu.selectNode(node);
+				var node = zTree.getNodeByParam("id", id);
+				zTree.selectNode(node);
 			}
 		},
 		error : function() {
@@ -110,32 +94,31 @@ function getMenuZtree() {
 		}
 	});
 }
-function sureMenu(index) {
-	var nodes = zTreeMenu.getSelectedNodes();
+function sure(index) {
+	var nodes = zTree.getSelectedNodes();
 	if (nodes == null || nodes.length == 0) {
 		layer.close(index);
 		return;
 	}
-	//console.dir(nodes[0]);
-	$("#parentId").val(nodes[0].id);
-	$("#parentName").val(nodes[0].name);
+	$("#dept_id").val(nodes[0].id);
+	$("#dept_name").val(nodes[0].name);
 	layer.close(index);
 }
 //搜索框功能实现
 var nodeList;
-function zTreeMenuByName() {
+function zTreeByName() {
 	var value = $(event.target).prev().val();
-	var allNode = zTreeMenu.transformToArray(zTreeMenu.getNodes());
+	var allNode = zTree.transformToArray(zTree.getNodes());
 	;
-	zTreeMenu.hideNodes(allNode);
-	nodeList = zTreeMenu.getNodesByParamFuzzy("name", value, null);
-	nodeList = zTreeMenu.transformToArray(nodeList);
+	zTree.hideNodes(allNode);
+	nodeList = zTree.getNodesByParamFuzzy("name", value, null);
+	nodeList = zTree.transformToArray(nodeList);
 	for (var n in nodeList) {
-		findParent(zTreeMenu, nodeList[n]);
+		findParent(zTree, nodeList[n]);
 	}
-	zTreeMenu.showNodes(nodeList);
+	zTree.showNodes(nodeList);
 	if (value == "") {
-		zTreeMenu.expandAll(false);
+		zTree.expandAll(false);
 	}
 }
 function findParent(treeObj, node) {

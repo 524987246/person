@@ -41,14 +41,14 @@ public class DeptService {
 	}
 
 	public int delete(Dept dept) {
-		dept.setIsemploy(2);
+		dept.setIsemploy(3);
 		dept.setBaseInfo();
 		int i = deptMapper.delete(dept);
 		return i;
 	}
 
 	public int batchdelete(Dept dept) {
-		dept.setIsemploy(2);
+		dept.setIsemploy(3);
 		dept.setBaseInfo();
 		int i = deptMapper.batchdelete(dept);
 		return i;

@@ -1,7 +1,8 @@
 var urlArray = {
 	add_edit_url : ProjectUrl("Reception/sys/user/one.html"),
 	list_url : ProjectUrl("Reception/sys/user/list.html"),
-	del_url : ProjectUrl("Reception/sys/user/del.html")
+	del_url : ProjectUrl("Reception/sys/user/del.html"),
+	batch_del_url : ProjectUrl("Reception/sys/user/batchdelete.html")
 }
 var columnsArray = [
 	{
@@ -9,13 +10,13 @@ var columnsArray = [
 		bSortable : false,
 		className : "text-center",
 		render : function(data, type, row, meta) {
-			return '<input type="checkbox" name="" value="">';
+			return '<input type="checkbox" class="batch" name="" value="">';
 		}
 	},
-	{
-		data : "id",
-		true_col : "id"
-	},
+	/*	{
+			data : "id",
+			true_col : "id"
+		},*/
 	{
 		data : "name",
 		true_col : "name"
@@ -34,11 +35,31 @@ var columnsArray = [
 	},
 	{
 		data : "dept",
-		true_col : "dept"
+		true_col : "dept",
+		render : function(data, type, row, meta) {
+			/*	console.dir(data);//本行值
+				console.dir(type);
+				console.dir(row);//本行对象
+				console.dir(meta);*/
+			return data.name;
+		}
 	},
 	{
 		data : "isemploy",
-		true_col : "isemploy"
+		true_col : "isemploy",
+		render : function(data, type, row, meta) {
+			/*	console.dir(data);//本行值
+				console.dir(type);
+				console.dir(row);//本行对象
+				console.dir(meta);*/
+			var html = '<span class="label label-danger radius">禁用</span>';
+			if (data == 1) {
+				html = '<span class="label label-success radius">正常</span>';
+			} else if (data == 2) {
+				html = '<span class="label label-warning radius">审核</span>';
+			}
+			return html;
+		}
 	},
 	{
 		data : "updateDate",
@@ -150,9 +171,8 @@ function edit(obj) {
 		return;
 	}
 	var data = $('.table-sort').DataTable().row(rowIndex).data();
-/*	var url = urlArray.add_edit_url + "?id=" + id;
-//addOrEdit("修改", url);
-Hui_admin_tab_js("修改", url);*/
+	var url = urlArray.add_edit_url + "?id=" + data.id;
+	Hui_admin_tab_js("修改", url);
 }
 function del(obj) {
 	layer.confirm('确认删除？', {
@@ -174,11 +194,11 @@ function del(obj) {
 			data : json,
 			async : true, //异步请求,默认true
 			contentType : "application/json;charset=UTF-8",
+			dataType : "json",
 			success : function(data) {
-				data = data.replace(/"/g, "");
 				var index = layer.open({
 					title : "信息",
-					content : data,
+					content : data.errmsg,
 					btn : [ '确认', '取消' ],
 					btn1 : function(index, layero) {
 						layer.close(index);
@@ -195,4 +215,48 @@ function del(obj) {
 	});
 }
 function datadel() {
+	var checkboxs = $("tbody input[class='batch']");
+	var list = new Array();
+	checkboxs.each(function(index, item) {
+		if ($(item).is(':checked')) {
+			var id = $('.table-sort').DataTable().row(index).data().id;
+			list.push(id);
+		}
+	});
+	if (list.length == 0) {
+		msgLayer("请选中信息");
+		return;
+	}
+	layer.confirm('确认删除？', {
+		btn : [ '确定', '取消' ] //按钮
+	}, function() {
+		var json = {
+			batchId : list
+		};
+		json = JSON.stringify(json);
+		$.ajax({
+			url : urlArray.batch_del_url,
+			type : "POST",
+			data : json,
+			async : true, //异步请求,默认true
+			contentType : "application/json;charset=UTF-8",
+			dataType : "json",
+			success : function(data) {
+				var index = layer.open({
+					title : "信息",
+					content : data.errmsg,
+					btn : [ '确认', '取消' ],
+					btn1 : function(index, layero) {
+						layer.close(index);
+						location.replace(location.href);
+					}
+				});
+			},
+			error : function(data) {
+				msgLayer("请求错误");
+			}
+		});
+	}, function() {
+		layer.close();
+	});
 }

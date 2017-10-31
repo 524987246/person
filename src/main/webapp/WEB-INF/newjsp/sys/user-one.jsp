@@ -34,67 +34,70 @@
 			<div class="row cl">
 				<label class="form-label col-xs-4 col-sm-2">名称：</label>
 				<div class="formControls col-xs-8 col-sm-9">
+					<input type="text" class="input-text required" value="${obj.name }"
+						placeholder="用户名" id="name" name="name"> <span
+						class="c-red">*</span>
+				</div>
+			</div>
+			<div class="row cl">
+				<label class="form-label col-xs-4 col-sm-2">登录名：</label>
+				<div class="formControls col-xs-8 col-sm-9">
+					<input type="text" class="input-text required checkLoginName"
+						value="${obj.loginName }" placeholder="登录名" id="loginName"
+						name="loginName"> <span class="c-red">*</span>
+				</div>
+			</div>
+			<div class="row cl">
+				<label class="form-label col-xs-4 col-sm-2">密码：</label>
+				<div class="formControls col-xs-8 col-sm-9">
+					<input type="password" class="input-text" placeholder="密码"
+						id="password" name="password"> <span class="c-red">*</span>
+				</div>
+			</div>
+			<div class="row cl">
+				<label class="form-label col-xs-4 col-sm-2">密码(重复输入)：</label>
+				<div class="formControls col-xs-8 col-sm-9">
+					<input type="password" class="input-text" placeholder="密码"
+						id="newpassword" name="newpassword"> <span class="c-red">*</span>
+				</div>
+			</div>
+			<div class="row cl">
+				<label class="form-label col-xs-4 col-sm-2">登录名：</label>
+				<div class="formControls col-xs-8 col-sm-9">
 					<input type="text" class="input-text required"
-						value="${obj.name }" placeholder="用户名" id="name" name="name">
+						value="${obj.phone }" placeholder="手机号" id="phone" name="phone">
 					<span class="c-red">*</span>
 				</div>
 			</div>
 			<div class="row cl">
-				<label class="form-label col-xs-4 col-sm-2">url：</label>
+				<label class="form-label col-xs-4 col-sm-2">用户等级：</label>
 				<div class="formControls col-xs-8 col-sm-9">
-					<input type="text" class="input-text" value="${obj.url }"
-						placeholder="登录名" id="url" name="url"> <span class="c-red">*</span>
+					<input type="text" class="input-text required isIntGtZero" 
+						value="${obj.grade }" placeholder="用户等级" id="grade" name="grade">
+					<span class="c-red">*</span>
 				</div>
 			</div>
 			<div class="row cl">
-				<label class="form-label col-xs-4 col-sm-2">所属菜单：</label>
+				<label class="form-label col-xs-4 col-sm-2">部门：</label>
 				<div class="formControls col-xs-8 col-sm-9">
 					<input type="hidden" class="input-text required"
-						value="${obj.parentId }" placeholder="所属菜单" id="parentId"
-						name="parentId" readonly="readonly"> <input type="text"
-						class="input-text required" value="${menu.parentName }"
-						placeholder="所属菜单" id="parentName" name="parentName"
-						readonly="readonly" onclick="getMenuZtree();"> <span
+						value="${obj.dept.id }" placeholder="部门" id="dept_id"
+						name="dept.id" readonly="readonly"> <input type="text"
+						class="input-text required" value="${obj.dept.name }"
+						placeholder="部门" id="dept_name" name="dept.name"
+						readonly="readonly" onclick="getZtree();"> <span
 						class="c-red">*</span>
 				</div>
 			</div>
 			<div class="row cl">
-				<label class="form-label col-xs-4 col-sm-2">菜单类型：</label>
+				<label class="form-label col-xs-4 col-sm-2">状态：</label>
 				<div class="formControls col-xs-8 col-sm-9">
-					<input type="radio" name="type" value="1" checked="true">目录
-					<input type="radio" name="type" value="2">菜单 <input
-						type="radio" name="type" value="3">按钮 &nbsp;<span
+					<input type="radio" name="isemploy" value="1" checked="true">正常
+					<input type="radio" name="isemploy" value="2">审核 <input
+						type="radio" name="isemploy" value="3">禁用 &nbsp;<span
 						class="c-red">*</span>
 				</div>
 			</div>
-			<div class="row cl">
-				<label class="form-label col-xs-4 col-sm-2">权限标志：</label>
-				<div class="formControls col-xs-8 col-sm-9">
-					<input type="text" class="input-text" value="${menu.perms }"
-						placeholder="权限标志" id="perms" name="perms">
-				</div>
-			</div>
-			<div class="row cl">
-				<label class="form-label col-xs-4 col-sm-2">图标：</label>
-				<div class="formControls col-xs-8 col-sm-9">
-					<input type="text" class="input-text" value="${menu.icon }"
-						placeholder="图标" id="icon" name="icon">
-				</div>
-			</div>
-			<div class="row cl">
-				<label class="form-label col-xs-4 col-sm-2"></label>
-				<div class="formControls col-xs-8 col-sm-9">请于
-					http://www.h-ui.net/Hui-3.7-Hui-iconfont.shtml 获取图标</div>
-			</div>
-			<div class="row cl">
-				<label class="form-label col-xs-4 col-sm-2">排序：</label>
-				<div class="formControls col-xs-8 col-sm-9">
-					<input type="text" class="input-text required isIntGteZero"
-						value="${menu.orderNum }" placeholder="排序,从小到大排序" id="orderNum"
-						name="orderNum"> <span class="c-red">*</span>
-				</div>
-			</div>
-
 			<div class="row cl">
 				<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
 					<button onClick="save();" class="btn btn-primary radius"
@@ -116,30 +119,32 @@
 		src="${ctx}/statis/newjsp/lib/jquery.validation/1.14.0/messages_zh.js"></script>
 	<!-- 属性选择框文本 -->
 	<script type="text/javascript">
-		var menu_type = "${menu.type }";
-		var id = $("#id").val();
+		var obj = {
+			id : "${obj.id }",
+			isemploy : "${obj.isemploy }"
+		}
 		var form_url = "";
 	
-		if (id != null && id != "") {
+		if (obj.id != null && obj.id != "") {
 			if ($("#edit").attr("content") != null) {
-				form_url = "Reception/sys/menu/update.html";
+				form_url = "Reception/sys/user/update.html";
 			}
 		} else {
 			if ($("#save").attr("content") != null) {
-				form_url = "Reception/sys/menu/save.html";
+				form_url = "Reception/sys/user/save.html";
 			}
 		}
 	</script>
-	<script type="type= text/template" id="menu_select_template">
+	<script type="type= text/template" id="select_template">
 		<div class="content-1">
 		<input  type="text" class="input-xlarge" placeholder="关键字" style="width: 60%;line-height: inherit;height: 30px; margin-bottom: 0px;"> <input
-		type="button" onclick="zTreeMenuByName()" style="width: 30%;height: 30px;" value="查询"  class="btn btn-primary">
+		type="button" onclick="zTreeByName()" style="width: 30%;height: 30px;" value="查询"  class="btn btn-primary">
 		</div>
 		<div class="content-1">
-		<ul id="menu_ztree" class="ztree"></ul>
+		<ul id="ztree" class="ztree"></ul>
 		</div>
 	</script>
-	<script type="text/javascript" src="${ctx}/viewjs/sys/menu-one.js"></script>
+	<script type="text/javascript" src="${ctx}/viewjs/sys/user-one.js"></script>
 	<!--/请在上方写此页面业务相关的脚本-->
 </body>
 </html>

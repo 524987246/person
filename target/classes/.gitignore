@@ -21,14 +21,13 @@
 /json-lib-2.4-jdk15.jar
 /morph-1.1.1.jar
 /poi-3.14-20160307.jar
+/poi-ooxml-3.14-20160307.jar
+/servlet-api.jar
 /tools/
 /upload/
 /viewcss/
 /viewjs/
-/poi-ooxml-3.14-20160307.jar
-/servlet-api.jar
 /xmlpull-1.1.3.1.jar
+/download/
 /xstream-1.4.8.jar
 /META-INF/
-/download/
-/bean/

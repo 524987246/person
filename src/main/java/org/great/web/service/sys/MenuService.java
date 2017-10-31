@@ -48,7 +48,7 @@ public class MenuService {
 
 	@Transactional(readOnly = false)
 	public int delete(Menu menu) {
-		menu.setIsemploy(2);
+		menu.setIsemploy(3);
 		menu.setBaseInfo();
 		int i = menuMapper.delete(menu);
 		return i;
@@ -56,7 +56,7 @@ public class MenuService {
 
 	@Transactional(readOnly = false)
 	public int batchdelete(Menu menu) {
-		menu.setIsemploy(2);
+		menu.setIsemploy(3);
 		menu.setBaseInfo();
 		int i = menuMapper.batchdelete(menu);
 		return i;

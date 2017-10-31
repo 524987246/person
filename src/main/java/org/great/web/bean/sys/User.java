@@ -51,13 +51,9 @@ public class User extends BaseBean implements Serializable {
 	 */
 	private Integer grade;
 	/**
-	 * 所属部门id
+	 * 所属部门
 	 */
-	private Long dept;
-	/**
-	 * 状态:1启用2禁用3审核
-	 */
-	private Integer isemploy;
+	private Dept dept;
 	/**
 	 * 角色
 	 */
@@ -113,14 +109,6 @@ public class User extends BaseBean implements Serializable {
 
 	public void setGrade(Integer grade) {
 		this.grade = grade;
-	}
-
-	public Integer getIsemploy() {
-		return isemploy;
-	}
-
-	public void setIsemploy(Integer isemploy) {
-		this.isemploy = isemploy;
 	}
 
 	public Integer getRole() {
@@ -306,11 +294,11 @@ public class User extends BaseBean implements Serializable {
 		this.newpassword = newpassword;
 	}
 
-	public Long getDept() {
+	public Dept getDept() {
 		return dept;
 	}
 
-	public void setDept(Long dept) {
+	public void setDept(Dept dept) {
 		this.dept = dept;
 	}
 }

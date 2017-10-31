@@ -42,14 +42,14 @@ public class RoleService {
 	}
 
 	public int delete(Role role) {
-		role.setIsemploy(2);
+		role.setIsemploy(3);
 		role.setBaseInfo();
 		int i = roleMapper.delete(role);
 		return i;
 	}
 
 	public int batchdelete(Role role) {
-		role.setIsemploy(2);
+		role.setIsemploy(3);
 		role.setBaseInfo();
 		int i = roleMapper.batchdelete(role);
 		return i;

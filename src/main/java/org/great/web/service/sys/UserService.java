@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.great.web.bean.sys.Menu;
 import org.great.web.bean.sys.User;
 import org.great.web.mapper.sys.UserMapper;
 import org.springframework.stereotype.Service;
@@ -31,7 +30,9 @@ public class UserService {
 	}
 
 	public User get(Long id) {
-		User user = usermapper.get(id);
+		User user = new User();
+		user.setId(id);
+		user = usermapper.get(user);
 		return user;
 	}
 
@@ -56,7 +57,7 @@ public class UserService {
 
 	@Transactional(readOnly = false)
 	public int delete(User user) {
-		user.setIsemploy(2);
+		user.setIsemploy(3);
 		user.setBaseInfo();
 		int i = usermapper.delete(user);
 		return i;
@@ -64,7 +65,7 @@ public class UserService {
 
 	@Transactional(readOnly = false)
 	public int batchdelete(User user) {
-		user.setIsemploy(2);
+		user.setIsemploy(3);
 		user.setBaseInfo();
 		int i = usermapper.batchdelete(user);
 		return i;

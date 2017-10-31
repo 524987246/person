@@ -66,7 +66,7 @@
 				<thead>
 					<tr class="text-c">
 						<th><input type="checkbox" name="" value=""></th>
-						<th>用户Id</th>
+						<!-- <th>用户Id</th> -->
 						<th>用户名</th>
 						<th>登录名</th>
 						<th>手机号</th>
