@@ -3,7 +3,7 @@ package org.great.config;
 /**
  * 基本信息配置
  * 
- * @author xiejun
+ * @author xiejun23
  *
  */
 public class BaseResoure {
