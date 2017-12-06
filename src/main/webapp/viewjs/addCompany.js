@@ -24,6 +24,16 @@ function init() {
 		}
 	});
 }
+function sureAdd() {
+	var nodes = zTree_add.getCheckedNodes(true);
+	//同步的公司对象集合
+	var list = new Array();
+	for (var i = 0; i < nodes.length; i++) {
+		console.log(nodes[i].id);
+		list.push(nodes[i]);
+	}
+
+}
 function initNewZtree(array) {
 	zTree_new = $.fn.zTree.init($("#new_company_ztree"), setting, array);
 }
@@ -44,6 +54,14 @@ var setting = {
 			enable : true,
 			idKey : "id", //修改默认的ID为自己的ID
 			pIdKey : "parentId" //修改默认父级ID为自己数据的父级ID
+		}
+	},
+	check : {
+		enable : true,
+		chkStyle : "checkbox",
+		chkboxType : {
+			"Y" : "ps",
+			"N" : "ps"
 		}
 	}
 };
