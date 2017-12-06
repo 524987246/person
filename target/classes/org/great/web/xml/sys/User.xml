@@ -50,7 +50,17 @@
 			<if test="id != null">
 				AND a.id = #{id}
 			</if>
-			<if test="name !=null and name !=''">AND a.name concat('%',#{name},'%')</if>
+			<if test="name !=null and name !=''">
+			AND a.name LIKE concat(
+						'%',
+						REPLACE (
+							REPLACE (#{name}, '%', '\%'),
+							'_',
+							'\_'
+						),
+						'%'
+					)
+			</if>
 			<if test="loginName !=null and loginName !=''">AND a.login_name=#{loginName}</if>
 			<if test="password !=null and password !=''">AND a.password=MD5(#{password})</if>
 			<if test="phone !=null and phone !=''">AND a.phone=#{phone}</if>
