@@ -21,8 +21,13 @@ public class MyResult {
 	public static MyResult error() {
 		return new MyResult(500, "未知错误,请联系管理员", 0L);
 	}
+
 	public static MyResult error(String str) {
 		return new MyResult(500, str, 0L);
+	}
+
+	public static MyResult error(int coke, String str) {
+		return new MyResult(coke, str, 0L);
 	}
 
 	public MyResult() {
