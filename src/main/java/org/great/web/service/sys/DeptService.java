@@ -7,13 +7,14 @@ import javax.annotation.Resource;
 import org.great.web.bean.sys.Dept;
 import org.great.web.mapper.sys.DeptMapper;
 import org.springframework.stereotype.Service;
-
+import org.springframework.transaction.annotation.Transactional;
 /**
  * 
  * @author xiejun
  * 
  */
 @Service
+@Transactional(readOnly = true)
 public class DeptService {
 	@Resource
 	private DeptMapper deptMapper;
