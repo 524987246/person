@@ -1,5 +1,6 @@
 var urlArray = {
-	add_edit_url : ProjectUrl("Reception/sys/menu/one.html")
+	add_edit_url : ProjectUrl("Reception/sys/menu/one.html"),
+	del_url : ProjectUrl("Reception/sys/menu/del.html")
 }
 
 var edithtml = "";
@@ -44,14 +45,12 @@ function del(obj) {
 	layer.confirm('确认删除？', {
 		btn : [ '确定', '取消' ] //按钮
 	}, function() {
-		var url = "Reception/sys/menu/del.html";
-		url = ProjectUrl(url);
 		var json = {
 			id : id
 		};
 		json = JSON.stringify(json);
 		$.ajax({
-			url : url,
+			url : urlArray.del_url,
 			type : "POST",
 			data : json,
 			async : true, //异步请求,默认true
@@ -77,7 +76,7 @@ function del(obj) {
 	});
 }
 
-function getJson() {
+function orderSave() {
 	var json = $('.dd').nestable('serialize');
 	json = JSON.stringify(json);
 	var url = "Reception/sys/menu/ordersave.html";

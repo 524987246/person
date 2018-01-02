@@ -45,7 +45,7 @@
 				href="javascript:;"><i class="Hui-iconfont">&#xe6d6;</i>&nbsp;
 					合上</a> <shiro:hasPermission name="sys:menu:ordersave">
 					<a class="btn btn-primary radius" data-title="保存菜单顺序"
-						onclick="getJson(this)" href="javascript:;"><i
+						onclick="orderSave(this)" href="javascript:;"><i
 						class="Hui-iconfont">&#xe632;</i>&nbsp;保存菜单顺序</a>
 				</shiro:hasPermission>
 			</span> <span class="r">共有数据：<strong>${list.size() }</strong> 条
