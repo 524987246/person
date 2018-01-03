@@ -159,9 +159,9 @@ public class UserController {
 		List<User> list = userService.checkLoginName(user);
 		MyResult myResult = new MyResult();
 		if (list != null && list.size() > 0) {
-			myResult = MyResult.error("2");
+			myResult = MyResult.error();
 		} else {
-			myResult = MyResult.ok("1");
+			myResult = MyResult.ok();
 		}
 		return myResult;
 	}

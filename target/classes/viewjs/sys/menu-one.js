@@ -62,7 +62,7 @@ var settingMenu = {
 	}
 };
 //初始化树形
-var zTreeMenu;
+var zTreeMenu = new zTreeUtil(settingMenu, "#menu_ztree");
 function getMenuZtree() {
 	$.ajax({
 		url : urlArray.menulist,
@@ -98,13 +98,13 @@ function getMenuZtree() {
 				};
 				array.push(temp);
 			}
-
-			zTreeMenu = $.fn.zTree.init($("#menu_ztree"), settingMenu, array);
+			zTreeMenu.init(array);
 			var id = $("#parentId").val();
-			if (id != null && id != "") {
-				var node = zTreeMenu.getNodeByParam("id", id);
-				zTreeMenu.selectNode(node);
-			}
+			zTreeMenu.setNode(id);
+		/*if (id != null && id != "") {
+			var node = zTreeMenu.getNodeByParam("id", id);
+			zTreeMenu.selectNode(node);
+		}*/
 		},
 		error : function() {
 			msgLayer("请求错误");
@@ -112,39 +112,17 @@ function getMenuZtree() {
 	});
 }
 function sureMenu(index) {
-	var nodes = zTreeMenu.getSelectedNodes();
+	var nodes = zTreeMenu.getNode();
 	if (nodes == null || nodes.length == 0) {
 		layer.close(index);
 		return;
 	}
-	//console.dir(nodes[0]);
 	$("#parentId").val(nodes[0].id);
 	$("#parentName").val(nodes[0].name);
 	layer.close(index);
 }
-//搜索框功能实现
-var nodeList;
 function zTreeMenuByName() {
 	var value = $(event.target).prev().val();
-	var allNode = zTreeMenu.transformToArray(zTreeMenu.getNodes());
-	;
-	zTreeMenu.hideNodes(allNode);
-	nodeList = zTreeMenu.getNodesByParamFuzzy("name", value, null);
-	nodeList = zTreeMenu.transformToArray(nodeList);
-	for (var n in nodeList) {
-		findParent(zTreeMenu, nodeList[n]);
-	}
-	zTreeMenu.showNodes(nodeList);
-	if (value == "") {
-		zTreeMenu.expandAll(false);
-	}
-}
-function findParent(treeObj, node) {
-	treeObj.expandNode(node, true, false, false);
-	var pNode = node.getParentNode();
-	if (pNode != null) {
-		nodeList.push(pNode);
-		findParent(treeObj, pNode);
-	}
+	zTreeMenu.queryByName(value);
 }
 /* 人员选择树形结构结束 */

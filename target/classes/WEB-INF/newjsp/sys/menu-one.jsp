@@ -139,6 +139,7 @@
 		<ul id="menu_ztree" class="ztree"></ul>
 		</div>
 	</script>
+	<script type="text/javascript" src="${ctx}/js/zTreeObject.js"></script>
 	<script type="text/javascript" src="${ctx}/viewjs/sys/menu-one.js"></script>
 	<!--/请在上方写此页面业务相关的脚本-->
 </body>

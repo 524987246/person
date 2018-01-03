@@ -57,7 +57,6 @@ $(function() {
 	if (form_url != "") {
 		urlArray.save = ProjectUrl(form_url);
 	}
-	console.log(obj.isemploy);
 	$(".formControls input[name='isemploy'][value='" + obj.isemploy + "']").attr('checked', 'true');
 	;
 });
@@ -78,7 +77,7 @@ var setting = {
 	}
 };
 //初始化树形
-var zTree;
+var zTree = new zTreeUtil(setting, "#ztree");
 function getZtree() {
 	$.ajax({
 		url : urlArray.dept_list,
@@ -98,12 +97,10 @@ function getZtree() {
 					sure(index);
 				}
 			});
-			zTree = $.fn.zTree.init($("#ztree"), setting, data.list);
+			zTree.init(data.list);
+			//zTree = $.fn.zTree.init($("#ztree"), setting, data.list);
 			var id = $("#dept_id").val();
-			if (id != null && id != "") {
-				var node = zTree.getNodeByParam("id", id);
-				zTree.selectNode(node);
-			}
+			zTree.setNode(id);
 		},
 		error : function() {
 			msgLayer("请求错误");
@@ -111,7 +108,7 @@ function getZtree() {
 	});
 }
 function sure(index) {
-	var nodes = zTree.getSelectedNodes();
+	var nodes = zTree.getNode();
 	if (nodes == null || nodes.length == 0) {
 		layer.close(index);
 		return;
@@ -121,29 +118,9 @@ function sure(index) {
 	layer.close(index);
 }
 //搜索框功能实现
-var nodeList;
 function zTreeByName() {
 	var value = $(event.target).prev().val();
-	var allNode = zTree.transformToArray(zTree.getNodes());
-	;
-	zTree.hideNodes(allNode);
-	nodeList = zTree.getNodesByParamFuzzy("name", value, null);
-	nodeList = zTree.transformToArray(nodeList);
-	for (var n in nodeList) {
-		findParent(zTree, nodeList[n]);
-	}
-	zTree.showNodes(nodeList);
-	if (value == "") {
-		zTree.expandAll(false);
-	}
-}
-function findParent(treeObj, node) {
-	treeObj.expandNode(node, true, false, false);
-	var pNode = node.getParentNode();
-	if (pNode != null) {
-		nodeList.push(pNode);
-		findParent(treeObj, pNode);
-	}
+	zTree.queryByName(value);
 }
 /* 树形结构结束 */
 
@@ -166,9 +143,9 @@ jQuery.validator.addMethod("checkLoginName", function(value, element) {
 		async : false, //异步请求,默认true
 		dataType : "json",
 		success : function(data) {
-			if (data.errmsg == "1") {
+			if (data.errcode == "0") {
 				flag = true;
-			} else if (data.errmsg == "2") {
+			} else if (data.errcode == "500") {
 				msgLayer("登录名已存在,请重新输入");
 			}
 		},

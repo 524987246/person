@@ -6,7 +6,7 @@ function zTreeUtil(setting, htmlId) {
 	this.htmlId = htmlId;
 	//初始化树形
 	this.init = function(array) {
-		zTreeMenu = $.fn.zTree.init($("#" + this.htmlId), this.setting, array);
+		zTreeMenu = $.fn.zTree.init($(this.htmlId), this.setting, array);
 	}
 	this.setNode = function(id) {
 		if (id != null && id != "") {

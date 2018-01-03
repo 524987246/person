@@ -38,7 +38,7 @@ public class WebControllerAop {
 	 */
 	@Before("executeService()")
 	public void doBeforeAdvice(JoinPoint joinPoint) {
-		//System.out.println("我是前置通知!!!");
+		// System.out.println("我是前置通知!!!");
 		// 获取目标方法的参数信息
 		Object[] obj = joinPoint.getArgs();
 		// AOP代理类的信息
@@ -50,7 +50,7 @@ public class WebControllerAop {
 		// 代理的是哪一个方法
 		System.out.println(signature.getName());
 		// AOP代理类的名字
-		//System.out.println(signature.getDeclaringTypeName());
+		// System.out.println(signature.getDeclaringTypeName());
 		// AOP代理类的类（class）信息
 		signature.getDeclaringType();
 		// 获取RequestAttributes
@@ -85,13 +85,13 @@ public class WebControllerAop {
 	@AfterReturning(value = "execution(* org.great.web.controller..*.*(..))", returning = "keys")
 	public void doAfterReturningAdvice1(JoinPoint joinPoint, Object keys) {
 
-		//System.out.println("第一个后置返回通知的返回值：" + keys);
+		// System.out.println("第一个后置返回通知的返回值：" + keys);
 	}
 
 	@AfterReturning(value = "execution(* org.great.web.controller..*.*(..))", returning = "keys", argNames = "keys")
 	public void doAfterReturningAdvice2(String keys) {
 
-		//System.out.println("第二个后置返回通知的返回值：" + keys);
+		// System.out.println("第二个后置返回通知的返回值：" + keys);
 	}
 
 	/**
@@ -105,7 +105,7 @@ public class WebControllerAop {
 	@AfterThrowing(value = "executeService()", throwing = "exception")
 	public void doAfterThrowingAdvice(JoinPoint joinPoint, Throwable exception) {
 		// 目标方法名：
-		//System.out.println(joinPoint.getSignature().getName());
+		// System.out.println(joinPoint.getSignature().getName());
 		if (exception instanceof NullPointerException) {
 			System.out.println("发生了空指针异常!!!!!");
 		}
@@ -119,7 +119,7 @@ public class WebControllerAop {
 	@After("executeService()")
 	public void doAfterAdvice(JoinPoint joinPoint) {
 
-		//System.out.println("后置通知执行了!!!!");
+		// System.out.println("后置通知执行了!!!!");
 	}
 
 	/**
@@ -128,8 +128,16 @@ public class WebControllerAop {
 	 */
 	@Around("execution(* org.great.web.controller..*.*(..))")
 	public Object doAroundAdvice(ProceedingJoinPoint proceedingJoinPoint) {
-		//System.out.println("环绕通知的目标方法名：" + proceedingJoinPoint.getSignature().getName());
+		// System.out.println("环绕通知的目标方法名：" +
+		// proceedingJoinPoint.getSignature().getName());
 		try {// obj之前可以写目标方法执行前的逻辑
+				// Object[] args = proceedingJoinPoint.getArgs();
+			// 获取方法的参数
+			// System.out.println("=========修改入参=====开始");
+			// for (Object obj : args) {
+			// System.out.println(obj.toString());
+			// }
+			// System.out.println("=========修改入参=====结束");
 			Object obj = proceedingJoinPoint.proceed();// 调用执行目标方法
 			return obj;
 		} catch (Throwable throwable) {

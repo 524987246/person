@@ -25,7 +25,7 @@
 <shiro:hasPermission name="sys:user:save">
 	<meta id="save" content="1" />
 </shiro:hasPermission>
-<title>菜单修改</title>
+<title>用户修改</title>
 </head>
 <body>
 	<article class="page-container">
@@ -144,6 +144,7 @@
 		<ul id="ztree" class="ztree"></ul>
 		</div>
 	</script>
+	<script type="text/javascript" src="${ctx}/js/zTreeObject.js"></script>
 	<script type="text/javascript" src="${ctx}/viewjs/sys/user-one.js"></script>
 	<!--/请在上方写此页面业务相关的脚本-->
 </body>
