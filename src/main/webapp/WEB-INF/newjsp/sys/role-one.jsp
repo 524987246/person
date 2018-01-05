@@ -30,13 +30,13 @@
 <body>
 	<article class="page-container">
 		<form class="form form-horizontal" id="form-main" method="post">
-			<input type="hidden" name="id" id="id" value="${obj.id }">
+			<input type="hidden" name="id" id="id" value="${sysRole.id }">
 			<div class="row cl">
 				<label class="form-label col-xs-4 col-sm-2">名称：</label>
 				<div class="formControls col-xs-8 col-sm-9">
-					<input type="text" class="input-text required" value="${obj.name }"
-						placeholder="名称" id="name" name="name"> <span
-						class="c-red">*</span>
+					<input type="text" class="input-text required"
+						value="${sysRole.name }" placeholder="名称" id="name" name="name">
+					<span class="c-red">*</span>
 				</div>
 			</div>
 			<div class="row cl">
@@ -49,7 +49,9 @@
 			</div>
 			<div class="row cl">
 				<label class="form-label col-xs-4 col-sm-2">菜单：</label>
-				<div class="formControls col-xs-8 col-sm-9">树形展示所有菜单</div>
+				<div class="formControls col-xs-8 col-sm-9">
+					<ul id="menu_ztree" class="ztree"></ul>
+				</div>
 			</div>
 			<div class="row cl">
 				<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
@@ -72,9 +74,10 @@
 		src="${ctx}/statis/newjsp/lib/jquery.validation/1.14.0/messages_zh.js"></script>
 	<!-- 属性选择框文本 -->
 	<script type="text/javascript">
-		var obj = {
-			id : "${obj.id }",
-			isemploy : "${obj.isemploy }"
+		var sysRole = {
+			id : "${sysRole.id }",
+			isemploy : "${sysRole.isemploy }",
+			list : stringToArray("${sysRole.list }")
 		}
 		var form_url = "";
 	
@@ -97,6 +100,7 @@
 		<ul id="menu_ztree" class="ztree"></ul>
 		</div>
 	</script>
+	<script type="text/javascript" src="${ctx}/js/zTreeObject.js"></script>
 	<script type="text/javascript" src="${ctx}/viewjs/sys/role-one.js"></script>
 	<!--/请在上方写此页面业务相关的脚本-->
 </body>

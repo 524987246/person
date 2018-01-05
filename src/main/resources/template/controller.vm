@@ -76,7 +76,7 @@ public class ${name}Controller {
 		if (${name2}.getId() != null) {
 			${name2} = ${name2}Service.get(${name2}.getId());
 		}
-		model.addAttribute("${name2}", ${name2});
+		model.addAttribute("obj", ${name2});
 		return "newjsp/sys/${name2}-one";
 	}
 

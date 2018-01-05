@@ -12,7 +12,7 @@ import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
 
 import org.great.web.bean.sys.Menu;
-import org.great.web.bean.sys.Role;
+import org.great.web.bean.sys.SysRole;
 import org.junit.Test;
 
 import java.lang.reflect.Field;
@@ -130,12 +130,12 @@ public class MyPrintUtil {
 	@Test
 	public void mytest() {
 		// 输出方法测试
-		Role role = new Role();
+		SysRole role = new SysRole();
 		Menu menu = new Menu();
 		menu.setName("克隆前");
 		List<Menu> list = new ArrayList<Menu>();
 		list.add(menu);
-		role.setMenulist(list);
+		//role.set
 		// MyPrintUtil.printList(list);
 		Set<Menu> set = new HashSet<Menu>();
 		set.add(menu);

@@ -61,7 +61,7 @@ public class User extends BaseBean implements Serializable {
 	/**
 	 * 角色集合
 	 */
-	private List<Role> rolelist;
+	private List<SysRole> rolelist;
 	/**
 	 * 菜单集合
 	 */
@@ -127,11 +127,11 @@ public class User extends BaseBean implements Serializable {
 		this.loginName = loginName;
 	}
 
-	public List<Role> getRolelist() {
+	public List<SysRole> getRolelist() {
 		return rolelist;
 	}
 
-	public void setRolelist(List<Role> rolelist) {
+	public void setRolelist(List<SysRole> rolelist) {
 		this.rolelist = rolelist;
 	}
 

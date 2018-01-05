@@ -1,6 +1,5 @@
 package org.great.web.controller.sys;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,8 +11,9 @@ import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.great.util.beanValidtor.ValidtorUtil;
 import org.great.util.myutil.MyStringUtils;
 import org.great.util.myutil.MyResult;
+import org.great.web.bean.sys.RoleMenu;
 import org.great.web.bean.sys.SysRole;
-import org.great.web.bean.sys.User;
+import org.great.web.service.sys.SysRoleMenuService;
 import org.great.web.service.sys.SysRoleService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,6 +35,8 @@ import com.github.pagehelper.PageInfo;
 public class SysRoleController {
 	@Resource
 	private SysRoleService sysRoleService;
+	@Resource
+	private SysRoleMenuService sysRoleMenuService;
 
 	/**
 	 * 获取页面
@@ -82,6 +84,10 @@ public class SysRoleController {
 		if (sysRole.getId() != null) {
 			sysRole = sysRoleService.get(sysRole.getId());
 		}
+		/*RoleMenu roleMenu = new RoleMenu();
+		roleMenu.setRoleId(sysRole.getId());
+		List<RoleMenu> list = sysRoleMenuService.findList(roleMenu);
+		sysRole.setRoleMenulist(list);*/
 		model.addAttribute("sysRole", sysRole);
 		return "newjsp/sys/role-one";
 	}

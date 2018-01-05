@@ -3,6 +3,7 @@
 package org.great.web.bean.sys;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * 
@@ -20,6 +21,15 @@ public class SysRole extends BaseBean implements Serializable {
 	 */
 	private String name;
 
+	/**
+	 * 菜单集合
+	 */
+	private List<RoleMenu> roleMenulist;
+	/**
+	 * 菜单id集合
+	 */
+	private List<Long> list;
+
 	public String getName() {
 		return name;
 	}
@@ -28,9 +38,25 @@ public class SysRole extends BaseBean implements Serializable {
 		this.name = name;
 	}
 
-	/*@Override
-	public String toString() {
-		return "DbName [" + "name=" + name + "]";
-	}*/
+	public List<RoleMenu> getRoleMenulist() {
+		return roleMenulist;
+	}
+
+	public void setRoleMenulist(List<RoleMenu> roleMenulist) {
+		this.roleMenulist = roleMenulist;
+	}
+
+	public List<Long> getList() {
+		return list;
+	}
+
+	public void setList(List<Long> list) {
+		this.list = list;
+	}
+
+	/*
+	 * @Override public String toString() { return "DbName [" + "name=" + name +
+	 * "]"; }
+	 */
 
 }

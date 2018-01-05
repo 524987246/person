@@ -2,63 +2,62 @@
 function seletstate(obj) {
 	$("input[type='checkbox']").prop("checked", $(obj).is(':checked'));
 }
-function msgLayer(msg){
+function msgLayer(msg) {
 	layer.open({
 		title : '信息',
 		content : msg
 	});
 }
 //form表单转成json对象
-$.fn.serializeObject = function()    
-{    
-   var o = {};    
-   var a = this.serializeArray();    
-   $.each(a, function() {    
-       if (o[this.name]) {    
-           if (!o[this.name].push) {    
-               o[this.name] = [o[this.name]];    
-           }    
-           o[this.name].push(this.value || '');    
-       } else {    
-           o[this.name] = this.value || '';    
-       }    
-   });    
-   return o;    
-};  
+$.fn.serializeObject = function() {
+	var o = {};
+	var a = this.serializeArray();
+	$.each(a, function() {
+		if (o[this.name]) {
+			if (!o[this.name].push) {
+				o[this.name] = [ o[this.name] ];
+			}
+			o[this.name].push(this.value || '');
+		} else {
+			o[this.name] = this.value || '';
+		}
+	});
+	return o;
+};
 /*新开窗口*/
-function Hui_admin_tab_js(title,href){
+function Hui_admin_tab_js(title, href) {
 	var bStop = false,
 		bStopIndex = 0,
 		topWindow = $(window.parent.document),
 		show_navLi = topWindow.find("#min_title_list li"),
 		iframe_box = topWindow.find("#iframe_box");
 	//console.log(topWindow);
-	if(!href||href==""){
+	if (!href || href == "") {
 		alert("data-href不存在，v2.5版本之前用_href属性，升级后请改为data-href属性");
 		return false;
-	}if(!title){
+	}
+	if (!title) {
 		alert("v2.5版本之后使用data-title属性");
 		return false;
 	}
-	if(title==""){
+	if (title == "") {
 		alert("data-title属性不能为空");
 		return false;
 	}
 	show_navLi.each(function() {
-		if($(this).find('span').attr("data-href")==href){
-			bStop=true;
-			bStopIndex=show_navLi.index($(this));
+		if ($(this).find('span').attr("data-href") == href) {
+			bStop = true;
+			bStopIndex = show_navLi.index($(this));
 			return false;
 		}
 	});
-	if(!bStop){
-		creatIframe(href,title);
+	if (!bStop) {
+		creatIframe(href, title);
 		min_titleList();
+	} else {
+		show_navLi.removeClass("active").eq(bStopIndex).addClass("active");
+		iframe_box.find(".show_iframe").hide().eq(bStopIndex).show().find("iframe").attr("src", href);
 	}
-	else{
-		show_navLi.removeClass("active").eq(bStopIndex).addClass("active");			
-		iframe_box.find(".show_iframe").hide().eq(bStopIndex).show().find("iframe").attr("src",href);
-	}	
 }
 
 /**
@@ -139,7 +138,7 @@ function ajaxsendbefore() {
  * @returns {Boolean}
  */
 function counterStrLength(inputStr, min, max) {
-	if (inputStr == null||inputStr.trim()=="") {
+	if (inputStr == null || inputStr.trim() == "") {
 		return false;
 	}
 	if (inputStr.length < min) {
@@ -168,4 +167,16 @@ function counterStrLength(inputStr, min, max) {
 	} else {
 		return true;
 	}
+}
+function stringToArray(str) {
+	var array = new Array();
+	if (str != null && str.length > 2) {
+		str = str.substring(1, str.length - 1);
+		var tempArray = str.split(",");
+		for (var i = 0; i < tempArray.length; i++) {
+			var obj = tempArray[i];
+			array.push(obj.trim());
+		}
+	}
+	return array;
 }

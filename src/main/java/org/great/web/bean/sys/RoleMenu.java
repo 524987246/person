@@ -29,6 +29,8 @@ public class RoleMenu extends BaseBean implements Serializable {
 	 */
 	private Long menuId;
 
+	private Menu menu;
+
 	public Long getRoleId() {
 		return roleId;
 	}
@@ -43,6 +45,14 @@ public class RoleMenu extends BaseBean implements Serializable {
 
 	public void setMenuId(Long menuId) {
 		this.menuId = menuId;
+	}
+
+	public Menu getMenu() {
+		return menu;
+	}
+
+	public void setMenu(Menu menu) {
+		this.menu = menu;
 	}
 
 }

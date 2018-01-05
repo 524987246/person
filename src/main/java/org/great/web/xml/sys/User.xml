@@ -104,7 +104,7 @@
 		<result property="remarks" column="remarks" />
 		<result property="isemploy" column="isemploy" />
 		<!--角色集合 -->
-		<collection property="rolelist" ofType="org.great.web.bean.sys.Role">
+		<collection property="rolelist" ofType="org.great.web.bean.sys.SysRole">
 			<id property="id" column="role.id" />
 			<result property="name" column="role.name" />
 			<result property="createBy.id" column="role.createBy.id" />

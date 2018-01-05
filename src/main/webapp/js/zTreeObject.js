@@ -1,21 +1,21 @@
 //ztree工具  封装成对象,便于查询等操作
 //TODO 尚未测试
 function zTreeUtil(setting, htmlId) {
-	var zTreeMenu;
+	var zTree;
 	this.setting = setting;
 	this.htmlId = htmlId;
 	//初始化树形
 	this.init = function(array) {
-		zTreeMenu = $.fn.zTree.init($(this.htmlId), this.setting, array);
+		zTree = $.fn.zTree.init($(this.htmlId), this.setting, array);
 	}
 	this.setNode = function(id) {
 		if (id != null && id != "") {
-			var node = zTreeMenu.getNodeByParam(this.setting.data.simpleData.idKey, id);
-			zTreeMenu.selectNode(node);
+			var node = zTree.getNodeByParam(this.setting.data.simpleData.idKey, id);
+			zTree.selectNode(node);
 		}
 	}
 	this.getNode = function() {
-		var nodes = zTreeMenu.getSelectedNodes();
+		var nodes = zTree.getSelectedNodes();
 		if (nodes == null || nodes.length == 0) {
 			return;
 		}
@@ -23,20 +23,45 @@ function zTreeUtil(setting, htmlId) {
 				$("#parentName").val(nodes[0].name);*/
 		return nodes;
 	}
+
+	this.setCheckedNodes = function(array) {
+		if (array != null) {
+			var idKey = this.setting.data.simpleData.idKey;
+			for (var i = 0; i < array.length; i++) {
+				var id = array[i];
+				var node = zTree.getNodeByParam(idKey, id);
+				zTree.checkNode(node, true, true);
+			}
+		}
+	}
+	this.getCheckedNodes = function() {
+		var nodes = zTree.getCheckedNodes(true);
+		var list = new Array();
+		for (var i = 0; i < nodes.length; i++) {
+			console.dir(nodes[i].id);
+			list.push(nodes[i].id);
+		}
+		return list;
+
+	}
+
+	this.expandAll = function() {
+		zTree.expandAll(true);
+	}
 	//搜索框功能实现
 	var nodeList;
 	this.queryByName = function(value) {
-		var allNode = zTreeMenu.transformToArray(zTreeMenu.getNodes());
+		var allNode = zTree.transformToArray(zTree.getNodes());
 		;
-		zTreeMenu.hideNodes(allNode);
-		nodeList = zTreeMenu.getNodesByParamFuzzy("name", value, null);
-		nodeList = zTreeMenu.transformToArray(nodeList);
+		zTree.hideNodes(allNode);
+		nodeList = zTree.getNodesByParamFuzzy("name", value, null);
+		nodeList = zTree.transformToArray(nodeList);
 		for (var n in nodeList) {
-			findParent(zTreeMenu, nodeList[n]);
+			findParent(zTree, nodeList[n]);
 		}
-		zTreeMenu.showNodes(nodeList);
+		zTree.showNodes(nodeList);
 		if (value == "") {
-			zTreeMenu.expandAll(false);
+			zTree.expandAll(false);
 		}
 	}
 	function findParent(treeObj, node) {

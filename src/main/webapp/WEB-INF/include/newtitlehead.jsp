@@ -36,8 +36,8 @@ var basePath='${ctx}';
 <!-- ztree插件   开始 -->
 <link href="${ctx}/statis/ztree/css/metroStyle/metroStyle.css" type="text/css" rel="stylesheet" /> 
 <script type="text/javascript" src="${ctx}/statis/ztree/js/jquery.ztree.all.min.js"></script>
-<script type="text/javascript" src="${ctx}/statis/ztree/js/jquery.ztree.core.js"></script>
-<script type="text/javascript" src="${ctx}/statis/ztree/js/jquery.ztree.exhide.js"></script>
+<%-- <script type="text/javascript" src="${ctx}/statis/ztree/js/jquery.ztree.core.js"></script>
+<script type="text/javascript" src="${ctx}/statis/ztree/js/jquery.ztree.exhide.js"></script> --%>
 <!-- ztree插件  结束 -->
 
 <!-- pagination 分页插件   开始

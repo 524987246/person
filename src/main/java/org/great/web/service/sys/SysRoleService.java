@@ -1,6 +1,5 @@
 package org.great.web.service.sys;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;

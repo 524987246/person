@@ -1,18 +1,16 @@
 var urlArray = {
 	check : ProjectUrl("Reception/sys/role/check.html"),
 	list : ProjectUrl("Reception/sys/role/list.html"),
-	menu_list : ProjectUrl("Reception/sys/menu/allMenu.html"),
+	menu_list : ProjectUrl("Reception/sys/menu/list.html"),
 	save : ""
 }
 $(function() {
 	//表单验证
 	$("#form-main").validate({
 		submitHandler : function(form) {
+			var list = zTreeMenu.getCheckedNodes();
 			var json = $(form).serializeObject();
-			//var menu_list = $("#dept_id").val();
-			//			json.dept = {
-			//				id : dept_id
-			//			}
+			json.list = list;
 			json = JSON.stringify(json);
 			$.ajax({
 				url : urlArray.save,
@@ -48,11 +46,20 @@ $(function() {
 	}
 	$(".formControls input[name='isemploy'][value='" + obj.isemploy + "']").attr('checked', 'true');
 	;
+	getMenuZtree();
 });
 function save() {
 	$("#form-main").submit();
 }
 var setting = {
+	check : {
+		enable : true, //是否开启选中
+		chkStyle : "checkbox", //单选还是多选
+		chkboxType : { //选中时,父子类关系
+			"Y" : "ps",
+			"N" : "ps"
+		}
+	},
 	data : {
 		key : {
 			title : "name", //鼠标悬停显示的信息
@@ -65,3 +72,32 @@ var setting = {
 		}
 	}
 };
+var zTreeMenu = new zTreeUtil(setting, "#menu_ztree");
+function getMenuZtree() {
+	$.ajax({
+		url : urlArray.menu_list,
+		type : "POST",
+		data : "{}", //有对象接收,必须带参数
+		contentType : "application/json;charset=UTF-8",
+		async : true, //异步请求,默认true
+		dataType : "json",
+		success : function(data) {
+			var array = new Array();
+			for (var i = 0; i < data.list.length; i++) {
+				var obj = data.list[i];
+				var temp = {
+					id : obj.id,
+					name : obj.name,
+					parentId : obj.parentId
+				};
+				array.push(temp);
+			}
+			zTreeMenu.init(array);
+			zTreeMenu.expandAll();
+			zTreeMenu.setCheckedNodes(sysRole.list);
+		},
+		error : function() {
+			msgLayer("请求错误");
+		}
+	});
+}
