@@ -15,6 +15,9 @@ import org.great.web.bean.sys.Menu;
 import org.great.web.bean.sys.Role;
 import org.junit.Test;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+
 /**
  * 打印信息辅助类
  * 
@@ -23,6 +26,26 @@ import org.junit.Test;
  * @since 1.0
  */
 public class MyPrintUtil {
+
+	public static void printObject(Object obj) {
+		if (obj == null) {
+			print("null");
+		}
+		Field[] fields = obj.getClass().getDeclaredFields();// 根据Class对象获得属性
+															// 私有的也可以获得
+		String s = "";
+		try {
+			for (Field f : fields) {
+				f.setAccessible(true); // 设置些属性是可以访问的
+				Object val = f.get(obj); // 得到此属性的值
+				String name = f.getName(); // 得到此属性的名称
+				s = name + ":" + val + ",";
+				println(s);
+			}
+		} catch (IllegalAccessException e) {
+		}
+	}
+
 	/**
 	 * 打印全部request中的参数
 	 * 

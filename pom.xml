@@ -254,6 +254,16 @@
 			<version>1.2.3</version>
 		</dependency>
 		<!-- shiro 权限控制 结束 -->
+		<dependency>
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scala-library</artifactId>
+			<version>2.11.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scala-library</artifactId>
+			<version>2.11.0</version>
+		</dependency>
 	</dependencies>
 	<!-- 构建节点. -->
 	<build>

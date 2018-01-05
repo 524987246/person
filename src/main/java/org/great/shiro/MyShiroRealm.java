@@ -127,6 +127,7 @@ public class MyShiroRealm extends AuthorizingRealm {
 			authorizationInfo.addStringPermission(role);
 		}
 		user.setAuthorizationInfo(authorizationInfo);
+		user.setInit_perm_flag(true);
 		// 设置权限信息.
 		// authorizationInfo.setStringPermissions(getStringPermissions(userInfo.getRoleList()));
 

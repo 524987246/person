@@ -1,16 +1,20 @@
 package org.great.web.controller;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.subject.Subject;
 import org.great.util.MD5Util;
 import org.great.util.beanValidtor.ValidtorUtil;
+import org.great.util.myutil.MyResult;
 import org.great.util.myutil.MyStringUtils;
 import org.great.util.myutil.MyUserUtils;
 import org.great.web.bean.sys.User;
+import org.great.web.service.sys.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -24,6 +28,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class BaseContoller {
 	private static final Logger logger = LoggerFactory.getLogger(BaseContoller.class);
 	private static final String LOGIN_URL = "newjsp/login";
+
+	@Resource
+	private UserService userService;
 
 	@RequestMapping(value = "tologin.html", produces = "text/html;charset=UTF-8")
 	public String tologin(Model model) {
@@ -49,7 +56,7 @@ public class BaseContoller {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "login.html", produces = "text/html;charset=UTF-8")
-	public String login(@RequestBody User user, Model model, HttpServletRequest request,HttpServletResponse response) {
+	public String login(@RequestBody User user, Model model, HttpServletRequest request, HttpServletResponse response) {
 		if (user == null) {
 			model.addAttribute("message", "请输入用户名,密码");
 			return LOGIN_URL;
@@ -89,6 +96,25 @@ public class BaseContoller {
 			model.addAttribute("message", "账号或密码有误");
 			return "0";
 		}
+	}
+
+	/**
+	 * 登录页面
+	 * 
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value = "refreshBase.html", produces = "text/html;charset=UTF-8")
+	public MyResult refreshBase(HttpServletRequest request) {
+		User user = MyUserUtils.getLoginUser();
+		if (user == null) {
+			return MyResult.error();
+		}
+		User temp=userService.get(user.getId());
+		String ctx = request.getContextPath();
+		temp.createMenuHtml(ctx);
+		MyUserUtils.updateUserInfo(temp);
+		return MyResult.ok();
 	}
 
 	/**

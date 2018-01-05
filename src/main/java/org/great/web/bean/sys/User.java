@@ -301,4 +301,15 @@ public class User extends BaseBean implements Serializable {
 	public void setDept(Dept dept) {
 		this.dept = dept;
 	}
+
+	public boolean isInit_perm_flag() {
+		return init_perm_flag;
+	}
+
+	public void setInit_perm_flag(boolean init_perm_flag) {
+		this.init_perm_flag = init_perm_flag;
+	}
+
+	
+
 }

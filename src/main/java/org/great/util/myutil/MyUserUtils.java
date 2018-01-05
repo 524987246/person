@@ -5,6 +5,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.lang.reflect.InvocationTargetException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -15,6 +16,9 @@ import org.apache.shiro.subject.Subject;
 import org.apache.shiro.util.ThreadContext;
 import org.great.config.BaseResoure;
 import org.great.web.bean.sys.User;
+
+import scala.annotation.meta.setter;
+import org.apache.commons.beanutils.BeanUtils;
 
 /**
  * 用户工具类
@@ -36,17 +40,27 @@ public class MyUserUtils {
 
 	/**
 	 * 获取登录用户
-	 * 
-	 * @param user
-	 * @param request
 	 */
 	public static User getLoginUser() {
-		/*if (ThreadContext.getSecurityManager() == null) {
-			return null;
-		}*/
+		/*
+		 * if (ThreadContext.getSecurityManager() == null) { return null; }
+		 */
 		Subject subject = SecurityUtils.getSubject();
 		User user = (User) subject.getPrincipal();
 		return user;
+	}
+
+	/**
+	 * 更新用户信息
+	 */
+	public static void updateUserInfo(User temp) {
+		User user = getLoginUser();
+		try {
+			BeanUtils.copyProperties(user, temp);
+			// System.out.println(user.toString());
+		} catch (IllegalAccessException | InvocationTargetException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
