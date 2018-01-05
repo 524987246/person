@@ -61,7 +61,7 @@ public class ${name}Controller {
 		List<${name}> list = ${name2}Service.findList(${name2});
 		PageInfo<${name}> page = new PageInfo<${name}>(list);
 		map.put("page", page);
-		map.put("${name2}", ${name2});
+		map.put("obj", ${name2});
 		return MyResult.ok(map);
 	}
 
@@ -76,7 +76,7 @@ public class ${name}Controller {
 		if (${name2}.getId() != null) {
 			${name2} = ${name2}Service.get(${name2}.getId());
 		}
-		model.addAttribute("obj", ${name2});
+		model.addAttribute("${name2}", ${name2});
 		return "newjsp/sys/${name2}-one";
 	}
 
