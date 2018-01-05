@@ -40,7 +40,7 @@ $(function() {
 						btn1 : function(index, layero) {
 							layer.close(index);
 							if (data.errcode == 0) {
-								removeIframe();
+								removeIframe(data.errcode);
 							}
 						}
 					});
