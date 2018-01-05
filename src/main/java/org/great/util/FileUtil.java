@@ -201,6 +201,35 @@ public class FileUtil {
 		}
 		return filename;
 	}
+	/**
+	 * 文件写入
+	 * 
+	 * @param str
+	 *            内容 
+	 * @param filename
+	 *            文件名称
+	 * @return 文件的绝对路径
+	 */
+	public static String writeFile2(String str, String filename) {
+		try {
+			File file = new File(filename);
+			if (!file.exists()) {
+				file.createNewFile();
+			}
+			// 写入文件,如果使用文件名,将会创造出两个文件
+			FileWriter fileWritter = new FileWriter(file);
+			
+			BufferedWriter bufferWritter = new BufferedWriter(fileWritter);
+			//str = new String(str.getBytes("iso8859-1"), "UTF-8");
+			bufferWritter.write(str);
+			bufferWritter.flush();
+			bufferWritter.close();
+			return file.getAbsolutePath();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return filename;
+	}
 
 	/**
 	 * 首字母及下划线后字母大写,并删除下划线

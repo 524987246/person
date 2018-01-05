@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 /**
  * 
  * @author xiejun
@@ -41,8 +42,8 @@ public class ${name}Controller {
 	@RequiresPermissions("sys:${name2}:view")
 	@RequestMapping(value = "to.html", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
 	public String to(Model model) {
-		List<${name}> list = ${name2}Service.findList(new ${name}());
-		model.addAttribute("list", list);
+		//Long totalCount = ${name2}Service.findList(new ${name}());
+		//model.addAttribute("totalCount", totalCount);
 		return "newjsp/sys/${name2}-list";
 	}
 
@@ -71,7 +72,7 @@ public class ${name}Controller {
 	 */
 	@RequiresPermissions("sys:${name2}:view")
 	@RequestMapping(value = "one.html", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
-	public MyResult one(${name} ${name2}, HttpServletRequest request, Model model) {
+	public String one(${name} ${name2}, HttpServletRequest request, Model model) {
 		if (${name2}.getId() != null) {
 			${name2} = ${name2}Service.get(${name2}.getId());
 		}
@@ -85,7 +86,7 @@ public class ${name}Controller {
 	public MyResult save(@RequestBody ${name} ${name2}, HttpServletRequest request) {
 		String str = ValidtorUtil.validbean(${name2});
 		if (MyStringUtils.isEmpty(str)) {
-			return str;
+			return MyResult.error(str);
 		}
 		int i = ${name2}Service.save(${name2});
 		return i > 0 ? MyResult.ok("保存成功") : MyResult.error("保存失败");
@@ -98,7 +99,7 @@ public class ${name}Controller {
 	public MyResult update(@RequestBody ${name} ${name2}, HttpServletRequest request) {
 		String str = ValidtorUtil.validbean(${name2});
 		if (MyStringUtils.isEmpty(str)) {
-			return str;
+			return MyResult.error(str);
 		}
 		int i = ${name2}Service.update(${name2});
 		return i > 0 ? MyResult.ok("修改成功") : MyResult.error("修改成功");

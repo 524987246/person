@@ -38,8 +38,8 @@ public class UserController {
 	@RequiresPermissions("sys:user:view")
 	@RequestMapping(value = "to.html", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
 	public String to(Model model) {
-		Long totalCount = userService.queryTotal(new User());
-		model.addAttribute("totalCount", totalCount);
+		/*Long totalCount = userService.queryTotal(new User());
+		model.addAttribute("totalCount", totalCount);*/
 		return "newjsp/sys/user-list";
 	}
 

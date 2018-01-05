@@ -62,8 +62,8 @@ public class ${name}Service {
 	}
 
 	@Transactional(readOnly = false)
-	public Integer queryTotal(${name} ${name2}) {
-		Integer totalCount = ${name2}Mapper.queryTotal(${name2});
+	public Long queryTotal(${name} ${name2}) {
+		Long totalCount = ${name2}Mapper.queryTotal(${name2});
 		return totalCount;
 	}
 }

@@ -77,7 +77,12 @@ public class AutoVelocity {
 			StringWriter sw = new StringWriter();
 			template.merge(ctx, sw);
 			// System.out.println(sw.toString());
-			path = FileUtil.writeFile(sw.toString(), name);
+			// bean 不用装编码模式,其他需要用iso8859-1转成utf-8
+			if(list.get(i).lastIndexOf("replaceflage.java")!=-1){
+				path = FileUtil.writeFile2(sw.toString(), name);
+			}else{
+				path = FileUtil.writeFile(sw.toString(), name);
+			}
 			filenamelist.add(name);
 		}
 		// 压缩

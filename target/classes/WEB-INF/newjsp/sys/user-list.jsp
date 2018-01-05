@@ -50,15 +50,16 @@
 		</div>
 		<div class="cl pd-5 bg-1 bk-gray mt-20">
 			<span class="l"> <shiro:hasPermission name="sys:user:save">
-					<a class="btn btn-primary radius" data-title="添加菜单"
+					<a class="btn btn-primary radius" data-title="添加用户"
 						data-href="${ctx }/Reception/sys/user/one.html"
 						onclick="Hui_admin_tab(this)" href="javascript:;"><i
 						class="Hui-iconfont">&#xe600;</i> 添加用户</a>
 				</shiro:hasPermission> <a href="javascript:;" onclick="datadel()"
 				class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i>
 					批量删除</a>
-			</span> <span class="r">共有数据：<strong>${totalCount}</strong> 条
 			</span>
+			 <%-- <span class="r">共有数据：<strong>${totalCount}</strong> 条
+			</span> --%>
 		</div>
 		<div class="mt-20">
 			<table
