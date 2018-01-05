@@ -7,10 +7,7 @@
 	<!--基础属性 -->
 	<sql id="beanAttr">
 		a.id,
-
-	a.name AS "name",
-	
-		
+		a.name AS "name",
 		a.create_by AS
 		"createBy.id",
 		DATE_FORMAT(a.create_date,'%Y-%m-%d') AS
@@ -24,7 +21,7 @@
 	</sql>
 	<!--主表名 -->
 	<sql id="tableName">
-		${i.tablename}
+		sys_role
 	</sql>
 	<!--主表名 基本更新信息 -->
 	<sql id="baseUpdateInfo">
@@ -85,10 +82,11 @@
 		a
 		<include refid="leftjoin" />
 		<include refid="whereInfo" />
-		ORDER BY a.update_date
+		ORDER BY a.update_date desc
 	</select>
 	<!-- 查询总数 -->
-	<select id="queryTotal" resultType="Integer" parameterType="org.great.web.bean.sys.SysRole">
+	<select id="queryTotal" resultType="Long"
+		parameterType="org.great.web.bean.sys.SysRole">
 		SELECT
 		count(*)
 		FROM
@@ -139,10 +137,10 @@
 		<include refid="tableName" />
 		(create_by,create_date,update_by,update_date
 		<if test="remarks !=null">,remarks</if>
-			<if test="name !=null">,name</if>
-			)VALUES(#{createBy.id},#{createDate},#{updateBy.id},#{updateDate}
+		<if test="name !=null">,name</if>
+		)VALUES(#{createBy.id},#{createDate},#{updateBy.id},#{updateDate}
 		<if test="remarks !=null">,#{remarks}</if>
-			<if test="name !=null">,#{name}</if>
-			)
+		<if test="name !=null">,#{name}</if>
+		)
 	</insert>
 </mapper>

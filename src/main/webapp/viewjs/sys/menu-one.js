@@ -26,7 +26,7 @@ $(function() {
 						btn : [ '确认', '取消' ],
 						btn1 : function(index, layero) {
 							layer.close(index);
-							removeIframe();
+							removeIframe(0);
 						}
 					});
 				},

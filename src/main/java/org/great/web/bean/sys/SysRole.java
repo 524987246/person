@@ -20,7 +20,7 @@ public class SysRole extends BaseBean implements Serializable {
 	 */
 	private String name;
 
-	public String getname() {
+	public String getName() {
 		return name;
 	}
 
@@ -28,9 +28,9 @@ public class SysRole extends BaseBean implements Serializable {
 		this.name = name;
 	}
 
-	@Override
+	/*@Override
 	public String toString() {
 		return "DbName [" + "name=" + name + "]";
-	}
+	}*/
 
 }

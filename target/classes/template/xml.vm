@@ -26,7 +26,7 @@
 	</sql>
 	<!--主表名 -->
 	<sql id="tableName">
-		${i.tablename}
+		${tablename}
 	</sql>
 	<!--主表名 基本更新信息 -->
 	<sql id="baseUpdateInfo">

@@ -16,11 +16,11 @@ public class ${name}  extends BaseBean implements Serializable {
 	/**
 	 * ${i.comments}
 	 */
-	private ${i.attrType} ${i.columnName};
+	private ${i.attrType} ${i.attrname};
 #end
 	
 #foreach($i in $collist)
-	public ${i.attrType} get${i.attrname}() {
+	public ${i.attrType} get${i.attrName}() {
 		return $i.columnName;
 	}
 

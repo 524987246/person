@@ -44,9 +44,11 @@ public class SysRoleController {
 	@RequiresPermissions("sys:role:view")
 	@RequestMapping(value = "to.html", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
 	public String to(Model model) {
-		/*Long totalCount = sysRoleService.queryTotal(new SysRole());
-		model.addAttribute("totalCount", totalCount);*/
-		return "newjsp/sys/sysRole-list";
+		/*
+		 * Long totalCount = sysRoleService.queryTotal(new SysRole());
+		 * model.addAttribute("totalCount", totalCount);
+		 */
+		return "newjsp/sys/role-list";
 	}
 
 	/**
@@ -59,6 +61,8 @@ public class SysRoleController {
 	@ResponseBody
 	public MyResult info(@RequestBody SysRole sysRole, HttpServletRequest request, Model model) {
 		Map<String, Object> map = new HashMap<String, Object>();
+		Long totalCount = sysRoleService.queryTotal(sysRole);
+		sysRole.setPageInfo(totalCount);
 		PageHelper.startPage(sysRole.getPage_new(), sysRole.getPage_size());
 		List<SysRole> list = sysRoleService.findList(sysRole);
 		PageInfo<SysRole> page = new PageInfo<SysRole>(list);
@@ -79,7 +83,7 @@ public class SysRoleController {
 			sysRole = sysRoleService.get(sysRole.getId());
 		}
 		model.addAttribute("sysRole", sysRole);
-		return "newjsp/sys/sysRole-one";
+		return "newjsp/sys/role-one";
 	}
 
 	@RequiresPermissions("sys:role:save")
