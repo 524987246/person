@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.great.util.beanValidtor.ValidtorUtil;
 import org.great.util.myutil.MyStringUtils;
+import org.great.util.myutil.MyResult;
 import org.great.web.bean.sys.${name};
 import org.great.web.service.sys.${name}Service;
 import org.springframework.stereotype.Controller;
@@ -27,7 +28,7 @@ import com.github.pagehelper.PageHelper;
  * @since 3.0
  */
 @Controller
-@RequestMapping("/Reception/sys/menu/")
+@RequestMapping("/Reception/${name2}")
 public class ${name}Controller {
 	@Resource
 	private ${name}Service ${name2}Service;
@@ -53,14 +54,14 @@ public class ${name}Controller {
 	@RequiresPermissions("sys:${name2}:view")
 	@RequestMapping(value = "list.html", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
 	@ResponseBody
-	public Map<String, Object> info(@RequestBody ${name} ${name2}, HttpServletRequest request, Model model) {
+	public MyResult info(@RequestBody ${name} ${name2}, HttpServletRequest request, Model model) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		PageHelper.startPage(${name2}.getPage_new(), ${name2}.getPage_size());
 		List<${name}> list = ${name2}Service.findList(${name2});
 		PageInfo<${name}> page = new PageInfo<${name}>(list);
 		map.put("page", page);
 		map.put("obj", ${name2});
-		return map;
+		return MyResult.ok(map);
 	}
 
 	/**
@@ -70,7 +71,7 @@ public class ${name}Controller {
 	 */
 	@RequiresPermissions("sys:${name2}:view")
 	@RequestMapping(value = "one.html", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
-	public String one(${name} ${name2}, HttpServletRequest request, Model model) {
+	public MyResult one(${name} ${name2}, HttpServletRequest request, Model model) {
 		if (${name2}.getId() != null) {
 			${name2} = ${name2}Service.get(${name2}.getId());
 		}
@@ -81,45 +82,41 @@ public class ${name}Controller {
 	@RequiresPermissions("sys:${name2}:save")
 	@RequestMapping(value = "save.html", produces = "text/html;charset=UTF-8")
 	@ResponseBody
-	public String save(@RequestBody ${name} ${name2}, HttpServletRequest request) {
+	public MyResult save(@RequestBody ${name} ${name2}, HttpServletRequest request) {
 		String str = ValidtorUtil.validbean(${name2});
 		if (MyStringUtils.isEmpty(str)) {
 			return str;
 		}
 		int i = ${name2}Service.save(${name2});
-		str = i > 0 ? "保存成功" : "保存失败";
-		return str;
+		return i > 0 ? MyResult.ok("保存成功") : MyResult.error("保存失败");
 	}
 
 
 	@RequiresPermissions("sys:${name2}:update")
 	@RequestMapping(value = "update.html")
 	@ResponseBody
-	public String update(@RequestBody ${name} ${name2}, HttpServletRequest request) {
+	public MyResult update(@RequestBody ${name} ${name2}, HttpServletRequest request) {
 		String str = ValidtorUtil.validbean(${name2});
 		if (MyStringUtils.isEmpty(str)) {
 			return str;
 		}
 		int i = ${name2}Service.update(${name2});
-		str = i > 0 ? "修改成功" : "修改失败";
-		return str;
+		return i > 0 ? MyResult.ok("修改成功") : MyResult.error("修改成功");
 	}
 
 	@RequiresPermissions("sys:${name2}:delete")
 	@RequestMapping(value = "del.html", produces = "text/html;charset=UTF-8")
 	@ResponseBody
-	public String delete(@RequestBody ${name} ${name2}, HttpServletRequest request) {
+	public MyResult delete(@RequestBody ${name} ${name2}, HttpServletRequest request) {
 		int i = ${name2}Service.delete(${name2});
-		String str = i > 0 ? "删除成功" : "删除失败";
-		return str;
+		return i > 0 ? MyResult.ok("删除成功") : MyResult.error("删除失败");
 	}
 	
 	@RequiresPermissions("sys:${name2}:batchdelete")
 	@RequestMapping(value = "batchdelete.html", produces = "text/html;charset=UTF-8")
 	@ResponseBody
-	public String batchdelete(@RequestBody ${name} ${name2}, HttpServletRequest request) {
+	public MyResult batchdelete(@RequestBody ${name} ${name2}, HttpServletRequest request) {
 		int i = ${name2}Service.batchdelete(${name2});
-		String str = i > 0 ? "批量删除成功" : "批量删除失败";
-		return str;
+		return i > 0 ? MyResult.ok("批量" + i + "个删除成功") : MyResult.error("批量删除失败");
 	}
 }
