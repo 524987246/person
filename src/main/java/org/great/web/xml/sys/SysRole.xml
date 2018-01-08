@@ -55,15 +55,27 @@
 			<if test="id != null">
 				AND a.id = #{id}
 			</if>
+			<if test="name !=null and name !=''">
+				AND a.name LIKE concat(
+				'%',
+				REPLACE (
+				REPLACE (#{name}, '%', '\%'),
+				'_',
+				'\_'
+				),
+				'%'
+				)
+			</if>
 		</where>
 	</sql>
 	<sql id="leftjoin">
 		left join sys_role_menu b
 		on b.role_id=a.id
-		left join sys_menu d
+		left join
+		sys_menu d
 		on b.menu_id=d.id
 	</sql>
-	
+
 	<resultMap id="roleResult" type="org.great.web.bean.sys.SysRole">
 		<!-- 基本属性 -->
 		<id property="id" column="id" />
@@ -77,48 +89,29 @@
 		<!--菜单集合 -->
 		<collection property="list" ofType="Long">
 			<id property="long" column="menu.id" />
-			<!-- <result property="name" column="menu.name" />
-			<result property="url" column="menu.url" />
-			<result property="parentId" column="menu.parentId" />
-			<result property="perms" column="menu.perms" />
-			<result property="type" column="menu.type" />
-			<result property="icon" column="menu.icon" />
-			<result property="orderNum" column="menu.orderNum" />
-			<result property="createBy.id" column="menu.createBy.id" />
-			<result property="createDate" column="menu.createDate" />
-			<result property="updateBy.id" column="menu.updateBy.id" />
-			<result property="updateDate" column="menu.updateDate" />
-			<result property="remarks" column="menu.remarks" />
-			<result property="isemploy" column="menu.isemploy" /> -->
+			<!-- <result property="name" column="menu.name" /> <result property="url" 
+				column="menu.url" /> <result property="parentId" column="menu.parentId" /> 
+				<result property="perms" column="menu.perms" /> <result property="type" column="menu.type" 
+				/> <result property="icon" column="menu.icon" /> <result property="orderNum" 
+				column="menu.orderNum" /> <result property="createBy.id" column="menu.createBy.id" 
+				/> <result property="createDate" column="menu.createDate" /> <result property="updateBy.id" 
+				column="menu.updateBy.id" /> <result property="updateDate" column="menu.updateDate" 
+				/> <result property="remarks" column="menu.remarks" /> <result property="isemploy" 
+				column="menu.isemploy" /> -->
 		</collection>
 	</resultMap>
-	
+
 	<!-- 查询单个 -->
-	<select id="get" resultMap="roleResult"
-		parameterType="org.great.web.bean.sys.SysRole">
+	<select id="get" resultMap="roleResult" parameterType="org.great.web.bean.sys.SysRole">
 		SELECT
 		<include refid="beanAttr" />
 		,
 		d.id AS "menu.id"
-		<!-- d.name AS "menu.name",
-		d.url AS "menu.url",
-		d.parent_id AS
-		"menu.parentId",
-		d.perms AS "menu.perms",
-		d.type AS
-		"menu.type",
-		d.icon AS
-		"menu.icon",
-		d.order_num AS "menu.orderNum",
-		d.create_by AS
-		"menu.createBy.id",
-		DATE_FORMAT(d.create_date,'%Y-%m-%d') AS
-		"menu.createDate",
-		d.update_by AS"menu.updateBy.id",
-		DATE_FORMAT(d.update_date,'%Y-%m-%d') AS "menu.updateDate",
-		d.remarks
-		AS "menu.remarks",
-		d.isemploy AS "menu.isemploy" -->
+		<!-- d.name AS "menu.name", d.url AS "menu.url", d.parent_id AS "menu.parentId", 
+			d.perms AS "menu.perms", d.type AS "menu.type", d.icon AS "menu.icon", d.order_num 
+			AS "menu.orderNum", d.create_by AS "menu.createBy.id", DATE_FORMAT(d.create_date,'%Y-%m-%d') 
+			AS "menu.createDate", d.update_by AS"menu.updateBy.id", DATE_FORMAT(d.update_date,'%Y-%m-%d') 
+			AS "menu.updateDate", d.remarks AS "menu.remarks", d.isemploy AS "menu.isemploy" -->
 		FROM
 		<include refid="tableName" />
 		a
@@ -137,7 +130,14 @@
 		a
 		<!-- <include refid="leftjoin" /> -->
 		<include refid="whereInfo" />
-		ORDER BY a.update_date desc
+		<choose>
+			<when test="orderBy !=null and orderBy != ''">
+				ORDER BY a.${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date desc
+			</otherwise>
+		</choose>
 	</select>
 	<!-- 查询总数 -->
 	<select id="queryTotal" resultType="Long"

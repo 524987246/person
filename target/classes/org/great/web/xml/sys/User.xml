@@ -206,7 +206,7 @@
 				ORDER BY a.${orderBy}
 			</when>
 			<otherwise>
-				ORDER BY a.update_date
+				ORDER BY a.update_date desc
 			</otherwise>
 		</choose>
 
