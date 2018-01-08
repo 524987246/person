@@ -73,8 +73,8 @@ public class MyReflexUtils {
 	}
 
 	/**
-	 * 反射注入
-	 * 根据方法名住处
+	 * 反射注入 根据方法名住处
+	 * 
 	 * @author 刘江鸿
 	 * @since 1.0
 	 * 

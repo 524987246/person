@@ -23,8 +23,16 @@ $(function() {
 			json.dept = {
 				id : dept_id
 			}
+			var list = new Array();
+			for (var i = 0; i < json.rolelist.length; i++) {
+				var obj = {
+					id : json.rolelist[i]
+				}
+				console.dir(obj);
+				list.push(obj);
+			}
+			json.rolelist = list;
 			json = JSON.stringify(json);
-
 			$.ajax({
 				url : urlArray.save,
 				type : "POST",

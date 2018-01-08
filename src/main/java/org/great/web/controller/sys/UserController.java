@@ -12,7 +12,9 @@ import org.great.util.beanValidtor.ValidtorUtil;
 import org.great.util.myutil.MyResult;
 import org.great.util.myutil.MyStringUtils;
 import org.great.util.myutil.MyUserUtils;
+import org.great.web.bean.sys.SysRole;
 import org.great.web.bean.sys.User;
+import org.great.web.service.sys.SysRoleService;
 import org.great.web.service.sys.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,6 +31,8 @@ import com.github.pagehelper.PageInfo;
 public class UserController {
 	@Resource
 	private UserService userService;
+	@Resource
+	private SysRoleService sysRoleService;
 
 	/**
 	 * 获取页面
@@ -38,8 +42,10 @@ public class UserController {
 	@RequiresPermissions("sys:user:view")
 	@RequestMapping(value = "to.html", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
 	public String to(Model model) {
-		/*Long totalCount = userService.queryTotal(new User());
-		model.addAttribute("totalCount", totalCount);*/
+		/*
+		 * Long totalCount = userService.queryTotal(new User());
+		 * model.addAttribute("totalCount", totalCount);
+		 */
 		return "newjsp/sys/user-list";
 	}
 
@@ -78,7 +84,9 @@ public class UserController {
 		if (user.getId() != null) {
 			user = userService.get(user.getId());
 		}
+		List<SysRole> list = sysRoleService.findList(new SysRole());
 		model.addAttribute("obj", user);
+		model.addAttribute("rolelist", list);
 		return "newjsp/sys/user-one";
 	}
 

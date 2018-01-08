@@ -72,7 +72,7 @@
 			<div class="row cl">
 				<label class="form-label col-xs-4 col-sm-2">用户等级：</label>
 				<div class="formControls col-xs-8 col-sm-9">
-					<input type="text" class="input-text required isIntGtZero" 
+					<input type="text" class="input-text required isIntGtZero"
 						value="${obj.grade }" placeholder="用户等级" id="grade" name="grade">
 					<span class="c-red">*</span>
 				</div>
@@ -89,6 +89,14 @@
 						class="c-red">*</span>
 				</div>
 			</div>
+			<div class="row cl">
+				<label class="form-label col-xs-4 col-sm-2">角色：</label>
+				<div class="formControls col-xs-8 col-sm-9">
+					<c:forEach var="item" items="${rolelist}">
+						<input type="checkbox" name="rolelist" value="${item.id}">${item.name} &nbsp; 
+					</c:forEach>
+					</div>
+				</div>
 			<div class="row cl">
 				<label class="form-label col-xs-4 col-sm-2">状态：</label>
 				<div class="formControls col-xs-8 col-sm-9">

@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.subject.Subject;
 import org.great.util.MD5Util;
 import org.great.util.beanValidtor.ValidtorUtil;
@@ -110,7 +109,7 @@ public class BaseContoller {
 		if (user == null) {
 			return MyResult.error();
 		}
-		User temp=userService.get(user.getId());
+		User temp = userService.get(user.getId());
 		String ctx = request.getContextPath();
 		temp.createMenuHtml(ctx);
 		MyUserUtils.updateUserInfo(temp);

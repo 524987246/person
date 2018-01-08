@@ -61,7 +61,7 @@ public class AutoVelocity {
 		ArrayList<String> filenamelist = new ArrayList<String>();
 		//
 		VelocityContext ctx = new VelocityContext();
-		String path = "";
+		//String path = "";
 		// 生成模板文件
 		ctx.put("tablename", tbname);
 		tbname = FileUtil.setfilenam(tbname);
@@ -79,9 +79,9 @@ public class AutoVelocity {
 			// System.out.println(sw.toString());
 			// bean 不用装编码模式,其他需要用iso8859-1转成utf-8
 			if(list.get(i).lastIndexOf("replaceflage.java")!=-1){
-				path = FileUtil.writeFile2(sw.toString(), name);
+				FileUtil.writeFile2(sw.toString(), name);
 			}else{
-				path = FileUtil.writeFile(sw.toString(), name);
+				FileUtil.writeFile(sw.toString(), name);
 			}
 			filenamelist.add(name);
 		}

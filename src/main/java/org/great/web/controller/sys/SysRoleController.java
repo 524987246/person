@@ -11,7 +11,6 @@ import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.great.util.beanValidtor.ValidtorUtil;
 import org.great.util.myutil.MyStringUtils;
 import org.great.util.myutil.MyResult;
-import org.great.web.bean.sys.RoleMenu;
 import org.great.web.bean.sys.SysRole;
 import org.great.web.service.sys.SysRoleMenuService;
 import org.great.web.service.sys.SysRoleService;
@@ -84,10 +83,11 @@ public class SysRoleController {
 		if (sysRole.getId() != null) {
 			sysRole = sysRoleService.get(sysRole.getId());
 		}
-		/*RoleMenu roleMenu = new RoleMenu();
-		roleMenu.setRoleId(sysRole.getId());
-		List<RoleMenu> list = sysRoleMenuService.findList(roleMenu);
-		sysRole.setRoleMenulist(list);*/
+		/*
+		 * RoleMenu roleMenu = new RoleMenu();
+		 * roleMenu.setRoleId(sysRole.getId()); List<RoleMenu> list =
+		 * sysRoleMenuService.findList(roleMenu); sysRole.setRoleMenulist(list);
+		 */
 		model.addAttribute("sysRole", sysRole);
 		return "newjsp/sys/role-one";
 	}

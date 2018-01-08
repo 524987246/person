@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.great.web.bean.sys.RoleMenu;
 import org.great.web.bean.sys.SysRole;
 import org.great.web.mapper.sys.SysRoleMapper;
 import org.springframework.stereotype.Service;

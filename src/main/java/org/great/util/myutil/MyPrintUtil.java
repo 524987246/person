@@ -1,9 +1,7 @@
 package org.great.util.myutil;
 
-import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -11,12 +9,7 @@ import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.great.web.bean.sys.Menu;
-import org.great.web.bean.sys.SysRole;
-import org.junit.Test;
-
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 
 /**
  * 打印信息辅助类
@@ -127,21 +120,4 @@ public class MyPrintUtil {
 		System.err.println(object.toString());
 	}
 
-	@Test
-	public void mytest() {
-		// 输出方法测试
-		SysRole role = new SysRole();
-		Menu menu = new Menu();
-		menu.setName("克隆前");
-		List<Menu> list = new ArrayList<Menu>();
-		list.add(menu);
-		//role.set
-		// MyPrintUtil.printList(list);
-		Set<Menu> set = new HashSet<Menu>();
-		set.add(menu);
-		// MyPrintUtil.printSet(set);
-		Map<String, Menu> map = new HashMap<String, Menu>();
-		map.put("key", menu);
-		MyPrintUtil.printMap(map);
-	}
 }
