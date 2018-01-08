@@ -11,10 +11,12 @@ import java.util.Set;
 import javax.validation.constraints.Size;
 
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
+import org.great.myannotation.MyFuzzyQuery;
 import org.great.util.myutil.MyStringUtils;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+
 
 @Component
 @Scope("prototype")
@@ -26,10 +28,12 @@ public class User extends BaseBean implements Serializable {
 	/**
 	 * 用户名称
 	 */
+	@MyFuzzyQuery(states = true)
 	private String name;
 	/**
 	 * 登录名
 	 */
+	
 	@NotEmpty(message = "登录名不能为空")
 	private String loginName;
 	/**
@@ -309,7 +313,5 @@ public class User extends BaseBean implements Serializable {
 	public void setInit_perm_flag(boolean init_perm_flag) {
 		this.init_perm_flag = init_perm_flag;
 	}
-
-	
 
 }

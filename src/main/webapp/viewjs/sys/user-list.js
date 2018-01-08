@@ -118,7 +118,6 @@ function init() {
 			queryobj.page_size = data.length; //页面显示记录条数，在页面显示每页显示多少项的时候
 			queryobj.page_new = (data.start / data.length) + 1; //当前页码
 			var json = JSON.stringify(queryobj);
-			//console.log(queryobj);
 			//ajax请求数据
 			$.ajax({
 				type : "POST",
@@ -151,6 +150,7 @@ function init() {
 	});
 }
 function search() {
+	console.log(1);
 	var queryBeginDate = $("#queryBeginDate").val();
 	var queryEndDate = $("#queryEndDate").val();
 	var name = $("#name").val();

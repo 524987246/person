@@ -2,7 +2,13 @@ package org.great.util.myutil;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
+
+import org.great.myannotation.MyFuzzyQuery;
+
 import net.sf.json.JSONObject;
 
 /**
@@ -15,6 +21,17 @@ import net.sf.json.JSONObject;
 public class MyReflexUtils {
 	public static void printClassName(Object obj) {
 		System.out.println("The class of " + obj + " is " + obj.getClass().getName());
+	}
+
+	public static void getAllfield(List<Field> list, Object obj) {
+		Class tempClass = obj.getClass();
+		while (tempClass != null) {// 当父类为null的时候说明到达了最上层的父类(Object类).
+			Field[] fields = tempClass.getDeclaredFields();
+			for (Field field : fields) {
+				list.add(field);
+			}
+			tempClass = tempClass.getSuperclass(); // 得到父类,然后赋给自己
+		}
 	}
 
 	/**
@@ -30,12 +47,30 @@ public class MyReflexUtils {
 	 */
 	public static Object printField(Class<?> a, Map<String, Object> map) throws Exception {
 		Object obj = a.newInstance();
-		Field[] fields = obj.getClass().getDeclaredFields();
+		List<Field> list = new ArrayList<Field>();
+		getAllfield(list, obj);
+		Field[] fields = new Field[list.size()];
+		for (int i = 0; i < list.size(); i++) {
+			fields[i] = list.get(i);
+		}
 		Field.setAccessible(fields, true);
 		for (Field field : fields) {
 			String fieldName = field.getName();
 			Object temp = map.get(fieldName);
+			if (fieldName.equals("page_size")) {
+				System.out.println("");
+			}
 			if (temp != null) {
+				// 自定义注解,无需可自行注释
+				if (field.isAnnotationPresent(MyFuzzyQuery.class)) {
+					MyFuzzyQuery fuzzyQuery = (MyFuzzyQuery) field.getAnnotation(MyFuzzyQuery.class);
+					if (fuzzyQuery.states()) {
+						String str = temp.toString();
+						str = str.replace("%", "\\%");
+						str = str.replace("_", "\\_");
+						temp = str;
+					}
+				}
 				field.set(obj, temp);
 			}
 		}

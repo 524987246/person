@@ -1,0 +1,25 @@
+package org.great.myannotation;
+
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+/**
+ * 是否需要模糊查询
+ * 
+ * @author peida
+ *
+ */
+@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface MyFuzzyQuery {
+	/**
+	 * 是否
+	 * 
+	 * @return
+	 */
+	public boolean states() default false;
+}

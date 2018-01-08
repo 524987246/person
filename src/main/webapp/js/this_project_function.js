@@ -168,6 +168,11 @@ function counterStrLength(inputStr, min, max) {
 		return true;
 	}
 }
+/**
+ * 字符串  ===>  数组array
+ * @param str
+ * @returns 数组
+ */
 function stringToArray(str) {
 	var array = new Array();
 	if (str != null && str.length > 2) {

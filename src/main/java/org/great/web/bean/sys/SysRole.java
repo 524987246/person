@@ -5,6 +5,8 @@ package org.great.web.bean.sys;
 import java.io.Serializable;
 import java.util.List;
 
+import org.great.myannotation.MyFuzzyQuery;
+
 /**
  * 
  * @author xiej
@@ -19,6 +21,7 @@ public class SysRole extends BaseBean implements Serializable {
 	/**
 	 * 名称
 	 */
+	@MyFuzzyQuery(states = true)
 	private String name;
 
 	/**

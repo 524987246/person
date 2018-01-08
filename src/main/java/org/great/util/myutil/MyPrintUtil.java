@@ -109,15 +109,28 @@ public class MyPrintUtil {
 	}
 
 	public static void println(Object object) {
-		System.out.println(object.toString());
+		if (object != null) {
+			System.out.println(object.toString());
+		} else {
+			System.out.println("null");
+		}
 	}
 
 	public static void print(Object object) {
-		System.out.print(object.toString());
+		if (object != null) {
+			System.out.print(object.toString());
+		} else {
+			System.out.println("null");
+		}
 	}
 
 	public static void printlnError(Object object) {
-		System.err.println(object.toString());
+
+		if (object != null) {
+			System.err.println(object.toString());
+		} else {
+			System.err.println("null");
+		}
 	}
 
 }

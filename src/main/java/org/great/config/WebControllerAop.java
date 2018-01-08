@@ -16,11 +16,16 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.great.util.myutil.MyCollectionUtils;
+import org.great.util.myutil.MyReflexUtils;
+import org.great.web.bean.sys.User;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 
 import com.alibaba.fastjson.JSON;
+
+import net.sf.json.JSONObject;
 
 @Component
 @Aspect
@@ -131,18 +136,34 @@ public class WebControllerAop {
 		// System.out.println("环绕通知的目标方法名：" +
 		// proceedingJoinPoint.getSignature().getName());
 		try {// obj之前可以写目标方法执行前的逻辑
-				// Object[] args = proceedingJoinPoint.getArgs();
+			Object[] args = proceedingJoinPoint.getArgs();
 			// 获取方法的参数
-			// System.out.println("=========修改入参=====开始");
-			// for (Object obj : args) {
-			// System.out.println(obj.toString());
-			// }
-			// System.out.println("=========修改入参=====结束");
-			Object obj = proceedingJoinPoint.proceed();// 调用执行目标方法
+			for (int i = 0; i < args.length; i++) {
+				Object obj = args[i];
+				if (obj.toString().lastIndexOf("bean") != -1) {
+					System.out.println(obj.toString());
+					args[i] = paramFormat(obj);
+				}
+			}
+			Object obj = proceedingJoinPoint.proceed(args);// 调用执行目标方法
 			return obj;
 		} catch (Throwable throwable) {
 			throwable.printStackTrace();
 		}
 		return null;
 	}
+
+	public Object paramFormat(Object obj) {
+		JSONObject str = JSONObject.fromObject(obj, JsonConfigFactory.getInstance());
+		Object temp = JSONObject.toBean(str, obj.getClass());
+		Map<String, Object> map = (Map<String, Object>) MyCollectionUtils.objectToMap(temp);
+		try {
+			obj = MyReflexUtils.printField(obj.getClass(), map);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return obj;
+	}
+
 }
