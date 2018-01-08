@@ -47,7 +47,7 @@
 			<if test="queryEndDate != null and queryEndDate != ''">
 				AND a.create_date &lt;= #{queryEndDate}
 			</if>
-			<if test="id != null and  id > 0 ">
+			<if test="id != null">
 				AND a.id = #{id}
 			</if>
 			<if test="name !=null and name !=''">
