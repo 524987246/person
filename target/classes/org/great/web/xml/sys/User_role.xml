@@ -129,9 +129,9 @@
 		INSERT INTO
 		<include refid="tableName" />
 		(create_by,create_date,update_by,
-		update_date,user_id,menu_id
+		update_date,user_id,role_id
 		)VALUES(#{createBy.id},#{createDate},#{updateBy.id},
-		#{updateDate},#{roleId},#{userId}
+		#{updateDate},#{userId},#{roleId}
 		)
 	</insert>
 </mapper>

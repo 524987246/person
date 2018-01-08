@@ -1,5 +1,6 @@
 package org.great.web.controller.sys;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -87,6 +88,12 @@ public class UserController {
 		List<SysRole> list = sysRoleService.findList(new SysRole());
 		model.addAttribute("obj", user);
 		model.addAttribute("rolelist", list);
+		List<SysRole> user_role_list = user.getRolelist();
+		List<Long> role_id_list = new ArrayList<Long>();
+		for (SysRole sysRole : user_role_list) {
+			role_id_list.add(sysRole.getId());
+		}
+		model.addAttribute("role_id_list", role_id_list);
 		return "newjsp/sys/user-one";
 	}
 

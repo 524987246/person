@@ -66,7 +66,13 @@ $(function() {
 		urlArray.save = ProjectUrl(form_url);
 	}
 	$(".formControls input[name='isemploy'][value='" + obj.isemploy + "']").attr('checked', 'true');
-	;
+	if (obj.role_id_list != null) {
+		for (var i = 0; i < obj.role_id_list.length; i++) {
+			var item = obj.role_id_list[i];
+			var str = ".role-table input[name='rolelist'][value='" + item + "']";
+			$(str).attr('checked', 'true');
+		}
+	}
 });
 function save() {
 	$("#form-main").submit();

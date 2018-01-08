@@ -26,6 +26,11 @@
 	<meta id="save" content="1" />
 </shiro:hasPermission>
 <title>用户修改</title>
+<style type="text/css">
+td {
+	font-size: 14px;
+}
+</style>
 </head>
 <body>
 	<article class="page-container">
@@ -92,11 +97,29 @@
 			<div class="row cl">
 				<label class="form-label col-xs-4 col-sm-2">角色：</label>
 				<div class="formControls col-xs-8 col-sm-9">
-					<c:forEach var="item" items="${rolelist}">
-						<input type="checkbox" name="rolelist" value="${item.id}">${item.name} &nbsp; 
-					</c:forEach>
-					</div>
+					<table class="role-table">
+						<c:forEach var="item" items="${rolelist}" varStatus="status">
+							<c:choose>
+								<c:when test="${status.count%6==1}">
+									<tr>
+										<td><input type="checkbox" name="rolelist"
+											value="${item.id}">${item.name} &nbsp;</td>
+								</c:when>
+								<c:when
+									test="${status.count%6==0 or status.count==rolelist.size()}">
+									<td><input type="checkbox" name="rolelist"
+										value="${item.id}">${item.name} &nbsp;</td>
+									</tr>
+								</c:when>
+								<c:otherwise>
+									<td><input type="checkbox" name="rolelist"
+										value="${item.id}">${item.name} &nbsp;</td>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+					</table>
 				</div>
+			</div>
 			<div class="row cl">
 				<label class="form-label col-xs-4 col-sm-2">状态：</label>
 				<div class="formControls col-xs-8 col-sm-9">
@@ -129,8 +152,10 @@
 	<script type="text/javascript">
 		var obj = {
 			id : "${obj.id }",
-			isemploy : "${obj.isemploy }"
+			isemploy : "${obj.isemploy }",
+			role_id_list : stringToArray("${role_id_list}")
 		}
+		console.dir(obj.role_id_list);
 		var form_url = "";
 	
 		if (obj.id != null && obj.id != "") {
