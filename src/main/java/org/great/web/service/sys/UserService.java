@@ -3,7 +3,9 @@ package org.great.web.service.sys;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.management.relation.Role;
 
+import org.great.web.bean.sys.SysRole;
 import org.great.web.bean.sys.User;
 import org.great.web.mapper.sys.UserMapper;
 import org.springframework.stereotype.Service;
@@ -14,9 +16,12 @@ import org.springframework.transaction.annotation.Transactional;
  * @author xiejun
  */
 @Service
+@Transactional(readOnly = true)
 public class UserService {
 	@Resource
 	private UserMapper usermapper;
+	@Resource
+	private UserRoleService userRoleService;
 
 	/**
 	 * 用于查找用户
@@ -45,6 +50,7 @@ public class UserService {
 	public int save(User user) {
 		user.setBaseInfo();
 		int i = usermapper.save(user);
+		userRoleService.updateByUser(user);
 		return i;
 	}
 
@@ -52,6 +58,7 @@ public class UserService {
 	public int update(User user) {
 		user.setBaseInfo();
 		int i = usermapper.update(user);
+		userRoleService.updateByUser(user);
 		return i;
 	}
 

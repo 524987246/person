@@ -11,6 +11,8 @@ import org.great.web.jdbc.ColumnEntity;
 import org.great.web.jdbc.QueryDao;
 import org.great.web.mapper.sys.SystemManageMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.Map;
 
 /**
@@ -19,6 +21,7 @@ import java.util.Map;
  * 
  */
 @Service
+@Transactional(readOnly = true)
 public class SystemManageService {
 	@Resource
 	private SystemManageMapper systemManageMapper;
