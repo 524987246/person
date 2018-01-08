@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.great.web.bean.sys.RoleMenu;
 import org.great.web.bean.sys.SysRole;
 import org.great.web.mapper.sys.SysRoleMapper;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,8 @@ import org.springframework.transaction.annotation.Transactional;
 public class SysRoleService {
 	@Resource
 	private SysRoleMapper sysRoleMapper;
+	@Resource
+	private SysRoleMenuService sysRoleMenuService;
 
 	public SysRole get(Long id) {
 		SysRole sysRole = sysRoleMapper.get(id);
@@ -34,6 +37,7 @@ public class SysRoleService {
 	public int save(SysRole sysRole) {
 		sysRole.setBaseInfo();
 		int i = sysRoleMapper.save(sysRole);
+		sysRoleMenuService.updateRoleMenu(sysRole);
 		return i;
 	}
 
@@ -41,6 +45,7 @@ public class SysRoleService {
 	public int update(SysRole sysRole) {
 		sysRole.setBaseInfo();
 		int i = sysRoleMapper.update(sysRole);
+		sysRoleMenuService.updateRoleMenu(sysRole);
 		return i;
 	}
 

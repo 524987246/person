@@ -1,6 +1,5 @@
 package org.great.web.mapper.sys;
 
-import org.great.web.bean.sys.SysRole;
 import org.great.web.bean.sys.RoleMenu;
 import org.great.web.mapper.BaseMapper;
 
@@ -11,5 +10,5 @@ import org.great.web.mapper.BaseMapper;
  * 
  */
 public interface SysRoleMenuMapper extends BaseMapper<RoleMenu> {
-	public int deleteByRoleMenu(SysRole role);
+	public int deleteByRoleMenu(RoleMenu roleMenu);
 }

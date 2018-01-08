@@ -81,7 +81,7 @@
 		}
 		var form_url = "";
 	
-		if (obj.id != null && obj.id != "") {
+		if (sysRole.id != null && sysRole.id != "") {
 			if ($("#edit").attr("content") != null) {
 				form_url = "Reception/sys/role/update.html";
 			}
