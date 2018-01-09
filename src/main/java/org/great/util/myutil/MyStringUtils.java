@@ -237,6 +237,24 @@ public class MyStringUtils {
 	}
 
 	/**
+	 * sys_user ===> sys:user
+	 * 
+	 * @param str
+	 *            字符串 sys_user
+	 * @param flag
+	 *            替换字符 :
+	 * @param cutoff
+	 *            分割符 _
+	 * @return 处理后的字符串 sys:user
+	 */
+	public static String getAuthString(String str, String flag, String cutoff) {
+		if (isEmpty(str)) {
+			
+		}
+		return str;
+	}
+
+	/**
 	 * parent_id ===>ParentId;
 	 * 
 	 * @param name

@@ -1,0 +1,41 @@
+#set($greet = 'hello')
+//$greet $name
+
+package bean;
+
+import java.io.Serializable;
+
+/**
+ * 
+ * @author xiej
+ * @since 1.0
+ */
+public class ${name}  extends BaseBean implements Serializable {
+	
+#foreach($i in $collist)
+	/**
+	 * ${i.comments}
+	 */
+	private ${i.attrType} ${i.attrname};
+#end
+	
+#foreach($i in $collist)
+	public ${i.attrType} get${i.attrName}() {
+		return $i.columnName;
+	}
+
+	public void set${i.attrName}(${i.attrType} ${i.columnName}) {
+		this.${i.columnName} = ${i.columnName};
+	}
+#end
+
+	@Override
+	public String toString() {
+		return "DbName ["+
+#foreach($i in $collist)
+		"${i.attrname}=" + ${i.attrname} + 
+#end
+		"]";
+	}
+
+}

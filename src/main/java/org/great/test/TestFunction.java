@@ -6,25 +6,27 @@ import java.util.List;
 import java.util.Map;
 
 import org.great.util.beanValidtor.ValidtorUtil;
+import org.great.util.myutil.MyStringUtils;
 import org.junit.Test;
 
 /**
  * 功能测试
+ * 
  * @author xiejun
  *
  */
 public class TestFunction {
-	
-	@Test
+
+	// @Test
 	public void testValidtor() {
 		UserValidtorTest user = new UserValidtorTest();
-		Map<String,String> map=new HashMap<String, String>();
-//		map.put("1","1");
-//		map.put("2","22");
-//		map.put("3","33");
+		Map<String, String> map = new HashMap<String, String>();
+		// map.put("1","1");
+		// map.put("2","22");
+		// map.put("3","33");
 		user.setMap(map);
 		List<String> list = new ArrayList<String>();
-//		list.add("1");
+		// list.add("1");
 		list.add("1");
 		user.setList(list);
 		user.setName("12345");
@@ -32,5 +34,12 @@ public class TestFunction {
 		if (str != null) {
 			System.out.println(str);
 		}
+	}
+
+	@Test
+	public void param() {
+		String tableName = "sysuser";
+		tableName=MyStringUtils.setStringByChar(tableName, "_", ":");
+		System.out.println(tableName);
 	}
 }

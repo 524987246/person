@@ -74,7 +74,7 @@ function init() {
 	dataTable = $('.table-sort').dataTable({
 		"aLengthMenu" : [ 5, 10, 20], //更改显示记录数选项  
 		"searching" : false,
-		"iDisplayLength" : 5, //默认显示的记录数 
+		"iDisplayLength" : 10, //默认显示的记录数 
 		"bAutoWidth" : false, //是否自适应宽度  
 		"bPaginate" : true, //是否显示（应用）分页器  
 		"bInfo" : true, //是否显示页脚信息，DataTables插件左下角显示记录数  

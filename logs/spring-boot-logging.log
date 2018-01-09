@@ -2553,3 +2553,54 @@ Caused by: org.xml.sax.SAXParseException: 在实体引用中, 实体名称必须
 2018-01-09 09:06:18.332 ERROR 10852 --- [http-nio-8081-exec-4] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/main.vm' in any resource loader.
 2018-01-09 09:06:18.415  INFO 10852 --- [http-nio-8081-exec-5] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
 2018-01-09 09:06:18.418 ERROR 10852 --- [http-nio-8081-exec-5] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/weberror/weberror.vm' in any resource loader.
+2018-01-09 09:09:32.347  INFO 10852 --- [http-nio-8081-exec-8] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-09 09:09:32.409 ERROR 10852 --- [http-nio-8081-exec-8] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/sys/user-list.vm' in any resource loader.
+2018-01-09 09:09:32.524  INFO 10852 --- [http-nio-8081-exec-8] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-09 09:09:32.529  INFO 10852 --- [http-nio-8081-exec-8] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-09 09:09:32.530  INFO 10852 --- [http-nio-8081-exec-8] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-09 09:09:32.530  INFO 10852 --- [http-nio-8081-exec-8] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-09 09:09:32.669  INFO 10852 --- [http-nio-8081-exec-10] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-09 09:09:32.671  INFO 10852 --- [http-nio-8081-exec-10] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-09 09:09:32.672  INFO 10852 --- [http-nio-8081-exec-10] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-09 09:09:32.672  INFO 10852 --- [http-nio-8081-exec-10] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-09 09:09:34.865  INFO 10852 --- [http-nio-8081-exec-1] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-09 09:09:34.867  INFO 10852 --- [http-nio-8081-exec-1] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-09 09:09:34.870  INFO 10852 --- [http-nio-8081-exec-1] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-09 09:09:34.871  INFO 10852 --- [http-nio-8081-exec-1] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-09 09:09:37.855  INFO 10852 --- [http-nio-8081-exec-2] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-09 09:09:37.921 ERROR 10852 --- [http-nio-8081-exec-2] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/sys/role-list.vm' in any resource loader.
+2018-01-09 09:09:38.047  INFO 10852 --- [http-nio-8081-exec-2] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-09 09:09:38.048  INFO 10852 --- [http-nio-8081-exec-2] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-09 09:09:38.048  INFO 10852 --- [http-nio-8081-exec-2] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-09 09:09:38.048  INFO 10852 --- [http-nio-8081-exec-2] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-09 09:09:38.146  INFO 10852 --- [http-nio-8081-exec-4] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-09 09:09:38.149  INFO 10852 --- [http-nio-8081-exec-4] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.SysRole has no read method. SKIPPED
+2018-01-09 09:09:38.149  INFO 10852 --- [http-nio-8081-exec-4] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.SysRole has no read method. SKIPPED
+2018-01-09 09:09:39.279  INFO 10852 --- [http-nio-8081-exec-5] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-09 09:09:39.281  INFO 10852 --- [http-nio-8081-exec-5] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.SysRole has no read method. SKIPPED
+2018-01-09 09:09:39.282  INFO 10852 --- [http-nio-8081-exec-5] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.SysRole has no read method. SKIPPED
+2018-01-09 09:09:42.716  INFO 10852 --- [http-nio-8081-exec-6] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-09 09:09:42.717  INFO 10852 --- [http-nio-8081-exec-6] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.SysRole has no read method. SKIPPED
+2018-01-09 09:09:42.718  INFO 10852 --- [http-nio-8081-exec-6] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.SysRole has no read method. SKIPPED
+2018-01-09 09:09:43.923  INFO 10852 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-09 09:09:43.925  INFO 10852 --- [http-nio-8081-exec-7] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.SysRole has no read method. SKIPPED
+2018-01-09 09:09:43.926  INFO 10852 --- [http-nio-8081-exec-7] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.SysRole has no read method. SKIPPED
+2018-01-09 09:10:40.667  INFO 10852 --- [http-nio-8081-exec-8] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-09 09:10:40.674 ERROR 10852 --- [http-nio-8081-exec-8] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/sys/user-list.vm' in any resource loader.
+2018-01-09 09:10:40.682  INFO 10852 --- [http-nio-8081-exec-8] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-09 09:10:40.682  INFO 10852 --- [http-nio-8081-exec-8] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-09 09:10:40.682  INFO 10852 --- [http-nio-8081-exec-8] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-09 09:10:40.682  INFO 10852 --- [http-nio-8081-exec-8] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-09 09:10:40.809  INFO 10852 --- [http-nio-8081-exec-9] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-09 09:10:40.811  INFO 10852 --- [http-nio-8081-exec-9] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-09 09:10:40.811  INFO 10852 --- [http-nio-8081-exec-9] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-09 09:10:40.812  INFO 10852 --- [http-nio-8081-exec-9] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-09 09:10:47.065  INFO 10852 --- [http-nio-8081-exec-10] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-09 09:10:47.073 ERROR 10852 --- [http-nio-8081-exec-10] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/sys/role-list.vm' in any resource loader.
+2018-01-09 09:10:47.080  INFO 10852 --- [http-nio-8081-exec-10] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-09 09:10:47.081  INFO 10852 --- [http-nio-8081-exec-10] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-09 09:10:47.081  INFO 10852 --- [http-nio-8081-exec-10] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-09 09:10:47.081  INFO 10852 --- [http-nio-8081-exec-10] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-09 09:10:47.173  INFO 10852 --- [http-nio-8081-exec-1] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-09 09:10:47.173  INFO 10852 --- [http-nio-8081-exec-1] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.SysRole has no read method. SKIPPED
+2018-01-09 09:10:47.174  INFO 10852 --- [http-nio-8081-exec-1] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.SysRole has no read method. SKIPPED
