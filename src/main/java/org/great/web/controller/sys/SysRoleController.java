@@ -68,7 +68,7 @@ public class SysRoleController {
 		List<SysRole> list = sysRoleService.findList(sysRole);
 		PageInfo<SysRole> page = new PageInfo<SysRole>(list);
 		map.put("page", page);
-		map.put("obj", sysRole);
+		map.put("sysRole", sysRole);
 		return MyResult.ok(map);
 	}
 

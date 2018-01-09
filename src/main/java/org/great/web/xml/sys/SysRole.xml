@@ -57,12 +57,7 @@
 			</if>
 			<if test="name !=null and name !=''">
 				AND a.name LIKE concat(
-				'%',
-				REPLACE (
-				REPLACE (#{name}, '%', '\%'),
-				'_',
-				'\_'
-				),
+				'%',#{name},
 				'%'
 				)
 			</if>

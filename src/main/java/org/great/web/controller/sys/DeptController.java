@@ -60,7 +60,7 @@ public class DeptController {
 		PageInfo<Dept> page = new PageInfo<Dept>(list);
 		map.put("page", page);
 		dept.setPageInfo(page.getTotal());
-		map.put("obj", dept);
+		map.put("dept", dept);
 		return map;
 	}
 

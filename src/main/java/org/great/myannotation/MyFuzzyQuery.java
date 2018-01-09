@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 /**
  * 是否需要模糊查询
  * 
- * @author peida
+ * @author 
  *
  */
 @Target(ElementType.FIELD)

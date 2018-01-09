@@ -70,7 +70,7 @@ public class UserController {
 		}
 		PageInfo<User> page = new PageInfo<User>(list);
 		map.put("page", page);
-		map.put("obj", user);
+		map.put("user", user);
 		return MyResult.ok(map);
 	}
 

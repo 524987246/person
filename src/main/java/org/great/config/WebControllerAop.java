@@ -140,9 +140,10 @@ public class WebControllerAop {
 			// 获取方法的参数
 			for (int i = 0; i < args.length; i++) {
 				Object obj = args[i];
-				if (obj.toString().lastIndexOf("bean") != -1) {
-					System.out.println(obj.toString());
-					args[i] = paramFormat(obj);
+				if (obj.toString().lastIndexOf(".bean.") != -1) {
+					if (obj.toString().lastIndexOf("[") == -1) {
+						args[i] = paramFormat(obj);
+					}
 				}
 			}
 			Object obj = proceedingJoinPoint.proceed(args);// 调用执行目标方法

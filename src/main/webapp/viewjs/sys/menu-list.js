@@ -1,6 +1,7 @@
 var urlArray = {
 	add_edit_url : ProjectUrl("Reception/sys/menu/one.html"),
-	del_url : ProjectUrl("Reception/sys/menu/del.html")
+	del_url : ProjectUrl("Reception/sys/menu/del.html"),
+	order_save_url : ProjectUrl("Reception/sys/menu/ordersave.html")
 }
 
 var edithtml = "";
@@ -56,7 +57,7 @@ function del(obj) {
 			async : true, //异步请求,默认true
 			contentType : "application/json;charset=UTF-8",
 			success : function(data) {
-				data=data.replace(/"/g,"");
+				data = data.replace(/"/g, "");
 				var index = layer.open({
 					title : "信息",
 					content : data,
@@ -79,10 +80,8 @@ function del(obj) {
 function orderSave() {
 	var json = $('.dd').nestable('serialize');
 	json = JSON.stringify(json);
-	var url = "Reception/sys/menu/ordersave.html";
-	url = ProjectUrl(url);
 	$.ajax({
-		url : url,
+		url : urlArray.order_save_url,
 		type : "POST",
 		data : json,
 		async : true, //异步请求,默认true

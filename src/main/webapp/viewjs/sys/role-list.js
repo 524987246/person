@@ -109,8 +109,8 @@ function init() {
 					//console.dir(data.object.page.list);
 					var returnData = {};
 					returnData.draw = data.draw; //这里直接自行返回了draw计数器,应该由后台返回
-					returnData.recordsTotal = data.object.obj.totalCount; //返回数据全部记录
-					returnData.recordsFiltered = data.object.obj.totalCount; //后台不实现过滤功能，每次查询均视作全部结果
+					returnData.recordsTotal = data.object.sysRole.totalCount; //返回数据全部记录
+					returnData.recordsFiltered = data.object.sysRole.totalCount; //后台不实现过滤功能，每次查询均视作全部结果
 					returnData.data = data.object.page.list; //返回的数据列表
 					callback(returnData);
 

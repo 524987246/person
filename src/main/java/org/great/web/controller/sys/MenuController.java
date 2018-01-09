@@ -62,7 +62,7 @@ public class MenuController {
 		// PageHelper.startPage(menu.getPage_new(), menu.getPage_size());
 		List<Menu> list = menuService.findList(menu);
 		map.put("list", list);
-		map.put("obj", menu);
+		map.put("menu", menu);
 		return map;
 	}
 
