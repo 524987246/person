@@ -29,7 +29,7 @@ import com.github.pagehelper.PageInfo;
  * @since 3.0
  */
 @Controller
-@RequestMapping("/Reception/${name2}")
+@RequestMapping("/Reception/${url}")
 public class ${name}Controller {
 	@Resource
 	private ${name}Service ${name2}Service;
@@ -39,7 +39,7 @@ public class ${name}Controller {
 	 * 
 	 * @return
 	 */
-	@RequiresPermissions("sys:${name2}:view")
+	@RequiresPermissions("${auth}:view")
 	@RequestMapping(value = "to.html", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
 	public String to(Model model) {
 		//Long totalCount = ${name2}Service.findList(new ${name}());
@@ -52,7 +52,7 @@ public class ${name}Controller {
 	 * 
 	 * 
 	 */
-	@RequiresPermissions("sys:${name2}:view")
+	@RequiresPermissions("${auth}:view")
 	@RequestMapping(value = "list.html", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
 	@ResponseBody
 	public MyResult info(@RequestBody ${name} ${name2}, HttpServletRequest request, Model model) {
@@ -70,7 +70,7 @@ public class ${name}Controller {
 	 * 
 	 * 
 	 */
-	@RequiresPermissions("sys:${name2}:view")
+	@RequiresPermissions("${auth}:view")
 	@RequestMapping(value = "one.html", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
 	public String one(${name} ${name2}, HttpServletRequest request, Model model) {
 		if (${name2}.getId() != null) {
@@ -80,7 +80,7 @@ public class ${name}Controller {
 		return "newjsp/sys/${name2}-one";
 	}
 
-	@RequiresPermissions("sys:${name2}:save")
+	@RequiresPermissions("${auth}:save")
 	@RequestMapping(value = "save.html", produces = "text/html;charset=UTF-8")
 	@ResponseBody
 	public MyResult save(@RequestBody ${name} ${name2}, HttpServletRequest request) {
@@ -93,7 +93,7 @@ public class ${name}Controller {
 	}
 
 
-	@RequiresPermissions("sys:${name2}:update")
+	@RequiresPermissions("${auth}:update")
 	@RequestMapping(value = "update.html")
 	@ResponseBody
 	public MyResult update(@RequestBody ${name} ${name2}, HttpServletRequest request) {
@@ -105,7 +105,7 @@ public class ${name}Controller {
 		return i > 0 ? MyResult.ok("修改成功") : MyResult.error("修改成功");
 	}
 
-	@RequiresPermissions("sys:${name2}:delete")
+	@RequiresPermissions("${auth}:delete")
 	@RequestMapping(value = "del.html", produces = "text/html;charset=UTF-8")
 	@ResponseBody
 	public MyResult delete(@RequestBody ${name} ${name2}, HttpServletRequest request) {
@@ -113,7 +113,7 @@ public class ${name}Controller {
 		return i > 0 ? MyResult.ok("删除成功") : MyResult.error("删除失败");
 	}
 	
-	@RequiresPermissions("sys:${name2}:batchdelete")
+	@RequiresPermissions("${auth}:batchdelete")
 	@RequestMapping(value = "batchdelete.html", produces = "text/html;charset=UTF-8")
 	@ResponseBody
 	public MyResult batchdelete(@RequestBody ${name} ${name2}, HttpServletRequest request) {

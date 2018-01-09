@@ -38,8 +38,11 @@ public class TestFunction {
 
 	@Test
 	public void param() {
-		String tableName = "sysuser";
+		String tableName = "sys_user";
 		tableName=MyStringUtils.setStringByChar(tableName, "_", ":");
+		System.out.println(tableName);
+		tableName = "sys_user";
+		tableName=MyStringUtils.setStringByChar(tableName, "_", "/");
 		System.out.println(tableName);
 	}
 }

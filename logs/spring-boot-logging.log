@@ -2604,3 +2604,21 @@ Caused by: org.xml.sax.SAXParseException: 在实体引用中, 实体名称必须
 2018-01-09 09:10:47.173  INFO 10852 --- [http-nio-8081-exec-1] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
 2018-01-09 09:10:47.173  INFO 10852 --- [http-nio-8081-exec-1] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.SysRole has no read method. SKIPPED
 2018-01-09 09:10:47.174  INFO 10852 --- [http-nio-8081-exec-1] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.SysRole has no read method. SKIPPED
+2018-01-09 16:14:20.777  INFO 12016 --- [main] org.great.App                            : Starting App on USER-20170315SP with PID 12016 (G:\myecplise\personal\target\classes started by Administrator in G:\myecplise\personal)
+2018-01-09 16:14:20.789  INFO 12016 --- [main] org.great.App                            : No active profile set, falling back to default profiles: default
+2018-01-09 16:14:22.148  INFO 12016 --- [main] o.g.d.DynamicDataSourceRegister          : Dynamic DataSource Registry
+2018-01-09 16:14:25.569  INFO 12016 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2018-01-09 16:14:25.570  INFO 12016 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.5
+2018-01-09 16:14:26.150  INFO 12016 --- [localhost-startStop-1] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2018-01-09 16:14:26.158  INFO 12016 --- [localhost-startStop-1] o.a.c.c.C.[.[localhost].[/PersonTool]    : Initializing Spring embedded WebApplicationContext
+2018-01-09 16:14:27.060  INFO 12016 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-01-09 16:14:27.212  INFO 12016 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.11.Final}
+2018-01-09 16:14:27.214  INFO 12016 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-01-09 16:14:27.218  INFO 12016 --- [main] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2018-01-09 16:14:27.308  INFO 12016 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-01-09 16:14:27.998  INFO 12016 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-01-09 16:14:28.296  INFO 12016 --- [main] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2018-01-09 16:14:29.538  INFO 12016 --- [main] org.great.cache.RedisConfig              : init JredisPool ...
+2018-01-09 16:14:29.570  WARN 12016 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation is not supported on static fields: protected static java.util.Map org.great.web.controller.test.FileUpload2.map

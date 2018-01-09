@@ -49,20 +49,20 @@ public class AutoVelocity {
 		templatelist.add(ve.getTemplate("template\\service.vm"));
 		templatelist.add(ve.getTemplate("template\\controller.vm"));
 		templatelist.add(ve.getTemplate("template\\xml.vm"));
-		templatelist.add(ve.getTemplate("template\\list.jsp.vm"));
-		templatelist.add(ve.getTemplate("template\\list.js.vm"));
-		templatelist.add(ve.getTemplate("template\\one.jsp.vm"));
-		templatelist.add(ve.getTemplate("template\\one.js.vm"));
+//		templatelist.add(ve.getTemplate("template\\list.jsp.vm"));
+//		templatelist.add(ve.getTemplate("template\\list.js.vm"));
+//		templatelist.add(ve.getTemplate("template\\one.jsp.vm"));
+//		templatelist.add(ve.getTemplate("template\\one.js.vm"));
 		// 临时文件生成的目标路径,压缩完成后删除
 		list.add("src\\test\\replaceflage.java");
 		list.add("src\\test\\replaceflageMapper.java");
 		list.add("src\\test\\replaceflageService.java");
 		list.add("src\\test\\replaceflageController.java");
 		list.add("src\\test\\replaceflage.xml");
-		list.add("src\\test\\replaceflage-list.jsp");
-		list.add("src\\test\\replaceflage-list.js");
-		list.add("src\\test\\replaceflage-one.jsp");
-		list.add("src\\test\\replaceflage-one.js");
+//		list.add("src\\test\\replaceflage-list.jsp");
+//		list.add("src\\test\\replaceflage-list.js");
+//		list.add("src\\test\\replaceflage-one.jsp");
+//		list.add("src\\test\\replaceflage-one.js");
 	}
 
 	public String autocode(List<ColumnEntity> resultlist, String tbname) {
@@ -72,6 +72,8 @@ public class AutoVelocity {
 		//String path = "";
 		// 生成模板文件
 		ctx.put("tablename", tbname);
+		ctx.put("url", MyStringUtils.setStringByChar(tbname, "_", "/"));
+		ctx.put("auth", MyStringUtils.setStringByChar(tbname, "_", ":"));
 		tbname = FileUtil.setfilenam(tbname);
 		resultlist = setAttrType(resultlist);// 设置java属性
 		ctx.put("name", tbname);

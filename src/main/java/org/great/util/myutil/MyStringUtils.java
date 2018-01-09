@@ -166,7 +166,11 @@ public class MyStringUtils {
 			begin = end + 1;
 		}
 		if (end < str.length()) {
-			temp += str.substring(end + 1);
+			if (end == 0) {
+				temp += str;
+			} else {
+				temp += str.substring(end + 1);
+			}
 		}
 		return temp;
 	}
@@ -249,7 +253,7 @@ public class MyStringUtils {
 	 */
 	public static String getAuthString(String str, String flag, String cutoff) {
 		if (isEmpty(str)) {
-			
+
 		}
 		return str;
 	}
