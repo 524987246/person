@@ -2622,3 +2622,20 @@ Caused by: org.xml.sax.SAXParseException: 在实体引用中, 实体名称必须
 2018-01-09 16:14:28.296  INFO 12016 --- [main] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
 2018-01-09 16:14:29.538  INFO 12016 --- [main] org.great.cache.RedisConfig              : init JredisPool ...
 2018-01-09 16:14:29.570  WARN 12016 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation is not supported on static fields: protected static java.util.Map org.great.web.controller.test.FileUpload2.map
+2018-01-09 16:14:35.022  WARN 12016 --- [main] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+2018-01-09 16:14:35.905  WARN 12016 --- [main] o.s.b.a.v.VelocityAutoConfiguration      : Cannot find template location: classpath:/templates/ (please add some templates, check your Velocity configuration, or set spring.velocity.checkTemplateLocation=false)
+2018-01-09 16:14:36.013  WARN 12016 --- [main] arterDeprecationWarningAutoConfiguration : spring-boot-starter-redis is deprecated as of Spring Boot 1.4, please migrate to spring-boot-starter-data-redis
+2018-01-09 16:14:36.355  INFO 12016 --- [main] org.great.App                            : Started App in 16.079 seconds (JVM running for 16.577)
+2018-01-09 16:14:42.964  INFO 12016 --- [http-nio-8081-exec-1] o.a.c.c.C.[.[localhost].[/PersonTool]    : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-01-09 16:14:43.359 ERROR 12016 --- [http-nio-8081-exec-1] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/login.vm' in any resource loader.
+2018-01-09 16:14:44.427  INFO 12016 --- [http-nio-8081-exec-2] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-09 16:14:44.428  INFO 12016 --- [http-nio-8081-exec-2] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-09 16:14:44.438  INFO 12016 --- [http-nio-8081-exec-2] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-09 16:14:44.499  INFO 12016 --- [http-nio-8081-exec-2] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证开始
+2018-01-09 16:14:44.764  INFO 12016 --- [http-nio-8081-exec-2] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证通过
+2018-01-09 16:14:44.765  INFO 12016 --- [http-nio-8081-exec-2] org.great.web.controller.BaseContoller   : 用户[]登录认证通过(这里可以进行一些认证通过后的一些系统参数初始化操作)
+2018-01-09 16:14:44.830 ERROR 12016 --- [http-nio-8081-exec-3] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/main.vm' in any resource loader.
+2018-01-09 16:14:45.135  INFO 12016 --- [http-nio-8081-exec-5] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-09 16:14:45.194 ERROR 12016 --- [http-nio-8081-exec-5] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/weberror/weberror.vm' in any resource loader.
+2018-01-09 16:14:52.677 ERROR 12016 --- [http-nio-8081-exec-7] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/generate/generate.vm' in any resource loader.
+2018-01-09 16:14:52.679 ERROR 12016 --- [http-nio-8081-exec-7] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/generate/generate.html.vm' in any resource loader.

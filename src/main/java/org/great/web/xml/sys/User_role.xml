@@ -125,7 +125,8 @@
 		id=#{id}
 	</update>
 	<!-- 保存 -->
-	<insert id="save" parameterType="org.great.web.bean.sys.UserRole">
+	<insert id="save" useGeneratedKeys="true" keyProperty="id"
+		parameterType="org.great.web.bean.sys.UserRole">
 		INSERT INTO
 		<include refid="tableName" />
 		(create_by,create_date,update_by,

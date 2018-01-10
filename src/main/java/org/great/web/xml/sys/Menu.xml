@@ -148,7 +148,8 @@
 		id=#{id}
 	</update>
 	<!-- 保存 -->
-	<insert id="save" parameterType="org.great.web.bean.sys.Menu">
+	<insert id="save" useGeneratedKeys="true" keyProperty="id"
+		parameterType="org.great.web.bean.sys.Menu">
 		INSERT INTO
 		<include refid="tableName" />
 		(create_by,create_date,update_by,update_date

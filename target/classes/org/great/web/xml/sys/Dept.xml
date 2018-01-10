@@ -76,8 +76,8 @@
 		UPDATE
 		<include refid="tableName" />
 		<set>
-		<include refid="baseUpdateInfo" />
-		isemploy=#{isemploy}
+			<include refid="baseUpdateInfo" />
+			isemploy=#{isemploy}
 		</set>
 		WHERE
 		id=#{id}
@@ -87,8 +87,8 @@
 		UPDATE
 		<include refid="tableName" />
 		<set>
-		<include refid="baseUpdateInfo" />
-		isemploy=#{isemploy}
+			<include refid="baseUpdateInfo" />
+			isemploy=#{isemploy}
 		</set>
 		WHERE
 		id in
@@ -110,7 +110,8 @@
 		id=#{id}
 	</update>
 	<!-- 保存 -->
-	<insert id="save" parameterType="org.great.web.bean.sys.Dept">
+	<insert id="save" useGeneratedKeys="true" keyProperty="id"
+		parameterType="org.great.web.bean.sys.Dept">
 		INSERT INTO
 		<include refid="tableName" />
 		(create_by,create_date,update_by,update_date
