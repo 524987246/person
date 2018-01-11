@@ -184,7 +184,8 @@
 		on a.dept=f.id and
 		f.isemploy=1
 		<include refid="whereInfo" />
-		GROUP BY d.id
+		GROUP BY d.id 
+		order BY d.order_num 
 	</select>
 	<!-- 查询集合 -->
 	<select id="findList" resultType="org.great.web.bean.sys.User"
