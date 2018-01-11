@@ -3,9 +3,7 @@ package org.great.web.service.sys;
 import java.util.List;
 
 import javax.annotation.Resource;
-import javax.management.relation.Role;
 
-import org.great.web.bean.sys.SysRole;
 import org.great.web.bean.sys.User;
 import org.great.web.mapper.sys.UserMapper;
 import org.springframework.stereotype.Service;

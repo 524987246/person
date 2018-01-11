@@ -76,6 +76,8 @@ public class AutoVelocity {
 		// 生成模板文件
 		ctx.put("tablename", tbname);
 		String fileName = getFileName(tbname);
+		ctx.put("objectName", fileName);
+		ctx.put("package",getPackageName(tbname));
 		ctx.put("url", MyStringUtils.setStringByChar(tbname, "_", "/"));
 		ctx.put("auth", MyStringUtils.setStringByChar(tbname, "_", ":"));
 		tbname = FileUtil.setfilenam(tbname);
@@ -171,6 +173,14 @@ public class AutoVelocity {
 	public static String getFileName(String name) {
 		int i = name.lastIndexOf("_");
 		name = name.substring(i + 1);
+		return name;
+	}
+
+	public static String getPackageName(String name) {
+		int i = name.lastIndexOf("_");
+		if(i>0){
+			name = name.substring(0,i);
+		}
 		return name;
 	}
 }

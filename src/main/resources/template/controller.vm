@@ -1,6 +1,5 @@
-package org.great.web.controller.sys;
+package org.great.web.controller.${package};
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,8 +11,8 @@ import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.great.util.beanValidtor.ValidtorUtil;
 import org.great.util.myutil.MyStringUtils;
 import org.great.util.myutil.MyResult;
-import org.great.web.bean.sys.${name};
-import org.great.web.service.sys.${name}Service;
+import org.great.web.bean.${package}.${name};
+import org.great.web.service.${package}.${name}Service;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -44,7 +43,7 @@ public class ${name}Controller {
 	public String to(Model model) {
 		//Long totalCount = ${name2}Service.findList(new ${name}());
 		//model.addAttribute("totalCount", totalCount);
-		return "newjsp/sys/${name2}-list";
+		return "newjsp/${package}/${objectName}-list";
 	}
 
 	/**
@@ -77,7 +76,7 @@ public class ${name}Controller {
 			${name2} = ${name2}Service.get(${name2}.getId());
 		}
 		model.addAttribute("${name2}", ${name2});
-		return "newjsp/sys/${name2}-one";
+		return "newjsp/${package}/${objectName}-one";
 	}
 
 	@RequiresPermissions("${auth}:save")

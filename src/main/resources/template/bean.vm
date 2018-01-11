@@ -1,10 +1,10 @@
 #set($greet = 'hello')
 //$greet $name
 
-package bean;
+package org.great.web.bean.${package};
 
 import java.io.Serializable;
-
+import org.great.web.bean.sys.BaseBean;
 /**
  * 
  * @author xiej

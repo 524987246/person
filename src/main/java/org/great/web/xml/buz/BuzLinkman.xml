@@ -3,15 +3,22 @@
 "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 
 
-<mapper namespace="org.great.web.mapper.${package}.${name}Mapper">
+<mapper namespace="org.great.web.mapper.buz.BuzLinkmanMapper">
 	<!--基础属性 -->
 	<sql id="beanAttr">
 		a.id,
-#foreach($i in $collist)
 
-	a.${i.columnName} AS "${i.attrname}",
+	a.name AS "name",
 	
-#end
+
+	a.dept AS "dept",
+	
+
+	a.phone AS "phone",
+	
+
+	a.age AS "age",
+	
 		
 		a.create_by AS
 		"createBy.id",
@@ -26,7 +33,7 @@
 	</sql>
 	<!--主表名 -->
 	<sql id="tableName">
-		${tablename}
+		buz_linkman
 	</sql>
 	<!--主表名 基本更新信息 -->
 	<sql id="baseUpdateInfo">
@@ -65,8 +72,8 @@
 	<sql id="leftjoin">
 	</sql>
 	<!-- 查询单个 -->
-	<select id="get" resultType="org.great.web.bean.${package}.${name}"
-		parameterType="org.great.web.bean.${package}.${name}">
+	<select id="get" resultType="org.great.web.bean.buz.BuzLinkman"
+		parameterType="org.great.web.bean.buz.BuzLinkman">
 		SELECT
 		<include refid="beanAttr" />
 		FROM
@@ -78,8 +85,8 @@
 		a.id = #{id}
 	</select>
 	<!-- 查询集合 -->
-	<select id="findList" resultType="org.great.web.bean.${package}.${name}"
-		parameterType="org.great.web.bean.${package}.${name}">
+	<select id="findList" resultType="org.great.web.bean.buz.BuzLinkman"
+		parameterType="org.great.web.bean.buz.BuzLinkman">
 		SELECT
 		<include refid="beanAttr" />
 		FROM
@@ -90,7 +97,7 @@
 		ORDER BY a.update_date DESC
 	</select>
 	<!-- 查询总数 -->
-	<select id="queryTotal" resultType="Integer" parameterType="org.great.web.bean.${package}.${name}">
+	<select id="queryTotal" resultType="Integer" parameterType="org.great.web.bean.buz.BuzLinkman">
 		SELECT
 		count(*)
 		FROM
@@ -99,7 +106,7 @@
 		<include refid="whereInfo" />
 	</select>
 	<!-- 删除 -->
-	<update id="delete" parameterType="org.great.web.bean.${package}.${name}">
+	<update id="delete" parameterType="org.great.web.bean.buz.BuzLinkman">
 		UPDATE
 		<include refid="tableName" />
 		<set>
@@ -110,7 +117,7 @@
 		id=#{id}
 	</update>
 	<!-- 批量删除 -->
-	<update id="batchdelete" parameterType="org.great.web.bean.${package}.${name}">
+	<update id="batchdelete" parameterType="org.great.web.bean.buz.BuzLinkman">
 		UPDATE
 		<include refid="tableName" />
 		<set>
@@ -125,33 +132,36 @@
 		</foreach>
 	</update>
 	<!-- 更新 -->
-	<update id="update" parameterType="org.great.web.bean.${package}.${name}">
+	<update id="update" parameterType="org.great.web.bean.buz.BuzLinkman">
 		UPDATE
 		<include refid="tableName" />
 		<set>
 			<include refid="baseUpdateInfo" />
-#foreach($i in $collist)
-			<if test="${i.attrname} !=null">${i.columnName}=#{${i.attrname}},</if>
-#end
+			<if test="name !=null">name=#{name},</if>
+			<if test="dept !=null">dept=#{dept},</if>
+			<if test="phone !=null">phone=#{phone},</if>
+			<if test="age !=null">age=#{age},</if>
 		</set>
 		WHERE
 		id=#{id}
 	</update>
 	<!-- 保存 -->
-	<insert id="save" parameterType="org.great.web.bean.${package}.${name}" 
+	<insert id="save" parameterType="org.great.web.bean.buz.BuzLinkman" 
 	useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO
 		<include refid="tableName" />
 		(create_by,create_date,update_by,update_date
 		<if test="remarks !=null">,remarks</if>
-	#foreach($i in $collist)
-		<if test="${i.attrname} !=null">,${i.columnName}</if>
-	#end
-		)VALUES(#{createBy.id},#{createDate},#{updateBy.id},#{updateDate}
+			<if test="name !=null">,name</if>
+			<if test="dept !=null">,dept</if>
+			<if test="phone !=null">,phone</if>
+			<if test="age !=null">,age</if>
+			)VALUES(#{createBy.id},#{createDate},#{updateBy.id},#{updateDate}
 		<if test="remarks !=null">,#{remarks}</if>
-	#foreach($i in $collist)
-		<if test="${i.attrname} !=null">,#{${i.attrname}}</if>
-	#end
-		)
+			<if test="name !=null">,#{name}</if>
+			<if test="dept !=null">,#{dept}</if>
+			<if test="phone !=null">,#{phone}</if>
+			<if test="age !=null">,#{age}</if>
+			)
 	</insert>
 </mapper>

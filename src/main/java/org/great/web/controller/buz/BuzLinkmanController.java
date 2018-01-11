@@ -1,4 +1,4 @@
-package org.great.web.controller.${package};
+package org.great.web.controller.buz;
 
 import java.util.HashMap;
 import java.util.List;
@@ -11,8 +11,8 @@ import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.great.util.beanValidtor.ValidtorUtil;
 import org.great.util.myutil.MyStringUtils;
 import org.great.util.myutil.MyResult;
-import org.great.web.bean.${package}.${name};
-import org.great.web.service.${package}.${name}Service;
+import org.great.web.bean.buz.BuzLinkman;
+import org.great.web.service.buz.BuzLinkmanService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,22 +28,22 @@ import com.github.pagehelper.PageInfo;
  * @since 3.0
  */
 @Controller
-@RequestMapping("/Reception/${url}")
-public class ${name}Controller {
+@RequestMapping("/Reception/buz/linkman")
+public class BuzLinkmanController {
 	@Resource
-	private ${name}Service ${name2}Service;
+	private BuzLinkmanService buzLinkmanService;
 
 	/**
 	 * 获取页面
 	 * 
 	 * @return
 	 */
-	@RequiresPermissions("${auth}:view")
+	@RequiresPermissions("buz:linkman:view")
 	@RequestMapping(value = "to.html", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
 	public String to(Model model) {
-		//Long totalCount = ${name2}Service.findList(new ${name}());
+		//Long totalCount = buzLinkmanService.findList(new BuzLinkman());
 		//model.addAttribute("totalCount", totalCount);
-		return "newjsp/${package}/${objectName}-list";
+		return "newjsp/buz/linkman-list";
 	}
 
 	/**
@@ -51,16 +51,16 @@ public class ${name}Controller {
 	 * 
 	 * 
 	 */
-	@RequiresPermissions("${auth}:view")
+	@RequiresPermissions("buz:linkman:view")
 	@RequestMapping(value = "list.html", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
 	@ResponseBody
-	public MyResult info(@RequestBody ${name} ${name2}, HttpServletRequest request, Model model) {
+	public MyResult info(@RequestBody BuzLinkman buzLinkman, HttpServletRequest request, Model model) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		PageHelper.startPage(${name2}.getPage_new(), ${name2}.getPage_size());
-		List<${name}> list = ${name2}Service.findList(${name2});
-		PageInfo<${name}> page = new PageInfo<${name}>(list);
+		PageHelper.startPage(buzLinkman.getPage_new(), buzLinkman.getPage_size());
+		List<BuzLinkman> list = buzLinkmanService.findList(buzLinkman);
+		PageInfo<BuzLinkman> page = new PageInfo<BuzLinkman>(list);
 		map.put("page", page);
-		map.put("${name2}", ${name2});
+		map.put("buzLinkman", buzLinkman);
 		return MyResult.ok(map);
 	}
 
@@ -69,54 +69,54 @@ public class ${name}Controller {
 	 * 
 	 * 
 	 */
-	@RequiresPermissions("${auth}:view")
+	@RequiresPermissions("buz:linkman:view")
 	@RequestMapping(value = "one.html", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
-	public String one(${name} ${name2}, HttpServletRequest request, Model model) {
-		if (${name2}.getId() != null) {
-			${name2} = ${name2}Service.get(${name2}.getId());
+	public String one(BuzLinkman buzLinkman, HttpServletRequest request, Model model) {
+		if (buzLinkman.getId() != null) {
+			buzLinkman = buzLinkmanService.get(buzLinkman.getId());
 		}
-		model.addAttribute("${name2}", ${name2});
-		return "newjsp/${package}/${objectName}-one";
+		model.addAttribute("buzLinkman", buzLinkman);
+		return "newjsp/buz/linkman-one";
 	}
 
-	@RequiresPermissions("${auth}:save")
+	@RequiresPermissions("buz:linkman:save")
 	@RequestMapping(value = "save.html", produces = "text/html;charset=UTF-8")
 	@ResponseBody
-	public MyResult save(@RequestBody ${name} ${name2}, HttpServletRequest request) {
-		String str = ValidtorUtil.validbean(${name2});
+	public MyResult save(@RequestBody BuzLinkman buzLinkman, HttpServletRequest request) {
+		String str = ValidtorUtil.validbean(buzLinkman);
 		if (MyStringUtils.isEmpty(str)) {
 			return MyResult.error(str);
 		}
-		int i = ${name2}Service.save(${name2});
+		int i = buzLinkmanService.save(buzLinkman);
 		return i > 0 ? MyResult.ok("保存成功") : MyResult.error("保存失败");
 	}
 
 
-	@RequiresPermissions("${auth}:update")
+	@RequiresPermissions("buz:linkman:update")
 	@RequestMapping(value = "update.html")
 	@ResponseBody
-	public MyResult update(@RequestBody ${name} ${name2}, HttpServletRequest request) {
-		String str = ValidtorUtil.validbean(${name2});
+	public MyResult update(@RequestBody BuzLinkman buzLinkman, HttpServletRequest request) {
+		String str = ValidtorUtil.validbean(buzLinkman);
 		if (MyStringUtils.isEmpty(str)) {
 			return MyResult.error(str);
 		}
-		int i = ${name2}Service.update(${name2});
+		int i = buzLinkmanService.update(buzLinkman);
 		return i > 0 ? MyResult.ok("修改成功") : MyResult.error("修改成功");
 	}
 
-	@RequiresPermissions("${auth}:delete")
+	@RequiresPermissions("buz:linkman:delete")
 	@RequestMapping(value = "del.html", produces = "text/html;charset=UTF-8")
 	@ResponseBody
-	public MyResult delete(@RequestBody ${name} ${name2}, HttpServletRequest request) {
-		int i = ${name2}Service.delete(${name2});
+	public MyResult delete(@RequestBody BuzLinkman buzLinkman, HttpServletRequest request) {
+		int i = buzLinkmanService.delete(buzLinkman);
 		return i > 0 ? MyResult.ok("删除成功") : MyResult.error("删除失败");
 	}
 	
-	@RequiresPermissions("${auth}:batchdelete")
+	@RequiresPermissions("buz:linkman:batchdelete")
 	@RequestMapping(value = "batchdelete.html", produces = "text/html;charset=UTF-8")
 	@ResponseBody
-	public MyResult batchdelete(@RequestBody ${name} ${name2}, HttpServletRequest request) {
-		int i = ${name2}Service.batchdelete(${name2});
+	public MyResult batchdelete(@RequestBody BuzLinkman buzLinkman, HttpServletRequest request) {
+		int i = buzLinkmanService.batchdelete(buzLinkman);
 		return i > 0 ? MyResult.ok("批量" + i + "个删除成功") : MyResult.error("批量删除失败");
 	}
 }

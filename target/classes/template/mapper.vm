@@ -1,6 +1,6 @@
-package org.great.web.mapper.sys;
+package org.great.web.mapper.${package};
 
-import org.great.web.bean.sys.${name};
+import org.great.web.bean.${package}.${name};
 import org.great.web.mapper.BaseMapper;
 
 /**
