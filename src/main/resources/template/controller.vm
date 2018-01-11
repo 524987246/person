@@ -61,7 +61,7 @@ public class ${name}Controller {
 		List<${name}> list = ${name2}Service.findList(${name2});
 		PageInfo<${name}> page = new PageInfo<${name}>(list);
 		map.put("page", page);
-		map.put("obj", ${name2});
+		map.put("${name2}", ${name2});
 		return MyResult.ok(map);
 	}
 

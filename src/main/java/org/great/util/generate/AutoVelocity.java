@@ -39,6 +39,9 @@ public class AutoVelocity {
 		butset.add("isemploy");
 		// 初始化模板引擎
 		VelocityEngine ve = new VelocityEngine();
+		// 配置velocity 输出编码格式
+		ve.setProperty("input.encoding", "utf-8");
+		ve.setProperty("output.encoding", "utf-8");
 		ve.setProperty(RuntimeConstants.RESOURCE_LOADER, "classpath");
 		ve.setProperty("classpath.resource.loader.class", ClasspathResourceLoader.class.getName());
 		ve.init();
@@ -49,29 +52,30 @@ public class AutoVelocity {
 		templatelist.add(ve.getTemplate("template\\service.vm"));
 		templatelist.add(ve.getTemplate("template\\controller.vm"));
 		templatelist.add(ve.getTemplate("template\\xml.vm"));
-//		templatelist.add(ve.getTemplate("template\\list.jsp.vm"));
-//		templatelist.add(ve.getTemplate("template\\list.js.vm"));
-//		templatelist.add(ve.getTemplate("template\\one.jsp.vm"));
-//		templatelist.add(ve.getTemplate("template\\one.js.vm"));
+		templatelist.add(ve.getTemplate("template\\list.jsp.vm"));
+		templatelist.add(ve.getTemplate("template\\list.js.vm"));
+		templatelist.add(ve.getTemplate("template\\one.jsp.vm"));
+		templatelist.add(ve.getTemplate("template\\one.js.vm"));
 		// 临时文件生成的目标路径,压缩完成后删除
 		list.add("src\\test\\replaceflage.java");
 		list.add("src\\test\\replaceflageMapper.java");
 		list.add("src\\test\\replaceflageService.java");
 		list.add("src\\test\\replaceflageController.java");
 		list.add("src\\test\\replaceflage.xml");
-//		list.add("src\\test\\replaceflage-list.jsp");
-//		list.add("src\\test\\replaceflage-list.js");
-//		list.add("src\\test\\replaceflage-one.jsp");
-//		list.add("src\\test\\replaceflage-one.js");
+		list.add("src\\test\\replaceflage-list.jsp");
+		list.add("src\\test\\replaceflage-list.js");
+		list.add("src\\test\\replaceflage-one.jsp");
+		list.add("src\\test\\replaceflage-one.js");
 	}
 
 	public String autocode(List<ColumnEntity> resultlist, String tbname) {
 		ArrayList<String> filenamelist = new ArrayList<String>();
 		//
 		VelocityContext ctx = new VelocityContext();
-		//String path = "";
+		// String path = "";
 		// 生成模板文件
 		ctx.put("tablename", tbname);
+		String fileName = getFileName(tbname);
 		ctx.put("url", MyStringUtils.setStringByChar(tbname, "_", "/"));
 		ctx.put("auth", MyStringUtils.setStringByChar(tbname, "_", ":"));
 		tbname = FileUtil.setfilenam(tbname);
@@ -80,19 +84,24 @@ public class AutoVelocity {
 		String str = tbname.substring(0, 1).toLowerCase() + tbname.substring(1);
 		ctx.put("name2", str);// 首字母小写
 		ctx.put("collist", resultlist);
+
 		for (int i = 0; i < templatelist.size(); i++) {
 			Template template = templatelist.get(i);
-			String name = list.get(i).replace("replaceflage", tbname);
+
+			// System.out.println(sw.toString());
+			// bean 不用装编码模式,其他需要用iso8859-1转成utf-8
+			String name = list.get(i);
+			if (list.get(i).lastIndexOf(".js") != -1) {
+				name=name.replace("replaceflage", fileName);
+			} else if (list.get(i).lastIndexOf(".jsp") != -1) {
+				name=name.replace("replaceflage", fileName);
+			} else {
+				name=name.replace("replaceflage", tbname);
+			}
 			// 输出
 			StringWriter sw = new StringWriter();
 			template.merge(ctx, sw);
-			// System.out.println(sw.toString());
-			// bean 不用装编码模式,其他需要用iso8859-1转成utf-8
-			if(list.get(i).lastIndexOf("replaceflage.java")!=-1){
-				FileUtil.writeFile2(sw.toString(), name);
-			}else{
-				FileUtil.writeFile(sw.toString(), name);
-			}
+			FileUtil.writeFile2(sw.toString(), name);
 			filenamelist.add(name);
 		}
 		// 压缩
@@ -122,7 +131,7 @@ public class AutoVelocity {
 				continue;
 			}
 			// 属性首字符大写
-			str=temp.getColumnName();
+			str = temp.getColumnName();
 			// 下划线名称进行更换
 			temp.setAttrName(MyStringUtils.setColName2(str));
 			temp.setAttrname(MyStringUtils.setColName(str));
@@ -144,7 +153,7 @@ public class AutoVelocity {
 			} else {
 				temp.setAttrType("请为数据库类型\"" + str + "\"设置对应java类型");
 			}
-			
+
 			templist.add(temp);
 		}
 		return templist;
@@ -159,4 +168,9 @@ public class AutoVelocity {
 		this.filepath = filepath;
 	}
 
+	public static String getFileName(String name) {
+		int i = name.lastIndexOf("_");
+		name = name.substring(i + 1);
+		return name;
+	}
 }
