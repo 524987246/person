@@ -73,8 +73,8 @@ public class SysRoleMenuService {
 		List<Long> list = sysRole.getList();
 		if (list != null) {
 			roleMenu.setIsemploy(1);
-			for (Long l : list) {
-				roleMenu.setMenuId(l);
+			for (Number l : list) {
+				roleMenu.setMenuId(l.longValue());
 				sysRoleMenuMapper.save(roleMenu);
 			}
 		}

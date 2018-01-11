@@ -1,3 +1,9 @@
+<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta charset="utf-8">
@@ -46,7 +52,7 @@
 		<div class="cl pd-5 bg-1 bk-gray mt-20">
 			<span class="l"> <shiro:hasPermission name="buz:linkman:save">
 					<a class="btn btn-primary radius" data-title="添加XX"
-						data-href="${ctx }/Reception/sys/user/one.html"
+						data-href="${ctx }/Reception/buz/linkman/one.html"
 						onclick="Hui_admin_tab(this)" href="javascript:;"><i
 						class="Hui-iconfont">&#xe600;</i> 添加XX</a>
 				</shiro:hasPermission> <a href="javascript:;" onclick="datadel()"

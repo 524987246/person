@@ -46,7 +46,7 @@
 		<div class="cl pd-5 bg-1 bk-gray mt-20">
 			<span class="l"> <shiro:hasPermission name="${auth}:save">
 					<a class="btn btn-primary radius" data-title="添加XX"
-						data-href="#[[${ctx }]]#/Reception/sys/user/one.html"
+						data-href="#[[${ctx }]]#/Reception/${url}/one.html"
 						onclick="Hui_admin_tab(this)" href="javascript:;"><i
 						class="Hui-iconfont">&#xe600;</i> 添加XX</a>
 				</shiro:hasPermission> <a href="javascript:;" onclick="datadel()"

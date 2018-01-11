@@ -119,7 +119,7 @@
 			});
 		}
 		function GetLastUser() {
-			var id = "49BAC005-7D5B-4231-8CEA-16939BEACD67"; //GUID标识符
+			var id = "49BAC005-7D5B-4231-8CEA-16939BEACD69"; //GUID标识符
 			var loginName = GetCookie(id);
 			if (loginName != null) {
 				$("#loginName").val(loginName);
@@ -149,7 +149,7 @@
 		}
 	
 		function SetLastUser(loginName) {
-			var id = "49BAC005-7D5B-4231-8CEA-16939BEACD67";
+			var id = "49BAC005-7D5B-4231-8CEA-16939BEACD69";
 			var expdate = new Date();
 			//当前时间加上两周的时间
 			expdate.setTime(expdate.getTime() + 14 * (24 * 60 * 60 * 1000));
