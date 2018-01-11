@@ -7,6 +7,8 @@ import java.util.Map;
 
 import org.great.util.beanValidtor.ValidtorUtil;
 import org.great.util.myutil.MyStringUtils;
+import org.great.web.bean.sys.BaseBean;
+import org.great.web.bean.sys.User;
 import org.junit.Test;
 
 /**
@@ -38,11 +40,16 @@ public class TestFunction {
 
 	@Test
 	public void param() {
-		String tableName = "sys_user";
+		/*String tableName = "sys_user";
 		tableName=MyStringUtils.setStringByChar(tableName, "_", ":");
 		System.out.println(tableName);
 		tableName = "sys_user";
 		tableName=MyStringUtils.setStringByChar(tableName, "_", "/");
-		System.out.println(tableName);
+		System.out.println(tableName);*/
+		Class clazz = new User().getClass();
+		 Class class1 = BaseBean.class;
+		 System.out.println(clazz.toString());
+		 System.out.println(class1.toString());
+		 System.out.println(class1.isAssignableFrom(clazz));
 	}
 }

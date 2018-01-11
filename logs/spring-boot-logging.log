@@ -4340,3 +4340,398 @@ Caused by: java.lang.ClassNotFoundException: Cannot find class: org.great.web.be
 2018-01-11 16:06:57.693  INFO 11520 --- [http-nio-8081-exec-10] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
 2018-01-11 16:06:57.694  INFO 11520 --- [http-nio-8081-exec-10] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
 2018-01-11 16:06:57.695  INFO 11520 --- [http-nio-8081-exec-10] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-11 16:08:49.336 ERROR 11520 --- [http-nio-8081-exec-3] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/main.vm' in any resource loader.
+2018-01-11 16:08:49.410  INFO 11520 --- [http-nio-8081-exec-2] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:08:49.415 ERROR 11520 --- [http-nio-8081-exec-2] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/weberror/weberror.vm' in any resource loader.
+2018-01-11 16:08:52.056  INFO 11520 --- [http-nio-8081-exec-5] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:08:52.062 ERROR 11520 --- [http-nio-8081-exec-5] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/sys/user-list.vm' in any resource loader.
+2018-01-11 16:08:52.170  INFO 11520 --- [http-nio-8081-exec-5] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:08:52.170  INFO 11520 --- [http-nio-8081-exec-5] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:08:52.170  INFO 11520 --- [http-nio-8081-exec-5] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:08:52.170  INFO 11520 --- [http-nio-8081-exec-5] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:08:52.170  INFO 11520 --- [http-nio-8081-exec-5] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:08:52.262  INFO 11520 --- [http-nio-8081-exec-6] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:08:52.263  INFO 11520 --- [http-nio-8081-exec-6] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:08:52.263  INFO 11520 --- [http-nio-8081-exec-6] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:08:52.264  INFO 11520 --- [http-nio-8081-exec-6] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-11 16:08:53.196  INFO 11520 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:08:53.207 ERROR 11520 --- [http-nio-8081-exec-7] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/sys/menu-one.vm' in any resource loader.
+2018-01-11 16:08:53.221  INFO 11520 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:08:53.221  INFO 11520 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:08:54.945  INFO 11520 --- [http-nio-8081-exec-8] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:08:54.947  INFO 11520 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:08:54.947  INFO 11520 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:08:54.948  INFO 11520 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-11 16:08:54.951  INFO 11520 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:08:54.951  INFO 11520 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:08:54.952  INFO 11520 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'beanInstance' of class org.springframework.beans.BeanWrapperImpl has no read method. SKIPPED
+2018-01-11 16:08:54.952  INFO 11520 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:08:54.953  INFO 11520 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:08:54.953  INFO 11520 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'propertyValue' of class org.springframework.beans.BeanWrapperImpl has no read method. SKIPPED
+2018-01-11 16:08:54.954  INFO 11520 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:08:54.954  INFO 11520 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:08:54.964 ERROR 11520 --- [http-nio-8081-exec-8] org.apache.velocity                      : ResourceManager : unable to find resource 'Reception/sys/user/one.vm' in any resource loader.
+2018-01-11 16:08:54.976 ERROR 11520 --- [http-nio-8081-exec-8] org.apache.velocity                      : ResourceManager : unable to find resource 'error.vm' in any resource loader.
+2018-01-11 16:08:54.978 ERROR 11520 --- [http-nio-8081-exec-8] org.apache.velocity                      : ResourceManager : unable to find resource 'error.html.vm' in any resource loader.
+2018-01-11 16:09:57.817  INFO 11520 --- [http-nio-8081-exec-10] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:09:57.818  INFO 11520 --- [http-nio-8081-exec-10] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:09:57.818  INFO 11520 --- [http-nio-8081-exec-10] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:09:57.820  INFO 11520 --- [http-nio-8081-exec-10] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-11 16:09:57.823  INFO 11520 --- [http-nio-8081-exec-10] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:09:57.823  INFO 11520 --- [http-nio-8081-exec-10] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:09:57.824  INFO 11520 --- [http-nio-8081-exec-10] net.sf.json.JSONObject                   : Property 'beanInstance' of class org.springframework.beans.BeanWrapperImpl has no read method. SKIPPED
+2018-01-11 16:09:57.824  INFO 11520 --- [http-nio-8081-exec-10] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:09:57.824  INFO 11520 --- [http-nio-8081-exec-10] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:09:57.824  INFO 11520 --- [http-nio-8081-exec-10] net.sf.json.JSONObject                   : Property 'propertyValue' of class org.springframework.beans.BeanWrapperImpl has no read method. SKIPPED
+2018-01-11 16:09:57.825  INFO 11520 --- [http-nio-8081-exec-10] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:09:57.825  INFO 11520 --- [http-nio-8081-exec-10] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:09:57.830 ERROR 11520 --- [http-nio-8081-exec-10] org.apache.velocity                      : ResourceManager : unable to find resource 'Reception/sys/user/one.vm' in any resource loader.
+2018-01-11 16:09:57.840 ERROR 11520 --- [http-nio-8081-exec-10] org.apache.velocity                      : ResourceManager : unable to find resource 'error.vm' in any resource loader.
+2018-01-11 16:09:57.841 ERROR 11520 --- [http-nio-8081-exec-10] org.apache.velocity                      : ResourceManager : unable to find resource 'error.html.vm' in any resource loader.
+2018-01-11 16:10:51.277  INFO 11052 --- [main] org.great.App                            : Starting App on USER-20170315SP with PID 11052 (G:\myecplise\personal\target\classes started by Administrator in G:\myecplise\personal)
+2018-01-11 16:10:51.283  INFO 11052 --- [main] org.great.App                            : No active profile set, falling back to default profiles: default
+2018-01-11 16:10:52.589  INFO 11052 --- [main] o.g.d.DynamicDataSourceRegister          : Dynamic DataSource Registry
+2018-01-11 16:10:55.628  INFO 11052 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2018-01-11 16:10:55.629  INFO 11052 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.5
+2018-01-11 16:10:56.125  INFO 11052 --- [localhost-startStop-1] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2018-01-11 16:10:56.131  INFO 11052 --- [localhost-startStop-1] o.a.c.c.C.[.[localhost].[/PersonTool]    : Initializing Spring embedded WebApplicationContext
+2018-01-11 16:10:57.014  INFO 11052 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-01-11 16:10:57.101  INFO 11052 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.11.Final}
+2018-01-11 16:10:57.103  INFO 11052 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-01-11 16:10:57.104  INFO 11052 --- [main] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2018-01-11 16:10:57.151  INFO 11052 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-01-11 16:10:57.691  INFO 11052 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-01-11 16:10:57.913  INFO 11052 --- [main] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2018-01-11 16:10:59.134  INFO 11052 --- [main] org.great.cache.RedisConfig              : init JredisPool ...
+2018-01-11 16:10:59.176  WARN 11052 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation is not supported on static fields: protected static java.util.Map org.great.web.controller.test.FileUpload2.map
+2018-01-11 16:11:04.201  WARN 11052 --- [main] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+2018-01-11 16:11:04.887  WARN 11052 --- [main] o.s.b.a.v.VelocityAutoConfiguration      : Cannot find template location: classpath:/templates/ (please add some templates, check your Velocity configuration, or set spring.velocity.checkTemplateLocation=false)
+2018-01-11 16:11:05.126  WARN 11052 --- [main] arterDeprecationWarningAutoConfiguration : spring-boot-starter-redis is deprecated as of Spring Boot 1.4, please migrate to spring-boot-starter-data-redis
+2018-01-11 16:11:05.410  INFO 11052 --- [main] org.great.App                            : Started App in 14.562 seconds (JVM running for 14.946)
+2018-01-11 16:11:11.722  INFO 11052 --- [http-nio-8081-exec-1] o.a.c.c.C.[.[localhost].[/PersonTool]    : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-01-11 16:11:12.047 ERROR 11052 --- [http-nio-8081-exec-2] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/login.vm' in any resource loader.
+2018-01-11 16:11:13.002  INFO 11052 --- [http-nio-8081-exec-3] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:11:13.003  INFO 11052 --- [http-nio-8081-exec-3] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:11:13.008  INFO 11052 --- [http-nio-8081-exec-3] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-11 16:11:13.043  INFO 11052 --- [http-nio-8081-exec-3] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证开始
+2018-01-11 16:11:13.162  INFO 11052 --- [http-nio-8081-exec-3] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证通过
+2018-01-11 16:11:13.162  INFO 11052 --- [http-nio-8081-exec-3] org.great.web.controller.BaseContoller   : 用户[]登录认证通过(这里可以进行一些认证通过后的一些系统参数初始化操作)
+2018-01-11 16:11:13.224 ERROR 11052 --- [http-nio-8081-exec-4] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/main.vm' in any resource loader.
+2018-01-11 16:11:13.446  INFO 11052 --- [http-nio-8081-exec-5] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:11:13.521 ERROR 11052 --- [http-nio-8081-exec-5] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/weberror/weberror.vm' in any resource loader.
+2018-01-11 16:11:15.015  INFO 11052 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:11:15.091 ERROR 11052 --- [http-nio-8081-exec-7] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/sys/menu-list.vm' in any resource loader.
+2018-01-11 16:11:15.217  INFO 11052 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:11:15.217  INFO 11052 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:11:15.217  INFO 11052 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:11:15.218  INFO 11052 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:11:15.218  INFO 11052 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:11:16.154  INFO 11052 --- [http-nio-8081-exec-8] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:11:16.217 ERROR 11052 --- [http-nio-8081-exec-8] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/sys/menu-one.vm' in any resource loader.
+2018-01-11 16:11:16.322  INFO 11052 --- [http-nio-8081-exec-8] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:11:16.322  INFO 11052 --- [http-nio-8081-exec-8] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:11:20.791  INFO 11052 --- [http-nio-8081-exec-9] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:11:21.002 ERROR 11052 --- [http-nio-8081-exec-9] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/sys/user-list.vm' in any resource loader.
+2018-01-11 16:11:21.090  INFO 11052 --- [http-nio-8081-exec-9] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:11:21.090  INFO 11052 --- [http-nio-8081-exec-9] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:11:21.091  INFO 11052 --- [http-nio-8081-exec-9] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:11:21.091  INFO 11052 --- [http-nio-8081-exec-9] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:11:21.091  INFO 11052 --- [http-nio-8081-exec-9] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:11:21.174  INFO 11052 --- [http-nio-8081-exec-10] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:11:21.175  INFO 11052 --- [http-nio-8081-exec-10] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:11:21.175  INFO 11052 --- [http-nio-8081-exec-10] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:11:21.176  INFO 11052 --- [http-nio-8081-exec-10] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-11 16:11:21.859  INFO 11052 --- [http-nio-8081-exec-1] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:11:21.861  INFO 11052 --- [http-nio-8081-exec-1] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:11:21.862  INFO 11052 --- [http-nio-8081-exec-1] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:11:21.863  INFO 11052 --- [http-nio-8081-exec-1] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-11 16:11:21.866  INFO 11052 --- [http-nio-8081-exec-1] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:11:21.867  INFO 11052 --- [http-nio-8081-exec-1] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:11:21.912  INFO 11052 --- [http-nio-8081-exec-1] net.sf.json.JSONObject                   : Property 'beanInstance' of class org.springframework.beans.BeanWrapperImpl has no read method. SKIPPED
+2018-01-11 16:11:21.912  INFO 11052 --- [http-nio-8081-exec-1] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:11:21.912  INFO 11052 --- [http-nio-8081-exec-1] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:11:21.912  INFO 11052 --- [http-nio-8081-exec-1] net.sf.json.JSONObject                   : Property 'propertyValue' of class org.springframework.beans.BeanWrapperImpl has no read method. SKIPPED
+2018-01-11 16:11:21.913  INFO 11052 --- [http-nio-8081-exec-1] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:11:21.913  INFO 11052 --- [http-nio-8081-exec-1] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:11:21.995 ERROR 11052 --- [http-nio-8081-exec-1] org.apache.velocity                      : ResourceManager : unable to find resource 'Reception/sys/user/one.vm' in any resource loader.
+2018-01-11 16:11:22.063 ERROR 11052 --- [http-nio-8081-exec-1] org.apache.velocity                      : ResourceManager : unable to find resource 'error.vm' in any resource loader.
+2018-01-11 16:11:22.064 ERROR 11052 --- [http-nio-8081-exec-1] org.apache.velocity                      : ResourceManager : unable to find resource 'error.html.vm' in any resource loader.
+2018-01-11 16:11:23.105  INFO 11052 --- [http-nio-8081-exec-2] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:11:23.105  INFO 11052 --- [http-nio-8081-exec-2] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:11:23.106  INFO 11052 --- [http-nio-8081-exec-2] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-11 16:11:23.121  INFO 11052 --- [http-nio-8081-exec-2] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证开始
+2018-01-11 16:11:23.130  INFO 11052 --- [http-nio-8081-exec-2] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证通过
+2018-01-11 16:11:23.130  INFO 11052 --- [http-nio-8081-exec-2] org.great.web.controller.BaseContoller   : 用户[]登录认证通过(这里可以进行一些认证通过后的一些系统参数初始化操作)
+2018-01-11 16:11:23.145 ERROR 11052 --- [http-nio-8081-exec-3] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/main.vm' in any resource loader.
+2018-01-11 16:11:23.218  INFO 11052 --- [http-nio-8081-exec-4] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:11:23.224 ERROR 11052 --- [http-nio-8081-exec-4] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/weberror/weberror.vm' in any resource loader.
+2018-01-11 16:12:06.297  INFO 11052 --- [http-nio-8081-exec-6] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:12:10.985 ERROR 11052 --- [http-nio-8081-exec-6] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/sys/user-list.vm' in any resource loader.
+2018-01-11 16:12:11.012  INFO 11052 --- [http-nio-8081-exec-6] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:12:11.013  INFO 11052 --- [http-nio-8081-exec-6] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:12:11.013  INFO 11052 --- [http-nio-8081-exec-6] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:12:11.014  INFO 11052 --- [http-nio-8081-exec-6] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:12:11.014  INFO 11052 --- [http-nio-8081-exec-6] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:12:11.140  INFO 11052 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:12:11.746  INFO 11052 --- [http-nio-8081-exec-7] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:12:11.746  INFO 11052 --- [http-nio-8081-exec-7] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:12:11.747  INFO 11052 --- [http-nio-8081-exec-7] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-11 16:12:19.575  INFO 11052 --- [http-nio-8081-exec-8] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:12:33.945  INFO 11052 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:12:33.958  INFO 11052 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:12:33.963  INFO 11052 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-11 16:13:03.662  INFO 11052 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:13:03.667  INFO 11052 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:13:03.670  INFO 11052 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'beanInstance' of class org.springframework.beans.BeanWrapperImpl has no read method. SKIPPED
+2018-01-11 16:13:03.675  INFO 11052 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:13:03.680  INFO 11052 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:13:03.681  INFO 11052 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'propertyValue' of class org.springframework.beans.BeanWrapperImpl has no read method. SKIPPED
+2018-01-11 16:13:03.686  INFO 11052 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:13:03.691  INFO 11052 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:13:45.992  INFO 4908 --- [main] org.great.App                            : Starting App on USER-20170315SP with PID 4908 (G:\myecplise\personal\target\classes started by Administrator in G:\myecplise\personal)
+2018-01-11 16:13:45.997  INFO 4908 --- [main] org.great.App                            : No active profile set, falling back to default profiles: default
+2018-01-11 16:13:47.317  INFO 4908 --- [main] o.g.d.DynamicDataSourceRegister          : Dynamic DataSource Registry
+2018-01-11 16:13:50.360  INFO 4908 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2018-01-11 16:13:50.362  INFO 4908 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.5
+2018-01-11 16:13:50.859  INFO 4908 --- [localhost-startStop-1] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2018-01-11 16:13:50.865  INFO 4908 --- [localhost-startStop-1] o.a.c.c.C.[.[localhost].[/PersonTool]    : Initializing Spring embedded WebApplicationContext
+2018-01-11 16:13:51.717  INFO 4908 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-01-11 16:13:51.794  INFO 4908 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.11.Final}
+2018-01-11 16:13:51.796  INFO 4908 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-01-11 16:13:51.798  INFO 4908 --- [main] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2018-01-11 16:13:51.845  INFO 4908 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-01-11 16:13:52.426  INFO 4908 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-01-11 16:13:52.656  INFO 4908 --- [main] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2018-01-11 16:13:53.911  INFO 4908 --- [main] org.great.cache.RedisConfig              : init JredisPool ...
+2018-01-11 16:13:53.953  WARN 4908 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation is not supported on static fields: protected static java.util.Map org.great.web.controller.test.FileUpload2.map
+2018-01-11 16:13:59.022  WARN 4908 --- [main] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+2018-01-11 16:13:59.857  WARN 4908 --- [main] o.s.b.a.v.VelocityAutoConfiguration      : Cannot find template location: classpath:/templates/ (please add some templates, check your Velocity configuration, or set spring.velocity.checkTemplateLocation=false)
+2018-01-11 16:13:59.957  WARN 4908 --- [main] arterDeprecationWarningAutoConfiguration : spring-boot-starter-redis is deprecated as of Spring Boot 1.4, please migrate to spring-boot-starter-data-redis
+2018-01-11 16:14:00.244  INFO 4908 --- [main] org.great.App                            : Started App in 14.68 seconds (JVM running for 15.067)
+2018-01-11 16:14:08.742  INFO 4908 --- [http-nio-8081-exec-1] o.a.c.c.C.[.[localhost].[/PersonTool]    : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-01-11 16:14:14.422 ERROR 4908 --- [http-nio-8081-exec-2] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/login.vm' in any resource loader.
+2018-01-11 16:14:15.364  INFO 4908 --- [http-nio-8081-exec-3] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:14:15.364  INFO 4908 --- [http-nio-8081-exec-3] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:14:15.370  INFO 4908 --- [http-nio-8081-exec-3] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-11 16:14:15.433  INFO 4908 --- [http-nio-8081-exec-3] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证开始
+2018-01-11 16:14:15.694  INFO 4908 --- [http-nio-8081-exec-3] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证通过
+2018-01-11 16:14:15.695  INFO 4908 --- [http-nio-8081-exec-3] org.great.web.controller.BaseContoller   : 用户[]登录认证通过(这里可以进行一些认证通过后的一些系统参数初始化操作)
+2018-01-11 16:14:15.757 ERROR 4908 --- [http-nio-8081-exec-4] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/main.vm' in any resource loader.
+2018-01-11 16:14:15.995  INFO 4908 --- [http-nio-8081-exec-5] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:14:16.072 ERROR 4908 --- [http-nio-8081-exec-5] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/weberror/weberror.vm' in any resource loader.
+2018-01-11 16:14:17.792  INFO 4908 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:14:17.860 ERROR 4908 --- [http-nio-8081-exec-7] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/sys/user-list.vm' in any resource loader.
+2018-01-11 16:14:17.976  INFO 4908 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:14:17.977  INFO 4908 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:14:17.977  INFO 4908 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:14:17.977  INFO 4908 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:14:17.977  INFO 4908 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:14:18.062  INFO 4908 --- [http-nio-8081-exec-8] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:14:18.064  INFO 4908 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:14:18.065  INFO 4908 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:14:18.066  INFO 4908 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-11 16:14:18.879  INFO 4908 --- [http-nio-8081-exec-9] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:14:18.882  INFO 4908 --- [http-nio-8081-exec-9] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:14:18.884  INFO 4908 --- [http-nio-8081-exec-9] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:14:18.885  INFO 4908 --- [http-nio-8081-exec-9] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-11 16:14:18.948 ERROR 4908 --- [http-nio-8081-exec-9] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/sys/user-one.vm' in any resource loader.
+2018-01-11 16:14:19.080  INFO 4908 --- [http-nio-8081-exec-9] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:14:19.080  INFO 4908 --- [http-nio-8081-exec-9] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:14:33.414  INFO 4908 --- [http-nio-8081-exec-1] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:15:21.729  INFO 4908 --- [http-nio-8081-exec-1] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:15:21.737  INFO 4908 --- [http-nio-8081-exec-1] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:15:21.745  INFO 4908 --- [http-nio-8081-exec-1] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-11 16:15:33.227 ERROR 4908 --- [http-nio-8081-exec-1] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/sys/user-one.vm' in any resource loader.
+2018-01-11 16:15:33.242  INFO 4908 --- [http-nio-8081-exec-1] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:15:33.242  INFO 4908 --- [http-nio-8081-exec-1] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:17:09.878  INFO 4908 --- [http-nio-8081-exec-3] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:24:53.174  INFO 1232 --- [main] org.great.App                            : Starting App on USER-20170315SP with PID 1232 (G:\myecplise\personal\target\classes started by Administrator in G:\myecplise\personal)
+2018-01-11 16:24:53.180  INFO 1232 --- [main] org.great.App                            : No active profile set, falling back to default profiles: default
+2018-01-11 16:24:54.482  INFO 1232 --- [main] o.g.d.DynamicDataSourceRegister          : Dynamic DataSource Registry
+2018-01-11 16:24:57.633  INFO 1232 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2018-01-11 16:24:57.634  INFO 1232 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.5
+2018-01-11 16:24:58.111  INFO 1232 --- [localhost-startStop-1] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2018-01-11 16:24:58.116  INFO 1232 --- [localhost-startStop-1] o.a.c.c.C.[.[localhost].[/PersonTool]    : Initializing Spring embedded WebApplicationContext
+2018-01-11 16:24:58.987  INFO 1232 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-01-11 16:24:59.072  INFO 1232 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.11.Final}
+2018-01-11 16:24:59.073  INFO 1232 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-01-11 16:24:59.075  INFO 1232 --- [main] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2018-01-11 16:24:59.120  INFO 1232 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-01-11 16:24:59.742  INFO 1232 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-01-11 16:25:00.050  INFO 1232 --- [main] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2018-01-11 16:25:01.350  INFO 1232 --- [main] org.great.cache.RedisConfig              : init JredisPool ...
+2018-01-11 16:25:01.391  WARN 1232 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation is not supported on static fields: protected static java.util.Map org.great.web.controller.test.FileUpload2.map
+2018-01-11 16:25:06.376  WARN 1232 --- [main] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+2018-01-11 16:25:07.192  WARN 1232 --- [main] o.s.b.a.v.VelocityAutoConfiguration      : Cannot find template location: classpath:/templates/ (please add some templates, check your Velocity configuration, or set spring.velocity.checkTemplateLocation=false)
+2018-01-11 16:25:07.293  WARN 1232 --- [main] arterDeprecationWarningAutoConfiguration : spring-boot-starter-redis is deprecated as of Spring Boot 1.4, please migrate to spring-boot-starter-data-redis
+2018-01-11 16:25:07.580  INFO 1232 --- [main] org.great.App                            : Started App in 14.833 seconds (JVM running for 15.247)
+2018-01-11 16:25:14.903  INFO 1232 --- [http-nio-8081-exec-1] o.a.c.c.C.[.[localhost].[/PersonTool]    : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-01-11 16:25:15.234 ERROR 1232 --- [http-nio-8081-exec-2] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/login.vm' in any resource loader.
+2018-01-11 16:25:16.208  INFO 1232 --- [http-nio-8081-exec-3] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:25:16.209  INFO 1232 --- [http-nio-8081-exec-3] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:25:16.215  INFO 1232 --- [http-nio-8081-exec-3] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-11 16:25:16.252  INFO 1232 --- [http-nio-8081-exec-3] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证开始
+2018-01-11 16:25:16.375  INFO 1232 --- [http-nio-8081-exec-3] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证通过
+2018-01-11 16:25:16.376  INFO 1232 --- [http-nio-8081-exec-3] org.great.web.controller.BaseContoller   : 用户[]登录认证通过(这里可以进行一些认证通过后的一些系统参数初始化操作)
+2018-01-11 16:25:16.436 ERROR 1232 --- [http-nio-8081-exec-4] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/main.vm' in any resource loader.
+2018-01-11 16:25:16.726  INFO 1232 --- [http-nio-8081-exec-5] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:25:16.804 ERROR 1232 --- [http-nio-8081-exec-5] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/weberror/weberror.vm' in any resource loader.
+2018-01-11 16:25:19.870  INFO 1232 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:25:19.934 ERROR 1232 --- [http-nio-8081-exec-7] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/sys/user-list.vm' in any resource loader.
+2018-01-11 16:25:20.051  INFO 1232 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:25:20.052  INFO 1232 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:25:20.052  INFO 1232 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:25:20.052  INFO 1232 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:25:20.052  INFO 1232 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:25:20.184  INFO 1232 --- [http-nio-8081-exec-8] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:25:20.185  INFO 1232 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:25:20.186  INFO 1232 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:25:20.186  INFO 1232 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-11 16:25:21.116  INFO 1232 --- [http-nio-8081-exec-9] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:25:21.118  INFO 1232 --- [http-nio-8081-exec-9] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:25:21.119  INFO 1232 --- [http-nio-8081-exec-9] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:25:21.120  INFO 1232 --- [http-nio-8081-exec-9] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-11 16:25:21.182 ERROR 1232 --- [http-nio-8081-exec-9] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/sys/user-one.vm' in any resource loader.
+2018-01-11 16:25:21.307  INFO 1232 --- [http-nio-8081-exec-9] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:25:21.307  INFO 1232 --- [http-nio-8081-exec-9] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:25:32.782  INFO 1232 --- [http-nio-8081-exec-10] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:29:41.686  INFO 11028 --- [main] org.great.App                            : Starting App on USER-20170315SP with PID 11028 (G:\myecplise\personal\target\classes started by Administrator in G:\myecplise\personal)
+2018-01-11 16:29:41.693  INFO 11028 --- [main] org.great.App                            : No active profile set, falling back to default profiles: default
+2018-01-11 16:29:42.988  INFO 11028 --- [main] o.g.d.DynamicDataSourceRegister          : Dynamic DataSource Registry
+2018-01-11 16:29:45.973  INFO 11028 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2018-01-11 16:29:45.974  INFO 11028 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.5
+2018-01-11 16:29:46.445  INFO 11028 --- [localhost-startStop-1] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2018-01-11 16:29:46.450  INFO 11028 --- [localhost-startStop-1] o.a.c.c.C.[.[localhost].[/PersonTool]    : Initializing Spring embedded WebApplicationContext
+2018-01-11 16:29:47.297  INFO 11028 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-01-11 16:29:47.381  INFO 11028 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.11.Final}
+2018-01-11 16:29:47.383  INFO 11028 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-01-11 16:29:47.384  INFO 11028 --- [main] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2018-01-11 16:29:47.429  INFO 11028 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-01-11 16:29:47.954  INFO 11028 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-01-11 16:29:48.169  INFO 11028 --- [main] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2018-01-11 16:29:49.383  INFO 11028 --- [main] org.great.cache.RedisConfig              : init JredisPool ...
+2018-01-11 16:29:49.423  WARN 11028 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation is not supported on static fields: protected static java.util.Map org.great.web.controller.test.FileUpload2.map
+2018-01-11 16:29:54.366  WARN 11028 --- [main] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+2018-01-11 16:29:55.166  WARN 11028 --- [main] o.s.b.a.v.VelocityAutoConfiguration      : Cannot find template location: classpath:/templates/ (please add some templates, check your Velocity configuration, or set spring.velocity.checkTemplateLocation=false)
+2018-01-11 16:29:55.263  WARN 11028 --- [main] arterDeprecationWarningAutoConfiguration : spring-boot-starter-redis is deprecated as of Spring Boot 1.4, please migrate to spring-boot-starter-data-redis
+2018-01-11 16:29:55.558  INFO 11028 --- [main] org.great.App                            : Started App in 14.304 seconds (JVM running for 14.73)
+2018-01-11 16:30:04.496  INFO 11028 --- [http-nio-8081-exec-1] o.a.c.c.C.[.[localhost].[/PersonTool]    : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-01-11 16:30:04.818 ERROR 11028 --- [http-nio-8081-exec-2] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/login.vm' in any resource loader.
+2018-01-11 16:30:05.698  INFO 11028 --- [http-nio-8081-exec-3] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:30:05.698  INFO 11028 --- [http-nio-8081-exec-3] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:30:05.704  INFO 11028 --- [http-nio-8081-exec-3] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-11 16:30:05.761  INFO 11028 --- [http-nio-8081-exec-3] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证开始
+2018-01-11 16:30:06.011  INFO 11028 --- [http-nio-8081-exec-3] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证通过
+2018-01-11 16:30:06.011  INFO 11028 --- [http-nio-8081-exec-3] org.great.web.controller.BaseContoller   : 用户[]登录认证通过(这里可以进行一些认证通过后的一些系统参数初始化操作)
+2018-01-11 16:30:06.072 ERROR 11028 --- [http-nio-8081-exec-4] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/main.vm' in any resource loader.
+2018-01-11 16:30:06.282  INFO 11028 --- [http-nio-8081-exec-5] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:30:06.357 ERROR 11028 --- [http-nio-8081-exec-5] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/weberror/weberror.vm' in any resource loader.
+2018-01-11 16:30:08.038  INFO 11028 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:30:08.105 ERROR 11028 --- [http-nio-8081-exec-7] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/sys/user-list.vm' in any resource loader.
+2018-01-11 16:30:08.228  INFO 11028 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:30:08.228  INFO 11028 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:30:08.228  INFO 11028 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:30:08.228  INFO 11028 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:30:08.228  INFO 11028 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:30:08.322  INFO 11028 --- [http-nio-8081-exec-8] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:30:08.325  INFO 11028 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:30:08.326  INFO 11028 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:30:08.326  INFO 11028 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-11 16:30:08.916  INFO 11028 --- [http-nio-8081-exec-9] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:30:08.918  INFO 11028 --- [http-nio-8081-exec-9] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:30:08.920  INFO 11028 --- [http-nio-8081-exec-9] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:30:08.920  INFO 11028 --- [http-nio-8081-exec-9] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-11 16:30:08.984 ERROR 11028 --- [http-nio-8081-exec-9] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/sys/user-one.vm' in any resource loader.
+2018-01-11 16:30:09.113  INFO 11028 --- [http-nio-8081-exec-9] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:30:09.114  INFO 11028 --- [http-nio-8081-exec-9] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:30:22.227  INFO 11028 --- [http-nio-8081-exec-10] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:31:21.958  INFO 3560 --- [main] org.great.App                            : Starting App on USER-20170315SP with PID 3560 (G:\myecplise\personal\target\classes started by Administrator in G:\myecplise\personal)
+2018-01-11 16:31:21.964  INFO 3560 --- [main] org.great.App                            : No active profile set, falling back to default profiles: default
+2018-01-11 16:31:23.246  INFO 3560 --- [main] o.g.d.DynamicDataSourceRegister          : Dynamic DataSource Registry
+2018-01-11 16:31:26.299  INFO 3560 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2018-01-11 16:31:26.300  INFO 3560 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.5
+2018-01-11 16:31:26.783  INFO 3560 --- [localhost-startStop-1] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2018-01-11 16:31:26.788  INFO 3560 --- [localhost-startStop-1] o.a.c.c.C.[.[localhost].[/PersonTool]    : Initializing Spring embedded WebApplicationContext
+2018-01-11 16:31:27.628  INFO 3560 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-01-11 16:31:27.702  INFO 3560 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.11.Final}
+2018-01-11 16:31:27.703  INFO 3560 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-01-11 16:31:27.705  INFO 3560 --- [main] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2018-01-11 16:31:27.760  INFO 3560 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-01-11 16:31:28.289  INFO 3560 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-01-11 16:31:28.505  INFO 3560 --- [main] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2018-01-11 16:31:29.732  INFO 3560 --- [main] org.great.cache.RedisConfig              : init JredisPool ...
+2018-01-11 16:31:29.761  WARN 3560 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation is not supported on static fields: protected static java.util.Map org.great.web.controller.test.FileUpload2.map
+2018-01-11 16:31:34.741  WARN 3560 --- [main] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+2018-01-11 16:31:35.561  WARN 3560 --- [main] o.s.b.a.v.VelocityAutoConfiguration      : Cannot find template location: classpath:/templates/ (please add some templates, check your Velocity configuration, or set spring.velocity.checkTemplateLocation=false)
+2018-01-11 16:31:35.661  WARN 3560 --- [main] arterDeprecationWarningAutoConfiguration : spring-boot-starter-redis is deprecated as of Spring Boot 1.4, please migrate to spring-boot-starter-data-redis
+2018-01-11 16:31:35.949  INFO 3560 --- [main] org.great.App                            : Started App in 14.412 seconds (JVM running for 14.8)
+2018-01-11 16:31:38.525  INFO 3560 --- [http-nio-8081-exec-1] o.a.c.c.C.[.[localhost].[/PersonTool]    : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-01-11 16:31:38.844 ERROR 3560 --- [http-nio-8081-exec-2] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/login.vm' in any resource loader.
+2018-01-11 16:31:39.765  INFO 3560 --- [http-nio-8081-exec-3] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:31:39.766  INFO 3560 --- [http-nio-8081-exec-3] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:31:39.772  INFO 3560 --- [http-nio-8081-exec-3] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-11 16:31:39.829  INFO 3560 --- [http-nio-8081-exec-3] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证开始
+2018-01-11 16:31:40.086  INFO 3560 --- [http-nio-8081-exec-3] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证通过
+2018-01-11 16:31:40.087  INFO 3560 --- [http-nio-8081-exec-3] org.great.web.controller.BaseContoller   : 用户[]登录认证通过(这里可以进行一些认证通过后的一些系统参数初始化操作)
+2018-01-11 16:31:40.149 ERROR 3560 --- [http-nio-8081-exec-4] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/main.vm' in any resource loader.
+2018-01-11 16:31:40.408  INFO 3560 --- [http-nio-8081-exec-5] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:31:40.484 ERROR 3560 --- [http-nio-8081-exec-5] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/weberror/weberror.vm' in any resource loader.
+2018-01-11 16:31:43.533  INFO 3560 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:31:43.595 ERROR 3560 --- [http-nio-8081-exec-7] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/sys/user-list.vm' in any resource loader.
+2018-01-11 16:31:43.714  INFO 3560 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:31:43.714  INFO 3560 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:31:43.714  INFO 3560 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:31:43.714  INFO 3560 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:31:43.714  INFO 3560 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:31:43.808  INFO 3560 --- [http-nio-8081-exec-8] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:31:43.809  INFO 3560 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:31:43.810  INFO 3560 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:31:43.810  INFO 3560 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-11 16:31:44.414  INFO 3560 --- [http-nio-8081-exec-9] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:31:44.418  INFO 3560 --- [http-nio-8081-exec-9] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:31:44.420  INFO 3560 --- [http-nio-8081-exec-9] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:31:44.421  INFO 3560 --- [http-nio-8081-exec-9] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-11 16:31:44.486 ERROR 3560 --- [http-nio-8081-exec-9] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/sys/user-one.vm' in any resource loader.
+2018-01-11 16:31:44.612  INFO 3560 --- [http-nio-8081-exec-9] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:31:44.613  INFO 3560 --- [http-nio-8081-exec-9] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:31:52.271  INFO 3560 --- [http-nio-8081-exec-10] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:31:52.273  INFO 3560 --- [http-nio-8081-exec-10] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:31:52.274  INFO 3560 --- [http-nio-8081-exec-10] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:31:52.275  INFO 3560 --- [http-nio-8081-exec-10] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-11 16:31:52.296  INFO 3560 --- [http-nio-8081-exec-1] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:31:52.297  INFO 3560 --- [http-nio-8081-exec-1] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:31:52.297  INFO 3560 --- [http-nio-8081-exec-1] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:31:52.298  INFO 3560 --- [http-nio-8081-exec-1] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-11 16:31:55.002  INFO 3560 --- [http-nio-8081-exec-2] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:31:55.004  INFO 3560 --- [http-nio-8081-exec-2] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:31:55.005  INFO 3560 --- [http-nio-8081-exec-2] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:31:55.006  INFO 3560 --- [http-nio-8081-exec-2] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-11 16:31:55.026  INFO 3560 --- [http-nio-8081-exec-3] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:31:55.027  INFO 3560 --- [http-nio-8081-exec-3] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:31:55.027  INFO 3560 --- [http-nio-8081-exec-3] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-11 16:31:55.028  INFO 3560 --- [http-nio-8081-exec-3] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-11 16:32:01.783  INFO 3560 --- [http-nio-8081-exec-4] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:32:01.857 ERROR 3560 --- [http-nio-8081-exec-4] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/sys/menu-list.vm' in any resource loader.
+2018-01-11 16:32:01.959  INFO 3560 --- [http-nio-8081-exec-4] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:32:01.959  INFO 3560 --- [http-nio-8081-exec-4] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:32:01.959  INFO 3560 --- [http-nio-8081-exec-4] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:32:01.959  INFO 3560 --- [http-nio-8081-exec-4] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:32:01.960  INFO 3560 --- [http-nio-8081-exec-4] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:32:02.665  INFO 3560 --- [http-nio-8081-exec-5] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:32:03.698  INFO 3560 --- [http-nio-8081-exec-6] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:32:03.707 ERROR 3560 --- [http-nio-8081-exec-6] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/sys/menu-list.vm' in any resource loader.
+2018-01-11 16:32:03.709  INFO 3560 --- [http-nio-8081-exec-6] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:32:03.710  INFO 3560 --- [http-nio-8081-exec-6] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:32:03.710  INFO 3560 --- [http-nio-8081-exec-6] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:32:03.710  INFO 3560 --- [http-nio-8081-exec-6] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-11 16:32:03.710  INFO 3560 --- [http-nio-8081-exec-6] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.

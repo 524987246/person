@@ -18,6 +18,7 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.great.util.myutil.MyCollectionUtils;
 import org.great.util.myutil.MyReflexUtils;
+import org.great.web.bean.sys.BaseBean;
 import org.great.web.bean.sys.User;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestAttributes;
@@ -141,9 +142,14 @@ public class WebControllerAop {
 			for (int i = 0; i < args.length; i++) {
 				Object obj = args[i];
 				if (obj.toString().lastIndexOf(".bean.") != -1) {
-					if (obj.toString().lastIndexOf("[") == -1) {
+					boolean bo = BaseBean.class.isAssignableFrom(obj.getClass());
+					if (bo) {
 						args[i] = paramFormat(obj);
 					}
+					// if (obj.toString().lastIndexOf("[") == -1) {
+					// if (obj.toString().lastIndexOf("{") == -1) {
+					// }
+					// }
 				}
 			}
 			Object obj = proceedingJoinPoint.proceed(args);// 调用执行目标方法
