@@ -27,9 +27,9 @@ public class MyActionUtil {
 	 * @return true ajax false 传统请求
 	 */
 	public static boolean isAjax(HttpServletRequest request) {
-		String requestType = request.getHeader("X-Requested-With");
-		boolean isAjax = "XMLHttpRequest".equals(requestType) ? true : false;
-		return isAjax;
+		String header = request.getHeader("content-type");
+		//boolean isAjax = "XMLHttpRequest".equals(requestType) ? true : false;
+		return header!=null && header.contains("json");
 	}
 
 	/**

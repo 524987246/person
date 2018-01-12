@@ -16,5 +16,9 @@ public class BaseResoure {
 	 * 默认的页面显示条数
 	 */
 	public final static String LOGIN_USER_FLAG = "login_user";
+	/**
+	 * 错误页面
+	 */
+	public static final String DEFAULT_ERROR_VIEW = "error/403";
 
 }

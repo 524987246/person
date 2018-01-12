@@ -139,7 +139,7 @@ function ResetCookie() {
 	SetCookie(loginName, null, expdate);
 }
 function GetLastUser() {
-	var id = "49BAC005-7D5B-4231-8CEA-16939BEACD67"; //GUID标识符
+	var id = "49BAC005-7D5B-4231-8CEA-16939BEACD69"; //GUID标识符
 	var loginName = GetCookie(id);
 	return loginName;
 }
