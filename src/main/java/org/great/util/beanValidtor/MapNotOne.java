@@ -27,7 +27,7 @@ public @interface MapNotOne {
      */
     int value() default 0;
 
-    String message() default "List集合中不能含有null元素";
+    String message() default "Map中不能含有1";
 
     Class<?>[] groups() default {};
 

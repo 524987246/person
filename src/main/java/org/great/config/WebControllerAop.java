@@ -19,7 +19,6 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.great.util.myutil.MyCollectionUtils;
 import org.great.util.myutil.MyReflexUtils;
 import org.great.web.bean.sys.BaseBean;
-import org.great.web.bean.sys.User;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -163,9 +162,9 @@ public class WebControllerAop {
 	public Object paramFormat(Object obj) {
 		JSONObject str = JSONObject.fromObject(obj, JsonConfigFactory.getInstance());
 		Object temp = JSONObject.toBean(str, obj.getClass());
-		Map<String, Object> map = (Map<String, Object>) MyCollectionUtils.objectToMap(temp);
+		//Map<String, Object> map = (Map<String, Object>) MyCollectionUtils.objectToMap(temp);
 		try {
-			obj = MyReflexUtils.printField(obj.getClass(), map);
+			obj = MyReflexUtils.printField(obj.getClass(), temp);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

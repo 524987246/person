@@ -90,7 +90,7 @@ public class CSVUtils {
         BufferedReader br=null;
         FileInputStream fis = new FileInputStream(file);
         InputStreamReader isr = new InputStreamReader(fis,"gbk");
-        try { 
+        try {
             br = new BufferedReader(isr);
             String line = ""; 
             while ((line = br.readLine()) != null) {

@@ -10,14 +10,11 @@ import java.lang.reflect.InvocationTargetException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.poi.ss.formula.functions.T;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
-import org.apache.shiro.util.ThreadContext;
 import org.great.config.BaseResoure;
 import org.great.web.bean.sys.User;
 
-import scala.annotation.meta.setter;
 import org.apache.commons.beanutils.BeanUtils;
 
 /**
