@@ -58,7 +58,7 @@ public class WebSocketTest {
 	 *            可选的参数
 	 */
 	@OnMessage
-	public void onMessage(String message, Session session) {
+	public void onMessage(String message) {
 		System.out.println("来自客户端的消息:" + message);
 		// 群发消息
 		for (WebSocketTest item : webSocketSet) {

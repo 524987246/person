@@ -5602,3 +5602,207 @@ Caused by: java.lang.ClassNotFoundException: Cannot find class: org.great.web.be
 2018-01-12 10:13:13.761 ERROR 3120 --- [http-nio-8081-exec-7] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/weberror/weberror.vm' in any resource loader.
 2018-01-12 10:13:20.490 ERROR 3120 --- [http-nio-8081-exec-1] org.apache.velocity                      : ResourceManager : unable to find resource 'error.vm' in any resource loader.
 2018-01-12 10:13:20.492 ERROR 3120 --- [http-nio-8081-exec-1] org.apache.velocity                      : ResourceManager : unable to find resource 'error.html.vm' in any resource loader.
+2018-01-15 10:34:11.657  INFO 2900 --- [main] org.great.App                            : Starting App on USER-20170315SP with PID 2900 (G:\myecplise\personal\target\classes started by Administrator in G:\myecplise\personal)
+2018-01-15 10:34:11.671  INFO 2900 --- [main] org.great.App                            : No active profile set, falling back to default profiles: default
+2018-01-15 10:34:12.887  INFO 2900 --- [main] o.g.d.DynamicDataSourceRegister          : Dynamic DataSource Registry
+2018-01-15 10:34:15.540  INFO 2900 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2018-01-15 10:34:15.541  INFO 2900 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.5
+2018-01-15 10:34:16.034  INFO 2900 --- [localhost-startStop-1] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2018-01-15 10:34:16.041  INFO 2900 --- [localhost-startStop-1] o.a.c.c.C.[.[localhost].[/PersonTool]    : Initializing Spring embedded WebApplicationContext
+2018-01-15 10:34:16.679  INFO 2900 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-01-15 10:34:16.795  INFO 2900 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.11.Final}
+2018-01-15 10:34:16.796  INFO 2900 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-01-15 10:34:16.798  INFO 2900 --- [main] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2018-01-15 10:34:16.850  INFO 2900 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-01-15 10:34:17.457  INFO 2900 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-01-15 10:34:17.694  INFO 2900 --- [main] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2018-01-15 10:34:18.626  INFO 2900 --- [main] org.great.cache.RedisConfig              : init JredisPool ...
+2018-01-15 10:34:18.654  WARN 2900 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation is not supported on static fields: protected static java.util.Map org.great.web.controller.test.FileUpload2.map
+2018-01-15 10:34:22.453  WARN 2900 --- [main] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+2018-01-15 10:34:22.989  WARN 2900 --- [main] o.s.b.a.v.VelocityAutoConfiguration      : Cannot find template location: classpath:/templates/ (please add some templates, check your Velocity configuration, or set spring.velocity.checkTemplateLocation=false)
+2018-01-15 10:34:23.071  WARN 2900 --- [main] arterDeprecationWarningAutoConfiguration : spring-boot-starter-redis is deprecated as of Spring Boot 1.4, please migrate to spring-boot-starter-data-redis
+2018-01-15 10:34:23.259  INFO 2900 --- [main] org.great.App                            : Started App in 12.453 seconds (JVM running for 12.79)
+2018-01-15 10:34:33.889  INFO 2900 --- [http-nio-8081-exec-1] o.a.c.c.C.[.[localhost].[/PersonTool]    : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-01-15 10:34:34.219 ERROR 2900 --- [http-nio-8081-exec-1] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/login.vm' in any resource loader.
+2018-01-15 10:34:35.345  INFO 2900 --- [http-nio-8081-exec-2] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-15 10:34:35.346  INFO 2900 --- [http-nio-8081-exec-2] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-15 10:34:35.352  INFO 2900 --- [http-nio-8081-exec-2] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-15 10:34:35.387  INFO 2900 --- [http-nio-8081-exec-2] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证开始
+2018-01-15 10:34:35.638  INFO 2900 --- [http-nio-8081-exec-2] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证通过
+2018-01-15 10:34:35.638  INFO 2900 --- [http-nio-8081-exec-2] org.great.web.controller.BaseContoller   : 用户[]登录认证通过(这里可以进行一些认证通过后的一些系统参数初始化操作)
+2018-01-15 10:34:35.672 ERROR 2900 --- [http-nio-8081-exec-4] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/main.vm' in any resource loader.
+2018-01-15 10:34:36.055  INFO 2900 --- [http-nio-8081-exec-8] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-15 10:34:36.083 ERROR 2900 --- [http-nio-8081-exec-8] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/weberror/weberror.vm' in any resource loader.
+2018-01-15 10:34:40.035 ERROR 2900 --- [http-nio-8081-exec-10] org.apache.velocity                      : ResourceManager : unable to find resource 'error.vm' in any resource loader.
+2018-01-15 10:34:40.036 ERROR 2900 --- [http-nio-8081-exec-10] org.apache.velocity                      : ResourceManager : unable to find resource 'error.html.vm' in any resource loader.
+2018-01-15 10:34:52.158 ERROR 2900 --- [http-nio-8081-exec-2] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/test/websocketClienk.vm' in any resource loader.
+2018-01-18 09:58:07.028  INFO 4988 --- [main] org.great.App                            : Starting App on USER-20170315SP with PID 4988 (G:\myecplise\personal\target\classes started by Administrator in G:\myecplise\personal)
+2018-01-18 09:58:07.043  INFO 4988 --- [main] org.great.App                            : No active profile set, falling back to default profiles: default
+2018-01-18 09:58:08.314  INFO 4988 --- [main] o.g.d.DynamicDataSourceRegister          : Dynamic DataSource Registry
+2018-01-18 09:58:10.998  INFO 4988 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2018-01-18 09:58:10.999  INFO 4988 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.5
+2018-01-18 09:58:11.490  INFO 4988 --- [localhost-startStop-1] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2018-01-18 09:58:11.499  INFO 4988 --- [localhost-startStop-1] o.a.c.c.C.[.[localhost].[/PersonTool]    : Initializing Spring embedded WebApplicationContext
+2018-01-18 09:58:12.147  INFO 4988 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-01-18 09:58:12.251  INFO 4988 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.11.Final}
+2018-01-18 09:58:12.252  INFO 4988 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-01-18 09:58:12.255  INFO 4988 --- [main] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2018-01-18 09:58:12.307  INFO 4988 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-01-18 09:58:12.924  INFO 4988 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-01-18 09:58:13.148  INFO 4988 --- [main] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2018-01-18 09:58:14.100  INFO 4988 --- [main] org.great.cache.RedisConfig              : init JredisPool ...
+2018-01-18 09:58:14.131  WARN 4988 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation is not supported on static fields: protected static java.util.Map org.great.web.controller.test.FileUpload2.map
+2018-01-18 09:58:17.950  WARN 4988 --- [main] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+2018-01-18 09:58:18.454  WARN 4988 --- [main] o.s.b.a.v.VelocityAutoConfiguration      : Cannot find template location: classpath:/templates/ (please add some templates, check your Velocity configuration, or set spring.velocity.checkTemplateLocation=false)
+2018-01-18 09:58:18.526  WARN 4988 --- [main] arterDeprecationWarningAutoConfiguration : spring-boot-starter-redis is deprecated as of Spring Boot 1.4, please migrate to spring-boot-starter-data-redis
+2018-01-18 09:58:18.596  INFO 4988 --- [main] o.apache.catalina.core.StandardService   : Stopping service Tomcat
+2018-01-18 09:58:18.616 ERROR 4988 --- [main] o.s.boot.SpringApplication               : Application startup failed
+
+java.lang.IllegalStateException: Failed to register @ServerEndpoint class: class org.great.web.controller.WebSocketTest$$EnhancerBySpringCGLIB$$51287819
+	at org.springframework.web.socket.server.standard.ServerEndpointExporter.registerEndpoint(ServerEndpointExporter.java:148) ~[spring-websocket-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.socket.server.standard.ServerEndpointExporter.registerEndpoints(ServerEndpointExporter.java:129) ~[spring-websocket-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.socket.server.standard.ServerEndpointExporter.afterSingletonsInstantiated(ServerEndpointExporter.java:107) ~[spring-websocket-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:771) ~[spring-beans-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:861) ~[spring-context-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:541) ~[spring-context-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122) ~[spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:371) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1186) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1175) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.great.App.main(App.java:76) [classes/:na]
+Caused by: javax.websocket.DeploymentException: Cannot deploy POJO class [org.great.web.controller.WebSocketTest$$EnhancerBySpringCGLIB$$51287819] as it is not annotated with @ServerEndpoint
+	at org.apache.tomcat.websocket.server.WsServerContainer.addEndpoint(WsServerContainer.java:203) ~[tomcat-embed-websocket-8.5.5.jar:8.5.5]
+	at org.springframework.web.socket.server.standard.ServerEndpointExporter.registerEndpoint(ServerEndpointExporter.java:145) ~[spring-websocket-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	... 12 common frames omitted
+
+2018-01-18 09:58:18.618  WARN 4988 --- [main] ationConfigEmbeddedWebApplicationContext : Exception thrown from LifecycleProcessor on context close
+
+java.lang.IllegalStateException: LifecycleProcessor not initialized - call 'refresh' before invoking lifecycle methods via the context: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@aea2c: startup date [Thu Jan 18 09:58:07 CST 2018]; root of context hierarchy
+	at org.springframework.context.support.AbstractApplicationContext.getLifecycleProcessor(AbstractApplicationContext.java:416) [spring-context-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:997) [spring-context-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:956) [spring-context-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.boot.SpringApplication.handleRunFailure(SpringApplication.java:818) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1186) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1175) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.great.App.main(App.java:76) [classes/:na]
+
+2018-01-19 11:20:26.679  INFO 5060 --- [main] org.great.App                            : Starting App on USER-20170315SP with PID 5060 (G:\myecplise\personal\target\classes started by Administrator in G:\myecplise\personal)
+2018-01-19 11:20:26.707  INFO 5060 --- [main] org.great.App                            : No active profile set, falling back to default profiles: default
+2018-01-19 11:20:27.907  INFO 5060 --- [main] o.g.d.DynamicDataSourceRegister          : Dynamic DataSource Registry
+2018-01-19 11:20:30.508  INFO 5060 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2018-01-19 11:20:30.509  INFO 5060 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.5
+2018-01-19 11:20:30.979  INFO 5060 --- [localhost-startStop-1] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2018-01-19 11:20:30.985  INFO 5060 --- [localhost-startStop-1] o.a.c.c.C.[.[localhost].[/PersonTool]    : Initializing Spring embedded WebApplicationContext
+2018-01-19 11:20:31.609  INFO 5060 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-01-19 11:20:31.705  INFO 5060 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.11.Final}
+2018-01-19 11:20:31.706  INFO 5060 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-01-19 11:20:31.708  INFO 5060 --- [main] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2018-01-19 11:20:31.758  INFO 5060 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-01-19 11:20:32.353  INFO 5060 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-01-19 11:20:32.596  INFO 5060 --- [main] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2018-01-19 11:20:33.475  INFO 5060 --- [main] org.great.cache.RedisConfig              : init JredisPool ...
+2018-01-19 11:20:33.502  WARN 5060 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation is not supported on static fields: protected static java.util.Map org.great.web.controller.test.FileUpload2.map
+2018-01-19 11:20:37.139  WARN 5060 --- [main] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+2018-01-19 11:20:37.623  WARN 5060 --- [main] o.s.b.a.v.VelocityAutoConfiguration      : Cannot find template location: classpath:/templates/ (please add some templates, check your Velocity configuration, or set spring.velocity.checkTemplateLocation=false)
+2018-01-19 11:20:37.690  WARN 5060 --- [main] arterDeprecationWarningAutoConfiguration : spring-boot-starter-redis is deprecated as of Spring Boot 1.4, please migrate to spring-boot-starter-data-redis
+2018-01-19 11:20:37.754  INFO 5060 --- [main] o.apache.catalina.core.StandardService   : Stopping service Tomcat
+2018-01-19 11:20:37.780 ERROR 5060 --- [main] o.s.boot.SpringApplication               : Application startup failed
+
+java.lang.IllegalStateException: Failed to register @ServerEndpoint class: class org.great.web.controller.WebSocketTest$$EnhancerBySpringCGLIB$$86bc3faa
+	at org.springframework.web.socket.server.standard.ServerEndpointExporter.registerEndpoint(ServerEndpointExporter.java:148) ~[spring-websocket-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.socket.server.standard.ServerEndpointExporter.registerEndpoints(ServerEndpointExporter.java:129) ~[spring-websocket-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.web.socket.server.standard.ServerEndpointExporter.afterSingletonsInstantiated(ServerEndpointExporter.java:107) ~[spring-websocket-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:771) ~[spring-beans-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:861) ~[spring-context-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:541) ~[spring-context-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122) ~[spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:371) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1186) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1175) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.great.App.main(App.java:76) [classes/:na]
+Caused by: javax.websocket.DeploymentException: Cannot deploy POJO class [org.great.web.controller.WebSocketTest$$EnhancerBySpringCGLIB$$86bc3faa] as it is not annotated with @ServerEndpoint
+	at org.apache.tomcat.websocket.server.WsServerContainer.addEndpoint(WsServerContainer.java:203) ~[tomcat-embed-websocket-8.5.5.jar:8.5.5]
+	at org.springframework.web.socket.server.standard.ServerEndpointExporter.registerEndpoint(ServerEndpointExporter.java:145) ~[spring-websocket-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	... 12 common frames omitted
+
+2018-01-19 11:20:37.783  WARN 5060 --- [main] ationConfigEmbeddedWebApplicationContext : Exception thrown from LifecycleProcessor on context close
+
+java.lang.IllegalStateException: LifecycleProcessor not initialized - call 'refresh' before invoking lifecycle methods via the context: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@12fccde: startup date [Fri Jan 19 11:20:26 CST 2018]; root of context hierarchy
+	at org.springframework.context.support.AbstractApplicationContext.getLifecycleProcessor(AbstractApplicationContext.java:416) [spring-context-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:997) [spring-context-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:956) [spring-context-4.3.3.RELEASE.jar:4.3.3.RELEASE]
+	at org.springframework.boot.SpringApplication.handleRunFailure(SpringApplication.java:818) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1186) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1175) [spring-boot-1.4.1.RELEASE.jar:1.4.1.RELEASE]
+	at org.great.App.main(App.java:76) [classes/:na]
+
+2018-01-19 11:39:59.852  INFO 1304 --- [main] org.great.App                            : Starting App on USER-20170315SP with PID 1304 (G:\myecplise\personal\target\classes started by Administrator in G:\myecplise\personal)
+2018-01-19 11:39:59.855  INFO 1304 --- [main] org.great.App                            : No active profile set, falling back to default profiles: default
+2018-01-19 11:40:00.905  INFO 1304 --- [main] o.g.d.DynamicDataSourceRegister          : Dynamic DataSource Registry
+2018-01-19 11:40:03.244  INFO 1304 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2018-01-19 11:40:03.245  INFO 1304 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.5
+2018-01-19 11:40:03.662  INFO 1304 --- [localhost-startStop-1] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2018-01-19 11:40:03.668  INFO 1304 --- [localhost-startStop-1] o.a.c.c.C.[.[localhost].[/PersonTool]    : Initializing Spring embedded WebApplicationContext
+2018-01-19 11:40:04.248  INFO 1304 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-01-19 11:40:04.306  INFO 1304 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.11.Final}
+2018-01-19 11:40:04.307  INFO 1304 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-01-19 11:40:04.308  INFO 1304 --- [main] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2018-01-19 11:40:04.348  INFO 1304 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-01-19 11:40:04.807  INFO 1304 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-01-19 11:40:04.969  INFO 1304 --- [main] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2018-01-19 11:40:05.845  INFO 1304 --- [main] org.great.cache.RedisConfig              : init JredisPool ...
+2018-01-19 11:40:05.873  WARN 1304 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation is not supported on static fields: protected static java.util.Map org.great.web.controller.test.FileUpload2.map
+2018-01-19 11:40:09.335  WARN 1304 --- [main] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+2018-01-19 11:40:09.789  WARN 1304 --- [main] o.s.b.a.v.VelocityAutoConfiguration      : Cannot find template location: classpath:/templates/ (please add some templates, check your Velocity configuration, or set spring.velocity.checkTemplateLocation=false)
+2018-01-19 11:40:09.856  WARN 1304 --- [main] arterDeprecationWarningAutoConfiguration : spring-boot-starter-redis is deprecated as of Spring Boot 1.4, please migrate to spring-boot-starter-data-redis
+2018-01-19 11:40:10.020  INFO 1304 --- [main] org.great.App                            : Started App in 10.549 seconds (JVM running for 10.796)
+2018-01-19 11:40:19.707  INFO 1304 --- [http-nio-8081-exec-1] o.apache.tomcat.util.http.parser.Cookie  : A cookie header was received [1516063020,1516151448; JSESSIONID=9EBD0987A7E9CBCA236B97A504CC7B6B] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+2018-01-19 11:40:19.714  INFO 1304 --- [http-nio-8081-exec-1] o.a.c.c.C.[.[localhost].[/PersonTool]    : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-01-19 11:40:20.017 ERROR 1304 --- [http-nio-8081-exec-1] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/login.vm' in any resource loader.
+2018-01-19 11:40:21.062  INFO 1304 --- [http-nio-8081-exec-2] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-19 11:40:21.062  INFO 1304 --- [http-nio-8081-exec-2] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-19 11:40:21.069  INFO 1304 --- [http-nio-8081-exec-2] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-19 11:40:21.108  INFO 1304 --- [http-nio-8081-exec-2] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证开始
+2018-01-19 11:40:21.354  INFO 1304 --- [http-nio-8081-exec-2] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证通过
+2018-01-19 11:40:21.355  INFO 1304 --- [http-nio-8081-exec-2] org.great.web.controller.BaseContoller   : 用户[]登录认证通过(这里可以进行一些认证通过后的一些系统参数初始化操作)
+2018-01-19 11:40:21.379 ERROR 1304 --- [http-nio-8081-exec-4] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/main.vm' in any resource loader.
+2018-01-19 11:40:21.670  INFO 1304 --- [http-nio-8081-exec-9] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-19 11:40:21.697 ERROR 1304 --- [http-nio-8081-exec-9] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/weberror/weberror.vm' in any resource loader.
+2018-01-19 11:40:32.255 ERROR 1304 --- [http-nio-8081-exec-1] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/test/websocketClienk.vm' in any resource loader.
+2018-01-19 11:40:44.686 ERROR 1304 --- [http-nio-8081-exec-6] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/login.vm' in any resource loader.
+2018-01-19 11:40:54.216  INFO 1304 --- [http-nio-8081-exec-9] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-19 11:40:54.218  INFO 1304 --- [http-nio-8081-exec-9] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-19 11:40:54.219  INFO 1304 --- [http-nio-8081-exec-9] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-19 11:40:54.247  INFO 1304 --- [http-nio-8081-exec-9] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证开始
+2018-01-19 11:40:54.258  INFO 1304 --- [http-nio-8081-exec-9] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证通过
+2018-01-19 11:40:54.259  INFO 1304 --- [http-nio-8081-exec-9] org.great.web.controller.BaseContoller   : 用户[]登录认证通过(这里可以进行一些认证通过后的一些系统参数初始化操作)
+2018-01-19 11:40:54.283 ERROR 1304 --- [http-nio-8081-exec-7] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/main.vm' in any resource loader.
+2018-01-19 11:40:54.661  INFO 1304 --- [http-nio-8081-exec-3] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-19 11:40:54.665 ERROR 1304 --- [http-nio-8081-exec-3] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/weberror/weberror.vm' in any resource loader.
+2018-01-19 11:40:59.251 ERROR 1304 --- [http-nio-8081-exec-6] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/test/websocketClienk.vm' in any resource loader.
+2018-01-19 11:41:24.686 ERROR 1304 --- [http-nio-8081-exec-6] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/login.vm' in any resource loader.
+2018-01-19 11:41:30.627  INFO 1304 --- [http-nio-8081-exec-9] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-19 11:41:30.627  INFO 1304 --- [http-nio-8081-exec-9] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-19 11:41:30.628  INFO 1304 --- [http-nio-8081-exec-9] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-19 11:41:30.647  INFO 1304 --- [http-nio-8081-exec-9] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证开始
+2018-01-19 11:41:30.660  INFO 1304 --- [http-nio-8081-exec-9] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证通过
+2018-01-19 11:41:30.660  INFO 1304 --- [http-nio-8081-exec-9] org.great.web.controller.BaseContoller   : 用户[]登录认证通过(这里可以进行一些认证通过后的一些系统参数初始化操作)
+2018-01-19 11:41:30.672 ERROR 1304 --- [http-nio-8081-exec-7] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/main.vm' in any resource loader.
+2018-01-19 11:41:30.942  INFO 1304 --- [http-nio-8081-exec-8] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-19 11:41:30.947 ERROR 1304 --- [http-nio-8081-exec-8] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/weberror/weberror.vm' in any resource loader.
+2018-01-19 11:41:47.712 ERROR 1304 --- [http-nio-8081-exec-8] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/test/websocketClienk.vm' in any resource loader.
+2018-01-19 11:42:05.746 ERROR 1304 --- [http-nio-8081-exec-3] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/test/websocketClienk.vm' in any resource loader.

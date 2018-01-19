@@ -107,6 +107,25 @@ public class MyReflexUtils {
 		return printField(a, temp);
 	}
 
+	public static Object printObject(Object obj, String fieldName) {
+		Object temp = null;
+		if (obj == null || !MyStringUtils.isEmpty(fieldName)) {
+			System.out.println("null");
+			return null;
+		}
+		Field field;
+		try {
+			field = obj.getClass().getDeclaredField(fieldName);
+			if (field != null) {
+				field.setAccessible(true);
+				temp = field.get(obj);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return temp;
+	}
+
 	/**
 	 * 反射注入 根据方法名住处
 	 * 
