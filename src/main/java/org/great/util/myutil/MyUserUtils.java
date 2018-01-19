@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.lang.reflect.InvocationTargetException;
+import java.security.Principal;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -45,6 +46,20 @@ public class MyUserUtils {
 		Subject subject = SecurityUtils.getSubject();
 		User user = (User) subject.getPrincipal();
 		return user;
+	}
+
+	/**
+	 * 获取登录用户
+	 */
+	public static User getLoginUser(Principal principal, String fileName) {
+		/*
+		 * if (ThreadContext.getSecurityManager() == null) { return null; }
+		 */
+		Object obj = MyReflexUtils.printObject(principal, fileName);
+		if (obj != null) {
+			return (User) obj;
+		}
+		return null;
 	}
 
 	/**
