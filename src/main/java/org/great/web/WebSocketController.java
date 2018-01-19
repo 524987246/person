@@ -1,11 +1,16 @@
 package org.great.web;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
 
+import org.great.util.myutil.MyUserUtils;
 import org.springframework.stereotype.Component;
 
 /**
@@ -15,13 +20,15 @@ import org.springframework.stereotype.Component;
 
 @ServerEndpoint(value = "/websocket")
 @Component
-public class WebSocketTest {
+public class WebSocketController {
 	// 静态变量，用来记录当前在线连接数。应该把它设计成线程安全的。
 	private static int onlineCount = 0;
 
 	// concurrent包的线程安全Set，用来存放每个客户端对应的MyWebSocket对象。若要实现服务端与单一客户端通信的话，可以使用Map来存放，其中Key可以为用户标识
-	private static CopyOnWriteArraySet<WebSocketTest> webSocketSet = new CopyOnWriteArraySet<WebSocketTest>();
+	private static CopyOnWriteArraySet<WebSocketController> webSocketSet = new CopyOnWriteArraySet<WebSocketController>();
+	private static ConcurrentMap<Long, WebSocketController> webSocketMap = new ConcurrentHashMap<Long, WebSocketController>();
 
+	private List<WebSocketController> list = new ArrayList<>();
 	// 与某个客户端的连接会话，需要通过它来给客户端发送数据
 	private Session session;
 
@@ -35,6 +42,8 @@ public class WebSocketTest {
 	public void onOpen(Session session) {
 		this.session = session;
 		webSocketSet.add(this); // 加入set中
+		Long id = MyUserUtils.getLoginUser(session.getUserPrincipal(), "object").getId();
+		webSocketMap.put(id, this);
 		addOnlineCount(); // 在线数加1
 		System.out.println("有新连接加入！当前在线人数为" + getOnlineCount());
 	}
@@ -43,8 +52,10 @@ public class WebSocketTest {
 	 * 连接关闭调用的方法
 	 */
 	@OnClose
-	public void onClose() {
+	public void onClose(Session session) {
 		webSocketSet.remove(this); // 从set中删除
+		Long id = MyUserUtils.getLoginUser(session.getUserPrincipal(), "object").getId();
+		webSocketMap.remove(id);
 		subOnlineCount(); // 在线数减1
 		System.out.println("有一连接关闭！当前在线人数为" + getOnlineCount());
 	}
@@ -59,14 +70,54 @@ public class WebSocketTest {
 	 */
 	@OnMessage
 	public void onMessage(String message) {
+		System.out.println("来自客户端的消息:" + message + "  待处理");
+		// // 群发消息
+		// for (WebSocketController item : webSocketSet) {
+		// try {
+		// item.sendMessage(message);
+		// } catch (IOException e) {
+		// e.printStackTrace();
+		// continue;
+		// }
+		// }
+	}
+
+	public void autoMessage(String message) {
 		System.out.println("来自客户端的消息:" + message);
 		// 群发消息
-		for (WebSocketTest item : webSocketSet) {
+		for (WebSocketController item : webSocketSet) {
 			try {
 				item.sendMessage(message);
 			} catch (IOException e) {
 				e.printStackTrace();
 				continue;
+			}
+		}
+	}
+
+	/**
+	 * 对特定 中的用户推送消息
+	 * 
+	 * @param message
+	 * @param longs
+	 *            用户id集合
+	 */
+	public void oneMessage(String message, Long... longs) {
+		System.out.println("来自客户端的消息:" + message);
+		if (longs == null || longs.length == 0) {
+			System.out.println("无特定用户发送");
+			return;
+		}
+		// 特定用户发送
+		for (Number num : longs) {
+			WebSocketController item = webSocketMap.get(num);
+			if (item != null) {
+				try {
+					item.sendMessage(message);
+				} catch (IOException e) {
+					e.printStackTrace();
+					continue;
+				}
 			}
 		}
 	}
@@ -80,6 +131,9 @@ public class WebSocketTest {
 	@OnError
 	public void onError(Session session, Throwable error) {
 		System.out.println("发生错误");
+		webSocketSet.remove(this); // 从set中删除
+		Long id = MyUserUtils.getLoginUser(session.getUserPrincipal(), "object").getId();
+		webSocketMap.remove(id);
 		error.printStackTrace();
 	}
 
@@ -99,10 +153,10 @@ public class WebSocketTest {
 	}
 
 	public static synchronized void addOnlineCount() {
-		WebSocketTest.onlineCount++;
+		WebSocketController.onlineCount++;
 	}
 
 	public static synchronized void subOnlineCount() {
-		WebSocketTest.onlineCount--;
+		WebSocketController.onlineCount--;
 	}
 }

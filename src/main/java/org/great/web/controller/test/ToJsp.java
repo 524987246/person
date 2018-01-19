@@ -1,7 +1,7 @@
-package org.great.web.controller.test;
 
+package org.great.web.controller.test;
 import org.great.util.NameRandom;
-import org.great.web.WebSocketTest;
+import org.great.web.WebSocketController;
 import org.great.web.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,7 +15,7 @@ public class ToJsp {
 	@Autowired
 	private TestService testService;
 	@Autowired
-	private WebSocketTest socketTest;
+	private WebSocketController socketTest;
 
 	@RequestMapping(value = "/websocket.html", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
 	public String websocket() {
@@ -27,9 +27,9 @@ public class ToJsp {
 	@ResponseBody
 	@RequestMapping(value = "/send.html", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
 	public String sendwebsocket() {
-		//测试群发功能,完成
+		// 测试群发功能,完成
 		String str = NameRandom.filename(null);
-		socketTest.onMessage(str);
+		socketTest.autoMessage(str);
 		return str;
 	}
 

@@ -5,7 +5,16 @@ function dir(obj) {
 	}
 	console.dir(obj);
 }
-
+/**
+ * 项目项目根路径
+ * http://127.0.0.1:8080/.....
+ * @return 127.0.0.1:8080
+ */
+function getRootUrl() {
+	var str = window.location.ancestorOrigins[0];
+	str = str.split("://")[1];
+	return str;
+}
 function ProjectUrl(str) {
 	// var currentPath = window.document.location.href;
 	// 获取主机地址之后的目录，如： /ssm/index.jsp
