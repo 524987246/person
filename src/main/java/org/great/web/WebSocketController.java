@@ -8,6 +8,7 @@ import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 import javax.websocket.*;
+import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 
 import org.great.util.myutil.MyUserUtils;
@@ -18,7 +19,7 @@ import org.springframework.stereotype.Component;
  *                 注解的值将被用于监听用户连接的终端访问URL地址,客户端可以通过这个URL来连接到WebSocket服务器端
  */
 
-@ServerEndpoint(value = "/websocket")
+@ServerEndpoint(value = "/websocket/{param}")
 @Component
 public class WebSocketController {
 	// 静态变量，用来记录当前在线连接数。应该把它设计成线程安全的。
@@ -39,7 +40,7 @@ public class WebSocketController {
 	 *            可选的参数。session为与某个客户端的连接会话，需要通过它来给客户端发送数据
 	 */
 	@OnOpen
-	public void onOpen(Session session) {
+	public void onOpen(@PathParam(value = "param") String param, Session session) {
 		this.session = session;
 		webSocketSet.add(this); // 加入set中
 		Long id = MyUserUtils.getLoginUser(session.getUserPrincipal(), "object").getId();
