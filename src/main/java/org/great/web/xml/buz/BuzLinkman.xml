@@ -94,7 +94,14 @@
 		a
 		<include refid="leftjoin" />
 		<include refid="whereInfo" />
-		ORDER BY a.update_date DESC
+		<choose>
+			<when test="orderBy !=null and orderBy != ''">
+				ORDER BY a.${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date desc
+			</otherwise>
+		</choose>
 	</select>
 	<!-- 查询总数 -->
 	<select id="queryTotal" resultType="Integer" parameterType="org.great.web.bean.buz.BuzLinkman">
