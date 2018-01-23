@@ -6041,3 +6041,154 @@ java.lang.IllegalStateException: LifecycleProcessor not initialized - call 'refr
 2018-01-22 16:49:16.660  INFO 11376 --- [http-nio-8081-exec-9] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
 2018-01-22 16:49:28.048  INFO 11376 --- [http-nio-8081-exec-10] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
 2018-01-22 16:49:28.639  INFO 11376 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-23 09:09:46.490  INFO 1808 --- [main] org.great.App                            : Starting App on USER-20170315SP with PID 1808 (G:\myecplise\personal\target\classes started by Administrator in G:\myecplise\personal)
+2018-01-23 09:09:46.511  INFO 1808 --- [main] org.great.App                            : No active profile set, falling back to default profiles: default
+2018-01-23 09:09:48.212  INFO 1808 --- [main] o.g.d.DynamicDataSourceRegister          : Dynamic DataSource Registry
+2018-01-23 09:09:51.369  INFO 1808 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2018-01-23 09:09:51.371  INFO 1808 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.5
+2018-01-23 09:09:51.860  INFO 1808 --- [localhost-startStop-1] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2018-01-23 09:09:51.897  INFO 1808 --- [localhost-startStop-1] o.a.c.c.C.[.[localhost].[/PersonTool]    : Initializing Spring embedded WebApplicationContext
+2018-01-23 09:09:52.491  INFO 1808 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-01-23 09:09:52.581  INFO 1808 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.11.Final}
+2018-01-23 09:09:52.583  INFO 1808 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-01-23 09:09:52.584  INFO 1808 --- [main] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2018-01-23 09:09:52.639  INFO 1808 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-01-23 09:09:53.141  INFO 1808 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-01-23 09:09:53.317  INFO 1808 --- [main] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2018-01-23 09:09:54.098  INFO 1808 --- [main] org.great.cache.RedisConfig              : init JredisPool ...
+2018-01-23 09:09:54.124  WARN 1808 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation is not supported on static fields: protected static java.util.Map org.great.web.controller.test.FileUpload2.map
+2018-01-23 09:09:56.892  WARN 1808 --- [main] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+2018-01-23 09:09:57.302  WARN 1808 --- [main] o.s.b.a.v.VelocityAutoConfiguration      : Cannot find template location: classpath:/templates/ (please add some templates, check your Velocity configuration, or set spring.velocity.checkTemplateLocation=false)
+2018-01-23 09:09:57.361  WARN 1808 --- [main] arterDeprecationWarningAutoConfiguration : spring-boot-starter-redis is deprecated as of Spring Boot 1.4, please migrate to spring-boot-starter-data-redis
+2018-01-23 09:09:57.498  INFO 1808 --- [main] org.great.App                            : Started App in 11.431 seconds (JVM running for 11.902)
+2018-01-23 09:12:43.271  INFO 1808 --- [http-nio-8081-exec-1] o.apache.tomcat.util.http.parser.Cookie  : A cookie header was received [1516063020,1516151448] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+2018-01-23 09:12:43.281  INFO 1808 --- [http-nio-8081-exec-1] o.a.c.c.C.[.[localhost].[/PersonTool]    : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-01-23 09:12:43.660 ERROR 1808 --- [http-nio-8081-exec-1] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/login.vm' in any resource loader.
+2018-01-23 09:12:45.569  INFO 1808 --- [http-nio-8081-exec-7] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-23 09:12:45.573  INFO 1808 --- [http-nio-8081-exec-7] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-23 09:12:45.603  INFO 1808 --- [http-nio-8081-exec-7] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-23 09:12:45.665  INFO 1808 --- [http-nio-8081-exec-7] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证开始
+2018-01-23 09:12:45.957  INFO 1808 --- [http-nio-8081-exec-7] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证通过
+2018-01-23 09:12:45.958  INFO 1808 --- [http-nio-8081-exec-7] org.great.web.controller.BaseContoller   : 用户[]登录认证通过(这里可以进行一些认证通过后的一些系统参数初始化操作)
+2018-01-23 09:12:46.006 ERROR 1808 --- [http-nio-8081-exec-9] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/main.vm' in any resource loader.
+2018-01-23 09:12:46.645  INFO 1808 --- [http-nio-8081-exec-4] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-23 09:12:46.665 ERROR 1808 --- [http-nio-8081-exec-4] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/weberror/weberror.vm' in any resource loader.
+2018-01-23 09:12:52.046  INFO 1808 --- [http-nio-8081-exec-2] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-23 09:12:52.068 ERROR 1808 --- [http-nio-8081-exec-2] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/buz/linkman-list.vm' in any resource loader.
+2018-01-23 09:12:52.167  INFO 1808 --- [http-nio-8081-exec-2] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-23 09:12:52.168  INFO 1808 --- [http-nio-8081-exec-2] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-23 09:12:52.168  INFO 1808 --- [http-nio-8081-exec-2] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-23 09:12:52.168  INFO 1808 --- [http-nio-8081-exec-2] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-23 09:12:52.388  INFO 1808 --- [http-nio-8081-exec-1] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-23 09:12:53.381  INFO 1808 --- [http-nio-8081-exec-8] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-23 09:12:54.009  INFO 1808 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-23 09:12:54.612  INFO 1808 --- [http-nio-8081-exec-9] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-23 09:12:55.043  INFO 1808 --- [http-nio-8081-exec-10] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-23 09:12:55.710  INFO 1808 --- [http-nio-8081-exec-4] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-23 09:12:56.173  INFO 1808 --- [http-nio-8081-exec-6] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-23 09:12:56.669  INFO 1808 --- [http-nio-8081-exec-5] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-23 09:12:57.030  INFO 1808 --- [http-nio-8081-exec-3] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-23 09:13:26.618 ERROR 1808 --- [http-nio-8081-exec-1] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/generate/generate.vm' in any resource loader.
+2018-01-23 09:13:26.621 ERROR 1808 --- [http-nio-8081-exec-1] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/generate/generate.html.vm' in any resource loader.
+2018-01-23 09:18:37.815  INFO 4032 --- [main] org.great.App                            : Starting App on USER-20170315SP with PID 4032 (G:\myecplise\personal\target\classes started by Administrator in G:\myecplise\personal)
+2018-01-23 09:18:37.858  INFO 4032 --- [main] org.great.App                            : No active profile set, falling back to default profiles: default
+2018-01-23 09:18:39.776  INFO 4032 --- [main] o.g.d.DynamicDataSourceRegister          : Dynamic DataSource Registry
+2018-01-23 09:18:44.102  INFO 4032 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2018-01-23 09:18:44.104  INFO 4032 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.5
+2018-01-23 09:18:44.780  INFO 4032 --- [localhost-startStop-1] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2018-01-23 09:18:44.818  INFO 4032 --- [localhost-startStop-1] o.a.c.c.C.[.[localhost].[/PersonTool]    : Initializing Spring embedded WebApplicationContext
+2018-01-23 09:18:45.741  INFO 4032 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-01-23 09:18:45.914  INFO 4032 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.11.Final}
+2018-01-23 09:18:45.916  INFO 4032 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-01-23 09:18:45.919  INFO 4032 --- [main] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2018-01-23 09:18:46.023  INFO 4032 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-01-23 09:18:46.811  INFO 4032 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-01-23 09:18:47.140  INFO 4032 --- [main] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2018-01-23 09:18:48.206  INFO 4032 --- [main] org.great.cache.RedisConfig              : init JredisPool ...
+2018-01-23 09:18:48.241  WARN 4032 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation is not supported on static fields: protected static java.util.Map org.great.web.controller.test.FileUpload2.map
+2018-01-23 09:18:53.299  WARN 4032 --- [main] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+2018-01-23 09:18:53.981  WARN 4032 --- [main] o.s.b.a.v.VelocityAutoConfiguration      : Cannot find template location: classpath:/templates/ (please add some templates, check your Velocity configuration, or set spring.velocity.checkTemplateLocation=false)
+2018-01-23 09:18:54.067  WARN 4032 --- [main] arterDeprecationWarningAutoConfiguration : spring-boot-starter-redis is deprecated as of Spring Boot 1.4, please migrate to spring-boot-starter-data-redis
+2018-01-23 09:18:54.503  INFO 4032 --- [main] org.great.App                            : Started App in 17.49 seconds (JVM running for 19.196)
+2018-01-23 09:19:10.656  INFO 4032 --- [http-nio-8081-exec-7] o.apache.tomcat.util.http.parser.Cookie  : A cookie header was received [1516063020,1516151448] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+2018-01-23 09:19:10.666  INFO 4032 --- [http-nio-8081-exec-7] o.a.c.c.C.[.[localhost].[/PersonTool]    : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-01-23 09:19:11.020 ERROR 4032 --- [http-nio-8081-exec-7] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/login.vm' in any resource loader.
+2018-01-23 09:19:12.314  INFO 4032 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-23 09:19:12.315  INFO 4032 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-23 09:19:12.326  INFO 4032 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-23 09:19:12.390  INFO 4032 --- [http-nio-8081-exec-8] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证开始
+2018-01-23 09:19:12.569  INFO 4032 --- [http-nio-8081-exec-8] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证通过
+2018-01-23 09:19:12.570  INFO 4032 --- [http-nio-8081-exec-8] org.great.web.controller.BaseContoller   : 用户[]登录认证通过(这里可以进行一些认证通过后的一些系统参数初始化操作)
+2018-01-23 09:19:12.639 ERROR 4032 --- [http-nio-8081-exec-9] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/main.vm' in any resource loader.
+2018-01-23 09:19:13.184  INFO 4032 --- [http-nio-8081-exec-10] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-23 09:19:13.247 ERROR 4032 --- [http-nio-8081-exec-10] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/weberror/weberror.vm' in any resource loader.
+2018-01-23 09:19:16.293 ERROR 4032 --- [http-nio-8081-exec-2] org.apache.velocity                      : ResourceManager : unable to find resource 'error.vm' in any resource loader.
+2018-01-23 09:19:16.296 ERROR 4032 --- [http-nio-8081-exec-2] org.apache.velocity                      : ResourceManager : unable to find resource 'error.html.vm' in any resource loader.
+2018-01-23 09:19:24.967 ERROR 4032 --- [http-nio-8081-exec-9] org.apache.velocity                      : ResourceManager : unable to find resource 'error.vm' in any resource loader.
+2018-01-23 09:19:24.969 ERROR 4032 --- [http-nio-8081-exec-9] org.apache.velocity                      : ResourceManager : unable to find resource 'error.html.vm' in any resource loader.
+2018-01-23 09:19:30.930 ERROR 4032 --- [http-nio-8081-exec-10] org.apache.velocity                      : ResourceManager : unable to find resource 'error.vm' in any resource loader.
+2018-01-23 09:19:30.932 ERROR 4032 --- [http-nio-8081-exec-10] org.apache.velocity                      : ResourceManager : unable to find resource 'error.html.vm' in any resource loader.
+2018-01-23 09:19:33.775 ERROR 4032 --- [http-nio-8081-exec-1] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/main.vm' in any resource loader.
+2018-01-23 09:19:33.924  INFO 4032 --- [http-nio-8081-exec-3] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-23 09:19:33.928 ERROR 4032 --- [http-nio-8081-exec-3] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/weberror/weberror.vm' in any resource loader.
+2018-01-23 09:20:08.956 ERROR 4032 --- [http-nio-8081-exec-9] org.apache.velocity                      : ResourceManager : unable to find resource 'error.vm' in any resource loader.
+2018-01-23 09:20:08.958 ERROR 4032 --- [http-nio-8081-exec-9] org.apache.velocity                      : ResourceManager : unable to find resource 'error.html.vm' in any resource loader.
+2018-01-23 09:21:59.135  INFO 328 --- [main] org.great.App                            : Starting App on USER-20170315SP with PID 328 (G:\myecplise\personal\target\classes started by Administrator in G:\myecplise\personal)
+2018-01-23 09:21:59.140  INFO 328 --- [main] org.great.App                            : No active profile set, falling back to default profiles: default
+2018-01-23 09:22:00.646  INFO 328 --- [main] o.g.d.DynamicDataSourceRegister          : Dynamic DataSource Registry
+2018-01-23 09:22:04.119  INFO 328 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2018-01-23 09:22:04.122  INFO 328 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.5
+2018-01-23 09:22:04.636  INFO 328 --- [localhost-startStop-1] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2018-01-23 09:22:04.645  INFO 328 --- [localhost-startStop-1] o.a.c.c.C.[.[localhost].[/PersonTool]    : Initializing Spring embedded WebApplicationContext
+2018-01-23 09:22:05.528  INFO 328 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-01-23 09:22:05.658  INFO 328 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.11.Final}
+2018-01-23 09:22:05.660  INFO 328 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-01-23 09:22:05.663  INFO 328 --- [main] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2018-01-23 09:22:05.716  INFO 328 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-01-23 09:22:06.263  INFO 328 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-01-23 09:22:06.486  INFO 328 --- [main] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2018-01-23 09:22:07.551  INFO 328 --- [main] org.great.cache.RedisConfig              : init JredisPool ...
+2018-01-23 09:22:07.624  WARN 328 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation is not supported on static fields: protected static java.util.Map org.great.web.controller.test.FileUpload2.map
+2018-01-23 09:22:12.135  WARN 328 --- [main] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+2018-01-23 09:22:12.828  WARN 328 --- [main] o.s.b.a.v.VelocityAutoConfiguration      : Cannot find template location: classpath:/templates/ (please add some templates, check your Velocity configuration, or set spring.velocity.checkTemplateLocation=false)
+2018-01-23 09:22:12.960  WARN 328 --- [main] arterDeprecationWarningAutoConfiguration : spring-boot-starter-redis is deprecated as of Spring Boot 1.4, please migrate to spring-boot-starter-data-redis
+2018-01-23 09:22:13.278  INFO 328 --- [main] org.great.App                            : Started App in 14.625 seconds (JVM running for 15.139)
+2018-01-23 09:22:25.274  INFO 328 --- [http-nio-8081-exec-2] o.apache.tomcat.util.http.parser.Cookie  : A cookie header was received [1516063020,1516151448] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+2018-01-23 09:22:25.280  INFO 328 --- [http-nio-8081-exec-2] o.a.c.c.C.[.[localhost].[/PersonTool]    : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-01-23 09:22:25.610 ERROR 328 --- [http-nio-8081-exec-2] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/login.vm' in any resource loader.
+2018-01-23 09:22:26.711  INFO 328 --- [http-nio-8081-exec-3] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-23 09:22:26.712  INFO 328 --- [http-nio-8081-exec-3] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-23 09:22:26.718  INFO 328 --- [http-nio-8081-exec-3] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-23 09:22:26.760  INFO 328 --- [http-nio-8081-exec-3] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证开始
+2018-01-23 09:22:26.893  INFO 328 --- [http-nio-8081-exec-3] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证通过
+2018-01-23 09:22:26.894  INFO 328 --- [http-nio-8081-exec-3] org.great.web.controller.BaseContoller   : 用户[]登录认证通过(这里可以进行一些认证通过后的一些系统参数初始化操作)
+2018-01-23 09:22:26.961 ERROR 328 --- [http-nio-8081-exec-4] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/main.vm' in any resource loader.
+2018-01-23 09:22:27.355  INFO 328 --- [http-nio-8081-exec-5] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-23 09:22:27.414 ERROR 328 --- [http-nio-8081-exec-5] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/weberror/weberror.vm' in any resource loader.
+2018-01-23 09:22:33.017 ERROR 328 --- [http-nio-8081-exec-7] org.apache.velocity                      : ResourceManager : unable to find resource 'error.vm' in any resource loader.
+2018-01-23 09:22:33.019 ERROR 328 --- [http-nio-8081-exec-7] org.apache.velocity                      : ResourceManager : unable to find resource 'error.html.vm' in any resource loader.
+2018-01-23 09:23:07.684 ERROR 328 --- [http-nio-8081-exec-6] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/main.vm' in any resource loader.
+2018-01-23 09:23:07.832  INFO 328 --- [http-nio-8081-exec-10] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-23 09:23:07.838 ERROR 328 --- [http-nio-8081-exec-10] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/weberror/weberror.vm' in any resource loader.
+2018-01-23 09:23:11.591  INFO 328 --- [http-nio-8081-exec-1] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-23 09:23:11.596 ERROR 328 --- [http-nio-8081-exec-1] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/login.vm' in any resource loader.
+2018-01-23 09:23:14.719 ERROR 328 --- [http-nio-8081-exec-4] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/login.vm' in any resource loader.
+2018-01-23 09:23:36.249 ERROR 328 --- [http-nio-8081-exec-10] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/login.vm' in any resource loader.
+2018-01-23 09:23:40.495 ERROR 328 --- [http-nio-8081-exec-1] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/login.vm' in any resource loader.
+2018-01-23 09:23:42.879  INFO 328 --- [http-nio-8081-exec-3] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-23 09:23:42.880  INFO 328 --- [http-nio-8081-exec-3] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-01-23 09:23:42.882  INFO 328 --- [http-nio-8081-exec-3] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-01-23 09:23:42.903  INFO 328 --- [http-nio-8081-exec-3] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证开始
+2018-01-23 09:23:42.915  INFO 328 --- [http-nio-8081-exec-3] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证通过
+2018-01-23 09:23:42.917  INFO 328 --- [http-nio-8081-exec-3] org.great.web.controller.BaseContoller   : 用户[]登录认证通过(这里可以进行一些认证通过后的一些系统参数初始化操作)
+2018-01-23 09:23:42.936 ERROR 328 --- [http-nio-8081-exec-5] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/main.vm' in any resource loader.
+2018-01-23 09:23:43.036  INFO 328 --- [http-nio-8081-exec-10] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-01-23 09:23:43.041 ERROR 328 --- [http-nio-8081-exec-10] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/weberror/weberror.vm' in any resource loader.
+2018-01-23 09:23:45.481 ERROR 328 --- [http-nio-8081-exec-9] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/generate/generate.vm' in any resource loader.
+2018-01-23 09:23:45.483 ERROR 328 --- [http-nio-8081-exec-9] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/generate/generate.html.vm' in any resource loader.

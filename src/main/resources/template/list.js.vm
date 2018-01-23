@@ -20,7 +20,7 @@ var columnsArray = [
 #foreach($i in $collist)
 	{
 		data : "${i.attrname}",
-		true_col : "${i.attrname}"
+		true_col : "${i.columnName}"
 	},
 #end
 	{
