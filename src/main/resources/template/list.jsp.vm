@@ -64,7 +64,7 @@
 #foreach($i in $collist)
 				 <th> ${i.comments}</th>
 #end
-					</tr>
+					<th> 操作</th></tr>
 				</thead>
 				<tbody>
 

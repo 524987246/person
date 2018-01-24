@@ -97,7 +97,7 @@
 		</choose>
 	</select>
 	<!-- 查询总数 -->
-	<select id="queryTotal" resultType="Integer" parameterType="org.great.web.bean.${package}.${name}">
+	<select id="queryTotal" resultType="Long" parameterType="org.great.web.bean.${package}.${name}">
 		SELECT
 		count(*)
 		FROM

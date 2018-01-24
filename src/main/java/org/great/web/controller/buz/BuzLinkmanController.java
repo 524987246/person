@@ -56,6 +56,8 @@ public class BuzLinkmanController {
 	@ResponseBody
 	public MyResult info(@RequestBody BuzLinkman buzLinkman, HttpServletRequest request, Model model) {
 		Map<String, Object> map = new HashMap<String, Object>();
+		Long totalCount = buzLinkmanService.queryTotal(buzLinkman);
+		buzLinkman.setPageInfo(totalCount);
 		PageHelper.startPage(buzLinkman.getPage_new(), buzLinkman.getPage_size());
 		List<BuzLinkman> list = buzLinkmanService.findList(buzLinkman);
 		PageInfo<BuzLinkman> page = new PageInfo<BuzLinkman>(list);

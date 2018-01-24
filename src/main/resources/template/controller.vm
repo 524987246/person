@@ -56,6 +56,8 @@ public class ${name}Controller {
 	@ResponseBody
 	public MyResult info(@RequestBody ${name} ${name2}, HttpServletRequest request, Model model) {
 		Map<String, Object> map = new HashMap<String, Object>();
+		Long totalCount = ${name2}Service.queryTotal(${name2});
+		${name2}.setPageInfo(totalCount);
 		PageHelper.startPage(${name2}.getPage_new(), ${name2}.getPage_size());
 		List<${name}> list = ${name2}Service.findList(${name2});
 		PageInfo<${name}> page = new PageInfo<${name}>(list);

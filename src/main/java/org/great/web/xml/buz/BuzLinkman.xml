@@ -104,7 +104,7 @@
 		</choose>
 	</select>
 	<!-- 查询总数 -->
-	<select id="queryTotal" resultType="Integer" parameterType="org.great.web.bean.buz.BuzLinkman">
+	<select id="queryTotal" resultType="Long" parameterType="org.great.web.bean.buz.BuzLinkman">
 		SELECT
 		count(*)
 		FROM

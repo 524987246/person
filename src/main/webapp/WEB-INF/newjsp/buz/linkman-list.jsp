@@ -71,6 +71,7 @@
 				 <th> 部门</th>
 				 <th> 手机</th>
 				 <th> 年龄</th>
+				 <th> 操作</th>
 					</tr>
 				</thead>
 				<tbody>
