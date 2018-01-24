@@ -21,7 +21,7 @@ public class TestUtils {
 	@Test
 	public void objtest() {
 		Student2 student2 = new Student2();
-		student2.date = "2019-01-21 05:22:30";
+		//student2.date = "2019-01-21 ";
 		String str = ValidtorUtil.validbean(student2);
 		System.out.println(str);
 		/*

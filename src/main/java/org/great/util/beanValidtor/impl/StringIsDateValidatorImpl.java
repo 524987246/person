@@ -29,7 +29,10 @@ public class StringIsDateValidatorImpl implements ConstraintValidator<StringIsDa
 
 	public boolean isValid(String str, ConstraintValidatorContext constraintValidatorContext) {
 		System.out.println("str==" + str);
-		if (MyStringUtils.isDate(str)) {
+		if(str==null){
+			return true;
+		}
+		if (MyStringUtils.isDate(str.trim())) {
 			return true;
 		} else {
 			return false;
