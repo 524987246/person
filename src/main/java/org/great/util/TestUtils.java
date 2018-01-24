@@ -5,14 +5,25 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
+import org.great.util.beanValidtor.StringIsDate;
+import org.great.util.beanValidtor.ValidtorUtil;
 import org.great.util.myutil.MyPrintUtil;
 import org.great.util.myutil.MyUserUtils;
 import org.great.web.bean.sys.Menu;
+import org.junit.Test;
 
 public class TestUtils {
+	class Student2 {
+		@StringIsDate
+		String date;
+	}
 
-	// @Test
+	@Test
 	public void objtest() {
+		Student2 student2 = new Student2();
+		student2.date = "2019-01-21 05:22:30";
+		String str = ValidtorUtil.validbean(student2);
+		System.out.println(str);
 		/*
 		 * // 克隆方法测试 Role role = new Role(); Menu menu = new Menu();
 		 * menu.setName("克隆前"); List<Menu> list = new ArrayList<Menu>();

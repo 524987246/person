@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.great.config.BaseResoure;
+import org.great.util.beanValidtor.StringIsDate;
 import org.great.util.myutil.MyDateUtils;
 import org.great.util.myutil.MyStringUtils;
 import org.great.util.myutil.MyUserUtils;
@@ -45,14 +46,17 @@ public class BaseBean implements Serializable {
 	/**
 	 * 创建日期
 	 */
+	@StringIsDate
 	private String createDate;
 	/**
 	 * 查询使用,开始时间
 	 */
+	@StringIsDate
 	private String queryBeginDate;
 	/**
 	 * 查询使用,结束时间
 	 */
+	@StringIsDate
 	private String queryEndDate;
 	/**
 	 * 排序
@@ -65,6 +69,7 @@ public class BaseBean implements Serializable {
 	/**
 	 * 更新日期
 	 */
+	@StringIsDate
 	private String updateDate;
 	/**
 	 * 删除标记（1：正常；2：审核 ；3：删除）
