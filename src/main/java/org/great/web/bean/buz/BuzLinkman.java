@@ -68,6 +68,9 @@ public class BuzLinkman  extends BaseBean implements Serializable {
 		"dept=" + dept + 
 		"phone=" + phone + 
 		"age=" + age + 
+		"]"+"Address ["+
+		getClass().getName() + "@" + 
+		Integer.toHexString(hashCode())+
 		"]";
 	}
 

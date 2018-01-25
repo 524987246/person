@@ -35,6 +35,9 @@ public class ${name}  extends BaseBean implements Serializable {
 #foreach($i in $collist)
 		"${i.attrname}=" + ${i.attrname} + 
 #end
+		"]"+"Address ["+
+		getClass().getName() + "@" + 
+		Integer.toHexString(hashCode())+
 		"]";
 	}
 

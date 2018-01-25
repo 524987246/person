@@ -1,5 +1,4 @@
 //ztree工具  封装成对象,便于查询等操作
-//TODO 尚未测试
 function zTreeUtil(setting, htmlId) {
 	var zTree;
 	this.setting = setting;

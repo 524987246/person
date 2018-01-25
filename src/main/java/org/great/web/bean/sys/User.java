@@ -40,7 +40,7 @@ public class User extends BaseBean implements Serializable {
 	 * 密码
 	 */
 	@Size(min = 8, max = 16, message = "密码应在8-16位")
-	private String password;
+	private transient String password;
 
 	/**
 	 * 密码修改时的新密码

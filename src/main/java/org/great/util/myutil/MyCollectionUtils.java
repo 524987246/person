@@ -3,12 +3,16 @@ package org.great.util.myutil;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.poi.ss.formula.functions.T;
+
+import antlr.collections.impl.Vector;
 
 /**
  * 集合工具类
@@ -19,6 +23,13 @@ import org.apache.poi.ss.formula.functions.T;
  */
 public class MyCollectionUtils {
 
+	/**
+	 * 获取线程安全 的map集合
+	 * @return
+	 */
+	public static Map getSyncHashMap() {
+		return new ConcurrentHashMap<>();
+	}
 	/**
 	 * list to Set
 	 * 
