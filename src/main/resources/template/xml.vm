@@ -65,8 +65,8 @@
 	<sql id="leftjoin">
 	</sql>
 	<!-- 查询单个 -->
-	<select id="get" resultType="org.great.web.bean.${package}.${name}"
-		parameterType="org.great.web.bean.${package}.${name}">
+	<select id="get" resultType="${name2}"
+		parameterType="${name2}">
 		SELECT
 		<include refid="beanAttr" />
 		FROM
@@ -78,8 +78,8 @@
 		a.id = #{id}
 	</select>
 	<!-- 查询集合 -->
-	<select id="findList" resultType="org.great.web.bean.${package}.${name}"
-		parameterType="org.great.web.bean.${package}.${name}">
+	<select id="findList" resultType="${name2}"
+		parameterType="${name2}">
 		SELECT
 		<include refid="beanAttr" />
 		FROM
@@ -97,7 +97,7 @@
 		</choose>
 	</select>
 	<!-- 查询总数 -->
-	<select id="queryTotal" resultType="Long" parameterType="org.great.web.bean.${package}.${name}">
+	<select id="queryTotal" resultType="Long" parameterType="${name2}">
 		SELECT
 		count(*)
 		FROM
@@ -106,7 +106,7 @@
 		<include refid="whereInfo" />
 	</select>
 	<!-- 删除 -->
-	<update id="delete" parameterType="org.great.web.bean.${package}.${name}">
+	<update id="delete" parameterType="${name2}">
 		UPDATE
 		<include refid="tableName" />
 		<set>
@@ -117,7 +117,7 @@
 		id=#{id}
 	</update>
 	<!-- 批量删除 -->
-	<update id="batchdelete" parameterType="org.great.web.bean.${package}.${name}">
+	<update id="batchdelete" parameterType="${name2}">
 		UPDATE
 		<include refid="tableName" />
 		<set>
@@ -132,7 +132,7 @@
 		</foreach>
 	</update>
 	<!-- 更新 -->
-	<update id="update" parameterType="org.great.web.bean.${package}.${name}">
+	<update id="update" parameterType="${name2}">
 		UPDATE
 		<include refid="tableName" />
 		<set>
@@ -145,7 +145,7 @@
 		id=#{id}
 	</update>
 	<!-- 保存 -->
-	<insert id="save" parameterType="org.great.web.bean.${package}.${name}" 
+	<insert id="save" parameterType="${name2}" 
 	useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO
 		<include refid="tableName" />

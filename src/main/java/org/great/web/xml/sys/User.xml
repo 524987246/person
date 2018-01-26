@@ -82,7 +82,7 @@
 			remarks=#{remarks},
 		</if>
 	</sql>
-	<resultMap id="userResult" type="org.great.web.bean.sys.User">
+	<resultMap id="userResult" type="user">
 		<!-- 基本属性 -->
 		<id property="id" column="id" />
 		<result property="name" column="name" />
@@ -128,7 +128,7 @@
 		</collection>
 	</resultMap>
 	<!-- 查询单个用户,用于登录查找之类 -->
-	<select id="get" resultMap="userResult" parameterType="org.great.web.bean.sys.User">
+	<select id="get" resultMap="userResult" parameterType="user">
 		select
 		<include refid="beanAttr" />
 		,
@@ -188,8 +188,8 @@
 		order BY d.order_num 
 	</select>
 	<!-- 查询集合 -->
-	<select id="findList" resultType="org.great.web.bean.sys.User"
-		parameterType="org.great.web.bean.sys.User">
+	<select id="findList" resultType="user"
+		parameterType="user">
 		SELECT
 		<include refid="beanAttr" />
 		FROM
@@ -208,7 +208,7 @@
 
 	</select>
 	<!-- 查询总数 -->
-	<select id="queryTotal" resultType="Long" parameterType="org.great.web.bean.sys.User">
+	<select id="queryTotal" resultType="Long" parameterType="user">
 		SELECT
 		count(*)
 		FROM
@@ -217,7 +217,7 @@
 		<include refid="whereInfo" />
 	</select>
 	<!-- 删除 -->
-	<update id="delete" parameterType="org.great.web.bean.sys.User">
+	<update id="delete" parameterType="user">
 		UPDATE
 		<include refid="tableName" />
 		<set>
@@ -228,7 +228,7 @@
 		id=#{id}
 	</update>
 	<!-- 批量删除 -->
-	<update id="batchdelete" parameterType="org.great.web.bean.sys.User">
+	<update id="batchdelete" parameterType="user">
 		UPDATE
 		<include refid="tableName" />
 		<set>
@@ -243,7 +243,7 @@
 		</foreach>
 	</update>
 	<!-- 更新 -->
-	<update id="update" parameterType="org.great.web.bean.sys.User">
+	<update id="update" parameterType="user">
 		UPDATE
 		<include refid="tableName" />
 		<set>
@@ -260,7 +260,7 @@
 	</update>
 	<!-- 保存 -->
 	<insert id="save" useGeneratedKeys="true" keyProperty="id"
-		parameterType="org.great.web.bean.sys.User">
+		parameterType="user">
 		INSERT INTO
 		<include refid="tableName" />
 		(create_by,create_date,update_by,update_date
@@ -281,8 +281,8 @@
 		<if test="dept !=null and dept.id !=null and dept.id !=''">,#{dept.id}</if>
 		)
 	</insert>
-	<select id="checkLoginName" resultType="org.great.web.bean.sys.User"
-		parameterType="org.great.web.bean.sys.User">
+	<select id="checkLoginName" resultType="user"
+		parameterType="user">
 		SELECT
 		*
 		FROM
