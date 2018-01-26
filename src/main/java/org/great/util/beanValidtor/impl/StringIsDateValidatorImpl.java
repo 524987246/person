@@ -1,16 +1,12 @@
 package org.great.util.beanValidtor.impl;
 
-import org.great.util.beanValidtor.MapNotOne;
 import org.great.util.beanValidtor.StringIsDate;
-import org.great.util.myutil.MyPrintUtil;
 import org.great.util.myutil.MyStringUtils;
 import org.springframework.stereotype.Service;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-
-import java.util.Iterator;
-import java.util.Map;
+import static org.great.util.myutil.MyStringUtils.*;
 
 /**
  * 自定义注解ListNotHasNull 的实现类 用于判断List集合中是否含有null元素
@@ -29,10 +25,10 @@ public class StringIsDateValidatorImpl implements ConstraintValidator<StringIsDa
 
 	public boolean isValid(String str, ConstraintValidatorContext constraintValidatorContext) {
 		System.out.println("str==" + str);
-		if(str==null){
+		if (isNullOrEmpty(str)) {
 			return true;
 		}
-		if (MyStringUtils.isDate(str.trim())) {
+		if (isDate(str.trim())) {
 			return true;
 		} else {
 			return false;

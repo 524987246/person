@@ -40,7 +40,18 @@ public class MyStringUtils {
 		}
 		return bo;
 	}
-
+	/**
+	 * 判断字符串为null 或者为空
+	 * @param str
+	 * @return  true (null或空)  false (不为空)
+	 */
+	public static boolean isNullOrEmpty(String str) {
+		boolean bo = false;
+		if (str == null || !str.trim().equals("")) {
+			bo = true;
+		}
+		return bo;
+	}
 	/**
 	 * 是否可转化为数字
 	 * 

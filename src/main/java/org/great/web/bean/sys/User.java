@@ -16,9 +16,10 @@ import org.great.util.myutil.MyStringUtils;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 
-@Component
+@Repository("user")
 @Scope("prototype")
 public class User extends BaseBean implements Serializable {
 	/**
