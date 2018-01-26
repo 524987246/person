@@ -72,8 +72,8 @@
 	<sql id="leftjoin">
 	</sql>
 	<!-- 查询单个 -->
-	<select id="get" resultType="org.great.web.bean.buz.BuzLinkman"
-		parameterType="org.great.web.bean.buz.BuzLinkman">
+	<select id="get" resultType="buzLinkman"
+		parameterType="buzLinkman">
 		SELECT
 		<include refid="beanAttr" />
 		FROM
@@ -85,8 +85,8 @@
 		a.id = #{id}
 	</select>
 	<!-- 查询集合 -->
-	<select id="findList" resultType="org.great.web.bean.buz.BuzLinkman"
-		parameterType="org.great.web.bean.buz.BuzLinkman">
+	<select id="findList" resultType="buzLinkman"
+		parameterType="buzLinkman">
 		SELECT
 		<include refid="beanAttr" />
 		FROM
@@ -104,7 +104,7 @@
 		</choose>
 	</select>
 	<!-- 查询总数 -->
-	<select id="queryTotal" resultType="Long" parameterType="org.great.web.bean.buz.BuzLinkman">
+	<select id="queryTotal" resultType="Long" parameterType="buzLinkman">
 		SELECT
 		count(*)
 		FROM
@@ -113,7 +113,7 @@
 		<include refid="whereInfo" />
 	</select>
 	<!-- 删除 -->
-	<update id="delete" parameterType="org.great.web.bean.buz.BuzLinkman">
+	<update id="delete" parameterType="buzLinkman">
 		UPDATE
 		<include refid="tableName" />
 		<set>
@@ -124,7 +124,7 @@
 		id=#{id}
 	</update>
 	<!-- 批量删除 -->
-	<update id="batchdelete" parameterType="org.great.web.bean.buz.BuzLinkman">
+	<update id="batchdelete" parameterType="buzLinkman">
 		UPDATE
 		<include refid="tableName" />
 		<set>
@@ -139,7 +139,7 @@
 		</foreach>
 	</update>
 	<!-- 更新 -->
-	<update id="update" parameterType="org.great.web.bean.buz.BuzLinkman">
+	<update id="update" parameterType="buzLinkman">
 		UPDATE
 		<include refid="tableName" />
 		<set>
@@ -153,7 +153,7 @@
 		id=#{id}
 	</update>
 	<!-- 保存 -->
-	<insert id="save" parameterType="org.great.web.bean.buz.BuzLinkman" 
+	<insert id="save" parameterType="buzLinkman" 
 	useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO
 		<include refid="tableName" />
