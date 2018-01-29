@@ -1,7 +1,5 @@
 package org.great;
 
-import java.util.List;
-
 import org.great.datasource.DynamicDataSourceRegister;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -9,14 +7,9 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration;
 import org.springframework.boot.autoconfigure.web.MultipartAutoConfiguration;
-import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-
-import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.alibaba.fastjson.support.config.FastJsonConfig;
-import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
@@ -27,28 +20,6 @@ import org.springframework.context.annotation.Import;
 @MapperScan("org.great.web.mapper")
 // 扫描：该包下相应的class,主要是MyBatis的持久化类.
 public class App extends WebMvcConfigurerAdapter {
-	@Override
-	public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-		super.configureMessageConverters(converters);
-
-		/*
-		 * 1、需要先定义一个 convert 转换消息的对象; 2、添加fastJson 的配置信息，比如：是否要格式化返回的json数据;
-		 * 3、在convert中添加配置信息. 4、将convert添加到converters当中.
-		 */
-
-		// 1、需要先定义一个 convert 转换消息的对象;
-		FastJsonHttpMessageConverter fastConverter = new FastJsonHttpMessageConverter();
-
-		// 2、添加fastJson 的配置信息，比如：是否要格式化返回的json数据;
-		FastJsonConfig fastJsonConfig = new FastJsonConfig();
-		fastJsonConfig.setSerializerFeatures(SerializerFeature.PrettyFormat);
-
-		// 3、在convert中添加配置信息.
-		fastConverter.setFastJsonConfig(fastJsonConfig);
-
-		// 4、将convert添加到converters当中.
-		converters.add(fastConverter);
-	}
 
 	// @Bean
 	// @ConfigurationProperties(prefix = "spring.datasource")
@@ -82,8 +53,8 @@ public class App extends WebMvcConfigurerAdapter {
 		CommonsMultipartResolver resolver = new CommonsMultipartResolver();
 		resolver.setDefaultEncoding("UTF-8");
 		resolver.setResolveLazily(true);// resolveLazily属性启用是为了推迟文件解析，以在在UploadAction中捕获文件大小异常
-		resolver.setMaxInMemorySize(1024*4);
-		//resolver.setMaxUploadSize(50 * 1024 * 1024 * 1024);// 上传文件大小 50M
+		resolver.setMaxInMemorySize(1024 * 4);
+		// resolver.setMaxUploadSize(50 * 1024 * 1024 * 1024);// 上传文件大小 50M
 		System.out.println("MultipartResolver初始化");
 		return resolver;
 	}

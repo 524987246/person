@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -24,6 +25,7 @@ public class MyStringUtils {
 	 * @return
 	 */
 	public static synchronized String makeUUID() {
+		//UUID.randomUUID();
 		Date date = new Date();
 		StringBuffer s = new StringBuffer(MyDateUtils.dateToString(date, MyDateUtils.DATE_TIME_PATTERN));
 		return s.append((new Random().nextInt(900) + 100)).toString();
