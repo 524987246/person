@@ -221,7 +221,7 @@
 			<artifactId>xstream</artifactId>
 			<version>1.4.8</version>
 		</dependency>
-		<!-- 添加sqlserver数据库驱动依赖包.  -->
+		<!-- 添加sqlserver数据库驱动依赖包. -->
 		<dependency>
 			<groupId>com.microsoft.sqlserver</groupId>
 			<artifactId>sqljdbc4</artifactId>
@@ -269,8 +269,13 @@
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
 		</dependency>
-		
-		
+		<!--引入druid最新maven依赖 -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>1.0.29</version>
+		</dependency>
+
 	</dependencies>
 	<!-- 构建节点. -->
 	<build>

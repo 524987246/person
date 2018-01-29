@@ -53,7 +53,7 @@ function getDBname() {
 			}
 		},
 		error : function(data) {
-			hint("请求异常");
+			alert("请求异常");
 		}
 	});
 }
@@ -74,14 +74,14 @@ function test_connection() {
 	username = $(".query").eq(0).val();
 	if (username.trim() == "") {
 		$(".query").eq(0).focus();
-		hint("请输入账号");
+		alert("请输入账号");
 		Delayedclose(5000);
 		return;
 	}
 	userpwd = $(".query").eq(1).val();
 	if (userpwd.trim() == "") {
 		$(".query").eq(0).focus();
-		hint("请输入密码");
+		alert("请输入密码");
 		Delayedclose(5000);
 		return;
 	}
@@ -96,17 +96,17 @@ function test_connection() {
 		async : true,
 		success : function(data) {
 			if (data == "true") {
-				hint("连接成功");
+				alert("连接成功");
 			} else if (data == "false") {
 				inituser();
-				hint("连接失败");
+				alert("连接失败");
 			} else {
-				hint("异常数据===>" + data);
+				alert("异常数据===>" + data);
 			}
 		},
 		error : function(data) {
 			inituser();
-			hint("请求异常");
+			alert("请求异常");
 		}
 	});
 }
@@ -122,21 +122,21 @@ function find_db() {
 	var inputs = $(".query");
 	if ($(".query").eq(0).val().trim() == "") {
 		$(".query").eq(0).focus();
-		hint("请输入数据库地址");
+		alert("请输入数据库地址");
 		Delayedclose(5000);
 		return;
 	}
 	username = $(".query").eq(1).val();
 	if (username.trim() == "") {
 		$(".query").eq(1).focus();
-		hint("请输入账号");
+		alert("请输入账号");
 		Delayedclose(5000);
 		return;
 	}
 	userpwd = $(".query").eq(2).val();
 	if (userpwd.trim() == "") {
 		$(".query").eq(2).focus();
-		hint("请输入密码");
+		alert("请输入密码");
 		Delayedclose(5000);
 		return;
 	}
@@ -152,7 +152,7 @@ function find_db() {
 		success : function(data) {
 			if (data.indexOf("false") != -1) {
 				inituser();
-				hint("连接失败");
+				alert("连接失败");
 			} else {
 				var table = $("#tables");
 				var html = "";
@@ -175,7 +175,7 @@ function find_db() {
 		error : function(data) {
 			console.log(data);
 			inituser();
-			hint("连接失败");
+			alert("连接失败");
 		}
 	});
 }
@@ -186,7 +186,7 @@ function find_db() {
 function find_tb(sname) {
 	var url = ProjectUrl(urlarray.tbnameUrl);
 	if (username.trim() == "" || userpwd.trim() == "") {
-		hint("请先测试连接");
+		alert("请先测试连接");
 		return;
 	}
 	var getdata = formConObj("form-inline");
@@ -205,7 +205,7 @@ function find_tb(sname) {
 		dataType : "json",
 		success : function(data) {
 			if (data.indexOf("false") != -1) {
-				hint("连接失败");
+				alert("连接失败");
 			} else {
 				// data是一个数组,存放表名称集合
 				//console.dir(data);
@@ -234,7 +234,7 @@ function find_tb(sname) {
 			}
 		},
 		error : function(data) {
-			hint("请求异常");
+			alert("请求异常");
 		}
 	});
 }
@@ -300,7 +300,7 @@ function generate(i) {
 				}
 			},
 			error : function(data) {
-				hint("请求异常");
+				alert("请求异常");
 			}
 		});
 		layer.close(index);
@@ -376,7 +376,7 @@ function batchdel() {
 	})
 	remove_id = remove_id.substring(0, remove_id.length - 1);
 	if (remove_id.length == 0) {
-		hint("请选择后再删除");
+		alert("请选择后再删除");
 		return;
 	}
 	console.log(remove_id);
@@ -397,7 +397,7 @@ function remove_save() {
 		success : function(data) {
 			if (data) {
 				$("#removeInfo").hide();
-				hint("删除成功");
+				alert("删除成功");
 				if (objarray.length == 1 && page_new != 0) {
 					page_new -= 1;
 				}
@@ -405,7 +405,7 @@ function remove_save() {
 			}
 		},
 		error : function(data) {
-			hint("请求异常");
+			alert("请求异常");
 		}
 	});
 }
@@ -468,7 +468,7 @@ function update_save() {
 		getdata = formConObj(formtable, objarray[obj_num]);
 		if (getdata == null) {
 			$("#close_addOrUpdate_dlg").trigger("click");
-			hint("信息无改动");
+			alert("信息无改动");
 			return;
 		}
 		url = ProjectUrl(urlarray.updateUrl);
@@ -490,17 +490,17 @@ function update_save() {
 		success : function(data) {
 			$("#addOrUpdate").hide();
 			if (data == "true") {
-				hint(str + "成功");
+				alert(str + "成功");
 				search();
 			} else if (data == "false") {
-				hint(str + "失败");
+				alert(str + "失败");
 			} else {
-				hint(data);
+				alert(data);
 			}
 			Delayedclose(5000);
 		},
 		error : function(data) {
-			hint("请求异常");
+			alert("请求异常");
 		}
 	});
 }

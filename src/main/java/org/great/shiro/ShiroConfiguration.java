@@ -63,6 +63,7 @@ public class ShiroConfiguration {
 		
 		//filterChainDefinitionMap.put("/**/login.html", "anon");
 		filterChainDefinitionMap.put("/Reception/base/login.html", "anon");
+		filterChainDefinitionMap.put("/druid/*", "anon");
 		filterChainDefinitionMap.put("/**/*.*", "authc");
 		
 
