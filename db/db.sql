@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50149
 File Encoding         : 65001
 
-Date: 2018-01-23 09:10:18
+Date: 2018-01-31 13:25:42
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -674,7 +674,7 @@ CREATE TABLE `tb_js` (
   `sexplain` varchar(255) DEFAULT NULL COMMENT '说明',
   `isemploy` int(1) DEFAULT '1' COMMENT '状态:1启用2禁用',
   PRIMARY KEY (`sid`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8 COMMENT='js信息';
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COMMENT='js信息';
 
 -- ----------------------------
 -- Records of tb_js
@@ -712,6 +712,10 @@ INSERT INTO `tb_js` VALUES ('30', '$(this).hide();', 'this标签隐藏', '1');
 INSERT INTO `tb_js` VALUES ('31', '$(this).show();', 'this标签显示', '1');
 INSERT INTO `tb_js` VALUES ('32', '$(\"p\").removeAttr(\"id\");', '移除标签属性', '1');
 INSERT INTO `tb_js` VALUES ('33', 'onkeyup=\"this.value=this.value.replace(/\\D/g,\'\')\"', '输入非数字,立即转换为空', '1');
+INSERT INTO `tb_js` VALUES ('34', '$(\"#id\").after(\"<b>Hello</b>\");', '在标签后添加标签', '1');
+INSERT INTO `tb_js` VALUES ('35', '$(\"#id\").before(\"<b>Hello</b>\");', '在每个匹配的元素之前插入内容。', '1');
+INSERT INTO `tb_js` VALUES ('36', '$(\"p\").insertAfter(\"#foo\");', '把所有匹配的元素插入到另一个、指定的元素元素集合的后面', '1');
+INSERT INTO `tb_js` VALUES ('37', '$(\"p\").insertBefore(\"#foo\");', '把所有匹配的元素插入到另一个、指定的元素元素集合的前面。', '1');
 
 -- ----------------------------
 -- Table structure for tb_linkman
