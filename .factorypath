@@ -115,13 +115,16 @@
     <factorypathentry kind="VARJAR" id="M2_REPO/org/springframework/boot/spring-boot-configuration-processor/1.4.1.RELEASE/spring-boot-configuration-processor-1.4.1.RELEASE.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/json/json/20140107/json-20140107.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/springframework/spring-core/4.3.3.RELEASE/spring-core-4.3.3.RELEASE.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/com/alibaba/druid/1.0.29/druid-1.0.29.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="ECLIPSE_HOME/binary/com.sun.java.jdk8.win32.x86_64_1.8.0.u66/lib/jconsole.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="ECLIPSE_HOME/binary/com.sun.java.jdk8.win32.x86_64_1.8.0.u66/lib/tools.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="JUNIT_HOME/junit.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="ECLIPSE_HOME/plugins/org.hamcrest.core_1.3.0.v201303031735.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="EXTJAR" id="G:\myecplise\personal\src\main\webapp\statis\ueditor\jsp\lib\ueditor-1.1.2.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="EXTJAR" id="G:\myecplise\personal\src\main\webapp\statis\ueditor\jsp\lib\json.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="EXTJAR" id="G:\myecplise\personal\src\main\lib\json-lib-2.4-jdk15.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="EXTJAR" id="G:\myecplise\personal\src\main\lib\httpclient-4.2.5.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="EXTJAR" id="G:\myecplise\personal\src\main\lib\httpcore-4.2.4.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="EXTJAR" id="G:\myecplise\personal\src\main\lib\poi-ooxml-3.14-20160307.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="EXTJAR" id="G:\myecplise\personal\src\main\lib\gson-2.2.4.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="EXTJAR" id="G:\MyEclipse2016\personal\personal\src\main\webapp\statis\ueditor\jsp\lib\ueditor-1.1.2.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="EXTJAR" id="G:\MyEclipse2016\personal\personal\src\main\webapp\statis\ueditor\jsp\lib\json.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="EXTJAR" id="G:\MyEclipse2016\personal\personal\src\main\lib\json-lib-2.4-jdk15.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="EXTJAR" id="G:\MyEclipse2016\personal\personal\src\main\lib\httpclient-4.2.5.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="EXTJAR" id="G:\MyEclipse2016\personal\personal\src\main\lib\httpcore-4.2.4.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="EXTJAR" id="G:\MyEclipse2016\personal\personal\src\main\lib\poi-ooxml-3.14-20160307.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="EXTJAR" id="G:\MyEclipse2016\personal\personal\src\main\lib\gson-2.2.4.jar" enabled="true" runInBatchMode="false"/>
 </factorypath>

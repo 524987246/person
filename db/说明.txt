@@ -3,6 +3,6 @@
 密码:12345678
 
 druid  sql监控
-http://127.0.0.1:8081/PersonTool/druid/sql.html
+http://127.0.0.1:8081/druid/sql.html
 账号root
 密码123456
