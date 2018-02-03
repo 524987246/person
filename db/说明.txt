@@ -1,4 +1,4 @@
-
+http://127.0.0.1:8081/
 账号:zansan
 密码:12345678
 
@@ -6,3 +6,6 @@ druid  sql监控
 http://127.0.0.1:8081/druid/sql.html
 账号root
 密码123456
+
+开发说明:
+添加菜单时,Reception/sys/role/to.html(路径前不加/)

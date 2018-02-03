@@ -66,7 +66,11 @@ function ProjectUrl(str) {
 	// 获取带"/"的项目名，如：/ssm
 	// var projectName = pathName
 	// .substring(0, pathName.substr(1).indexOf('/') + 1);
-	str = basePath + "/" + str;
+	if (basePath != "") {
+		str = basePath + "/" + str;
+	} else {
+		str = "/" + str;
+	}
 	return str;
 }
 // html特殊字符反编译

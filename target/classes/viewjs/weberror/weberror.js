@@ -1,8 +1,8 @@
 var urlarray = {
-	InfoUrl : "/Reception/weberror/info.html",
-	removeUrl : "/Reception/weberror/remove.html",
-	addUrl : "/Reception/weberror/add.html",
-	updateUrl : "/Reception/weberror/update.html"
+	InfoUrl : "Reception/weberror/info.html",
+	removeUrl : "Reception/weberror/remove.html",
+	addUrl : "Reception/weberror/add.html",
+	updateUrl : "Reception/weberror/update.html"
 };
 $(function() {
 	getPageInfo();
