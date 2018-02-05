@@ -55,15 +55,15 @@ public class BaseContoller {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "login.html", produces = "text/html;charset=UTF-8")
-	public String login(@RequestBody User user, Model model, HttpServletRequest request, HttpServletResponse response) {
+	public MyResult login(@RequestBody User user, Model model, HttpServletRequest request, HttpServletResponse response) {
 		if (user == null) {
 			model.addAttribute("message", "请输入用户名,密码");
-			return LOGIN_URL;
+			return MyResult.ok(LOGIN_URL);
 		}
 		String message = ValidtorUtil.validbean(user);
 		if (MyStringUtils.isEmpty(message)) {
 			model.addAttribute("message", message);
-			return LOGIN_URL;
+			return MyResult.ok(LOGIN_URL);
 		}
 		;
 		UsernamePasswordToken token = new UsernamePasswordToken(user.getLoginName(),
@@ -79,7 +79,7 @@ public class BaseContoller {
 			currentUser.login(token);
 			logger.info("对用户[" + loginnname + "]进行登录验证..验证通过");
 		} catch (Exception uae) {
-			uae.printStackTrace();
+			//uae.printStackTrace();
 			logger.info("对用户[" + loginnname + "]进行登录验证..验证未通过,未知账户");
 		}
 		// 验证是否登录成功
@@ -89,11 +89,11 @@ public class BaseContoller {
 			user.createMenuHtml(ctx);
 			model.addAttribute("user", user);
 			logger.info("用户[" + loginnname + "]登录认证通过(这里可以进行一些认证通过后的一些系统参数初始化操作)");
-			return "1";
+			return MyResult.ok();
 		} else {
 			token.clear();
 			model.addAttribute("message", "账号或密码有误");
-			return "0";
+			return MyResult.error("账号或密码有误");
 		}
 	}
 

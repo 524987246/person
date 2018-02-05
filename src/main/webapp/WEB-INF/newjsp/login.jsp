@@ -23,6 +23,8 @@
 <script src="${ctx}/js/jquery-2.2.1.js"></script>
 <script type="text/javascript"
 	src="${ctx}/statis/newjsp/static/h-ui/js/H-ui.min.js"></script>
+<script type="text/javascript"
+	src="${ctx}/statis/newjsp/lib/layer/2.4/layer.js"></script>
 <script src="${ctx}/js/cookieUtil.js"></script>
 <title>后台登录</title>
 </head>
@@ -107,10 +109,19 @@
 				contentType : "application/json",
 				dataType : "json",
 				success : function(data) {
-					if (data == "1") {
+					//console.dir(data);
+					if (data.errcode == "0") {
 						SetPwdAndChk();
 						url = basePath + "/Reception/base/index.html";
 						window.location.href = url;
+					} else {
+						var index = layer.confirm(data.errmsg, {
+							btn : [ '确定', '取消' ] //按钮
+						}, function() {
+							layer.close(index);
+						}, function() {
+							layer.close(index);
+						});
 					}
 				},
 				error : function(data) {

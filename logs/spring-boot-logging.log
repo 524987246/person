@@ -1747,3 +1747,162 @@ java.io.FileNotFoundException: G:\WorkFile\repository2\com\sun\xml\bind\jaxb-imp
 2018-02-04 02:27:28.849 ERROR 14016 --- [http-nio-8081-exec-2] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/generate/generate.vm' in any resource loader.
 2018-02-04 02:27:28.851 ERROR 14016 --- [http-nio-8081-exec-2] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/generate/generate.html.vm' in any resource loader.
 2018-02-04 02:27:28.853 ERROR 14016 --- [http-nio-8081-exec-2] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/generate/generate.htm.vm' in any resource loader.
+2018-02-05 11:26:27.188  INFO 5280 --- [main] org.great.App                            : Starting App on xiej with PID 5280 (G:\MyEclipse2016\personal\personal\target\classes started by Administrator in G:\MyEclipse2016\personal\personal)
+2018-02-05 11:26:27.236  INFO 5280 --- [main] org.great.App                            : No active profile set, falling back to default profiles: default
+2018-02-05 11:26:27.878 ERROR 5280 --- [main] c.a.druid.pool.DruidAbstractDataSource   : maxIdle is deprecated
+2018-02-05 11:26:29.467  INFO 5280 --- [main] o.g.d.DynamicDataSourceRegister          : Dynamic DataSource Registry
+2018-02-05 11:26:33.630  INFO 5280 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2018-02-05 11:26:33.633  INFO 5280 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.5
+2018-02-05 11:26:34.377  INFO 5280 --- [localhost-startStop-1] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2018-02-05 11:26:34.410  INFO 5280 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-02-05 11:26:35.315  INFO 5280 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-02-05 11:26:35.389  INFO 5280 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.11.Final}
+2018-02-05 11:26:35.391  INFO 5280 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-02-05 11:26:35.392  INFO 5280 --- [main] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2018-02-05 11:26:35.474  INFO 5280 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-05 11:26:36.162  INFO 5280 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2018-02-05 11:26:36.178  INFO 5280 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-02-05 11:26:36.401  INFO 5280 --- [main] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2018-02-05 11:26:37.406  INFO 5280 --- [main] org.great.cache.RedisConfig              : init JredisPool ...
+2018-02-05 11:26:37.435  WARN 5280 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation is not supported on static fields: protected static java.util.Map org.great.web.controller.test.FileUpload2.map
+2018-02-05 11:26:41.729  WARN 5280 --- [main] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+2018-02-05 11:26:42.360  WARN 5280 --- [main] o.s.b.a.v.VelocityAutoConfiguration      : Cannot find template location: classpath:/templates/ (please add some templates, check your Velocity configuration, or set spring.velocity.checkTemplateLocation=false)
+2018-02-05 11:26:42.441  WARN 5280 --- [main] arterDeprecationWarningAutoConfiguration : spring-boot-starter-redis is deprecated as of Spring Boot 1.4, please migrate to spring-boot-starter-data-redis
+2018-02-05 11:26:43.077  INFO 5280 --- [main] org.great.App                            : Started App in 16.351 seconds (JVM running for 16.748)
+2018-02-05 11:26:55.420  INFO 5280 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-02-05 11:26:55.754 ERROR 5280 --- [http-nio-8081-exec-2] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/login.vm' in any resource loader.
+2018-02-05 11:26:57.172  INFO 5280 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-02-05 11:26:57.173  INFO 5280 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-02-05 11:26:57.185  INFO 5280 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-02-05 11:26:57.263  INFO 5280 --- [http-nio-8081-exec-8] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证开始
+2018-02-05 11:26:57.637  INFO 5280 --- [http-nio-8081-exec-8] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证通过
+2018-02-05 11:26:57.637  INFO 5280 --- [http-nio-8081-exec-8] org.great.web.controller.BaseContoller   : 用户[]登录认证通过(这里可以进行一些认证通过后的一些系统参数初始化操作)
+2018-02-05 11:26:57.672 ERROR 5280 --- [http-nio-8081-exec-10] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/main.vm' in any resource loader.
+2018-02-05 11:26:58.240  INFO 5280 --- [http-nio-8081-exec-4] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-02-05 11:26:58.280 ERROR 5280 --- [http-nio-8081-exec-4] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/weberror/weberror.vm' in any resource loader.
+2018-02-05 11:27:04.648 ERROR 5280 --- [http-nio-8081-exec-2] org.apache.velocity                      : ResourceManager : unable to find resource 'error.vm' in any resource loader.
+2018-02-05 11:27:04.650 ERROR 5280 --- [http-nio-8081-exec-2] org.apache.velocity                      : ResourceManager : unable to find resource 'error.html.vm' in any resource loader.
+2018-02-05 11:27:04.652 ERROR 5280 --- [http-nio-8081-exec-2] org.apache.velocity                      : ResourceManager : unable to find resource 'error.htm.vm' in any resource loader.
+2018-02-05 11:27:10.252 ERROR 5280 --- [http-nio-8081-exec-6] org.apache.velocity                      : ResourceManager : unable to find resource 'error.vm' in any resource loader.
+2018-02-05 11:27:10.254 ERROR 5280 --- [http-nio-8081-exec-6] org.apache.velocity                      : ResourceManager : unable to find resource 'error.html.vm' in any resource loader.
+2018-02-05 11:27:10.256 ERROR 5280 --- [http-nio-8081-exec-6] org.apache.velocity                      : ResourceManager : unable to find resource 'error.htm.vm' in any resource loader.
+2018-02-05 11:27:29.419 ERROR 5280 --- [http-nio-8081-exec-3] org.apache.velocity                      : ResourceManager : unable to find resource 'error.vm' in any resource loader.
+2018-02-05 11:27:29.421 ERROR 5280 --- [http-nio-8081-exec-3] org.apache.velocity                      : ResourceManager : unable to find resource 'error.html.vm' in any resource loader.
+2018-02-05 11:27:29.422 ERROR 5280 --- [http-nio-8081-exec-3] org.apache.velocity                      : ResourceManager : unable to find resource 'error.htm.vm' in any resource loader.
+2018-02-05 11:29:53.555 ERROR 5280 --- [http-nio-8081-exec-10] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/login.vm' in any resource loader.
+2018-02-05 11:30:05.670 ERROR 5280 --- [http-nio-8081-exec-6] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/login.vm' in any resource loader.
+2018-02-05 11:31:12.081 ERROR 5280 --- [http-nio-8081-exec-10] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/login.vm' in any resource loader.
+2018-02-05 11:31:13.475 ERROR 5280 --- [http-nio-8081-exec-2] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/login.vm' in any resource loader.
+2018-02-05 11:32:58.700  INFO 5280 --- [http-nio-8081-exec-10] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-02-05 11:32:58.700  INFO 5280 --- [http-nio-8081-exec-10] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-02-05 11:32:58.701  INFO 5280 --- [http-nio-8081-exec-10] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-02-05 11:32:58.722  INFO 5280 --- [http-nio-8081-exec-10] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证开始
+2018-02-05 11:32:58.745  INFO 5280 --- [http-nio-8081-exec-10] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证未通过,未知账户
+2018-02-05 11:33:00.916  INFO 5280 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-02-05 11:33:00.917  INFO 5280 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-02-05 11:33:00.919  INFO 5280 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-02-05 11:33:00.933  INFO 5280 --- [http-nio-8081-exec-8] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证开始
+2018-02-05 11:33:00.969  INFO 5280 --- [http-nio-8081-exec-8] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证未通过,未知账户
+2018-02-05 11:33:04.382  INFO 5280 --- [http-nio-8081-exec-2] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-02-05 11:33:04.383  INFO 5280 --- [http-nio-8081-exec-2] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-02-05 11:33:04.384  INFO 5280 --- [http-nio-8081-exec-2] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-02-05 11:33:04.396  INFO 5280 --- [http-nio-8081-exec-2] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证开始
+2018-02-05 11:33:04.429  INFO 5280 --- [http-nio-8081-exec-2] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证未通过,未知账户
+2018-02-05 11:33:48.013  INFO 5280 --- [http-nio-8081-exec-6] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-02-05 11:33:48.014  INFO 5280 --- [http-nio-8081-exec-6] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-02-05 11:33:48.015  INFO 5280 --- [http-nio-8081-exec-6] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-02-05 11:33:48.024  INFO 5280 --- [http-nio-8081-exec-6] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证开始
+2018-02-05 11:33:48.042  INFO 5280 --- [http-nio-8081-exec-6] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证未通过,未知账户
+2018-02-05 11:43:35.064  INFO 10264 --- [main] org.great.App                            : Starting App on xiej with PID 10264 (G:\MyEclipse2016\personal\personal\target\classes started by Administrator in G:\MyEclipse2016\personal\personal)
+2018-02-05 11:43:35.124  INFO 10264 --- [main] org.great.App                            : No active profile set, falling back to default profiles: default
+2018-02-05 11:43:36.808 ERROR 10264 --- [main] c.a.druid.pool.DruidAbstractDataSource   : maxIdle is deprecated
+2018-02-05 11:43:38.614  INFO 10264 --- [main] o.g.d.DynamicDataSourceRegister          : Dynamic DataSource Registry
+2018-02-05 11:43:43.894  INFO 10264 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2018-02-05 11:43:43.906  INFO 10264 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.5
+2018-02-05 11:43:45.128  INFO 10264 --- [localhost-startStop-1] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2018-02-05 11:43:45.167  INFO 10264 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-02-05 11:43:48.009  INFO 10264 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-02-05 11:43:48.498  INFO 10264 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.11.Final}
+2018-02-05 11:43:48.499  INFO 10264 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-02-05 11:43:48.501  INFO 10264 --- [main] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2018-02-05 11:43:48.974  INFO 10264 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-05 11:43:50.404  INFO 10264 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2018-02-05 11:43:50.562  INFO 10264 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-02-05 11:43:51.383  INFO 10264 --- [main] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2018-02-05 11:43:52.789  INFO 10264 --- [main] org.great.cache.RedisConfig              : init JredisPool ...
+2018-02-05 11:43:52.827  WARN 10264 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation is not supported on static fields: protected static java.util.Map org.great.web.controller.test.FileUpload2.map
+2018-02-05 11:43:58.797  WARN 10264 --- [main] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+2018-02-05 11:44:00.578  WARN 10264 --- [main] o.s.b.a.v.VelocityAutoConfiguration      : Cannot find template location: classpath:/templates/ (please add some templates, check your Velocity configuration, or set spring.velocity.checkTemplateLocation=false)
+2018-02-05 11:44:00.693  WARN 10264 --- [main] arterDeprecationWarningAutoConfiguration : spring-boot-starter-redis is deprecated as of Spring Boot 1.4, please migrate to spring-boot-starter-data-redis
+2018-02-05 11:44:01.252  INFO 10264 --- [main] org.great.App                            : Started App in 27.738 seconds (JVM running for 29.686)
+2018-02-05 11:44:07.382  INFO 10264 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-02-05 11:44:07.994 ERROR 10264 --- [http-nio-8081-exec-2] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/login.vm' in any resource loader.
+2018-02-05 11:44:09.734 ERROR 10264 --- [http-nio-8081-exec-5] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/login.vm' in any resource loader.
+2018-02-05 11:44:09.881  INFO 10264 --- [http-nio-8081-exec-3] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-02-05 11:44:09.883  INFO 10264 --- [http-nio-8081-exec-3] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-02-05 11:44:09.895  INFO 10264 --- [http-nio-8081-exec-3] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-02-05 11:44:09.972  INFO 10264 --- [http-nio-8081-exec-3] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证开始
+2018-02-05 11:44:10.435  INFO 10264 --- [http-nio-8081-exec-3] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证通过
+2018-02-05 11:44:10.436  INFO 10264 --- [http-nio-8081-exec-3] org.great.web.controller.BaseContoller   : 用户[]登录认证通过(这里可以进行一些认证通过后的一些系统参数初始化操作)
+2018-02-05 11:45:23.160 ERROR 10264 --- [http-nio-8081-exec-2] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/main.vm' in any resource loader.
+2018-02-05 11:45:23.778  INFO 10264 --- [http-nio-8081-exec-5] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-02-05 11:45:23.862 ERROR 10264 --- [http-nio-8081-exec-5] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/weberror/weberror.vm' in any resource loader.
+2018-02-05 11:47:45.965 ERROR 10264 --- [http-nio-8081-exec-3] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/main.vm' in any resource loader.
+2018-02-05 11:47:46.429  INFO 10264 --- [http-nio-8081-exec-3] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-02-05 11:47:46.434 ERROR 10264 --- [http-nio-8081-exec-3] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/weberror/weberror.vm' in any resource loader.
+2018-02-05 11:47:55.899  INFO 10264 --- [http-nio-8081-exec-1] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-02-05 11:47:55.976 ERROR 10264 --- [http-nio-8081-exec-1] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/sys/menu-list.vm' in any resource loader.
+2018-02-05 11:47:56.170  INFO 10264 --- [http-nio-8081-exec-1] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-02-05 11:47:56.170  INFO 10264 --- [http-nio-8081-exec-1] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-02-05 11:47:56.170  INFO 10264 --- [http-nio-8081-exec-1] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-02-05 11:47:56.171  INFO 10264 --- [http-nio-8081-exec-1] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-02-05 11:47:56.171  INFO 10264 --- [http-nio-8081-exec-1] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-02-05 11:47:59.353 ERROR 10264 --- [http-nio-8081-exec-4] org.apache.velocity                      : ResourceManager : unable to find resource 'error.vm' in any resource loader.
+2018-02-05 11:47:59.355 ERROR 10264 --- [http-nio-8081-exec-4] org.apache.velocity                      : ResourceManager : unable to find resource 'error.html.vm' in any resource loader.
+2018-02-05 11:47:59.358 ERROR 10264 --- [http-nio-8081-exec-4] org.apache.velocity                      : ResourceManager : unable to find resource 'error.htm.vm' in any resource loader.
+2018-02-05 11:48:22.179 ERROR 10264 --- [http-nio-8081-exec-6] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/main.vm' in any resource loader.
+2018-02-05 11:48:22.485  INFO 10264 --- [http-nio-8081-exec-4] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-02-05 11:48:22.489 ERROR 10264 --- [http-nio-8081-exec-4] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/weberror/weberror.vm' in any resource loader.
+2018-02-05 11:48:23.102 ERROR 10264 --- [http-nio-8081-exec-5] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/main.vm' in any resource loader.
+2018-02-05 11:48:23.361  INFO 10264 --- [http-nio-8081-exec-2] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-02-05 11:48:23.364 ERROR 10264 --- [http-nio-8081-exec-2] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/weberror/weberror.vm' in any resource loader.
+2018-02-05 11:48:26.268  INFO 10264 --- [http-nio-8081-exec-7] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-02-05 11:48:26.271 ERROR 10264 --- [http-nio-8081-exec-7] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/login.vm' in any resource loader.
+2018-02-05 11:48:34.073  INFO 10264 --- [http-nio-8081-exec-6] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-02-05 11:48:34.073  INFO 10264 --- [http-nio-8081-exec-6] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-02-05 11:48:34.074  INFO 10264 --- [http-nio-8081-exec-6] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-02-05 11:48:34.092  INFO 10264 --- [http-nio-8081-exec-6] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证开始
+2018-02-05 11:48:34.106  INFO 10264 --- [http-nio-8081-exec-6] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证未通过,未知账户
+2018-02-05 11:51:42.658 ERROR 10264 --- [http-nio-8081-exec-7] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/login.vm' in any resource loader.
+2018-02-05 11:51:45.665  INFO 10264 --- [http-nio-8081-exec-3] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-02-05 11:51:45.666  INFO 10264 --- [http-nio-8081-exec-3] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-02-05 11:51:45.667  INFO 10264 --- [http-nio-8081-exec-3] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-02-05 11:51:45.685  INFO 10264 --- [http-nio-8081-exec-3] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证开始
+2018-02-05 11:51:45.708  INFO 10264 --- [http-nio-8081-exec-3] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证未通过,未知账户
+2018-02-05 11:53:02.432 ERROR 10264 --- [http-nio-8081-exec-2] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/login.vm' in any resource loader.
+2018-02-05 11:53:04.106 ERROR 10264 --- [http-nio-8081-exec-1] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/login.vm' in any resource loader.
+2018-02-05 11:53:06.377  INFO 10264 --- [http-nio-8081-exec-10] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-02-05 11:53:06.378  INFO 10264 --- [http-nio-8081-exec-10] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-02-05 11:53:06.378  INFO 10264 --- [http-nio-8081-exec-10] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-02-05 11:53:06.394  INFO 10264 --- [http-nio-8081-exec-10] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证开始
+2018-02-05 11:53:06.407  INFO 10264 --- [http-nio-8081-exec-10] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证未通过,未知账户
+2018-02-05 11:53:47.454 ERROR 10264 --- [http-nio-8081-exec-5] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/login.vm' in any resource loader.
+2018-02-05 11:53:49.748  INFO 10264 --- [http-nio-8081-exec-6] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-02-05 11:53:49.749  INFO 10264 --- [http-nio-8081-exec-6] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-02-05 11:53:49.750  INFO 10264 --- [http-nio-8081-exec-6] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-02-05 11:53:49.767  INFO 10264 --- [http-nio-8081-exec-6] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证开始
+2018-02-05 11:53:49.781  INFO 10264 --- [http-nio-8081-exec-6] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证未通过,未知账户
+2018-02-05 11:53:51.620  INFO 10264 --- [http-nio-8081-exec-1] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-02-05 11:53:51.621  INFO 10264 --- [http-nio-8081-exec-1] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-02-05 11:53:51.621  INFO 10264 --- [http-nio-8081-exec-1] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-02-05 11:53:51.634  INFO 10264 --- [http-nio-8081-exec-1] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证开始
+2018-02-05 11:53:51.644  INFO 10264 --- [http-nio-8081-exec-1] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证未通过,未知账户
+2018-02-05 11:53:52.977  INFO 10264 --- [http-nio-8081-exec-9] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-02-05 11:53:52.978  INFO 10264 --- [http-nio-8081-exec-9] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-02-05 11:53:52.978  INFO 10264 --- [http-nio-8081-exec-9] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-02-05 11:53:52.990  INFO 10264 --- [http-nio-8081-exec-9] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证开始
+2018-02-05 11:53:53.004  INFO 10264 --- [http-nio-8081-exec-9] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证未通过,未知账户

@@ -24,7 +24,6 @@ public class StringIsDateValidatorImpl implements ConstraintValidator<StringIsDa
 	}
 
 	public boolean isValid(String str, ConstraintValidatorContext constraintValidatorContext) {
-		System.out.println("str==" + str);
 		if (isNullOrEmpty(str)) {
 			return true;
 		}

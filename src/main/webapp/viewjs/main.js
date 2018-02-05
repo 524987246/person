@@ -97,13 +97,12 @@ $('#logout').on('click', function() {
 	}, function() {
 		layer.close();
 		ResetCookie();
-		var url = "/Reception/base/logout.html";
+		var url = "Reception/base/logout.html";
 		url = ProjectUrl(url);
 		window.location.href = url;
 	}, function() {
 		layer.close();
 	});
-
 });
 function GetPwdAndChk() {
 	var loginName = GetLastUser();
