@@ -115,6 +115,7 @@
 						url = basePath + "/Reception/base/index.html";
 						window.location.href = url;
 					} else {
+						ResetCookie();
 						var index = layer.confirm(data.errmsg, {
 							btn : [ '确定', '取消' ] //按钮
 						}, function() {

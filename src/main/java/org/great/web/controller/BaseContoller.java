@@ -63,7 +63,7 @@ public class BaseContoller {
 		String message = ValidtorUtil.validbean(user);
 		if (MyStringUtils.isEmpty(message)) {
 			model.addAttribute("message", message);
-			return MyResult.ok(LOGIN_URL);
+			return MyResult.error(message);
 		}
 		;
 		UsernamePasswordToken token = new UsernamePasswordToken(user.getLoginName(),
