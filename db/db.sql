@@ -2,15 +2,15 @@
 Navicat MySQL Data Transfer
 
 Source Server         : localhost-mysql
-Source Server Version : 50149
+Source Server Version : 50529
 Source Host           : localhost:3306
 Source Database       : db_person
 
 Target Server Type    : MYSQL
-Target Server Version : 50149
+Target Server Version : 50529
 File Encoding         : 65001
 
-Date: 2018-01-31 13:25:42
+Date: 2018-03-29 10:39:42
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -260,27 +260,27 @@ INSERT INTO `sys_menu` VALUES ('15', '子菜单1-1-1-1', '15', '8', '', '1', '1'
 INSERT INTO `sys_menu` VALUES ('16', 'web功能', '', '2', '', '1', '&#xe69f;', '10', '0', '2017-10-11 00:00:00', '1', '2018-01-11 00:00:00', null, '1');
 INSERT INTO `sys_menu` VALUES ('17', 'web常见错误', 'Reception/weberror/weberror.html', '16', 'buz:weberror:view', '1', '&#xe69f;', '10', '0', '2017-10-11 00:00:00', '1', '2018-01-11 00:00:00', null, '1');
 INSERT INTO `sys_menu` VALUES ('18', '系统设置', '', '3', '', '1', '&#xe61d;', '30', '0', '2017-10-11 00:00:00', '1', '2018-01-11 00:00:00', null, '1');
-INSERT INTO `sys_menu` VALUES ('19', '菜单管理', '/Reception/sys/menu/to.html', '18', '', '1', '1', '10', '0', '2017-10-11 00:00:00', '1', '2018-01-11 00:00:00', null, '1');
+INSERT INTO `sys_menu` VALUES ('19', '菜单管理', 'Reception/sys/menu/to.html', '18', '', '1', '1', '10', '0', '2017-10-11 00:00:00', '1', '2018-01-11 00:00:00', null, '1');
 INSERT INTO `sys_menu` VALUES ('20', '查看', '', '19', 'sys:menu:view', '3', '1', '10', '0', '2017-10-11 00:00:00', '1', '2018-01-11 00:00:00', null, '1');
 INSERT INTO `sys_menu` VALUES ('21', '增加', '', '19', 'sys:menu:save', '3', '1', '20', '0', '2017-10-11 00:00:00', '1', '2018-01-11 00:00:00', null, '1');
 INSERT INTO `sys_menu` VALUES ('22', '修改', '', '19', 'sys:menu:update', '3', '1', '30', '0', '2017-10-11 00:00:00', '1', '2018-01-11 00:00:00', null, '1');
 INSERT INTO `sys_menu` VALUES ('23', '删除', '', '19', 'sys:menu:delete', '3', '1', '40', '0', '2017-10-11 00:00:00', '1', '2018-01-11 00:00:00', null, '1');
 INSERT INTO `sys_menu` VALUES ('24', '批量删除', '', '19', 'sys:menu:batchdelete', '3', '1', '60', '0', '2017-10-11 00:00:00', '1', '2018-01-11 00:00:00', null, '1');
 INSERT INTO `sys_menu` VALUES ('25', '顺序调整', '', '19', 'sys:menu:ordersave', '3', '1', '50', '0', '2017-10-11 00:00:00', '1', '2018-01-11 00:00:00', null, '1');
-INSERT INTO `sys_menu` VALUES ('29', '用户管理', '/Reception/sys/user/to.html', '18', '', '1', '1', '20', '0', '2017-10-11 00:00:00', '1', '2018-01-11 00:00:00', null, '1');
+INSERT INTO `sys_menu` VALUES ('29', '用户管理', 'Reception/sys/user/to.html', '18', '', '1', '1', '20', '0', '2017-10-11 00:00:00', '1', '2018-01-11 00:00:00', null, '1');
 INSERT INTO `sys_menu` VALUES ('30', '查看', '', '29', 'sys:user:view', '3', '1', '10', '0', '2017-10-11 00:00:00', '1', '2018-01-11 00:00:00', null, '1');
 INSERT INTO `sys_menu` VALUES ('31', '增加', '', '29', 'sys:user:save', '3', '1', '20', '0', '2017-10-11 00:00:00', '1', '2018-01-11 00:00:00', null, '1');
 INSERT INTO `sys_menu` VALUES ('32', '修改', '', '29', 'sys:user:update', '3', '1', '30', '0', '2017-10-11 00:00:00', '1', '2018-01-11 00:00:00', null, '1');
 INSERT INTO `sys_menu` VALUES ('33', '删除', '', '29', 'sys:user:delete', '3', '1', '40', '0', '2017-10-11 00:00:00', '1', '2018-01-11 00:00:00', null, '1');
 INSERT INTO `sys_menu` VALUES ('34', '批量删除', '', '29', 'sys:user:batchdelete', '3', '1', '50', '0', '2017-10-11 00:00:00', '1', '2018-01-11 00:00:00', null, '1');
-INSERT INTO `sys_menu` VALUES ('37', '角色管理', '/Reception/sys/role/to.html', '18', null, '2', null, '30', '1', '2018-01-05 00:00:00', '1', '2018-01-11 00:00:00', null, '1');
+INSERT INTO `sys_menu` VALUES ('37', '角色管理', 'Reception/sys/role/to.html', '18', null, '2', null, '30', '1', '2018-01-05 00:00:00', '1', '2018-01-11 00:00:00', null, '1');
 INSERT INTO `sys_menu` VALUES ('39', '查看', null, '37', 'sys:role:view', '3', null, '10', '1', '2018-01-05 00:00:00', '1', '2018-01-11 00:00:00', null, '1');
 INSERT INTO `sys_menu` VALUES ('40', '修改', null, '37', 'sys:role:update', '3', null, '20', '1', '2018-01-05 00:00:00', '1', '2018-01-11 00:00:00', null, '1');
 INSERT INTO `sys_menu` VALUES ('41', '新增', null, '37', 'sys:role:save', '3', null, '30', '1', '2018-01-05 00:00:00', '1', '2018-01-11 00:00:00', null, '1');
 INSERT INTO `sys_menu` VALUES ('42', '删除', null, '37', 'sys:role:delete', '3', '', '40', '1', '2018-01-05 00:00:00', '1', '2018-01-11 00:00:00', null, '1');
 INSERT INTO `sys_menu` VALUES ('43', '批量删除', null, '37', 'sys:role:batchdelete', '3', '', '50', '1', '2018-01-05 00:00:00', '1', '2018-01-11 00:00:00', null, '1');
 INSERT INTO `sys_menu` VALUES ('44', '业务功能', null, '0', null, '1', null, '10', '1', '2018-01-11 00:00:00', '1', '2018-01-11 00:00:00', null, '1');
-INSERT INTO `sys_menu` VALUES ('45', '联系人管理', '/Reception/buz/linkman/to.html', '50', null, '1', null, '0', '1', '2018-01-11 00:00:00', '1', '2018-01-11 00:00:00', null, '1');
+INSERT INTO `sys_menu` VALUES ('45', '联系人管理', 'Reception/buz/linkman/to.html', '50', null, '1', null, '0', '1', '2018-01-11 00:00:00', '1', '2018-01-11 00:00:00', null, '1');
 INSERT INTO `sys_menu` VALUES ('46', '查看', null, '45', 'buz:linkman:view', '3', null, '0', '1', '2018-01-11 00:00:00', '1', '2018-01-11 00:00:00', null, '1');
 INSERT INTO `sys_menu` VALUES ('47', '增加', null, '45', 'buz:linkman:save', '3', null, '1', '1', '2018-01-11 00:00:00', '1', '2018-01-11 00:00:00', null, '1');
 INSERT INTO `sys_menu` VALUES ('48', '修改', null, '45', 'buz:linkman:update', '3', null, '2', '1', '2018-01-11 00:00:00', '1', '2018-01-11 00:00:00', null, '1');
@@ -545,12 +545,11 @@ CREATE TABLE `sys_user` (
   `remarks` varchar(2000) DEFAULT NULL COMMENT '备注',
   `isemploy` int(1) NOT NULL DEFAULT '1' COMMENT '状态1:正常2删除3审核',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='用户表';
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='用户表';
 
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES ('0', '系统', '0', '系统保留', '0', '0', '1', '0', '2017-10-25 11:22:49', '0', '2017-10-25 11:22:49', null, '1');
 INSERT INTO `sys_user` VALUES ('1', '张三', 'zansan', '25D55AD283AA400AF464C76D713C07AD', '15345042356', '55', '11', '0', '2017-10-25 11:22:51', '1', '2018-01-08 00:00:00', null, '1');
 INSERT INTO `sys_user` VALUES ('2', '李四', 'lisi', '25D55AD283AA400AF464C76D713C07AD', '15345042357', '11', '8', '1', '2017-10-17 00:00:00', '1', '2018-01-05 00:00:00', null, '1');
 INSERT INTO `sys_user` VALUES ('3', '王五', 'wangwu', '25D55AD283AA400AF464C76D713C07AD', '15345042358', '11', '3', '1', '2017-09-04 00:00:00', '1', '2018-01-05 00:00:00', null, '2');
@@ -558,6 +557,7 @@ INSERT INTO `sys_user` VALUES ('4', '张三1', 'zansan1', '25D55AD283AA400AF464C
 INSERT INTO `sys_user` VALUES ('5', '张三2', 'zansan2', '25d55ad283aa400af464c76d713c07ad', '18259459599', '65', '7', '1', '2017-10-10 00:00:00', '1', '2018-01-05 00:00:00', null, '1');
 INSERT INTO `sys_user` VALUES ('6', '张三2', 'zansan3', '25d55ad283aa400af464c76d713c07ad', '123', '1', '8', '1', '2017-10-31 00:00:00', '1', '2018-01-05 00:00:00', null, '1');
 INSERT INTO `sys_user` VALUES ('7', '测试', 'cheshi', '25d55ad283aa400af464c76d713c07ad', '1825945658', '5', '7', '1', '2018-01-08 00:00:00', '1', '2018-01-08 00:00:00', null, '1');
+INSERT INTO `sys_user` VALUES ('8', '系统', '0', '系统保留', '0', '0', '1', '0', '2017-10-25 11:22:49', '0', '2017-10-25 11:22:49', null, '1');
 
 -- ----------------------------
 -- Table structure for sys_user_role
