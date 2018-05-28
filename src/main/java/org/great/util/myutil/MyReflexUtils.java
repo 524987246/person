@@ -3,7 +3,6 @@ package org.great.util.myutil;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -24,7 +23,7 @@ public class MyReflexUtils {
 	}
 
 	public static void getAllfield(List<Field> list, Object obj) {
-		Class tempClass = obj.getClass();
+		Class<?> tempClass = obj.getClass();
 		while (tempClass != null) {// 当父类为null的时候说明到达了最上层的父类(Object类).
 			Field[] fields = tempClass.getDeclaredFields();
 			for (Field field : fields) {
