@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
@@ -50,7 +51,8 @@ public class MyZipUtil {
 	public static boolean zipCompression(String zipFileName, List<String> filenamelist) throws Exception {
 		System.out.println("压缩中...");
 		List<File> filelist = new ArrayList<File>();
-		zipFileName = new String(zipFileName.getBytes(), "ISO-8859-1");
+		zipFileName = URLDecoder.decode(zipFileName, "UTF-8");
+		/*zipFileName = new String(zipFileName.getBytes(), "ISO-8859-1");*/
 		for (String inputFile : filenamelist) {
 			File file = new File(inputFile);
 			filelist.add(file);
