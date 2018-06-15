@@ -72,7 +72,7 @@
 		<div class="form-group has-feedback">
 			<label class="control-label" for="inputSuccess4">数据库地址:</label> <input
 				type="text" class="form-control query" name="surl"
-				value="localhost:3306">
+				value="117.27.138.171:3306">
 		</div>
 		<div class="form-group has-feedback">
 			<label class="control-label" for="inputSuccess4">账号:</label> <input
@@ -81,7 +81,7 @@
 		<div class="form-group has-feedback">
 			<label class="control-label" for="inputSuccess4">密码:</label> <input
 				type="password" class="form-control query" name="userpwd"
-				value="JF1602">
+				value="rsnet@comcn">
 		</div>
 		<div class="form-group has-feedback">
 			<button class="btn btn-info" type="button" style="width:70px"

@@ -1,0 +1,92 @@
+package com.rsnet.model.service.user;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.beetl.sql.core.query.Query;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.rsnet.model.dao.user.I${name}Dao;
+import com.rsnet.model.entity.${name};
+import com.rsnet.model.service.BaseService;
+import com.rsnet.tools.exception.CommonException;
+import com.rsnet.tools.service.Page;
+
+/**
+ * 
+ * @author xiejun
+ * 
+ */
+@Transactional
+@Service("${name2}Service")
+public class ${name}Service extends BaseService {
+	@Resource
+	private I${name}Dao i${name}Dao;
+
+	public ${name} get(Long id) throws Exception {
+		${name} ${name2} = i${name}Dao.single(id);
+		if (${name2} == null) {
+			throw new CommonException(CommonException.NO_EXIST);
+		}
+		return ${name2};
+	}
+
+	public ${name} add(${name} ${name2}) throws Exception {
+		try {
+			${name2}.preInsert();
+			i${name}Dao.insert(${name2}, true);
+		} catch (Exception e) {
+			throw new CommonException(CommonException.OPERATE_FALSE);
+		}
+		return ${name2};
+	}
+
+	public ${name} edit(${name} ${name2}) throws Exception {
+		${name2}.preUpdate();
+		int i = i${name}Dao.updateTemplateById(${name2});
+		if (i <= 0) {
+			throw new CommonException(CommonException.OPERATE_FALSE);
+		}
+		return ${name2};
+	}
+
+	public Long delete(${name} ${name2}) throws Exception {
+		${name2}.setStatus(${name}.DEL_FLAG_DELETE);
+		${name2}.preUpdate();
+		int i = i${name}Dao.updateTemplateById(${name2});
+		if (i <= 0) {
+			throw new CommonException(CommonException.OPERATE_FALSE);
+		}
+		return ${name2}.getId();
+	}
+
+	public Page<${name}> find(String param, int pageNum, int pageSize) throws Exception {
+		Page<${name}> page = new Page<${name}>();
+		Query<${name}> query = i${name}Dao.getSQLManager().query(${name}.class);
+		List<${name}> list = query.appendSql(param).limit(pageNum, pageSize).select();
+		page.setTotal(query.appendSql(param).count());
+		page.setList(list);
+		page.setPageSize(pageSize);
+		page.setPage(pageNum);
+		return page;
+	}
+
+	public List<Long> batchdelete(Long[] ids) throws Exception {
+		List<Long> result = new ArrayList<Long>();
+		${name} ${name2} = new ${name}();
+		${name2}.setStatus(${name}.DEL_FLAG_DELETE);
+		${name2}.preUpdate();
+		for (Long id : ids) {
+			${name2}.setId(id);
+			int i = i${name}Dao.updateTemplateById(${name2});
+			if (i <= 0) {
+				result.add(id);
+			}
+		}
+		return result;
+	}
+
+}

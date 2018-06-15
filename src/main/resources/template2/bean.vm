@@ -1,0 +1,49 @@
+#set($greet = 'hello')
+//$greet $name
+
+package com.rsnet.model.entity;
+
+import java.io.Serializable;
+
+
+import org.beetl.sql.core.annotatoin.Table;
+
+import com.rsnet.model.entity.DataEntity;
+
+import io.swagger.annotations.ApiModelProperty;
+/**
+ * 
+ * @author xiejun
+ * @since 1.0
+ */
+ @Table(name = "${tablename}")
+public class ${name} extends DataEntity<${name}> implements Serializable {
+	private static final long serialVersionUID = 1L;
+#foreach($i in $collist)
+	 @ApiModelProperty(value = "${i.comments}")
+	private ${i.attrType} ${i.attrname};
+#end
+	
+#foreach($i in $collist)
+	public ${i.attrType} get${i.attrName}() {
+		return ${i.attrname};
+	}
+
+	public void set${i.attrName}(${i.attrType} ${i.attrname}) {
+		this.${i.attrname} = ${i.attrname};
+	}
+#end
+
+	@Override
+	public String toString() {
+		return "${name} ["+
+#foreach($i in $collist)
+		" ${i.attrname}=" + ${i.attrname} + 
+#end
+		"]"+"Address ["+
+		getClass().getName() + "@" + 
+		Integer.toHexString(hashCode())+
+		"]";
+	}
+
+}

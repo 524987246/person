@@ -13,6 +13,7 @@ import javax.validation.constraints.Size;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.great.myannotation.MyFuzzyQuery;
 import org.great.util.myutil.MyStringUtils;
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -34,7 +35,6 @@ public class User extends BaseBean implements Serializable {
 	/**
 	 * 登录名
 	 */
-	
 	@NotEmpty(message = "登录名不能为空")
 	private String loginName;
 	/**

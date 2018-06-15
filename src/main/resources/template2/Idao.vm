@@ -1,0 +1,10 @@
+package com.rsnet.model.dao.user;
+
+import org.beetl.sql.core.annotatoin.Param;
+import org.beetl.sql.core.mapper.BaseMapper;
+
+import com.rsnet.model.entity.${name};
+
+public interface I${name}Dao extends BaseMapper<${name}> {
+int batchdelete(@Param("ids") Long[] ids, @Param("status") int status);
+}

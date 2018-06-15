@@ -19,6 +19,7 @@ import net.sf.json.JSONArray;
 import org.great.util.FileUtil;
 import org.great.util.InputCheck;
 import org.great.util.generate.AutoVelocity;
+import org.great.util.generate.AutoVelocity2;
 import org.great.web.bean.sys.DbName;
 import org.great.web.jdbc.ColumnEntity;
 import org.great.web.service.sys.SystemManageService;
@@ -172,7 +173,8 @@ public class SysGenerate {
 	 */
 	@RequestMapping(value = "/code", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
 	public void code(DbName dbName, HttpServletResponse response, HttpServletRequest request) throws IOException {
-		AutoVelocity autoVelocity = new AutoVelocity();
+		// AutoVelocity autoVelocity = new AutoVelocity();
+		AutoVelocity2 autoVelocity = new AutoVelocity2();
 		String url = autoVelocity.getFilepath();
 		url = request.getSession().getServletContext().getRealPath("/") + url;
 		autoVelocity.setFilepath(url);// 设置生成代码路径
@@ -186,8 +188,7 @@ public class SysGenerate {
 	}
 
 	/**
-	 * 生成代码
-	 * 暂无用
+	 * 生成代码 暂无用
 	 * 
 	 * @return
 	 */
@@ -203,8 +204,8 @@ public class SysGenerate {
 	}
 
 	/**
-	 * 生成代码
-	 * 暂用
+	 * 生成代码 暂用
+	 * 
 	 * @return
 	 */
 	@RequestMapping(value = "/updownload2", method = RequestMethod.GET)

@@ -209,9 +209,10 @@ public class MyDateUtils {
 	}
 
 	@Test
-	public void classTest(String[] args) throws ParseException {
+	public void classTest() throws ParseException {
 		String begin = "2017-8-24 09:00:00";
 		String end = "2017-8-24 17:30:00";
+		System.out.println(stringToDate(begin, null));
 		double date = getworkhours(begin, end);
 		date /= 60;
 		System.out.println(date);
