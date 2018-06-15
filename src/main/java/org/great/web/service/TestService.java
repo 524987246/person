@@ -23,23 +23,23 @@ public class TestService {
 
 	// 多个数据库配置
 	@TargetDataSource(name = "ds1")
-	public boolean test1() {
+	public List<Map<String, Object>> test1() {
 		boolean bo = false;
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("id", "2");
 		List<Map<String, Object>> list = testMapper.find1(map);
 		bo = MyCollectionUtils.listEmpty(list);
-		return bo;
+		return list;
 	}
 
 	// 多个数据库配置
 	@TargetDataSource(name = "ds2")
-	public boolean test2() {
+	public List<Map<String, Object>> test2() {
 		boolean bo = false;
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("id", "1");
 		List<Map<String, Object>> list = testMapper.find2(map);
 		bo = MyCollectionUtils.listEmpty(list);
-		return bo;
+		return list;
 	}
 }
