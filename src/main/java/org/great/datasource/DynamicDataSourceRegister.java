@@ -99,14 +99,14 @@ public class DynamicDataSourceRegister implements ImportBeanDefinitionRegistrar,
 			String username = dsMap.get("username").toString();
 			String password = dsMap.get("password").toString();
 
-			// DruidDataSource dataSource=new DruidDataSource();
-			// dataSource.setDriverClassName(driverClassName);
-			// dataSource.setUrl(url);
-			// dataSource.setUsername(username);
-			// dataSource.setPassword(password);
-			DataSourceBuilder factory = DataSourceBuilder.create().driverClassName(driverClassName).url(url)
-					.username(username).password(password).type(dataSourceType);
-			return factory.build();
+			 DruidDataSource dataSource=new DruidDataSource();
+			 dataSource.setDriverClassName(driverClassName);
+			 dataSource.setUrl(url);
+			 dataSource.setUsername(username);
+			 dataSource.setPassword(password);
+//			DataSourceBuilder factory = DataSourceBuilder.create().driverClassName(driverClassName).url(url)
+//					.username(username).password(password).type(dataSourceType);
+			return dataSource;
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
