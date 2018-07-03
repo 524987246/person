@@ -104,7 +104,11 @@ public class MyPrintUtil {
 			return;
 		}
 		for (Object object : list) {
-			println(object);
+			if (object.getClass().getSimpleName().equals("HashMap")) {
+				printMap((Map<? extends Object, ? extends Object>) object);
+			} else {
+				println(object);
+			}
 		}
 	}
 

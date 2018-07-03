@@ -5392,3 +5392,42 @@ org.apache.velocity.exception.ParseErrorException: Lexical error,   Encountered:
 2018-06-15 11:40:01.523  INFO 748 --- [main] org.great.App                            : Starting App on JAVA-xiejun with PID 748 (started by Administrator in J:\个人项目备份\2018.1.11\personal\personal)
 2018-06-15 11:40:01.547  INFO 748 --- [main] org.great.App                            : No active profile set, falling back to default profiles: default
 2018-06-15 11:40:02.117 ERROR 748 --- [main] c.a.druid.pool.DruidAbstractDataSource   : maxIdle is deprecated
+2018-06-15 14:08:45.610  INFO 8500 --- [main] org.great.App                            : Starting App on JAVA-xiejun with PID 8500 (started by Administrator in J:\个人项目备份\2018.1.11\personal\personal)
+2018-06-15 14:08:45.639  INFO 8500 --- [main] org.great.App                            : No active profile set, falling back to default profiles: default
+2018-06-15 14:08:46.342 ERROR 8500 --- [main] c.a.druid.pool.DruidAbstractDataSource   : maxIdle is deprecated
+2018-06-15 14:08:46.376 ERROR 8500 --- [main] c.a.druid.pool.DruidAbstractDataSource   : maxIdle is deprecated
+2018-06-15 14:08:46.382 ERROR 8500 --- [main] c.a.druid.pool.DruidAbstractDataSource   : maxIdle is deprecated
+2018-06-15 14:08:47.153  INFO 8500 --- [main] o.g.d.DynamicDataSourceRegister          : Dynamic DataSource Registry
+2018-06-15 14:08:49.964  INFO 8500 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2018-06-15 14:08:49.965  INFO 8500 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.5
+2018-06-15 14:08:50.494  INFO 8500 --- [localhost-startStop-1] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2018-06-15 14:08:50.510  INFO 8500 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-06-15 14:08:51.215  INFO 8500 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-06-15 14:08:51.283  INFO 8500 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.11.Final}
+2018-06-15 14:08:51.285  INFO 8500 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-06-15 14:08:51.290  INFO 8500 --- [main] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2018-06-15 14:08:51.335  INFO 8500 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-06-15 14:08:51.846  INFO 8500 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2018-06-15 14:08:51.859  INFO 8500 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-06-15 14:08:52.031  INFO 8500 --- [main] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2018-06-15 14:08:52.788  INFO 8500 --- [main] org.great.cache.RedisConfig              : init JredisPool ...
+2018-06-15 14:08:52.813  WARN 8500 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation is not supported on static fields: protected static java.util.Map org.great.web.controller.test.FileUpload2.map
+2018-06-15 14:08:55.749  WARN 8500 --- [main] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+2018-06-15 14:08:56.179  WARN 8500 --- [main] o.s.b.a.v.VelocityAutoConfiguration      : Cannot find template location: classpath:/templates/ (please add some templates, check your Velocity configuration, or set spring.velocity.checkTemplateLocation=false)
+2018-06-15 14:08:56.234  WARN 8500 --- [main] arterDeprecationWarningAutoConfiguration : spring-boot-starter-redis is deprecated as of Spring Boot 1.4, please migrate to spring-boot-starter-data-redis
+2018-06-15 14:08:56.381  INFO 8500 --- [main] org.great.App                            : Started App in 11.383 seconds (JVM running for 12.173)
+2018-06-15 14:09:03.950  INFO 8500 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-06-15 14:09:04.482 ERROR 8500 --- [http-nio-8081-exec-2] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/login.vm' in any resource loader.
+2018-06-15 14:09:05.892  INFO 8500 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'queryDate' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-06-15 14:09:05.893  INFO 8500 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'pageInfo' of class org.great.web.bean.sys.User has no read method. SKIPPED
+2018-06-15 14:09:05.902  INFO 8500 --- [http-nio-8081-exec-8] net.sf.json.JSONObject                   : Property 'permlist' of class org.great.web.bean.sys.User has no write method. SKIPPED.
+2018-06-15 14:09:05.971  INFO 8500 --- [http-nio-8081-exec-8] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证开始
+2018-06-15 14:09:06.338  INFO 8500 --- [http-nio-8081-exec-8] org.great.web.controller.BaseContoller   : 对用户[]进行登录验证..验证通过
+2018-06-15 14:09:06.338  INFO 8500 --- [http-nio-8081-exec-8] org.great.web.controller.BaseContoller   : 用户[]登录认证通过(这里可以进行一些认证通过后的一些系统参数初始化操作)
+2018-06-15 14:09:06.382 ERROR 8500 --- [http-nio-8081-exec-9] org.apache.velocity                      : ResourceManager : unable to find resource 'newjsp/main.vm' in any resource loader.
+2018-06-15 14:09:06.794  INFO 8500 --- [http-nio-8081-exec-10] org.apache.shiro.realm.AuthorizingRealm  : No cache or cacheManager properties have been set.  Authorization cache cannot be obtained.
+2018-06-15 14:09:06.819 ERROR 8500 --- [http-nio-8081-exec-10] org.apache.velocity                      : ResourceManager : unable to find resource 'jsp/weberror/weberror.vm' in any resource loader.
+2018-06-15 14:09:29.143  INFO 8500 --- [http-nio-8081-exec-2] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2} inited
+2018-06-15 14:12:00.000  INFO 8500 --- [http-nio-8081-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-3} inited
