@@ -44,6 +44,7 @@ public class App extends WebMvcConfigurerAdapter {
 	// }
 
 	public static void main(String[] args) {
+		System.out.println("1");
 		SpringApplication.run(App.class, args);
 	}
 
