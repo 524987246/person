@@ -29,7 +29,7 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 			<!-- <version></version> 由于我们在上面指定了 parent(spring boot) -->
 		</dependency>
-		<!-- 添加fastjson 依赖包. -->
+		<!-- 添加fastjson 依赖包.开始 -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
